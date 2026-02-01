@@ -1,8 +1,28 @@
 [gd_scene format=3 uid="uid://828q7e0vina0"]
 
 [ext_resource type="PackedScene" uid="uid://mfyiyjn3xqfg" path="res://Scenes/PlayerCharacter.tscn" id="1_7wu3l"]
+[ext_resource type="Texture2D" uid="uid://b323e23x8pls5" path="res://Art/Backgrounds/BedroomTest.png" id="1_sec1b"]
 
-[node name="RoomBedroom" type="Node2D" unique_id=1952160953]
+[node name="RoomBedroom" type="Control" unique_id=742149808]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="Container" parent="." unique_id=1004992947]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Container" unique_id=1710820961]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_sec1b")
 
 [node name="PlayerCharacter" parent="." unique_id=725370827 instance=ExtResource("1_7wu3l")]
-position = Vector2(346, 181)
+position = Vector2(275, 229)
