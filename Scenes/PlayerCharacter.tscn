@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://mfyiyjn3xqfg"]
+
+[ext_resource type="Texture2D" uid="uid://c0y3f4pa7p75t" path="res://Art/PlayerCharacter/OverworldSprite/KnightStill.png" id="1_v7sut"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gnj7"]
+size = Vector2(148, 141)
+
+[node name="PlayerCharacter" type="CharacterBody2D" unique_id=725370827]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1885732036]
+position = Vector2(86, 86)
+texture = ExtResource("1_v7sut")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1060945957]
+position = Vector2(85, 87.5)
+shape = SubResource("RectangleShape2D_5gnj7")
