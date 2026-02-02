@@ -26,6 +26,7 @@ SceneManager="*uid://cq7t6e3sgrh2m"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/initial_position_type=3
+window/size/initial_screen=1
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 

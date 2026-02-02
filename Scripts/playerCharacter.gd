@@ -7,11 +7,10 @@ extends CharacterBody2D
 @onready var markerDown = $InteractionPoints/MarkerDown
 @onready var markerLeft = $InteractionPoints/MarkerLeft
 @onready var markerRight = $InteractionPoints/MarkerRight
-
-#func _init() -> void:
 	
 func _ready() -> void:
 	interactionArea.position = markerUp.position	
+	GlobalVariables.moveThePlayer.connect(on_moveThePlayer)
 
 func _physics_process(delta: float) -> void:
 	#first move the interaction area to the relevant point
@@ -40,10 +39,9 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
 		for area in interactionArea.get_overlapping_areas():
-			print(area.to_string())
 			if area.is_in_group("interactable"):
-				print("Interact~!")
 				area.interact()
 				break
-		
-		# check for colliding objects
+
+func on_moveThePlayer(playerPos: Vector2) -> void:
+	global_position = playerPos
