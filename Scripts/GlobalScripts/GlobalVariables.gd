@@ -6,7 +6,13 @@ enum interactableType {
 	ENTITY,
 }
 
-enum doorsInHouse {
-	BATHROOM_TO_BEDROOM,
-	BEDROOM_TO_BATHROOM,
+enum roomsInHouse {
+	NULL,
+	BATHROOM,
+	BEDROOM,
+	LIVING_ROOM,
+	KITCHEN,
+	GARDEN,
+	STUDY,
+	PIT_ROOM,
 }

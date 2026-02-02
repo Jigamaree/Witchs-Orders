@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://c2y8j5wrxybra" path="res://Art/Backgrounds/BathroomTest.png" id="1_j1rt5"]
 [ext_resource type="PackedScene" uid="uid://mfyiyjn3xqfg" path="res://Scenes/PlayerCharacter.tscn" id="2_jkohm"]
 [ext_resource type="Script" uid="uid://4vfyscd3qu3x" path="res://Scripts/interactableDoor.gd" id="3_jkohm"]
-[ext_resource type="PackedScene" uid="uid://828q7e0vina0" path="res://Scenes/Room_Bedroom.tscn" id="4_osrva"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1rt5"]
 size = Vector2(168, 168)
@@ -36,7 +35,8 @@ position = Vector2(460, 738)
 
 [node name="BathToBedDoor_Area" type="Area2D" parent="Collisions" unique_id=1245137945 groups=["door", "interactable"]]
 script = ExtResource("3_jkohm")
-roomDestination = ExtResource("4_osrva")
+currentRoom = 1
+roomDestination = 2
 
 [node name="BathToBedDoor_Collision" type="CollisionShape2D" parent="Collisions/BathToBedDoor_Area" unique_id=858230846]
 position = Vector2(540, 991)
