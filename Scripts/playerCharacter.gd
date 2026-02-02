@@ -9,35 +9,18 @@ func _physics_process(delta: float) -> void:
 	input_dir = Vector2.ZERO
 	var notMoving = false
 	
-	if Input.is_action_pressed("ui_up"):
-		input_dir = Vector2.UP
-		move()
-	if Input.is_action_pressed("ui_down"):
-		input_dir = Vector2.DOWN
-		move()
-	if Input.is_action_pressed("ui_left"):
-		input_dir = Vector2.LEFT
-		move()
-	if Input.is_action_pressed("ui_right"):
-		input_dir = Vector2.RIGHT
-		move()
-	else: notMoving = true
-	
-	# animation control
-	if notMoving == true:
-		characterSprite.play("default")
-	else:
-		characterSprite.play("walk")
+	var input_vector : Vector2 = Vector2(
+		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
+		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up"))
+	velocity = input_vector*50000*delta	
 	move_and_slide()
 	
-func move():
-	if input_dir:
-		if moving == false:
-			moving = true
-			var tween = create_tween()
-			tween.tween_property(self, "position", position + input_dir*tile_size, 1)
-			tween.set_speed_scale(25)
-			tween.tween_callback(move_false)
+	# animation control
+	if input_vector != Vector2.ZERO:
+		characterSprite.play("walk")
+	else:
+		characterSprite.play("default")
+	
 			
 func move_false():
 	moving = false

@@ -3,6 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://mfyiyjn3xqfg" path="res://Scenes/PlayerCharacter.tscn" id="1_7wu3l"]
 [ext_resource type="Texture2D" uid="uid://b323e23x8pls5" path="res://Art/Backgrounds/BedroomTest.png" id="1_sec1b"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sec1b"]
+normal = Vector2(0.99977374, 0.021271782)
+distance = 269.30075
+
 [node name="RoomBedroom" type="Control" unique_id=742149808]
 layout_mode = 3
 anchors_preset = 15
@@ -25,4 +29,9 @@ size_flags_horizontal = 3
 texture = ExtResource("1_sec1b")
 
 [node name="PlayerCharacter" parent="." unique_id=725370827 instance=ExtResource("1_7wu3l")]
-position = Vector2(275, 229)
+position = Vector2(282, 229)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1165903164]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2108223652]
+shape = SubResource("WorldBoundaryShape2D_sec1b")
