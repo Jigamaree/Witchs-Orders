@@ -11,6 +11,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1165903164]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1499209645]
+position = Vector2(-5, -7)
+build_mode = 1
+polygon = PackedVector2Array(278, 221, 275, 1027, 1655, 1042, 1640, 209)
+
 [node name="Container" type="Container" parent="." unique_id=1004992947]
 layout_mode = 1
 anchors_preset = 15
@@ -25,11 +32,4 @@ size_flags_horizontal = 3
 texture = ExtResource("1_sec1b")
 
 [node name="PlayerCharacter" parent="." unique_id=725370827 instance=ExtResource("1_7wu3l")]
-position = Vector2(282, 229)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1165903164]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1499209645]
-position = Vector2(-5, -7)
-build_mode = 1
-polygon = PackedVector2Array(278, 221, 275, 1027, 1655, 1042, 1640, 209)
+position = Vector2(1025, 323)

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cg7x3h6wbxoee" path="res://Art/PlayerCharacter/OverworldSprite/KnightStill.png" id="1_v7sut"]
 [ext_resource type="Texture2D" uid="uid://brqqgj18mmyj3" path="res://Art/PlayerCharacter/OverworldSprite/w1.png" id="3_mdaju"]
 [ext_resource type="Texture2D" uid="uid://dd71qq0j1bbup" path="res://Art/PlayerCharacter/OverworldSprite/w2.png" id="4_r4x55"]
+[ext_resource type="Texture2D" uid="uid://dy8o8u0rky17" path="res://Art/PlayerCharacter/OverworldSprite/Pointer.png" id="5_r4x55"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_id6tp"]
 animations = [{
@@ -30,6 +31,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gnj7"]
 size = Vector2(148, 141)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdaju"]
+size = Vector2(60.5, 62)
+
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=725370827]
 script = ExtResource("1_5gnj7")
 
@@ -41,3 +45,29 @@ frame_progress = 0.9181613
 [node name="playerCollisionShape2D" type="CollisionShape2D" parent="." unique_id=1060945957]
 position = Vector2(85, 87.5)
 shape = SubResource("RectangleShape2D_5gnj7")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1365480106]
+position = Vector2(84, -3)
+
+[node name="CollisionShapeUp" type="CollisionShape2D" parent="InteractionArea" unique_id=335690687]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_mdaju")
+
+[node name="Sprite2D" type="Sprite2D" parent="InteractionArea/CollisionShapeUp" unique_id=1322777654]
+position = Vector2(0.4999962, -0.25)
+scale = Vector2(0.86428565, 0.80714285)
+texture = ExtResource("5_r4x55")
+
+[node name="InteractionPoints" type="Node2D" parent="." unique_id=1266552044]
+
+[node name="MarkerUp" type="Marker2D" parent="InteractionPoints" unique_id=1828303051]
+position = Vector2(84, -18)
+
+[node name="MarkerDown" type="Marker2D" parent="InteractionPoints" unique_id=49254066]
+position = Vector2(85, 203)
+
+[node name="MarkerLeft" type="Marker2D" parent="InteractionPoints" unique_id=604026637]
+position = Vector2(-30, 84)
+
+[node name="MarkerRight" type="Marker2D" parent="InteractionPoints" unique_id=751235458]
+position = Vector2(197, 85)
