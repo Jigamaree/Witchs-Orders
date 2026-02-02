@@ -13,12 +13,27 @@ config_version=5
 config/name="Witch's Orders"
 run/main_scene="uid://828q7e0vina0"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://bjfjm5k14gpqh"
+
+[autoload]
+
+GlobalVariables="*uid://c2hb0jltn7m1y"
+SaveData="*uid://dqumbu652o1om"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/initial_position_type=3
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+[global_group]
+
+player=""
+interactable=""
+door=""
+entity=""
 
 [physics]
 

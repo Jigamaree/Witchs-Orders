@@ -8,8 +8,12 @@ extends CharacterBody2D
 @onready var markerLeft = $InteractionPoints/MarkerLeft
 @onready var markerRight = $InteractionPoints/MarkerRight
 
-func _physics_process(delta: float) -> void:
+#func _init() -> void:
 	
+func _ready() -> void:
+	interactionArea.position = markerUp.position	
+
+func _physics_process(delta: float) -> void:
 	#first move the interaction area to the relevant point
 	if Input.is_action_just_pressed("ui_up"):
 		interactionArea.position = markerUp.position
@@ -32,3 +36,14 @@ func _physics_process(delta: float) -> void:
 		characterSprite.play("walk")
 	else:
 		characterSprite.play("default")
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept"):
+		for area in interactionArea.get_overlapping_areas():
+			print(area.to_string())
+			if area.is_in_group("interactable"):
+				print("Interact~!")
+				area.interact()
+				break
+		
+		# check for colliding objects
