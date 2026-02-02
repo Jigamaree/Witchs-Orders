@@ -58,8 +58,8 @@ shape = SubResource("RectangleShape2D_anmqx")
 
 [node name="Markers" type="Node2D" parent="." unique_id=1363318451]
 
-[node name="BathroomMarker" type="Marker2D" parent="Markers" unique_id=206517267]
-position = Vector2(371, 259)
+[node name="MarkerFromBathroom" type="Marker2D" parent="Markers" unique_id=206517267]
+position = Vector2(372, 295)
 
-[node name="MainHouseMarker" type="Marker2D" parent="Markers" unique_id=123556197]
+[node name="MarkerFromLounge" type="Marker2D" parent="Markers" unique_id=123556197]
 position = Vector2(1608, 800)
