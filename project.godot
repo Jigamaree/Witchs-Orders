@@ -19,7 +19,7 @@ config/icon="uid://bjfjm5k14gpqh"
 
 GlobalVariables="*uid://c2hb0jltn7m1y"
 SaveData="*uid://dqumbu652o1om"
-SceneManager="*uid://cq7t6e3sgrh2m"
+NavMan="*uid://c4ytq3w8qjjuw"
 
 [display]
 
@@ -36,6 +36,7 @@ player=""
 interactable=""
 door=""
 entity=""
+fallback=""
 
 [physics]
 

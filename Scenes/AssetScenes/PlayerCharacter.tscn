@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://mfyiyjn3xqfg"]
 
-[ext_resource type="Script" uid="uid://hyhscm1rrhwh" path="res://Scripts/playerCharacter.gd" id="1_5gnj7"]
-[ext_resource type="Texture2D" uid="uid://cg7x3h6wbxoee" path="res://Art/PlayerCharacter/OverworldSprite/KnightStill.png" id="1_v7sut"]
-[ext_resource type="Texture2D" uid="uid://brqqgj18mmyj3" path="res://Art/PlayerCharacter/OverworldSprite/w1.png" id="3_mdaju"]
-[ext_resource type="Texture2D" uid="uid://dd71qq0j1bbup" path="res://Art/PlayerCharacter/OverworldSprite/w2.png" id="4_r4x55"]
-[ext_resource type="Texture2D" uid="uid://dy8o8u0rky17" path="res://Art/PlayerCharacter/OverworldSprite/Pointer.png" id="5_r4x55"]
+[ext_resource type="Script" uid="uid://hyhscm1rrhwh" path="res://Scripts/playerCharacter.gd" id="1_kwl72"]
+[ext_resource type="Texture2D" uid="uid://cg7x3h6wbxoee" path="res://Art/PlayerCharacter/OverworldSprite/KnightStill.png" id="2_lmig6"]
+[ext_resource type="Texture2D" uid="uid://brqqgj18mmyj3" path="res://Art/PlayerCharacter/OverworldSprite/w1.png" id="3_k0ykc"]
+[ext_resource type="Texture2D" uid="uid://dd71qq0j1bbup" path="res://Art/PlayerCharacter/OverworldSprite/w2.png" id="4_b123f"]
+[ext_resource type="Texture2D" uid="uid://dy8o8u0rky17" path="res://Art/PlayerCharacter/OverworldSprite/Pointer.png" id="5_xq7lg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_id6tp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_v7sut")
+"texture": ExtResource("2_lmig6")
 }],
 "loop": true,
 "name": &"default",
@@ -18,10 +18,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_mdaju")
+"texture": ExtResource("3_k0ykc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_r4x55")
+"texture": ExtResource("4_b123f")
 }],
 "loop": true,
 "name": &"walk",
@@ -35,7 +35,7 @@ size = Vector2(148, 141)
 size = Vector2(60.5, 62)
 
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=725370827]
-script = ExtResource("1_5gnj7")
+script = ExtResource("1_kwl72")
 
 [node name="characterSprite2D" type="AnimatedSprite2D" parent="." unique_id=1049455970]
 position = Vector2(86, 88)
@@ -56,7 +56,7 @@ shape = SubResource("RectangleShape2D_mdaju")
 [node name="Sprite2D" type="Sprite2D" parent="InteractionArea/CollisionShapeUp" unique_id=1322777654 groups=["player"]]
 position = Vector2(0.4999962, -0.25)
 scale = Vector2(0.86428565, 0.80714285)
-texture = ExtResource("5_r4x55")
+texture = ExtResource("5_xq7lg")
 
 [node name="InteractionPoints" type="Node2D" parent="." unique_id=1266552044]
 

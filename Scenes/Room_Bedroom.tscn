@@ -1,28 +1,17 @@
 [gd_scene format=3 uid="uid://828q7e0vina0"]
 
-[ext_resource type="Script" uid="uid://cdvrro7n6wp5m" path="res://Scripts/roomScript_bedroom.gd" id="1_axkeq"]
+[ext_resource type="Script" uid="uid://dyj86g6r0e5n6" path="res://Scripts/room_default.gd" id="1_axkeq"]
 [ext_resource type="Texture2D" uid="uid://b323e23x8pls5" path="res://Art/Backgrounds/BedroomTest.png" id="1_sec1b"]
 [ext_resource type="Script" uid="uid://ds2chr61mq80b" path="res://Scripts/interactableObject.gd" id="3_anmqx"]
-[ext_resource type="Script" uid="uid://4vfyscd3qu3x" path="res://Scripts/interactableDoor.gd" id="4_t7h02"]
+[ext_resource type="PackedScene" uid="uid://dmkvvkru1sug5" path="res://Scenes/AssetScenes/Door_Default.tscn" id="4_t7h02"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t7h02"]
 size = Vector2(152, 294.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_anmqx"]
-size = Vector2(126, 220)
-
-[node name="RoomBedroom" type="Control" unique_id=742149808]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="RoomBedroom" type="Node2D" unique_id=1548855678]
 script = ExtResource("1_axkeq")
-needToSpawnPlayer = true
 
 [node name="Background" type="TextureRect" parent="." unique_id=1710820961]
-layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 size_flags_horizontal = 3
@@ -44,22 +33,15 @@ script = ExtResource("3_anmqx")
 position = Vector2(280, 531.75)
 shape = SubResource("RectangleShape2D_t7h02")
 
-[node name="DoorArea_Bathroom" type="Area2D" parent="Collisions" unique_id=178063473 groups=["door", "interactable"]]
-script = ExtResource("4_t7h02")
+[node name="Door_Area" parent="." unique_id=974499172 instance=ExtResource("4_t7h02")]
+position = Vector2(374, 141)
 currentRoom = 2
 roomDestination = 1
 
-[node name="Door_Bathroom_Interact" type="CollisionShape2D" parent="Collisions/DoorArea_Bathroom" unique_id=1802071776]
-position = Vector2(376, 114)
-shape = SubResource("RectangleShape2D_anmqx")
+[node name="Door_Marker" parent="Door_Area" index="1" unique_id=126591328]
+position = Vector2(-5, 149)
 
-[node name="Markers" type="Node2D" parent="." unique_id=1363318451]
+[node name="fallbackMarker" type="Marker2D" parent="." unique_id=1393730870 groups=["fallback"]]
+position = Vector2(1027, 326)
 
-[node name="MarkerFromBathroom" type="Marker2D" parent="Markers" unique_id=206517267]
-position = Vector2(372, 295)
-
-[node name="MarkerFromLounge" type="Marker2D" parent="Markers" unique_id=123556197]
-position = Vector2(1608, 800)
-
-[node name="MarkerStarter" type="Marker2D" parent="Markers" unique_id=1641366938]
-position = Vector2(1033, 365)
+[editable path="Door_Area"]

@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name  PlayerClass
+
 @onready var interactionArea = $InteractionArea
 @onready var characterSprite = $characterSprite2D
 
@@ -10,7 +12,6 @@ extends CharacterBody2D
 	
 func _ready() -> void:
 	interactionArea.position = markerUp.position	
-	GlobalVariables.moveThePlayer.connect(on_moveThePlayer)
 
 func _physics_process(delta: float) -> void:
 	#first move the interaction area to the relevant point
@@ -42,6 +43,3 @@ func _input(event: InputEvent) -> void:
 			if area.is_in_group("interactable"):
 				area.interact()
 				break
-
-func on_moveThePlayer(playerPos: Vector2) -> void:
-	global_position = playerPos

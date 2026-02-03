@@ -9,6 +9,8 @@ enum interactableType {
 	ENTITY,
 }
 
+enum spawn_direction {UP, DOWN, LEFT, RIGHT,}
+
 enum roomsInHouse {
 	NULL,
 	BATHROOM,
