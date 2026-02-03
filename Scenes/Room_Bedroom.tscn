@@ -39,7 +39,7 @@ currentRoom = 2
 roomDestination = 1
 
 [node name="Door_Marker" parent="Door_Area" index="1" unique_id=126591328]
-position = Vector2(-5, 149)
+position = Vector2(-88, 99)
 
 [node name="fallbackMarker" type="Marker2D" parent="." unique_id=1393730870 groups=["fallback"]]
 position = Vector2(1027, 326)
