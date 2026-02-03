@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ckat5o2py34w2"]
 
 [ext_resource type="Texture2D" uid="uid://c2y8j5wrxybra" path="res://Art/Backgrounds/BathroomTest.png" id="1_j1rt5"]
-[ext_resource type="Script" uid="uid://dyj86g6r0e5n6" path="res://Scripts/room_default.gd" id="1_jkohm"]
+[ext_resource type="Script" uid="uid://dyj86g6r0e5n6" path="res://Scripts/GlobalScripts/room_default.gd" id="1_jkohm"]
 [ext_resource type="PackedScene" uid="uid://dmkvvkru1sug5" path="res://Scenes/AssetScenes/Door_Default.tscn" id="2_vp52i"]
 
 [node name="RoomBathroom" type="Node2D" unique_id=940703355]
@@ -17,7 +17,7 @@ texture = ExtResource("1_j1rt5")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomBoundary" unique_id=1423180495]
 build_mode = 1
-polygon = PackedVector2Array(426, 258, 426, 904, 1500, 907, 1502, 247)
+polygon = PackedVector2Array(418, 170, 426, 904, 1500, 907, 1508, 163)
 
 [node name="Collisions" type="Node2D" parent="." unique_id=547089238]
 position = Vector2(967, 540)

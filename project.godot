@@ -18,7 +18,6 @@ config/icon="uid://bjfjm5k14gpqh"
 [autoload]
 
 GlobalVariables="*uid://c2hb0jltn7m1y"
-SaveData="*uid://dqumbu652o1om"
 NavMan="*uid://c4ytq3w8qjjuw"
 
 [display]

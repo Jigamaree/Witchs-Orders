@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="Save_Data" format=3 uid="uid://dq5wrml0te0j3"]
+
+[ext_resource type="Script" uid="uid://bhs8rmfx5wfsr" path="res://_SaveData/SaveData_ApprenticeEnding.gd" id="1_hsxt8"]
+[ext_resource type="Script" uid="uid://dqumbu652o1om" path="res://_SaveData/SaveData.gd" id="1_jdltb"]
+[ext_resource type="Script" uid="uid://bs0ecqt2c3jqf" path="res://_SaveData/SaveData_Chores.gd" id="2_ejs8o"]
+[ext_resource type="Script" uid="uid://q21uj0318um4" path="res://_SaveData/SaveData_OtherEndings.gd" id="3_d5qkm"]
+[ext_resource type="Script" uid="uid://cigryylcjo42" path="res://_SaveData/AllEndings_SaveData.gd" id="4_ol0uk"]
+[ext_resource type="Script" uid="uid://df0niv1fe5p1k" path="res://_SaveData/SaveData_Player.gd" id="5_dfnck"]
+
+[sub_resource type="Resource" id="Resource_16qw7"]
+script = ExtResource("1_hsxt8")
+metadata/_custom_type_script = "uid://bhs8rmfx5wfsr"
+
+[sub_resource type="Resource" id="Resource_pqo1t"]
+script = ExtResource("2_ejs8o")
+cauldron_state = null
+potion_state = null
+metadata/_custom_type_script = "uid://bs0ecqt2c3jqf"
+
+[sub_resource type="Resource" id="Resource_dehmu"]
+script = ExtResource("3_d5qkm")
+metadata/_custom_type_script = "uid://q21uj0318um4"
+
+[sub_resource type="Resource" id="Resource_406uk"]
+script = ExtResource("4_ol0uk")
+metadata/_custom_type_script = "uid://cigryylcjo42"
+
+[sub_resource type="Resource" id="Resource_t7spt"]
+script = ExtResource("5_dfnck")
+metadata/_custom_type_script = "uid://df0niv1fe5p1k"
+
+[resource]
+script = ExtResource("1_jdltb")
+playerData = SubResource("Resource_t7spt")
+choreData = SubResource("Resource_pqo1t")
+apprenticeEndingData = SubResource("Resource_16qw7")
+otherEndingsData = SubResource("Resource_dehmu")
+persitstent_EndingRecords_data = SubResource("Resource_406uk")
+metadata/_custom_type_script = "uid://dqumbu652o1om"

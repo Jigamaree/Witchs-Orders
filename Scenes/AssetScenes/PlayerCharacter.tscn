@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://mfyiyjn3xqfg"]
 
 [ext_resource type="Script" uid="uid://hyhscm1rrhwh" path="res://Scripts/playerCharacter.gd" id="1_kwl72"]
-[ext_resource type="Texture2D" uid="uid://cg7x3h6wbxoee" path="res://Art/PlayerCharacter/OverworldSprite/KnightStill.png" id="2_lmig6"]
-[ext_resource type="Texture2D" uid="uid://brqqgj18mmyj3" path="res://Art/PlayerCharacter/OverworldSprite/w1.png" id="3_k0ykc"]
-[ext_resource type="Texture2D" uid="uid://dd71qq0j1bbup" path="res://Art/PlayerCharacter/OverworldSprite/w2.png" id="4_b123f"]
+[ext_resource type="Texture2D" uid="uid://bbgayu5vnoet5" path="res://Art/PlayerCharacter/OverworldSprite/KnightStillTest2.png" id="2_k0ykc"]
+[ext_resource type="Texture2D" uid="uid://bu5trhrka7wxe" path="res://Art/PlayerCharacter/OverworldSprite/walk1.png" id="3_kwl72"]
+[ext_resource type="Texture2D" uid="uid://bcx1h587ljb80" path="res://Art/PlayerCharacter/OverworldSprite/walk2.png" id="4_lmig6"]
 [ext_resource type="Texture2D" uid="uid://dy8o8u0rky17" path="res://Art/PlayerCharacter/OverworldSprite/Pointer.png" id="5_xq7lg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_id6tp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_lmig6")
+"texture": ExtResource("2_k0ykc")
 }],
 "loop": true,
 "name": &"default",
@@ -18,10 +18,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_k0ykc")
+"texture": ExtResource("3_kwl72")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_b123f")
+"texture": ExtResource("4_lmig6")
 }],
 "loop": true,
 "name": &"walk",
@@ -29,7 +29,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gnj7"]
-size = Vector2(148, 141)
+size = Vector2(169, 167.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdaju"]
 size = Vector2(60.5, 62)
@@ -38,16 +38,18 @@ size = Vector2(60.5, 62)
 script = ExtResource("1_kwl72")
 
 [node name="characterSprite2D" type="AnimatedSprite2D" parent="." unique_id=1049455970]
-position = Vector2(86, 88)
+position = Vector2(115, 115)
+scale = Vector2(0.56875, 0.56875)
 sprite_frames = SubResource("SpriteFrames_id6tp")
-frame_progress = 0.9181613
+animation = &"walk"
+frame_progress = 0.8805008
 
 [node name="playerCollisionShape2D" type="CollisionShape2D" parent="." unique_id=1060945957]
-position = Vector2(85, 87.5)
+position = Vector2(109, 109)
 shape = SubResource("RectangleShape2D_5gnj7")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=1365480106 groups=["player"]]
-position = Vector2(84, -3)
+position = Vector2(107, -8)
 
 [node name="CollisionShapeUp" type="CollisionShape2D" parent="InteractionArea" unique_id=335690687 groups=["player"]]
 position = Vector2(0, -12)
@@ -61,13 +63,13 @@ texture = ExtResource("5_xq7lg")
 [node name="InteractionPoints" type="Node2D" parent="." unique_id=1266552044]
 
 [node name="MarkerUp" type="Marker2D" parent="InteractionPoints" unique_id=1828303051]
-position = Vector2(84, -18)
+position = Vector2(107, -23)
 
 [node name="MarkerDown" type="Marker2D" parent="InteractionPoints" unique_id=49254066]
-position = Vector2(85, 203)
+position = Vector2(109, 262)
 
 [node name="MarkerLeft" type="Marker2D" parent="InteractionPoints" unique_id=604026637]
-position = Vector2(-30, 84)
+position = Vector2(-38, 112)
 
 [node name="MarkerRight" type="Marker2D" parent="InteractionPoints" unique_id=751235458]
-position = Vector2(197, 85)
+position = Vector2(262, 118)

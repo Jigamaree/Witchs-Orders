@@ -1,5 +1,7 @@
 extends Node
 
+class_name class_defaultRoom
+
 @onready var player_scene: PackedScene = preload("res://Scenes/AssetScenes/PlayerCharacter.tscn")
 var player: PlayerClass
 
