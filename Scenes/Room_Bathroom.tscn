@@ -8,17 +8,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1rt5"]
 size = Vector2(168, 168)
 
-[node name="RoomBathroom" type="Control" unique_id=742149808]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="RoomBathroom" type="Node2D" unique_id=940703355]
 script = ExtResource("1_jkohm")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1710820961]
-layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 size_flags_horizontal = 3

@@ -2,7 +2,7 @@ extends Node
 
 class_name Scene_Manager
 
-var previousRoom: GlobalVariables.roomsInHouse
+var previousRoom: GlobalVariables.roomsInHouse = GlobalVariables.roomsInHouse.NULL
 
 var currentScene: Node = null
 
@@ -11,6 +11,12 @@ var currentScene: Node = null
 
 func _ready() -> void:
 	switch_scenes(GlobalVariables.roomsInHouse.SLEEPYROOM, -1)
+
+func get_current_scene() -> void:
+	currentScene = get_tree().current_scene
+	
+func get_previous_room() -> GlobalVariables.roomsInHouse:
+	return previousRoom
 
 func switch_scenes(sceneFrom: GlobalVariables.roomsInHouse, sceneTo: GlobalVariables.roomsInHouse) -> void:
 	previousRoom = sceneFrom	
@@ -33,15 +39,6 @@ func switch_scenes(sceneFrom: GlobalVariables.roomsInHouse, sceneTo: GlobalVaria
 	# instantiate and add the new scene
 	currentScene = nextSceneUp.instantiate()
 	get_tree().root.add_child(currentScene)
+	#spawn player 
 	
-	# move the player to the correct position
-	var player: CharacterBody2D = currentScene.get_node("PlayerCharacter")
-
-	if currentScene.has_node("Markers/MarkerFromBathroom") and previousRoom == GlobalVariables.roomsInHouse.BATHROOM:
-		print("you came from the bathroom!")
-		var marker: Marker2D = currentScene.get_node("Markers/MarkerFromBathroom")
-		player.global_position = marker.global_position
-		
-		
-		#GlobalVariables.emit_signal("moveThePlayer", marker_pos)
 		
