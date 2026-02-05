@@ -9,9 +9,12 @@ class_name  PlayerClass
 @onready var markerDown = $InteractionPoints/MarkerDown
 @onready var markerLeft = $InteractionPoints/MarkerLeft
 @onready var markerRight = $InteractionPoints/MarkerRight
+
+@onready var camera = $Camera2D
 	
 func _ready() -> void:
 	interactionArea.position = markerUp.position	
+	camera.enabled = false
 
 func _physics_process(delta: float) -> void:
 	#first move the interaction area to the relevant point

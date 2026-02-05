@@ -2,11 +2,17 @@ extends Area2D
 class_name interactableObject
 
 @export var objectName: String 
-@export var objectType: int
+@export var objectType: GlobalVariables.interactableType
 
-func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("player"):
-		print("!!!")
+signal playDialogue(objectName)
+#
+#func _on_area_entered(area: Area2D) -> void:
+	#if area.is_in_group("player"):
+		#print("!!!")
 
 func interact() -> void:
-	print("I'm an object!")
+	spawn_dialogue()
+
+func spawn_dialogue():
+	GlobalVariables.startDialogue.emit(objectName)
+	

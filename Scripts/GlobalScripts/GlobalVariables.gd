@@ -1,7 +1,7 @@
 extends Node
 
 signal changingScene(sceneFrom, sceneTo)
-signal moveThePlayer(playerPos)
+signal startDialogue(objectInteractedWith)
 
 enum interactableType {
 	OBJECT,

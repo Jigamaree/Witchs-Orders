@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://b20cg735ud1hv"]
+
+[ext_resource type="Script" uid="uid://bu8520cev453u" path="res://Scripts/DialogueSystem/DialogueSystem.gd" id="1_5s67e"]
+
+[node name="DialogueTestScene" type="CanvasLayer" unique_id=390174514]
+script = ExtResource("1_5s67e")
+
+[node name="Control" type="Control" parent="." unique_id=2068482084]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=848802158]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -488.0
+offset_top = -280.0
+offset_right = 695.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ColorRect" unique_id=1810903252]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Dialogue" type="RichTextLabel" parent="Control/ColorRect/MarginContainer" unique_id=1665126721]
+layout_mode = 2
+text = "Test
+"
+
+[node name="ColorRect2" type="ColorRect" parent="Control" unique_id=1512129986]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -489.0
+offset_top = 190.0
+offset_right = -338.0
+offset_bottom = 248.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04755766, 0.047557645, 0.047557645, 1)
+
+[node name="NPCName" type="Label" parent="Control/ColorRect2" unique_id=572379133]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="Control" unique_id=1839578141]
+layout_mode = 0
+offset_left = 1659.0
+offset_top = 934.0
+offset_right = 1748.0
+offset_bottom = 1017.0
+
+[node name="ChoiceBox" type="VBoxContainer" parent="Control" unique_id=990140104]
+layout_mode = 0
+offset_left = 1459.0
+offset_top = 520.0
+offset_right = 1675.0
+offset_bottom = 714.0
+
+[node name="ColorRect3" type="ColorRect" parent="Control" unique_id=1571534205]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 786.0
+offset_right = 446.0
+offset_bottom = 1036.0

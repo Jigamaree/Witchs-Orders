@@ -41,8 +41,7 @@ script = ExtResource("1_kwl72")
 position = Vector2(115, 115)
 scale = Vector2(0.56875, 0.56875)
 sprite_frames = SubResource("SpriteFrames_id6tp")
-animation = &"walk"
-frame_progress = 0.8805008
+frame_progress = 0.18788925
 
 [node name="playerCollisionShape2D" type="CollisionShape2D" parent="." unique_id=1060945957]
 position = Vector2(109, 109)
@@ -73,3 +72,5 @@ position = Vector2(-38, 112)
 
 [node name="MarkerRight" type="Marker2D" parent="InteractionPoints" unique_id=751235458]
 position = Vector2(262, 118)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1136635451]

@@ -3,13 +3,16 @@ extends Node
 class_name class_defaultRoom
 
 @onready var player_scene: PackedScene = preload("res://Scenes/AssetScenes/PlayerCharacter.tscn")
+@onready var dialogue_overlay: PackedScene = preload("res://Scenes/DialogueTestScene.tscn")
 var player: PlayerClass
+var dialogue_instance
 
 func _ready():
 	# Spawn player
 	player = player_scene.instantiate()
 	add_child(player)
 	find_player_location()
+	GlobalVariables.startDialogue.connect(_on_start_dialogue)
 	#else call player spawn on fallback place
 	
 func find_player_location():
@@ -21,3 +24,9 @@ func find_player_location():
 	else:
 		for marker: Marker2D in get_tree().get_nodes_in_group("fallback"):
 			player.global_position = marker.global_position
+
+func _on_start_dialogue(objectName: String):
+	if dialogue_instance:
+		return
+	dialogue_instance = dialogue_overlay.instantiate()
+	add_child(dialogue_instance)
