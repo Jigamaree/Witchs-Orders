@@ -2,6 +2,7 @@ extends CanvasLayer
 
 var text_rate = 0.03 # The speed of the typewriter effect in seconds; lower is faster
 var text_finished = true # Used to show a continue button or key press prompt
+var inital_input_blocked = true
 
 var conv = {} # This will have different conversations loaded into it when dialogue starts
 var index = 1 # Used to track the current line of dialogue within the conversation
@@ -49,17 +50,22 @@ var steve_convos = {
 
 func _ready() -> void:
 	# Load the relevant conversation; in a real game the active one would be passed in depending on who you're talking to
+	
 	# format == steve_convos["attack"]
 	# = demo_conv
 	conv = demo_conv
 	continue_button.hide()
 	choice_box.hide()
+	unblock_input_after_delay()
 	#GlobalVariables.startDialogue.connect(_start_dialogue)
-	print("???")
 	set_dialogue()
 
+func unblock_input_after_delay():
+	await get_tree().create_timer(0.3).timeout
+	inital_input_blocked = false
+
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_select"):
+	if Input.is_action_just_pressed("ui_accept") and inital_input_blocked == false:
 		advance_line()
 	
 	# Show continue button after typewriter effect (this could also be an arrow prompt or such)
