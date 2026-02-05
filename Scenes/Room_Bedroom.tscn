@@ -1,12 +1,18 @@
 [gd_scene format=3 uid="uid://828q7e0vina0"]
 
 [ext_resource type="Script" uid="uid://dyj86g6r0e5n6" path="res://Scripts/GlobalScripts/room_default.gd" id="1_axkeq"]
-[ext_resource type="Texture2D" uid="uid://b323e23x8pls5" path="res://Art/Backgrounds/BedroomTest.png" id="1_sec1b"]
+[ext_resource type="Texture2D" uid="uid://b323e23x8pls5" path="res://Assets/Backgrounds/BedroomTest.png" id="1_sec1b"]
 [ext_resource type="Script" uid="uid://ds2chr61mq80b" path="res://Scripts/interactableObject.gd" id="3_anmqx"]
 [ext_resource type="PackedScene" uid="uid://dmkvvkru1sug5" path="res://Scenes/AssetScenes/Door_Default.tscn" id="4_t7h02"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t7h02"]
 size = Vector2(152, 294.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_axkeq"]
+size = Vector2(152, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aipf7"]
+size = Vector2(182, 121)
 
 [node name="RoomBedroom" type="Node2D" unique_id=1548855678]
 script = ExtResource("1_axkeq")
@@ -33,18 +39,33 @@ script = ExtResource("3_anmqx")
 position = Vector2(280, 531.75)
 shape = SubResource("RectangleShape2D_t7h02")
 
-[node name="fallbackMarker" type="Marker2D" parent="Collisions/DresserArea" unique_id=1450797015]
-position = Vector2(1027, 326)
-
 [node name="Door_Area" parent="." unique_id=974499172 instance=ExtResource("4_t7h02")]
 position = Vector2(374, 141)
 currentRoom = 2
 roomDestination = 1
 
+[node name="Door_Collision" parent="Door_Area" index="0" unique_id=2029805447]
+position = Vector2(-9, 1)
+shape = SubResource("RectangleShape2D_axkeq")
+
 [node name="Door_Marker" parent="Door_Area" index="1" unique_id=126591328]
 position = Vector2(-88, 99)
 
 [node name="fallbackMarker" type="Marker2D" parent="." unique_id=1393730870 groups=["fallback"]]
-position = Vector2(1027, 326)
+position = Vector2(915, 226)
+
+[node name="Door_Area2" parent="." unique_id=1546049843 instance=ExtResource("4_t7h02")]
+position = Vector2(1730, 792)
+currentRoom = 2
+roomDestination = 3
+spawnDirection = 3
+
+[node name="Door_Collision" parent="Door_Area2" index="0" unique_id=2029805447]
+position = Vector2(4, -4.5)
+shape = SubResource("RectangleShape2D_aipf7")
+
+[node name="Door_Marker" parent="Door_Area2" index="1" unique_id=126591328]
+position = Vector2(-234, -77)
 
 [editable path="Door_Area"]
+[editable path="Door_Area2"]

@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://82tk0h3p2f6q"]
+
+[ext_resource type="Script" uid="uid://cauloromvxmpy" path="res://Scripts/RoomScripts/room_lounge.gd" id="1_bmw2n"]
+[ext_resource type="Texture2D" uid="uid://1fpfvr03si41" path="res://Assets/Backgrounds/LoungeTest.png" id="2_bmw2n"]
+[ext_resource type="PackedScene" uid="uid://dmkvvkru1sug5" path="res://Scenes/AssetScenes/Door_Default.tscn" id="4_u2gad"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14xkm"]
+size = Vector2(188.5, 253)
+
+[node name="RoomLounge" type="Node2D" unique_id=1548855678]
+script = ExtResource("1_bmw2n")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1710820961]
+offset_left = 4.0
+offset_top = -691.0
+offset_right = 1924.0
+offset_bottom = 1089.0
+size_flags_horizontal = 3
+texture = ExtResource("2_bmw2n")
+
+[node name="RoomBoundary" type="StaticBody2D" parent="." unique_id=1165903164]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomBoundary" unique_id=1499209645]
+position = Vector2(32.453953, -711.8154)
+scale = Vector2(0.98249316, 1.5342343)
+build_mode = 1
+polygon = PackedVector2Array(226, 136, 256.02832, 1044.7006, 1700.3132, 1038.1826, 1686, 135)
+
+[node name="Collisions" type="Node2D" parent="." unique_id=547089238]
+
+[node name="fallbackMarker" type="Marker2D" parent="." unique_id=1393730870 groups=["fallback"]]
+position = Vector2(911, 258)
+
+[node name="CameraThings" type="Node2D" parent="." unique_id=830525890]
+
+[node name="Camera2D" type="Camera2D" parent="CameraThings" unique_id=300892772]
+position = Vector2(963, -151)
+
+[node name="CameraMarkerUpper" type="Marker2D" parent="CameraThings" unique_id=2062819970]
+position = Vector2(961, -142)
+
+[node name="CameraMarkerLower" type="Marker2D" parent="CameraThings" unique_id=373177944]
+position = Vector2(957, 543)
+
+[node name="Door_Area" parent="CameraThings" unique_id=974499172 instance=ExtResource("4_u2gad")]
+position = Vector2(261, 637)
+currentRoom = 3
+
+[node name="Door_Collision" parent="CameraThings/Door_Area" index="0" unique_id=2029805447]
+position = Vector2(-13.75, 55.5)
+shape = SubResource("RectangleShape2D_14xkm")
+
+[node name="Door_Marker" parent="CameraThings/Door_Area" index="1" unique_id=126591328]
+position = Vector2(92, -84)
+
+[editable path="CameraThings/Door_Area"]

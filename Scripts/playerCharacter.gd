@@ -36,6 +36,9 @@ func _physics_process(delta: float) -> void:
 	
 	# animation control
 	if input_vector != Vector2.ZERO:
+		#flip if input_vector -1
+		if input_vector.x < 0: characterSprite.flip_h = true
+		else: characterSprite.flip_h = false
 		characterSprite.play("walk")
 	else:
 		characterSprite.play("default")

@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://mfyiyjn3xqfg"]
 
 [ext_resource type="Script" uid="uid://hyhscm1rrhwh" path="res://Scripts/playerCharacter.gd" id="1_kwl72"]
-[ext_resource type="Texture2D" uid="uid://bbgayu5vnoet5" path="res://Art/PlayerCharacter/OverworldSprite/KnightStillTest2.png" id="2_k0ykc"]
-[ext_resource type="Texture2D" uid="uid://bu5trhrka7wxe" path="res://Art/PlayerCharacter/OverworldSprite/walk1.png" id="3_kwl72"]
-[ext_resource type="Texture2D" uid="uid://bcx1h587ljb80" path="res://Art/PlayerCharacter/OverworldSprite/walk2.png" id="4_lmig6"]
-[ext_resource type="Texture2D" uid="uid://dy8o8u0rky17" path="res://Art/PlayerCharacter/OverworldSprite/Pointer.png" id="5_xq7lg"]
+[ext_resource type="Texture2D" uid="uid://bbgayu5vnoet5" path="res://Assets/PlayerCharacter/OverworldSprite/KnightStillTest2.png" id="2_k0ykc"]
+[ext_resource type="Texture2D" uid="uid://bu5trhrka7wxe" path="res://Assets/PlayerCharacter/OverworldSprite/walk1.png" id="3_kwl72"]
+[ext_resource type="Texture2D" uid="uid://bcx1h587ljb80" path="res://Assets/PlayerCharacter/OverworldSprite/walk2.png" id="4_lmig6"]
+[ext_resource type="Texture2D" uid="uid://dy8o8u0rky17" path="res://Assets/PlayerCharacter/OverworldSprite/Pointer.png" id="5_xq7lg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_id6tp"]
 animations = [{
@@ -34,14 +34,14 @@ size = Vector2(169, 167.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdaju"]
 size = Vector2(60.5, 62)
 
-[node name="PlayerCharacter" type="CharacterBody2D" unique_id=725370827]
+[node name="PlayerCharacter" type="CharacterBody2D" unique_id=725370827 groups=["player"]]
 script = ExtResource("1_kwl72")
 
 [node name="characterSprite2D" type="AnimatedSprite2D" parent="." unique_id=1049455970]
 position = Vector2(115, 115)
 scale = Vector2(0.56875, 0.56875)
 sprite_frames = SubResource("SpriteFrames_id6tp")
-frame_progress = 0.60691077
+frame_progress = 0.8386664
 
 [node name="playerCollisionShape2D" type="CollisionShape2D" parent="." unique_id=1060945957]
 position = Vector2(109, 109)

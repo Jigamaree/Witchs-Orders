@@ -2,6 +2,8 @@ extends Node
 
 var bathroom: PackedScene 	= preload("res://Scenes/Room_Bathroom.tscn")
 var sleepyroom: PackedScene = preload("res://Scenes/Room_Bedroom.tscn")
+var loungeroom: PackedScene = preload("res://Scenes/Room_Lounge.tscn")
+
 var changed_scene_before: bool = false
 var last_scene
 var scene_were_currently_instancing
@@ -17,6 +19,8 @@ func change_scenes (_sceneFrom: GlobalVariables.roomsInHouse, _sceneTo: GlobalVa
 			scene_to_load = bathroom
 		GlobalVariables.roomsInHouse.SLEEPYROOM:
 			scene_to_load = sleepyroom
+		GlobalVariables.roomsInHouse.LIVING_ROOM:
+			scene_to_load = loungeroom	
 		_:
 			Error.ERR_INVALID_PARAMETER
 			

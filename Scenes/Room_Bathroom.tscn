@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ckat5o2py34w2"]
 
-[ext_resource type="Texture2D" uid="uid://c2y8j5wrxybra" path="res://Art/Backgrounds/BathroomTest.png" id="1_j1rt5"]
+[ext_resource type="Texture2D" uid="uid://c2y8j5wrxybra" path="res://Assets/Backgrounds/BathroomTest.png" id="1_j1rt5"]
 [ext_resource type="Script" uid="uid://dyj86g6r0e5n6" path="res://Scripts/GlobalScripts/room_default.gd" id="1_jkohm"]
 [ext_resource type="PackedScene" uid="uid://dmkvvkru1sug5" path="res://Scenes/AssetScenes/Door_Default.tscn" id="2_vp52i"]
 
@@ -28,7 +28,7 @@ position = Vector2(543, 986)
 [node name="Door_Marker" parent="Door_Area" index="1" unique_id=126591328]
 position = Vector2(-87, -263)
 
-[node name="fallbackMarker" type="Marker2D" parent="." unique_id=1647380448]
-position = Vector2(1027, 326)
+[node name="fallbackMarker" type="Marker2D" parent="." unique_id=1647380448 groups=["fallback"]]
+position = Vector2(660, 390)
 
 [editable path="Door_Area"]

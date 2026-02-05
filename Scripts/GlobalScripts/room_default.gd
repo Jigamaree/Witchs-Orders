@@ -6,6 +6,7 @@ class_name class_defaultRoom
 @onready var dialogue_overlay: PackedScene = preload("res://Scenes/DialogueTestScene.tscn")
 var player: PlayerClass
 var dialogue_instance
+var activity_on_first_entry = false
 
 func _ready():
 	# Spawn player
@@ -18,7 +19,7 @@ func _ready():
 func find_player_location():
 	if NavMan.changed_scene_before == true:
 		for door: interactableDoor in get_tree().get_nodes_in_group("door"):
-			if door.currentRoom == NavMan.scene_were_currently_instancing:
+			if door.currentRoom == NavMan.scene_were_currently_instancing and door.roomDestination == NavMan.last_scene:
 				player.global_position = door.markerPos
 				return
 	else:

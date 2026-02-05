@@ -40,20 +40,25 @@ var steve_convos = {
 	"attack": {
 		1: { "speaker": "Steve", "dialogue": "Sorry but it's time to fight!", "goto": 2 },
 		2: { "speaker": "Steve", "dialogue": "Prepare to meet your end!", "end": true } } }
+		
+# An example of how you could structure multiple conversations in one dictionary by individual NPC
+var test_convo ={
+		1: { "speaker": "Nameless", "dialogue": "Now we're cooking with gas.", "goto": 2 },
+		2: { "speaker": "Nameless", "dialogue": "I'm sure you can tell by my face I'm delighted.", "end": true }, 
+		}
 
 # Nodes for the system
-@onready var dialogue: RichTextLabel = $Control/ColorRect/MarginContainer/Dialogue # The dialogue text
-@onready var npc_name: Label = $Control/ColorRect2/NPCName # The name of the NPC speaking the current line
+@onready var dialogue: RichTextLabel = $Control/TextBox/MarginContainer/Dialogue # The dialogue text
+@onready var npc_name: Label = $Control/NPCBox/NPCName # The name of the NPC speaking the current line
 @onready var continue_button: Button = $Control/ContinueButton # How you advance lines (can be a keypress instead)
 @onready var choice_box: VBoxContainer = $Control/ChoiceBox # Where the buttons for choices go when needed
 
-
 func _ready() -> void:
 	# Load the relevant conversation; in a real game the active one would be passed in depending on who you're talking to
+	conv = test_convo
 	
 	# format == steve_convos["attack"]
 	# = demo_conv
-	conv = demo_conv
 	continue_button.hide()
 	choice_box.hide()
 	unblock_input_after_delay()
@@ -65,12 +70,15 @@ func unblock_input_after_delay():
 	inital_input_blocked = false
 
 func _process(delta: float) -> void:
+	if text_finished and choice_box.visible == true:
+		print("keyboard select?")
+	
 	if Input.is_action_just_pressed("ui_accept") and inital_input_blocked == false:
 		advance_line()
 	
 	# Show continue button after typewriter effect (this could also be an arrow prompt or such)
 	if conv[index].has("choice"): continue_button.hide()
-	else: continue_button.visible = text_finished
+	else: continue_button.visible = text_finished 
 
 
 func set_dialogue():
@@ -87,10 +95,8 @@ func set_dialogue():
 	dialogue.visible_characters = 0
 	
 	while dialogue.visible_characters < dialogue.text.length():
-		print(str(dialogue.visible_characters) + "/" + str(len(dialogue.text)))
 		dialogue.visible_characters += 1
 		await get_tree().create_timer(text_rate).timeout
-		print(str(dialogue.visible_characters) + "/" + str(len(dialogue.text)))
 	text_finished = true
 	
 	manage_choices()
