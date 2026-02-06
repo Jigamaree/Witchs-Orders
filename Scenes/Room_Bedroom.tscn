@@ -5,6 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://b7p2es7o1w6co" path="res://Scenes/AssetScenes/interactableObject.tscn" id="3_t7h02"]
 [ext_resource type="PackedScene" uid="uid://dmkvvkru1sug5" path="res://Scenes/AssetScenes/Door_Default.tscn" id="4_t7h02"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t7h02"]
+size = Vector2(181.5, 153)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7di5"]
+size = Vector2(211, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_samf8"]
+size = Vector2(350, 290)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_axkeq"]
 size = Vector2(152, 160)
 
@@ -21,7 +30,6 @@ size_flags_horizontal = 3
 texture = ExtResource("1_sec1b")
 
 [node name="RoomBoundary" type="StaticBody2D" parent="." unique_id=1165903164]
-visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomBoundary" unique_id=1499209645]
 position = Vector2(-5, -7)
@@ -30,37 +38,73 @@ polygon = PackedVector2Array(226, 136, 218, 1033, 1696, 1046, 1686, 135)
 
 [node name="Collisions" type="Node2D" parent="." unique_id=547089238]
 
-[node name="WardrobeArea" parent="Collisions" unique_id=346532964 instance=ExtResource("3_t7h02")]
+[node name="windowFireArea" parent="Collisions" unique_id=346532964 instance=ExtResource("3_t7h02")]
+position = Vector2(586, 721)
+objectName = "windowFire"
+
+[node name="ObjectInteract" parent="Collisions/windowFireArea" index="0" unique_id=1854910098]
+position = Vector2(-423.25, 49.5)
+shape = SubResource("RectangleShape2D_t7h02")
+
+[node name="windowCrowArea" parent="Collisions" unique_id=278018258 instance=ExtResource("3_t7h02")]
+position = Vector2(586, 721)
+objectName = "windowCrow"
+
+[node name="ObjectInteract" parent="Collisions/windowCrowArea" index="0" unique_id=1854910098]
+position = Vector2(-441, -457)
+shape = SubResource("RectangleShape2D_w7di5")
+
+[node name="WardrobeArea" parent="Collisions" unique_id=1057571589 instance=ExtResource("3_t7h02")]
 objectName = "chestOfDrawers"
 
-[node name="Door_Area" parent="." unique_id=974499172 instance=ExtResource("4_t7h02")]
-position = Vector2(374, 141)
-currentRoom = 2
-roomDestination = 1
+[node name="ObjectInteract" parent="Collisions/WardrobeArea" index="0" unique_id=1854910098]
+position = Vector2(278.5, 544.5)
 
-[node name="Door_Collision" parent="Door_Area" index="0" unique_id=2029805447]
-position = Vector2(-9, 1)
-shape = SubResource("RectangleShape2D_axkeq")
+[node name="BedArea" parent="Collisions" unique_id=1772570814 instance=ExtResource("3_t7h02")]
+position = Vector2(826, 229)
+objectName = "bed"
 
-[node name="Door_Marker" parent="Door_Area" index="1" unique_id=126591328]
-position = Vector2(-88, 99)
+[node name="ObjectInteract" parent="Collisions/BedArea" index="0" unique_id=1854910098]
+position = Vector2(152, 149)
+shape = SubResource("RectangleShape2D_samf8")
+
+[node name="ObjectArea" parent="Collisions" unique_id=1927694714 instance=ExtResource("3_t7h02")]
+position = Vector2(1625, 230)
+objectName = "bookshelf"
 
 [node name="fallbackMarker" type="Marker2D" parent="." unique_id=1393730870 groups=["fallback"]]
 position = Vector2(915, 227)
 
-[node name="Door_Area2" parent="." unique_id=1546049843 instance=ExtResource("4_t7h02")]
+[node name="Doors" type="Node2D" parent="." unique_id=784955961]
+
+[node name="Door_Area" parent="Doors" unique_id=974499172 instance=ExtResource("4_t7h02")]
+position = Vector2(374, 141)
+currentRoom = 2
+roomDestination = 1
+
+[node name="Door_Collision" parent="Doors/Door_Area" index="0" unique_id=2029805447]
+position = Vector2(-9, 1)
+shape = SubResource("RectangleShape2D_axkeq")
+
+[node name="Door_Marker" parent="Doors/Door_Area" index="1" unique_id=126591328]
+position = Vector2(-88, 99)
+
+[node name="Door_Area2" parent="Doors" unique_id=1546049843 instance=ExtResource("4_t7h02")]
 position = Vector2(1730, 792)
 currentRoom = 2
 roomDestination = 3
 spawnDirection = 3
 
-[node name="Door_Collision" parent="Door_Area2" index="0" unique_id=2029805447]
+[node name="Door_Collision" parent="Doors/Door_Area2" index="0" unique_id=2029805447]
 position = Vector2(4, -4.5)
 shape = SubResource("RectangleShape2D_aipf7")
 
-[node name="Door_Marker" parent="Door_Area2" index="1" unique_id=126591328]
+[node name="Door_Marker" parent="Doors/Door_Area2" index="1" unique_id=126591328]
 position = Vector2(-234, -77)
 
+[editable path="Collisions/windowFireArea"]
+[editable path="Collisions/windowCrowArea"]
 [editable path="Collisions/WardrobeArea"]
-[editable path="Door_Area"]
-[editable path="Door_Area2"]
+[editable path="Collisions/BedArea"]
+[editable path="Doors/Door_Area"]
+[editable path="Doors/Door_Area2"]

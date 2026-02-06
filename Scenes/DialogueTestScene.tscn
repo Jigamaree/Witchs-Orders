@@ -2,10 +2,33 @@
 
 [ext_resource type="Script" uid="uid://bu8520cev453u" path="res://Scripts/DialogueSystem/DialogueSystem.gd" id="1_5s67e"]
 [ext_resource type="Texture2D" uid="uid://c4e2nwvjbu6lh" path="res://Assets/PlayerCharacter/WB_TestPort2.png" id="2_0t75w"]
-[ext_resource type="Texture2D" uid="uid://s4vfi17oxi12" path="res://Assets/PlayerCharacter/Dialogue/TextBox.png" id="2_s2uu6"]
-[ext_resource type="Texture2D" uid="uid://byq2h570wabqi" path="res://Assets/PlayerCharacter/Dialogue/CharaNameBox.png" id="3_orj1v"]
-[ext_resource type="Texture2D" uid="uid://c30tmptca7gyg" path="res://Assets/PlayerCharacter/Dialogue/CharaNameBox2.png" id="4_lthm8"]
-[ext_resource type="Texture2D" uid="uid://q4eflp6tm7wo" path="res://Assets/PlayerCharacter/Dialogue/Portrait Box.png" id="6_6ary4"]
+[ext_resource type="Texture2D" uid="uid://s4vfi17oxi12" path="res://Assets/Dialogue/TextBox.png" id="2_s2uu6"]
+[ext_resource type="Texture2D" uid="uid://byq2h570wabqi" path="res://Assets/Dialogue/CharaNameBox.png" id="3_orj1v"]
+[ext_resource type="Texture2D" uid="uid://c30tmptca7gyg" path="res://Assets/Dialogue/CharaNameBox2.png" id="4_lthm8"]
+[ext_resource type="Texture2D" uid="uid://dyfs6dr3un8ac" path="res://Assets/Dialogue/NextArrow/continueArrow3.png" id="5_6ary4"]
+[ext_resource type="Texture2D" uid="uid://q4eflp6tm7wo" path="res://Assets/Dialogue/Portrait Box.png" id="6_6ary4"]
+[ext_resource type="Texture2D" uid="uid://b3gsv5ud068ih" path="res://Assets/Dialogue/NextArrow/continueArrow1.png" id="6_gudas"]
+[ext_resource type="Texture2D" uid="uid://c0n0r50epg1j2" path="res://Assets/Dialogue/NextArrow/continueArrow2.png" id="7_b36ua"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i15c5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6ary4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gudas")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b36ua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gudas")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="DialogueTestScene" type="CanvasLayer" unique_id=390174514]
 script = ExtResource("1_5s67e")
@@ -125,12 +148,10 @@ text = "Test"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ContinueButton" type="Button" parent="Control" unique_id=1839578141]
-layout_mode = 0
-offset_left = 1685.0
-offset_top = 941.0
-offset_right = 1774.0
-offset_bottom = 1024.0
+[node name="ContinueArrowSprite" type="AnimatedSprite2D" parent="Control" unique_id=345776208]
+position = Vector2(1732, 982)
+sprite_frames = SubResource("SpriteFrames_i15c5")
+frame_progress = 0.32761258
 
 [node name="ChoiceBox" type="VBoxContainer" parent="Control" unique_id=990140104]
 layout_mode = 0
@@ -146,7 +167,7 @@ offset_top = 795.0
 offset_right = 430.0
 offset_bottom = 1045.0
 
-[node name="TextureRect2" type="TextureRect" parent="Control/PortraitBox" unique_id=1473813079]
+[node name="PortTextureRect" type="TextureRect" parent="Control/PortraitBox" unique_id=1473813079]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -155,7 +176,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_0t75w")
 
-[node name="TextureRect" type="TextureRect" parent="Control/PortraitBox" unique_id=643045798]
+[node name="FrameTextureRect" type="TextureRect" parent="Control/PortraitBox" unique_id=643045798]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -163,3 +184,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_6ary4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2006613826]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=630998282]

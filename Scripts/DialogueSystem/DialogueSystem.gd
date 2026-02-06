@@ -49,11 +49,20 @@ var test_convo ={
 		2: { "speaker": "Nameless", "dialogue": "I'm sure you can tell by my face I'm delighted.", "end": true }, 
 		}
 
+var pitch_dict = {
+	"none": preload("res://Audio/clink1.wav"),
+	"MC": preload("res://Audio/voice2.wav"),
+}
+
 # Nodes for the system
 @onready var dialogue: RichTextLabel = $Control/TextBox/MarginContainer/Dialogue # The dialogue text
+@onready var name_rect: ColorRect = $Control/NPCBox		# The box that contains the character's name
 @onready var npc_name: Label = $Control/NPCBox/NPCName # The name of the NPC speaking the current line
-@onready var continue_button: Button = $Control/ContinueButton # How you advance lines (can be a keypress instead)
+@onready var continue_arrow: AnimatedSprite2D = $Control/ContinueArrowSprite # How you advance lines (can be a keypress instead)
 @onready var choice_box: VBoxContainer = $Control/ChoiceBox # Where the buttons for choices go when needed
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var portrait_box: ColorRect = $Control/PortraitBox
+@onready var portrait_text: TextureRect = $Control/PortraitBox/PortTextureRect
 
 func _ready() -> void:
 	# Load the relevant conversation; in a real game the active one would be passed in depending on who you're talking to
@@ -61,7 +70,7 @@ func _ready() -> void:
 	
 	# format == steve_convos["attack"]
 	# = demo_conv
-	continue_button.hide()
+	continue_arrow.hide()
 	choice_box.hide()
 	unblock_input_after_delay()
 	#GlobalVariables.startDialogue.connect(_start_dialogue)
@@ -79,30 +88,60 @@ func _process(delta: float) -> void:
 		advance_line()
 	
 	# Show continue button after typewriter effect (this could also be an arrow prompt or such)
-	if conv[index].has("choice"): continue_button.hide()
-	else: continue_button.visible = text_finished 
+	if conv[index].has("choice"): continue_arrow.hide()
+	else: continue_arrow.visible = text_finished
 
-
+	if continue_arrow.visible: 
+		continue_arrow.play("default")
 
 func set_dialogue():
 	# Make a temp variable to make the code cleaner
 	var dlg = conv[index].dialogue
+	
 	# Set speaker name
 	npc_name.text = conv[index].speaker
+	#hide name box if nobody is talking
+	
+	if npc_name.text == "none": 
+		name_rect.visible = false
+		portrait_box.visible = false
+	else: 
+		name_rect.visible = true
+		portrait_box.visible = true
 	
 	# Set label text to line
 	dialogue.text = dlg
 	
-	# Typewriter effect
+	# Typewriter effect + sound
 	text_finished = false
 	dialogue.visible_characters = 0
+	var blip_count = 0
+	var talk_blip
+	
+	print(npc_name.text)
+	print("---")
+	#find the speaker's voice in the list saved in here
+	if pitch_dict.has(npc_name.text):
+		talk_blip = pitch_dict[npc_name.text]
+	#otherwise have a fallback!
+	else: 
+		talk_blip = load("res://Audio/ignusVoice.wav")
+	audio_player.stream = talk_blip
 	
 	while dialogue.visible_characters < dialogue.text.length():
 		dialogue.visible_characters += 1
+		blip_count += 1
+		if blip_count == 3:
+			# Vary the pitch a bit to make it a little more natural and so it doesn't get too monotonous
+			#talk_blip.pitch_scale = randf_range(0.97, 1.03)
+			audio_player.pitch_scale = randf_range(0.98, 1.02)			
+			audio_player.play()
+			blip_count = 0		
 		await get_tree().create_timer(text_rate).timeout
 	text_finished = true
 	
 	manage_choices()
+
 
 func manage_choices():
 	if conv[index].has("choice"):

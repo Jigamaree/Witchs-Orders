@@ -1,23 +1,28 @@
-extends Node
-# This stuff would likely go in your game world script
-
-const DIALOGUE_SYSTEM = preload("res://dialogue_system.tscn")
-
-# Probably an NPC scene would emit a "talk to" signal after an interaction,
-#   with arguments for their ID and what conversation should be started based on what's happened in the game,
-#     which could be stored in the NPC scene or looked up in a database by their ID
-# That signal would connect to this function
-func start_conv(npc, conversation):
-	# Instance dialogue system
-	var dlg_sys = DIALOGUE_SYSTEM.instantiate()
-	# There are cleaner, more extensible ways to do this, but this is pretty easy to understand
-	# It would be a mess in a game with tons of NPCs though
-	match npc:
-		"steve":
-			dlg_sys.conv = dlg_sys.steve_convos[conversation]
-		_: print("NPC NOT FOUND")
-	# This is one way to pause the game so things aren't happening and the player can't move during dialogue,
-	#   but you need to make sure your dialogue system scene process mode is set to "Always"
-	get_tree().paused = true
-	# Add dialogue system to scene
-	get_tree().current_scene.add_child(dlg_sys)
+# Set specific blip pitch based on speaker
+	# The way I did this was making five blip sfx at different pitches and naming them "blip_1", "blip_2", etc
+	#   up to 5, then making a dictionary where each NPC name was a key and the value was a number 1-5
+	if pitch_dict.has(conv[index].speaker):
+		# Look up the current speaker's blip pitch by current line
+		blip_pitch = pitch_dict[conv[index].speaker]
+	else:
+		# Default to the middle pitch, 3, if it's not defined for the speaker
+		blip_pitch = 3
+	# Set the audiostream player used for the blips to play the right file
+	talk_blip.stream = load("res://sfx/blip_" + str(blip_pitch) + ".mp3")
+	
+	# Typewriter effect
+	text_finished = false
+	dialogue.visible_characters = 0
+	# Used to play blips only every third character; doing it on every single one doesn't sound right to me
+	var blip_count = 0
+	while dialogue.visible_characters < len(dialogue.text):
+		dialogue.visible_characters += 1
+		# Limit blip sound to every third character
+		blip_count += 1
+		if blip_count == 2:
+			# Vary the pitch a bit to make it a little more natural and so it doesn't get too monotonous
+			talk_blip.pitch_scale = randf_range(0.97, 1.03)
+			talk_blip.play()
+			blip_count = 0
+		await get_tree().create_timer(text_rate).timeout
+	text_finished = true
