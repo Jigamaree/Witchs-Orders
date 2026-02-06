@@ -31,7 +31,9 @@ func _on_start_dialogue(objectName: String):
 		return
 	dialogue_instance = dialogue_overlay.instantiate()
 	#set conversation
-	
-	dialogue_instance.conv = dialogue_instance.demo_conv
+	get_dialogue_entry(objectName)
 	
 	add_child(dialogue_instance)
+
+func get_dialogue_entry(objectName: String):
+	dialogue_instance.conv = dialogue_instance.steve_convos["meeting"]

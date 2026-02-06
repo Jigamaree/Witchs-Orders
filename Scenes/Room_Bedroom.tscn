@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://828q7e0vina0"]
 
-[ext_resource type="Script" uid="uid://dyj86g6r0e5n6" path="res://Scripts/GlobalScripts/room_default.gd" id="1_axkeq"]
 [ext_resource type="Texture2D" uid="uid://b323e23x8pls5" path="res://Assets/Backgrounds/BedroomTest.png" id="1_sec1b"]
+[ext_resource type="Script" uid="uid://ctn2igkd0f4rd" path="res://Scripts/RoomScripts/room_bedroom.gd" id="1_t7h02"]
 [ext_resource type="PackedScene" uid="uid://b7p2es7o1w6co" path="res://Scenes/AssetScenes/interactableObject.tscn" id="3_t7h02"]
 [ext_resource type="PackedScene" uid="uid://dmkvvkru1sug5" path="res://Scenes/AssetScenes/Door_Default.tscn" id="4_t7h02"]
 
@@ -12,7 +12,7 @@ size = Vector2(152, 160)
 size = Vector2(182, 121)
 
 [node name="RoomBedroom" type="Node2D" unique_id=1548855678]
-script = ExtResource("1_axkeq")
+script = ExtResource("1_t7h02")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1710820961]
 offset_right = 1920.0
@@ -31,6 +31,7 @@ polygon = PackedVector2Array(226, 136, 218, 1033, 1696, 1046, 1686, 135)
 [node name="Collisions" type="Node2D" parent="." unique_id=547089238]
 
 [node name="WardrobeArea" parent="Collisions" unique_id=346532964 instance=ExtResource("3_t7h02")]
+objectName = "chestOfDrawers"
 
 [node name="Door_Area" parent="." unique_id=974499172 instance=ExtResource("4_t7h02")]
 position = Vector2(374, 141)

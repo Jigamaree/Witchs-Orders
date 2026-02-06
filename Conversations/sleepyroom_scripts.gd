@@ -1,12 +1,18 @@
 extends Node
 
-var sleepyroom_Convos = {
-	"meeting": {
-		1: { "speaker": "Steve", "dialogue": "Hi, I'm Steve, nice to meet you!", "goto": 2 },
-		2: { "speaker": "Steve", "dialogue": "See you later!", "end": true } 
+class_name sleepyroomConvos
+
+static var sleepyroom_Convos_Dict = {
+	"chestOfDrawers": {
+		1: { "speaker": "none", "dialogue": "This is a chest of drawers.", "goto": 2 },
+		2: { "speaker": "none", "dialogue": "It contains sexy things.", "end": true } 
 		},
-	"attack": {
+	"windowFire": {
 		1: { "speaker": "Steve", "dialogue": "Sorry but it's time to fight!", "goto": 2 },
-		2: { "speaker": "Steve", "dialogue": "Prepare to meet your end!", "end": true } 
-		} 
+		2: { "speaker": "Steve", "dialogue": "Prepare to meet your end!", "end": true },
+		}, 
+	"windowCrow": {
+		1: { "speaker": "Steve", "dialogue": "Sorry but it's time to fight!", "goto": 2 },
+		2: { "speaker": "Steve", "dialogue": "Prepare to meet your end!", "end": true } ,
+	} 	
 }
