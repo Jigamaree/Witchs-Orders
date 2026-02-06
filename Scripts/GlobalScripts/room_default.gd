@@ -5,7 +5,7 @@ class_name class_defaultRoom
 @onready var player_scene: PackedScene = preload("res://Scenes/AssetScenes/PlayerCharacter.tscn")
 @onready var dialogue_overlay: PackedScene = preload("res://Scenes/DialogueTestScene.tscn")
 var player: PlayerClass
-var dialogue_instance
+var dialogue_instance: DialogueSystem
 var activity_on_first_entry = false
 
 func _ready():
@@ -30,4 +30,8 @@ func _on_start_dialogue(objectName: String):
 	if dialogue_instance:
 		return
 	dialogue_instance = dialogue_overlay.instantiate()
+	#set conversation
+	
+	dialogue_instance.conv = dialogue_instance.demo_conv
+	
 	add_child(dialogue_instance)

@@ -1,10 +1,12 @@
 extends CanvasLayer
 
+class_name DialogueSystem
+
 var text_rate = 0.03 # The speed of the typewriter effect in seconds; lower is faster
 var text_finished = true # Used to show a continue button or key press prompt
 var inital_input_blocked = true
 
-var conv = {} # This will have different conversations loaded into it when dialogue starts
+@export var conv = {} # This will have different conversations loaded into it when dialogue starts
 var index = 1 # Used to track the current line of dialogue within the conversation
 # Each line sets the index to a specific number, then the dialogue function displays the right line
 # Condition checks true/false can each have their own line that gets sent to, and so can each player choice
@@ -55,7 +57,7 @@ var test_convo ={
 
 func _ready() -> void:
 	# Load the relevant conversation; in a real game the active one would be passed in depending on who you're talking to
-	conv = test_convo
+	#conv = test_convo
 	
 	# format == steve_convos["attack"]
 	# = demo_conv
@@ -79,6 +81,7 @@ func _process(delta: float) -> void:
 	# Show continue button after typewriter effect (this could also be an arrow prompt or such)
 	if conv[index].has("choice"): continue_button.hide()
 	else: continue_button.visible = text_finished 
+
 
 
 func set_dialogue():
@@ -144,6 +147,7 @@ func advance_line():
 			set_dialogue()
 		# Line that ends the conversation
 		elif conv[index].has("end"):
+			GlobalVariables.startRegularGameplay.emit()
 			queue_free()
 	else:
 		dialogue.visible_characters = len(dialogue.text)

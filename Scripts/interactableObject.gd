@@ -15,4 +15,5 @@ func interact() -> void:
 
 func spawn_dialogue():
 	GlobalVariables.startDialogue.emit(objectName)
+	GlobalVariables.pauseRegularGameplay.emit()
 	

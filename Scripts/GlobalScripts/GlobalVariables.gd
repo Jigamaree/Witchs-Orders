@@ -2,6 +2,8 @@ extends Node
 
 signal changingScene(sceneFrom, sceneTo)
 signal startDialogue(objectInteractedWith)
+signal pauseRegularGameplay()
+signal startRegularGameplay()
 
 enum interactableType {
 	OBJECT,
