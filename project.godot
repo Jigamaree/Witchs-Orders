@@ -19,6 +19,7 @@ config/icon="uid://bjfjm5k14gpqh"
 
 GlobalVariables="*uid://c2hb0jltn7m1y"
 NavMan="*uid://c4ytq3w8qjjuw"
+SaveManager="*uid://cyvjw56m4mali"
 
 [display]
 

@@ -22,3 +22,10 @@ func _unhandled_input(event):
 	if event.is_action_pressed("pause_button"):
 		get_viewport().set_input_as_handled()
 		_on_unpause_button_pressed()
+
+
+func _on_test_save_button_pressed() -> void:
+	SaveManager.updateSave("knight_fed", true)
+	SaveManager.updateSave("ignus_fed", true)
+	SaveManager.updateSave("corruptionPoints_Demon", 1)
+	SaveManager.updateSave("sword_interracted", true)

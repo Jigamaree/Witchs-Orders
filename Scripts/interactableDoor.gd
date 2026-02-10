@@ -16,7 +16,7 @@ class_name interactableDoor
 @onready var markerPos: Vector2 = marker.global_position
 
 func interact() -> void:
-	print("I'm a door!")
+	#this should really be handled by the room_bedroom, but im lazy
 	if isLocked == true:
 		GlobalVariables.startDialogue.emit("lockedDoor")
 	else:

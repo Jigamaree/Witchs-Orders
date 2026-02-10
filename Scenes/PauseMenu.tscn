@@ -102,6 +102,11 @@ theme_override_styles/focus = ExtResource("3_5w4ur")
 disabled = true
 text = "Quit"
 
+[node name="TestSaveButton" type="Button" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1654514726]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("3_5w4ur")
+text = "Test Save"
+
 [node name="RightPage" type="ColorRect" parent="." unique_id=995532869]
 layout_mode = 0
 offset_left = 1002.0
@@ -113,3 +118,4 @@ size_flags_vertical = 3
 color = Color(0.43137255, 1, 1, 0)
 
 [connection signal="pressed" from="LeftPage/MarginContainer/HBoxContainer/VBoxContainer/UnpauseButton" to="." method="_on_unpause_button_pressed"]
+[connection signal="pressed" from="LeftPage/MarginContainer/HBoxContainer/VBoxContainer/TestSaveButton" to="." method="_on_test_save_button_pressed"]
