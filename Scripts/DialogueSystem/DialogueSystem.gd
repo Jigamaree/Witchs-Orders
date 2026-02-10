@@ -2,7 +2,7 @@ extends CanvasLayer
 
 class_name DialogueSystem
 
-var text_rate = 0.03 # The speed of the typewriter effect in seconds; lower is faster
+var text_rate = 0.02 # The speed of the typewriter effect in seconds; lower is faster
 var text_finished = true # Used to show a continue button or key press prompt
 var inital_input_blocked = true
 
@@ -54,6 +54,19 @@ var pitch_dict = {
 	"MC": preload("res://Audio/voice2.wav"),
 }
 
+# Image setup
+
+@onready var portTextRect: TextureRect = $Control/PortraitBox/PortTextureRect
+
+var pc_expression_dict = {
+	"default": 		preload("res://Assets/Dialogue/PC Dialogue Faces/PC_Neutral_Base.png"),
+	"exasperated": 	preload("res://Assets/Dialogue/PC Dialogue Faces/PC_Neutral_Exasperated.png"),
+	"eep": 			preload("res://Assets/Dialogue/PC Dialogue Faces/PC_Eep.png"),
+	"happy":		preload("res://Assets/Dialogue/PC Dialogue Faces/PC_Happy.png"),
+	"angry":		preload("res://Assets/Dialogue/PC Dialogue Faces/PC_Angry.png"),
+	"sad": 			preload("res://Assets/Dialogue/PC Dialogue Faces/PC_Sad.png")
+}
+
 # Nodes for the system
 @onready var dialogue: RichTextLabel = $Control/TextBox/MarginContainer/Dialogue # The dialogue text
 @onready var name_rect: ColorRect = $Control/NPCBox		# The box that contains the character's name
@@ -96,19 +109,12 @@ func _process(delta: float) -> void:
 
 func set_dialogue():
 	# Make a temp variable to make the code cleaner
-	var dlg = conv[index].dialogue
+	#var dlg = conv[index].dialogue
+	var dlg = replace_tags()
 	
-	# Set speaker name
-	npc_name.text = conv[index].speaker
-	#hide name box if nobody is talking
-	
-	if npc_name.text == "none": 
-		name_rect.visible = false
-		portrait_box.visible = false
-	else: 
-		name_rect.visible = true
-		portrait_box.visible = true
-	
+	set_speaker_title_and_visability()
+	set_portrait()
+		
 	# Set label text to line
 	dialogue.text = dlg
 	
@@ -128,6 +134,8 @@ func set_dialogue():
 		talk_blip = load("res://Audio/ignusVoice.wav")
 	audio_player.stream = talk_blip
 	
+	#THE typewriter effect
+	
 	while dialogue.visible_characters < dialogue.text.length():
 		dialogue.visible_characters += 1
 		blip_count += 1
@@ -136,12 +144,76 @@ func set_dialogue():
 			#talk_blip.pitch_scale = randf_range(0.97, 1.03)
 			audio_player.pitch_scale = randf_range(0.98, 1.02)			
 			audio_player.play()
-			blip_count = 0		
+			blip_count = 0
+		control_rate()			
 		await get_tree().create_timer(text_rate).timeout
 	text_finished = true
 	
 	manage_choices()
 
+func set_speaker_title_and_visability():
+	# Set speaker name
+	npc_name.text = conv[index].speaker
+	#hide name box if nobody is talking
+	
+	if npc_name.text == "none": 
+		name_rect.visible = false
+		portrait_box.visible = false
+	else: 
+		name_rect.visible = true
+		portrait_box.visible = true	
+
+func set_portrait():
+	#deal with portrait
+	var emote = ""	
+	if conv[index].has("emote"):
+		match conv[index].emote:
+			"exasperated": 	portTextRect.texture = pc_expression_dict["exasperated"]
+			"eep": 			portTextRect.texture = pc_expression_dict["eep"]
+			"happy":		portTextRect.texture = pc_expression_dict["happy"]
+			"sad":			portTextRect.texture = pc_expression_dict["sad"]
+			"angry":			portTextRect.texture = pc_expression_dict["angry"]
+	else: portTextRect.texture = pc_expression_dict["default"]
+		
+
+var rate_norm = 0.03
+var rate_comma = 0.12
+var rate_period = 0.24
+
+func control_rate():
+	if dialogue.text.count(".", dialogue.visible_characters - 1, dialogue.visible_characters):
+		text_rate = rate_period
+	elif dialogue.text.count("!", dialogue.visible_characters - 1, dialogue.visible_characters):
+		text_rate = rate_period * 2
+	elif dialogue.text.count("?", dialogue.visible_characters - 1, dialogue.visible_characters):
+		text_rate = rate_period * 2
+	elif dialogue.text.count(",", dialogue.visible_characters - 1, dialogue.visible_characters):
+		text_rate = rate_comma
+	else:	
+		text_rate = rate_norm
+
+func replace_tags():
+	var dlg = conv[index].dialogue
+	print(dlg)
+		# For if the player can name their own character
+	dlg = dlg.replace("%p", "[Player's custom name") 
+		# Simpler color change starting/end tags for highlights
+		# I use hs/he for highlight start/highlight end, and the same format for the others, but this could be anything you wanted
+	dlg = dlg.replace("%hs", "[color=#9aa57c]")
+	dlg = dlg.replace("%he", "[/color]")
+		# The same for the shake effect with specific parameters
+	dlg = dlg.replace("%ss", "[shake rate=6.0 level=6 connected=1]")
+	dlg = dlg.replace("%se", "[/shake]")
+		# The same for the wave effect using default parameters
+	dlg = dlg.replace("%ws", "[wave]")
+	dlg = dlg.replace("%we", "[/wave]")
+	print("***")
+	print(dlg)
+	return dlg
+
+var demo_conv2 = {
+		1: { "speaker": "A Friend", "dialogue": "Then, [wave]instead[/wave] of a line of [color=#9aa57c]dialogue[/color] looking like [shake rate=6.0 level=6 connected=1]this[/shake]...", "goto": 2 },
+		2: { "speaker": "A Friend", "dialogue": "It %wswould%we look like %ssthis%se instead, which is much %hsquicker%he to write!", "end": true } }
 
 func manage_choices():
 	if conv[index].has("choice"):
@@ -155,6 +227,7 @@ func manage_choices():
 			btn.pressed.connect(make_choice.bind(conv[index].choice[c].goto))
 			# Add the button to the container
 			choice_box.add_child(btn)
+		choice_box.get_child(0).grab_focus()
 
 func make_choice(goto):
 	index = goto

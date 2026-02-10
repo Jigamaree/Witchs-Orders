@@ -1,24 +1,29 @@
 [gd_scene format=3 uid="uid://828q7e0vina0"]
 
-[ext_resource type="Texture2D" uid="uid://b323e23x8pls5" path="res://Assets/Backgrounds/BedroomTest.png" id="1_sec1b"]
 [ext_resource type="Script" uid="uid://ctn2igkd0f4rd" path="res://Scripts/RoomScripts/room_bedroom.gd" id="1_t7h02"]
+[ext_resource type="Texture2D" uid="uid://ds0w1h1l7mqu5" path="res://Assets/Backgrounds/BedroomFinal.png" id="2_t7h02"]
 [ext_resource type="PackedScene" uid="uid://b7p2es7o1w6co" path="res://Scenes/AssetScenes/interactableObject.tscn" id="3_t7h02"]
+[ext_resource type="Texture2D" uid="uid://bqyiywo4plgex" path="res://Assets/InScene Items/Bedroom - Buttermilk Ginger.png" id="4_aipf7"]
 [ext_resource type="PackedScene" uid="uid://dmkvvkru1sug5" path="res://Scenes/AssetScenes/Door_Default.tscn" id="4_t7h02"]
+[ext_resource type="Texture2D" uid="uid://byuo2eo75xsmh" path="res://Assets/InScene Items/Bedroom - Quilt.png" id="5_axkeq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t7h02"]
-size = Vector2(181.5, 153)
+size = Vector2(141.75, 296.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7di5"]
-size = Vector2(211, 160)
+size = Vector2(154.5, 300)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_samf8"]
 size = Vector2(350, 290)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_axkeq"]
-size = Vector2(152, 160)
+size = Vector2(263, 211)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aipf7"]
-size = Vector2(182, 121)
+size = Vector2(234, 206)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwcxd"]
+size = Vector2(126.5, 124)
 
 [node name="RoomBedroom" type="Node2D" unique_id=1548855678]
 script = ExtResource("1_t7h02")
@@ -27,14 +32,21 @@ script = ExtResource("1_t7h02")
 offset_right = 1920.0
 offset_bottom = 1080.0
 size_flags_horizontal = 3
-texture = ExtResource("1_sec1b")
+texture = ExtResource("2_t7h02")
 
-[node name="RoomBoundary" type="StaticBody2D" parent="." unique_id=1165903164]
+[node name="RoomItems" type="Node2D" parent="." unique_id=1678795188]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomBoundary" unique_id=1499209645]
-position = Vector2(-5, -7)
-build_mode = 1
-polygon = PackedVector2Array(226, 136, 218, 1033, 1696, 1046, 1686, 135)
+[node name="Quilt" type="Sprite2D" parent="RoomItems" unique_id=139258782]
+visibility_layer = 16
+z_index = 1
+position = Vector2(973, 509)
+texture = ExtResource("5_axkeq")
+
+[node name="Plant" type="Sprite2D" parent="RoomItems" unique_id=930174327]
+visibility_layer = 16
+z_index = 1
+position = Vector2(1372, 806)
+texture = ExtResource("4_aipf7")
 
 [node name="Collisions" type="Node2D" parent="." unique_id=547089238]
 
@@ -43,7 +55,7 @@ position = Vector2(586, 721)
 objectName = "windowFire"
 
 [node name="ObjectInteract" parent="Collisions/windowFireArea" index="0" unique_id=1854910098]
-position = Vector2(-423.25, 49.5)
+position = Vector2(865.125, -584.75)
 shape = SubResource("RectangleShape2D_t7h02")
 
 [node name="windowCrowArea" parent="Collisions" unique_id=278018258 instance=ExtResource("3_t7h02")]
@@ -51,60 +63,77 @@ position = Vector2(586, 721)
 objectName = "windowCrow"
 
 [node name="ObjectInteract" parent="Collisions/windowCrowArea" index="0" unique_id=1854910098]
-position = Vector2(-441, -457)
+position = Vector2(-97.25, -591)
 shape = SubResource("RectangleShape2D_w7di5")
 
 [node name="WardrobeArea" parent="Collisions" unique_id=1057571589 instance=ExtResource("3_t7h02")]
-objectName = "chestOfDrawers"
+objectName = "testOfDrawers"
 
 [node name="ObjectInteract" parent="Collisions/WardrobeArea" index="0" unique_id=1854910098]
-position = Vector2(278.5, 544.5)
+position = Vector2(1737, 524.625)
 
 [node name="BedArea" parent="Collisions" unique_id=1772570814 instance=ExtResource("3_t7h02")]
 position = Vector2(826, 229)
 objectName = "bed"
 
 [node name="ObjectInteract" parent="Collisions/BedArea" index="0" unique_id=1854910098]
-position = Vector2(152, 149)
+position = Vector2(153, 229)
 shape = SubResource("RectangleShape2D_samf8")
 
-[node name="ObjectArea" parent="Collisions" unique_id=1927694714 instance=ExtResource("3_t7h02")]
-position = Vector2(1625, 230)
-objectName = "bookshelf"
-
 [node name="fallbackMarker" type="Marker2D" parent="." unique_id=1393730870 groups=["fallback"]]
-position = Vector2(915, 227)
+position = Vector2(962, 319)
 
 [node name="Doors" type="Node2D" parent="." unique_id=784955961]
 
-[node name="Door_Area" parent="Doors" unique_id=974499172 instance=ExtResource("4_t7h02")]
+[node name="Bathroom_Door_Area" parent="Doors" unique_id=974499172 instance=ExtResource("4_t7h02")]
 position = Vector2(374, 141)
 currentRoom = 2
 roomDestination = 1
 
-[node name="Door_Collision" parent="Doors/Door_Area" index="0" unique_id=2029805447]
-position = Vector2(-9, 1)
+[node name="Door_Collision" parent="Doors/Bathroom_Door_Area" index="0" unique_id=2029805447]
+position = Vector2(-298.5, 799.5)
 shape = SubResource("RectangleShape2D_axkeq")
 
-[node name="Door_Marker" parent="Doors/Door_Area" index="1" unique_id=126591328]
-position = Vector2(-88, 99)
+[node name="Door_Marker" parent="Doors/Bathroom_Door_Area" index="1" unique_id=126591328]
+position = Vector2(-314, 708)
 
-[node name="Door_Area2" parent="Doors" unique_id=1546049843 instance=ExtResource("4_t7h02")]
+[node name="Living_Door_Area2" parent="Doors" unique_id=1546049843 instance=ExtResource("4_t7h02")]
 position = Vector2(1730, 792)
 currentRoom = 2
 roomDestination = 3
 spawnDirection = 3
+isLocked = true
 
-[node name="Door_Collision" parent="Doors/Door_Area2" index="0" unique_id=2029805447]
-position = Vector2(4, -4.5)
+[node name="Door_Collision" parent="Doors/Living_Door_Area2" index="0" unique_id=2029805447]
+position = Vector2(87, 151)
 shape = SubResource("RectangleShape2D_aipf7")
 
-[node name="Door_Marker" parent="Doors/Door_Area2" index="1" unique_id=126591328]
-position = Vector2(-234, -77)
+[node name="Door_Marker" parent="Doors/Living_Door_Area2" index="1" unique_id=126591328]
+position = Vector2(-104, 37)
+
+[node name="RoomBoundary2" type="StaticBody2D" parent="." unique_id=1119491541]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomBoundary2" unique_id=1857516737]
+build_mode = 1
+polygon = PackedVector2Array(794, 571, 1158, 570, 1159, 633, 1172, 646, 1139, 686, 1092, 678, 1093, 715, 852, 712, 846, 681, 811, 685, 776, 653, 776, 644, 793, 636)
+one_way_collision_margin = 16.5
+
+[node name="RoomBoundary3" type="StaticBody2D" parent="." unique_id=628169919]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomBoundary3" unique_id=568063119]
+position = Vector2(1357.25, 983)
+shape = SubResource("RectangleShape2D_dwcxd")
+
+[node name="FullRoomBoundary" type="StaticBody2D" parent="." unique_id=1165903164]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FullRoomBoundary" unique_id=1499209645]
+position = Vector2(-5, -7)
+build_mode = 1
+polygon = PackedVector2Array(102, 293, 1796, 291, 1792, 820, 1850, 818, 1849, 1051, 59, 1055, 57, 808, 110, 806)
 
 [editable path="Collisions/windowFireArea"]
 [editable path="Collisions/windowCrowArea"]
 [editable path="Collisions/WardrobeArea"]
 [editable path="Collisions/BedArea"]
-[editable path="Doors/Door_Area"]
-[editable path="Doors/Door_Area2"]
+[editable path="Doors/Bathroom_Door_Area"]
+[editable path="Doors/Living_Door_Area2"]

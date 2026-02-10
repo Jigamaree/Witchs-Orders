@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ds2chr61mq80b" path="res://Scripts/interactableObject.gd" id="1_wup5l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t7h02"]
-size = Vector2(139, 291.5)
+size = Vector2(139, 540.75)
 
 [node name="ObjectArea" type="Area2D" unique_id=346532964 groups=["interactable"]]
 script = ExtResource("1_wup5l")

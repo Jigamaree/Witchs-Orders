@@ -4,6 +4,7 @@ class_name class_defaultRoom
 
 @onready var player_scene: PackedScene = preload("res://Scenes/AssetScenes/PlayerCharacter.tscn")
 @onready var dialogue_overlay: PackedScene = preload("res://Scenes/DialogueTestScene.tscn")
+@onready var pause_menu: PackedScene = preload("res://Scenes/PauseMenu.tscn")
 var player: PlayerClass
 var dialogue_instance: DialogueSystem
 var activity_on_first_entry = false
@@ -25,6 +26,12 @@ func find_player_location():
 	else:
 		for marker: Marker2D in get_tree().get_nodes_in_group("fallback"):
 			player.global_position = marker.global_position
+		
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause_button"):
+		var pause_instance = pause_menu.instantiate()
+		add_child(pause_instance)
+		get_tree().paused = true	
 
 func _on_start_dialogue(objectName: String):
 	if dialogue_instance:

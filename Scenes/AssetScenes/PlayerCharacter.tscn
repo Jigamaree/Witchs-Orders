@@ -29,7 +29,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gnj7"]
-size = Vector2(169, 167.5)
+size = Vector2(57, 196.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdaju"]
 size = Vector2(60.5, 62)
@@ -44,7 +44,7 @@ sprite_frames = SubResource("SpriteFrames_id6tp")
 frame_progress = 0.8386664
 
 [node name="playerCollisionShape2D" type="CollisionShape2D" parent="." unique_id=1060945957]
-position = Vector2(109, 109)
+position = Vector2(111.5, 124)
 shape = SubResource("RectangleShape2D_5gnj7")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=1365480106 groups=["player"]]
@@ -55,6 +55,7 @@ position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_mdaju")
 
 [node name="Sprite2D" type="Sprite2D" parent="InteractionArea/CollisionShapeUp" unique_id=1322777654 groups=["player"]]
+z_index = 10
 position = Vector2(0.4999962, -0.25)
 scale = Vector2(0.86428565, 0.80714285)
 texture = ExtResource("5_xq7lg")

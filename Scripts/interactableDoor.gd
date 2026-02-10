@@ -10,11 +10,16 @@ class_name interactableDoor
 @export var currentRoom: GlobalVariables.roomsInHouse
 @export var roomDestination: GlobalVariables.roomsInHouse
 @export var spawnDirection: GlobalVariables.spawn_direction
+@export var isLocked: bool 
+
 @onready var marker: Marker2D = $Door_Marker
 @onready var markerPos: Vector2 = marker.global_position
 
 func interact() -> void:
 	print("I'm a door!")
-	NavMan.change_scenes(currentRoom, roomDestination)
+	if isLocked == true:
+		GlobalVariables.startDialogue.emit("lockedDoor")
+	else:
+		NavMan.change_scenes(currentRoom, roomDestination)
 	
 	

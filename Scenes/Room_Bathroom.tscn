@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://ckat5o2py34w2"]
 
-[ext_resource type="Texture2D" uid="uid://c2y8j5wrxybra" path="res://Assets/Backgrounds/BathroomTest.png" id="1_j1rt5"]
 [ext_resource type="Script" uid="uid://dyj86g6r0e5n6" path="res://Scripts/GlobalScripts/room_default.gd" id="1_jkohm"]
+[ext_resource type="Texture2D" uid="uid://c2sw8lp25kasw" path="res://Assets/Backgrounds/BathroomFinal2.png" id="2_j1rt5"]
 [ext_resource type="PackedScene" uid="uid://dmkvvkru1sug5" path="res://Scenes/AssetScenes/Door_Default.tscn" id="2_vp52i"]
+[ext_resource type="Texture2D" uid="uid://eix40jsk12u3" path="res://Assets/InScene Items/Bathroom - Bottom Table.png" id="3_jkohm"]
+[ext_resource type="Texture2D" uid="uid://bbudtb6to0aif" path="res://Assets/InScene Items/Bathroom - Bath.png" id="4_osrva"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkohm"]
+size = Vector2(405.5, 130.5)
 
 [node name="RoomBathroom" type="Node2D" unique_id=940703355]
 script = ExtResource("1_jkohm")
@@ -11,24 +16,51 @@ script = ExtResource("1_jkohm")
 offset_right = 1920.0
 offset_bottom = 1080.0
 size_flags_horizontal = 3
-texture = ExtResource("1_j1rt5")
+texture = ExtResource("2_j1rt5")
+
+[node name="RoomItems" type="Node2D" parent="." unique_id=1092708632]
+
+[node name="BottomTable" type="Sprite2D" parent="RoomItems" unique_id=509282693]
+visibility_layer = 16
+z_index = 1
+position = Vector2(918, 895)
+texture = ExtResource("3_jkohm")
+
+[node name="Bath" type="Sprite2D" parent="RoomItems" unique_id=219470093]
+visibility_layer = 16
+z_index = 1
+position = Vector2(452, 728)
+texture = ExtResource("4_osrva")
 
 [node name="RoomBoundary" type="StaticBody2D" parent="." unique_id=1165903164]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomBoundary" unique_id=1423180495]
 build_mode = 1
-polygon = PackedVector2Array(418, 170, 426, 904, 1500, 907, 1508, 163)
+polygon = PackedVector2Array(313, 226, 313, 995, 1610, 997, 1616, 783, 1504, 782, 1504, 225)
 
 [node name="Collisions" type="Node2D" parent="." unique_id=547089238]
-position = Vector2(967, 540)
-
-[node name="Door_Area" parent="." unique_id=974499172 instance=ExtResource("2_vp52i")]
-position = Vector2(543, 986)
-
-[node name="Door_Marker" parent="Door_Area" index="1" unique_id=126591328]
-position = Vector2(-87, -263)
+position = Vector2(1542, 804)
 
 [node name="fallbackMarker" type="Marker2D" parent="." unique_id=1647380448 groups=["fallback"]]
-position = Vector2(660, 390)
+position = Vector2(1346, 540)
+rotation = -1.3089969
+
+[node name="RoomBoundary2" type="StaticBody2D" parent="." unique_id=74974803]
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="RoomBoundary2" unique_id=901836542]
+position = Vector2(915.25, 933.25)
+shape = SubResource("RectangleShape2D_jkohm")
+one_way_collision_margin = 16.5
+
+[node name="RoomBoundary3" type="StaticBody2D" parent="." unique_id=1011152999]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomBoundary3" unique_id=1814176490]
+polygon = PackedVector2Array(389, 573, 460, 581, 555, 631, 554, 730, 554, 841, 528, 882, 532, 906, 559, 920, 555, 946, 511, 957, 370, 956, 341, 929, 352, 908, 375, 899, 355, 854, 348, 582)
+
+[node name="Door_Area" parent="." unique_id=974499172 instance=ExtResource("2_vp52i")]
+position = Vector2(1657, 890)
+
+[node name="Door_Marker" parent="Door_Area" index="1" unique_id=126591328]
+position = Vector2(-270, -93)
 
 [editable path="Door_Area"]
