@@ -5,6 +5,7 @@ class_name DialogueSystem
 var text_rate = 0.02 # The speed of the typewriter effect in seconds; lower is faster
 var text_finished = true # Used to show a continue button or key press prompt
 var inital_input_blocked = true
+var last_was_background = false
 
 @export var conv = {} # This will have different conversations loaded into it when dialogue starts
 var index = 1 # Used to track the current line of dialogue within the conversation
@@ -23,31 +24,6 @@ var flag_dict = {}
 #   because it's SUPER easy to forget to add one and break the system at runtime
 
 # The format for conversations; you could have a ton of these or one super dictionary with them as subdictionaries
-var demo_conv = {
-	1: { "speaker": "A Friend", "dialogue": "This is a simple line of dialogue!", "goto": 2 },
-	2: { "speaker": "A Friend", "dialogue": "Here's one that sets a condition.", "set": "some_flag", "goto": 3 },
-	3: { "speaker": "A Friend", "dialogue": "Now we can check that condition and change what comes next.", "check": { "condition": "some_flag", "goto_false": 4, "goto_true": 5 } },
-	4: { "speaker": "A Friend", "dialogue": "This would be if the condition were false...", "goto": 6 },
-	5: { "speaker": "A Friend", "dialogue": "This would be if the condition were true...", "goto": 6 },
-	6: { "speaker": "A Friend", "dialogue": "Now the big guns: choices!", "choice": {"c1": {"choice": "I like choices.", "goto": 7 }, "c2": { "choice": "Choices are scary.", "goto": 8 } } },
-	7: { "speaker": "A Friend", "dialogue": "I like them too!", "goto": 9 },
-	8: { "speaker": "A Friend", "dialogue": "I guess they are kind of scary.", "goto": 9 },
-	9: { "speaker": "A Friend", "dialogue": "Anyway, bye now.", "end": true } }
-
-# An example of how you could structure multiple conversations in one dictionary by individual NPC
-var steve_convos = {
-	"meeting": {
-		1: { "speaker": "Steve", "dialogue": "Hi, I'm Steve, nice to meet you!", "goto": 2 },
-		2: { "speaker": "Steve", "dialogue": "See you later!", "end": true } },
-	"attack": {
-		1: { "speaker": "Steve", "dialogue": "Sorry but it's time to fight!", "goto": 2 },
-		2: { "speaker": "Steve", "dialogue": "Prepare to meet your end!", "end": true } } }
-		
-# An example of how you could structure multiple conversations in one dictionary by individual NPC
-var test_convo ={
-		1: { "speaker": "Nameless", "dialogue": "Now we're cooking with gas.", "goto": 2 },
-		2: { "speaker": "Nameless", "dialogue": "I'm sure you can tell by my face I'm delighted.", "end": true }, 
-		}
 
 var pitch_dict = {
 	"none": preload("res://Audio/clink1.wav"),
@@ -76,6 +52,8 @@ var pc_expression_dict = {
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var portrait_box: ColorRect = $Control/PortraitBox
 @onready var portrait_text: TextureRect = $Control/PortraitBox/PortTextureRect
+@onready var background_tint_rect: ColorRect = $Control/BackgroundTintRect
+@onready var background_image_rect: TextureRect = $Control/CenterContainer/imageDisplayRect
 
 func _ready() -> void:
 	# Load the relevant conversation; in a real game the active one would be passed in depending on who you're talking to
@@ -114,6 +92,7 @@ func set_dialogue():
 	
 	set_speaker_title_and_visability()
 	set_portrait()
+	check_for_background_or_full_image()
 		
 	# Set label text to line
 	dialogue.text = dlg
@@ -124,8 +103,6 @@ func set_dialogue():
 	var blip_count = 0
 	var talk_blip
 	
-	print(npc_name.text)
-	print("---")
 	#find the speaker's voice in the list saved in here
 	if pitch_dict.has(npc_name.text):
 		talk_blip = pitch_dict[npc_name.text]
@@ -174,7 +151,29 @@ func set_portrait():
 			"sad":			portTextRect.texture = pc_expression_dict["sad"]
 			"angry":			portTextRect.texture = pc_expression_dict["angry"]
 	else: portTextRect.texture = pc_expression_dict["default"]
-		
+
+func check_for_background_or_full_image():
+	# background image - image that appears over a dark background, like key items
+	if conv[index].has("backgroundImage"):
+		var tween = get_tree().create_tween()
+		#tween.set_parallel(true)
+		tween.tween_property(background_tint_rect, "modulate:a", 140.0, 0.5).from(0)
+		tween.tween_property(background_image_rect, "modulate:a", 1.0, 0.2).from(0)		
+		await tween.finished
+		#this means the next statement doesn't run unnessasarily
+		last_was_background = true
+	elif !conv[index].has("backgroundImage") and last_was_background == true:
+		var tween = get_tree().create_tween()
+		tween.set_parallel(true)
+		tween.tween_property(background_image_rect, "modulate:a", 0, 0.2)		
+		tween.tween_property(background_tint_rect, "modulate:a", 0, 0.5)
+		await tween.finished	
+		last_was_background = false
+
+	#illustration - replaces the background image like (hopeful) sex scene images!
+	if conv[index].has("illustration"):
+		print("a FULL image would be set here!")
+				
 
 var rate_norm = 0.03
 var rate_comma = 0.12
@@ -194,7 +193,6 @@ func control_rate():
 
 func replace_tags():
 	var dlg = conv[index].dialogue
-	print(dlg)
 		# For if the player can name their own character
 	dlg = dlg.replace("%p", "[Player's custom name") 
 		# Simpler color change starting/end tags for highlights
@@ -207,8 +205,6 @@ func replace_tags():
 		# The same for the wave effect using default parameters
 	dlg = dlg.replace("%ws", "[wave]")
 	dlg = dlg.replace("%we", "[/wave]")
-	print("***")
-	print(dlg)
 	return dlg
 
 var demo_conv2 = {
@@ -238,8 +234,8 @@ func advance_line():
 	if text_finished:
 		# Simple line, always goes to the same next line
 		if conv[index].has("set"):
-			var flag = demo_conv[index].get("set", null)
-			set_condition(flag)
+			var flag = conv[index].get("set", null)
+			set_condition(flag)		
 		if conv[index].has("goto"):
 			index = conv[index].goto
 			set_dialogue()

@@ -1,16 +1,20 @@
 [gd_scene format=3 uid="uid://ckat5o2py34w2"]
 
-[ext_resource type="Script" uid="uid://dyj86g6r0e5n6" path="res://Scripts/GlobalScripts/room_default.gd" id="1_jkohm"]
+[ext_resource type="Script" uid="uid://by0ayjefp5ll7" path="res://Scripts/RoomScripts/room_bathroom.gd" id="1_osrva"]
 [ext_resource type="Texture2D" uid="uid://c2sw8lp25kasw" path="res://Assets/Backgrounds/BathroomFinal2.png" id="2_j1rt5"]
 [ext_resource type="PackedScene" uid="uid://dmkvvkru1sug5" path="res://Scenes/AssetScenes/Door_Default.tscn" id="2_vp52i"]
 [ext_resource type="Texture2D" uid="uid://eix40jsk12u3" path="res://Assets/InScene Items/Bathroom - Bottom Table.png" id="3_jkohm"]
 [ext_resource type="Texture2D" uid="uid://bbudtb6to0aif" path="res://Assets/InScene Items/Bathroom - Bath.png" id="4_osrva"]
+[ext_resource type="PackedScene" uid="uid://b7p2es7o1w6co" path="res://Scenes/AssetScenes/interactableObject.tscn" id="6_hvpyx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkohm"]
 size = Vector2(405.5, 130.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jaxwo"]
+size = Vector2(181, 286)
+
 [node name="RoomBathroom" type="Node2D" unique_id=940703355]
-script = ExtResource("1_jkohm")
+script = ExtResource("1_osrva")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1710820961]
 offset_right = 1920.0
@@ -63,4 +67,13 @@ position = Vector2(1657, 890)
 [node name="Door_Marker" parent="Door_Area" index="1" unique_id=126591328]
 position = Vector2(-270, -93)
 
+[node name="WindowPlant" parent="." unique_id=346532964 instance=ExtResource("6_hvpyx")]
+position = Vector2(1285, 144)
+objectName = "plantWindow"
+
+[node name="ObjectInteract" parent="WindowPlant" index="0" unique_id=1854910098]
+position = Vector2(76.5, 14)
+shape = SubResource("RectangleShape2D_jaxwo")
+
 [editable path="Door_Area"]
+[editable path="WindowPlant"]

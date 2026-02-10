@@ -7,7 +7,6 @@ extends class_defaultRoom
 func _ready():
 	await get_tree().process_frame
 	if NavMan.last_scene == GlobalVariables.roomsInHouse.SLEEPYROOM:
-		print("true")
 		camera.global_position.y = lower_marker.global_position.y
 	super._ready()	
 
