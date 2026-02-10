@@ -12,3 +12,7 @@ enum Eaten_Item 	{BIRDSEED, DOGFOOD, BREAD, CORRUPTED_ITEM}
 @export var knight_eaten_item = Eaten_Item 
 @export var stretched: bool
 @export var plant_guide_read: bool
+
+#these are room specific, but i'm keeping them here for now
+@export var bedroom_waterDrunk: 	bool
+@export var bedroom_doorLocked: 	bool = true

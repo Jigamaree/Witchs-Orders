@@ -42,10 +42,15 @@ static var sleepyroom_Convos_Dict = {
 		5: { "speaker": "none", "dialogue": "%wsTo exit, you must be of more than what you are.%ws", "completelyCentered": true, "goto": 6 },			
 		6: { "speaker": "MC", "emote": "exasperated", "dialogue": "...Is this door really telling me to get dressed?", "end": true },
 		},
+		 
+		#  "check": { "condition": "some_flag", "goto_false": 4, "goto_true": 5 }
 		
+		#"testOfDrawers":{
+		#1: { "speaker": "A Friend", "backgroundImage": "", "dialogue": "Then, [wave]instead[/wave] of a line of [color=#9aa57c]dialogue[/color] looking like [shake rate=6.0 level=6 connected=1]this[/shake]...", "goto": 2 },
+		#2: { "speaker": "A Friend", "illustration": "", "dialogue": "It %wswould%we look like %ssthis%se instead, which is much %hsquicker%he to write!", "end": true } 
+		#}		
 		"testOfDrawers":{
-		1: { "speaker": "A Friend", "backgroundImage": "", "dialogue": "Then, [wave]instead[/wave] of a line of [color=#9aa57c]dialogue[/color] looking like [shake rate=6.0 level=6 connected=1]this[/shake]...", "goto": 2 },
+		1: { "speaker": "MC", "backgroundImage": "", "dialogue": "For some inexplicable reason, this is going to unlock a door.", "setSaveVariable": ["bedroom_doorLocked", false], "end": true },
 		2: { "speaker": "A Friend", "illustration": "", "dialogue": "It %wswould%we look like %ssthis%se instead, which is much %hsquicker%he to write!", "end": true } 
-		}		
-					
+		}					
 }

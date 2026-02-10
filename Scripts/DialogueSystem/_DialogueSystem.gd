@@ -225,6 +225,13 @@ func make_choice(goto):
 func advance_line():
 	if text_finished:
 		# Simple line, always goes to the same next line
+		if conv[index].has("setSaveVariable"):
+			var setValueArr = conv[index].setSaveVariable
+			SaveManager.setSaveVariable(setValueArr[0],setValueArr[1])
+		if conv[index].has("getSaveVariable"):
+			pass
+			#var getValueArr = conv[index].setSaveVariable
+			#SaveManager.getSaveVariable(getValueArr)			
 		if conv[index].has("set"):
 			var flag = conv[index].get("set", null)
 			set_condition(flag)		
@@ -254,3 +261,4 @@ func advance_line():
 
 func set_condition(cond):
 	flag_dict[cond] = true
+	

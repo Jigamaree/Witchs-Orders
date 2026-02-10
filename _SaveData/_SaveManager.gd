@@ -34,10 +34,16 @@ func save_game():
 #@export var apprenticeEndingData: 			SaveData_ApprenticeEnding
 #@export var otherEndingsData: 				SaveData_OtherEndings
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_debug"):
+		print(save_data.playerData.bedroom_doorUnlocked)
+
 func setSaveVariable(variableName: String, variableValue):
 	var x = 1
 	if variableName in save_data.playerData:
 		print("found " + variableName + " in playerData!")
+		save_data.playerData[variableName] = variableValue
+		print("set " + variableName + " to " + str(variableValue))
 	elif variableName in save_data.choreData:
 		print("found " + variableName + " in choreData!")
 	elif variableName in save_data.apprenticeEndingData:
@@ -51,6 +57,7 @@ func setSaveVariable(variableName: String, variableValue):
 func getSaveVariable(variableName: String):
 	if variableName in save_data.playerData:
 		print("found " + variableName + " in playerData!")
+		return save_data.playerData[variableName]
 	elif variableName in save_data.choreData:
 		print("found " + variableName + " in choreData!")
 	elif variableName in save_data.apprenticeEndingData:
