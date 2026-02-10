@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Save_Data" format=3 uid="uid://dq5wrml0te0j3"]
 
-[ext_resource type="Script" uid="uid://bhs8rmfx5wfsr" path="res://_SaveData/SaveData_ApprenticeEnding.gd" id="1_hsxt8"]
+[ext_resource type="Script" uid="uid://bhs8rmfx5wfsr" path="res://_SaveData/SaveData_CurrentGameEnding.gd" id="1_hsxt8"]
 [ext_resource type="Script" uid="uid://dqumbu652o1om" path="res://_SaveData/SaveData.gd" id="1_jdltb"]
 [ext_resource type="Script" uid="uid://bs0ecqt2c3jqf" path="res://_SaveData/SaveData_Chores.gd" id="2_ejs8o"]
 [ext_resource type="Script" uid="uid://q21uj0318um4" path="res://_SaveData/SaveData_OtherEndings.gd" id="3_d5qkm"]

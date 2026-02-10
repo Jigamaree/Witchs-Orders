@@ -16,6 +16,7 @@ var flag_dict = {}
 
 var pitch_dict = {
 	"none": preload("res://Audio/clink1.wav"),
+	"": preload("res://Audio/clink1.wav"),
 	"MC": preload("res://Audio/voice2.wav"),
 }
 
@@ -47,8 +48,16 @@ func _ready() -> void:
 	continue_arrow.hide()
 	choice_box.hide()
 	unblock_input_after_delay()
+	inital_conversation_check()
 	#GlobalVariables.startDialogue.connect(_start_dialogue)
+	
 	set_dialogue()
+
+func inital_conversation_check():
+	if conv.has(0):
+		index = 0
+		checkValueInSave()
+	else: print("nah")
 
 func unblock_input_after_delay():
 	await get_tree().create_timer(0.3).timeout
@@ -69,6 +78,7 @@ func _process(delta: float) -> void:
 		continue_arrow.play("default")
 
 func set_dialogue():
+	print(str(index))
 	#var dlg = conv[index].dialogue
 	# Make a temp variable to make the code cleaner
 	var dlg = replace_tags()
@@ -117,7 +127,7 @@ func set_speaker_title_and_visability():
 	npc_name.text = conv[index].speaker
 	#hide name box if nobody is talking
 	
-	if npc_name.text == "none": 
+	if npc_name.text == "none" or npc_name.text == "": 
 		name_rect.visible = false
 		portrait_box.visible = false
 	else: 
@@ -228,16 +238,18 @@ func advance_line():
 		if conv[index].has("setSaveVariable"):
 			var setValueArr = conv[index].setSaveVariable
 			SaveManager.setSaveVariable(setValueArr[0],setValueArr[1])
-		if conv[index].has("getSaveVariable"):
-			pass
-			#var getValueArr = conv[index].setSaveVariable
-			#SaveManager.getSaveVariable(getValueArr)			
+									
 		if conv[index].has("set"):
 			var flag = conv[index].get("set", null)
 			set_condition(flag)		
 		if conv[index].has("goto"):
 			index = conv[index].goto
 			set_dialogue()
+		
+		# "keyToCheck": "bedroom_doorLocked", "wantedValue": "false", "goto_false": 4, "goto_true": 5			
+		elif conv[index].has("checkSaveVariable"):
+			checkValueInSave()
+			
 		# Line that checks a condition to know which line to go to next
 		elif conv[index].has("check"):
 			# Check if the condition dictionary has the condition
@@ -252,6 +264,7 @@ func advance_line():
 			else:
 				index = conv[index].check.goto_false
 			set_dialogue()
+			
 		# Line that ends the conversation
 		elif conv[index].has("end"):
 			GlobalVariables.startRegularGameplay.emit()
@@ -262,3 +275,19 @@ func advance_line():
 func set_condition(cond):
 	flag_dict[cond] = true
 	
+# popped this out so that i can use it on the onset
+func checkValueInSave():
+	# get the data to check
+	var _curr = conv[index].checkSaveVariable["keyToCheck"] 
+	var _currSavedValue = SaveManager.getSaveVariable(_curr)			
+	
+	if str(_currSavedValue) == conv[index].checkSaveVariable["wantedValue"]:
+		print("slay")
+		index = conv[index].checkSaveVariable.goto_true
+	else:
+		print("nope")
+		index = conv[index].checkSaveVariable.goto_false				
+	# If the condition dictionary doesn't have the condition, it counts as false
+	#else:
+		#index = conv[index].check.goto_false
+	set_dialogue()	

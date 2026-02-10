@@ -13,8 +13,14 @@ size = Vector2(141.75, 296.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7di5"]
 size = Vector2(154.5, 300)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5w5pd"]
+size = Vector2(131, 530)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_samf8"]
 size = Vector2(350, 290)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvee6"]
+size = Vector2(136, 163)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_axkeq"]
 size = Vector2(263, 211)
@@ -70,7 +76,8 @@ shape = SubResource("RectangleShape2D_w7di5")
 objectName = "testOfDrawers"
 
 [node name="ObjectInteract" parent="Collisions/WardrobeArea" index="0" unique_id=1854910098]
-position = Vector2(1737, 524.625)
+position = Vector2(1733.5, 523)
+shape = SubResource("RectangleShape2D_5w5pd")
 
 [node name="BedArea" parent="Collisions" unique_id=1772570814 instance=ExtResource("3_t7h02")]
 position = Vector2(826, 229)
@@ -79,6 +86,14 @@ objectName = "bed"
 [node name="ObjectInteract" parent="Collisions/BedArea" index="0" unique_id=1854910098]
 position = Vector2(153, 229)
 shape = SubResource("RectangleShape2D_samf8")
+
+[node name="WaterSidetableArea" parent="Collisions" unique_id=314117672 instance=ExtResource("3_t7h02")]
+position = Vector2(1209, 149)
+objectName = "waterSidetable"
+
+[node name="ObjectInteract" parent="Collisions/WaterSidetableArea" index="0" unique_id=1854910098]
+position = Vector2(77, 146)
+shape = SubResource("RectangleShape2D_qvee6")
 
 [node name="fallbackMarker" type="Marker2D" parent="." unique_id=1393730870 groups=["fallback"]]
 position = Vector2(962, 319)
@@ -102,7 +117,6 @@ position = Vector2(1730, 792)
 currentRoom = 2
 roomDestination = 3
 spawnDirection = 3
-isLocked = true
 
 [node name="Door_Collision" parent="Doors/Living_Door_Area2" index="0" unique_id=2029805447]
 position = Vector2(87, 151)
@@ -135,5 +149,6 @@ polygon = PackedVector2Array(102, 293, 1796, 291, 1792, 820, 1850, 818, 1849, 10
 [editable path="Collisions/windowCrowArea"]
 [editable path="Collisions/WardrobeArea"]
 [editable path="Collisions/BedArea"]
+[editable path="Collisions/WaterSidetableArea"]
 [editable path="Doors/Bathroom_Door_Area"]
 [editable path="Doors/Living_Door_Area2"]

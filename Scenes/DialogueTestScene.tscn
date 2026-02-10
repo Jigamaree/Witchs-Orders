@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bu8520cev453u" path="res://Scripts/DialogueSystem/_DialogueSystem.gd" id="1_6ary4"]
 [ext_resource type="Texture2D" uid="uid://c4e2nwvjbu6lh" path="res://Assets/Dialogue/PC Dialogue Faces/WB_TestPort2.png" id="2_0t75w"]
-[ext_resource type="Texture2D" uid="uid://bjfjm5k14gpqh" path="res://Assets/GameIcon.png" id="2_6ary4"]
+[ext_resource type="Texture2D" uid="uid://koctyopuifnq" path="res://Assets/ItemTest.png" id="2_6ary4"]
 [ext_resource type="Texture2D" uid="uid://s4vfi17oxi12" path="res://Assets/Dialogue/TextBox.png" id="2_s2uu6"]
 [ext_resource type="Texture2D" uid="uid://c30tmptca7gyg" path="res://Assets/Dialogue/CharaNameBox2.png" id="4_lthm8"]
 [ext_resource type="Texture2D" uid="uid://dyfs6dr3un8ac" path="res://Assets/Dialogue/NextArrow/continueArrow3.png" id="5_6ary4"]
