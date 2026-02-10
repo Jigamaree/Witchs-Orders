@@ -13,17 +13,6 @@ var index = 1 # Used to track the current line of dialogue within the conversati
 # Condition checks true/false can each have their own line that gets sent to, and so can each player choice
 
 var flag_dict = {} 
-# For conditions set and checked by the system
-# I would probably put this in a game manager script or similar, but if it's a small game that might not be needed
-
-# The way I do conditions, anything that the dialogue system can set is false unless the system changes it,
-#   and not being in the dictionary counts as being false
-# So you first check if the flag exists and if it doesn't it counts as false,
-#   but if it does you just then check if it's true or false
-# That way you don't have to maintain a list of every flag you want to use in game,
-#   because it's SUPER easy to forget to add one and break the system at runtime
-
-# The format for conversations; you could have a ton of these or one super dictionary with them as subdictionaries
 
 var pitch_dict = {
 	"none": preload("res://Audio/clink1.wav"),
@@ -31,7 +20,6 @@ var pitch_dict = {
 }
 
 # Image setup
-
 @onready var portTextRect: TextureRect = $Control/PortraitBox/PortTextureRect
 
 var pc_expression_dict = {
@@ -56,11 +44,6 @@ var pc_expression_dict = {
 @onready var background_image_rect: TextureRect = $Control/CenterContainer/imageDisplayRect
 
 func _ready() -> void:
-	# Load the relevant conversation; in a real game the active one would be passed in depending on who you're talking to
-	#conv = test_convo
-	
-	# format == steve_convos["attack"]
-	# = demo_conv
 	continue_arrow.hide()
 	choice_box.hide()
 	unblock_input_after_delay()
@@ -86,13 +69,14 @@ func _process(delta: float) -> void:
 		continue_arrow.play("default")
 
 func set_dialogue():
-	# Make a temp variable to make the code cleaner
 	#var dlg = conv[index].dialogue
+	# Make a temp variable to make the code cleaner
 	var dlg = replace_tags()
 	
 	set_speaker_title_and_visability()
 	set_portrait()
 	check_for_background_or_full_image()
+	set_text_alignment()
 		
 	# Set label text to line
 	dialogue.text = dlg
@@ -139,6 +123,14 @@ func set_speaker_title_and_visability():
 	else: 
 		name_rect.visible = true
 		portrait_box.visible = true	
+
+func set_text_alignment():
+	if conv[index].has("completelyCentered"):
+		dialogue.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		dialogue.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	else:
+		dialogue.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+		dialogue.vertical_alignment = VERTICAL_ALIGNMENT_TOP
 
 func set_portrait():
 	#deal with portrait

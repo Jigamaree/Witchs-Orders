@@ -1,6 +1,23 @@
 extends Node
 
 class_name testConvos
+# For conditions set and checked by the system
+# I would probably put this in a game manager script or similar, but if it's a small game that might not be needed
+
+# The way I do conditions, anything that the dialogue system can set is false unless the system changes it,
+#   and not being in the dictionary counts as being false
+# So you first check if the flag exists and if it doesn't it counts as false,
+#   but if it does you just then check if it's true or false
+# That way you don't have to maintain a list of every flag you want to use in game,
+#   because it's SUPER easy to forget to add one and break the system at runtime
+
+# The format for conversations; you could have a ton of these or one super dictionary with them as subdictionaries
+
+	# Load the relevant conversation; in a real game the active one would be passed in depending on who you're talking to
+	#conv = test_convo
+	
+	# format == steve_convos["attack"]
+	# = demo_conv
 
 static var demo_conv = {
 	1: { "speaker": "A Friend", "dialogue": "This is a simple line of dialogue!", "goto": 2 },

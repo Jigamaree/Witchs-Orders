@@ -39,7 +39,7 @@ static var sleepyroom_Convos_Dict = {
 
 		3: { "speaker": "none", "dialogue": "You hesitate briefly before trying to open the door - no luck. The door doesn't budge an inch. You'd think it stuck like glue, if the sigil didn't flare with the pressure.", "goto": 4 },
 		4: { "speaker": "none", "dialogue": "Just as you go to let go of the door, a thought thunders through your mind like a premonition.", "goto": 5 },		
-		5: { "speaker": "none", "dialogue": "%wsTo exit, you must be of more than what you are.%ws", "goto": 6 },			
+		5: { "speaker": "none", "dialogue": "%wsTo exit, you must be of more than what you are.%ws", "completelyCentered": true, "goto": 6 },			
 		6: { "speaker": "MC", "emote": "exasperated", "dialogue": "...Is this door really telling me to get dressed?", "end": true },
 		},
 		
