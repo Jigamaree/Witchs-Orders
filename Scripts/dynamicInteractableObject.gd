@@ -11,11 +11,11 @@ func _on_area_entered(area: Area2D) -> void:
 		player = area.get_parent()	
 	pass # Replace with function body.
 
-func _on_area_exited(area: Area2D) -> void: 
+func _on_area_exited(_area: Area2D) -> void: 
 	playerInArea = false
 	player = null
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if playerInArea and player:
 		var _y = player.global_position.y
 		#player is below

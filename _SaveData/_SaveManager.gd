@@ -14,9 +14,9 @@ func load_or_create():
 		#print("Save loaded.")
 	#else:
 		save_data = Save_Data.new()
-		save_data.playerData = SaveData_Knight.new()
-		save_data.choreData = SaveData_Chores.new()
-		save_data.currentGameEndingData = SaveData_CurrentGameEnding.new()
+		#save_data.playerData = SaveData_Knight.new()
+		#save_data.choreData = SaveData_Chores.new()
+		save_data.currentGameData = SaveData_CurrentGame.new()
 		save_data.persitstent_EndingRecords_data = AllEndings_SaveData.new()
 				
 		print(OS.get_user_data_dir())
@@ -29,18 +29,14 @@ func save_game():
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_debug"):
-		print(save_data.playerData.bedroom_doorUnlocked)
+		print(save_data.currentGameData.bedroom_doorLocked)
 
 func setSaveVariable(variableName: String, variableValue):
-	if variableName in save_data.playerData:						save_data.playerData[variableName] = variableValue
-	elif variableName in save_data.choreData:						save_data.choreData[variableName] = variableValue
-	elif variableName in save_data.currentGameEndingData:			save_data.currentGameEndingData[variableName] = variableValue
+	if variableName in save_data.currentGameData:			save_data.currentGameData[variableName] = variableValue
 	elif variableName in save_data.persitstent_EndingRecords_data: 	save_data.persitstent_EndingRecords_data[variableName] = variableValue
 	else: Error.ERR_DOES_NOT_EXIST
 	
 func getSaveVariable(variableName: String):
-	if variableName in save_data.playerData:						return save_data.playerData[variableName]
-	elif variableName in save_data.choreData:						return save_data.choreData[variableName]
-	elif variableName in save_data.currentGameEndingData:			return save_data.currentGameEndingData[variableName]
+	if variableName in save_data.currentGameData:			return save_data.currentGameData[variableName]
 	elif variableName in save_data.persitstent_EndingRecords_data:	return save_data.persitstent_EndingRecords_data[variableName]
 	else: Error.ERR_DOES_NOT_EXIST	

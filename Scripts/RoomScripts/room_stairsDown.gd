@@ -4,6 +4,7 @@ class_name room_StairsDown
 var playerMovementLocked = false
 var stairs_reset_position: int = 430
 @onready var stairsSprite = $StairsSprite
+@onready var blocker = $MovingStairsArea2D
 
 @onready var backgroundColourRect: ColorRect = $BackgroundColorRect
 @onready var stairsColourRect: ColorRect = $StairsColorRect2
@@ -16,6 +17,7 @@ var stairsStartColor: Color = Color("#FFF")
 var stairsEndColor: Color = Color("#2C2D3B")
 
 var up_pressed_time: float = 0.0
+var stillmovingdown: bool = true
 
 func _ready():
 	super._ready()
@@ -24,7 +26,7 @@ func _ready():
 func _process(delta: float) -> void:
 	var target_value := 1.0
 	
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("ui_up") and stillmovingdown:
 		stairsSprite.position.y += 500 * delta
 		textRectColorChange(delta, backgroundColourRect, bgStartingColour, bgEndColour)
 		textRectColorChange(delta, stairsColourRect, stairsStartColor, stairsEndColor)		
@@ -35,8 +37,9 @@ func _process(delta: float) -> void:
 	if stairsSprite.position.y >= stairs_reset_position * 2:
 		stairsSprite.position.y = stairs_reset_position
 
-	if up_pressed_time >= 10:
-		print("!!!!")
+	if up_pressed_time >= 10 and blocker:
+		blocker.queue_free()
+		stillmovingdown = false
 	
 
 func textRectColorChange(delta: float, rect: ColorRect, _sc: Color, _ec: Color):

@@ -63,7 +63,7 @@ func unblock_input_after_delay():
 	await get_tree().create_timer(0.3).timeout
 	inital_input_blocked = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if text_finished and choice_box.visible == true:
 		print("keyboard select?")
 	
