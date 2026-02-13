@@ -11,7 +11,7 @@
 blend_mode = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5km5"]
-size = Vector2(405, 330)
+size = Vector2(405, 98)
 
 [node name="Room_StairsDown" type="Node2D" unique_id=1850125149]
 script = ExtResource("1_f0fgu")
@@ -22,7 +22,7 @@ offset_left = -49.0
 offset_top = -44.0
 offset_right = 2047.0
 offset_bottom = 1140.0
-color = Color(0.22382358, 0.22382358, 0.22382355, 1)
+color = Color(0.32915837, 0.3291584, 0.3291583, 1)
 
 [node name="StairsColorRect2" type="ColorRect" parent="." unique_id=857335028]
 offset_left = 855.0
@@ -36,7 +36,6 @@ position = Vector2(960, 171)
 texture = ExtResource("1_mhvmm")
 
 [node name="Sprite2D" type="Sprite2D" parent="StairsSprite" unique_id=240538886]
-visible = false
 material = SubResource("CanvasItemMaterial_mhfm6")
 position = Vector2(-1, -2)
 texture = ExtResource("2_f0fgu")
@@ -48,7 +47,7 @@ offset_bottom = 40.0
 [node name="MovingStairsArea2D" type="Area2D" parent="." unique_id=2059733167]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingStairsArea2D" unique_id=1611030341]
-position = Vector2(970, 417)
+position = Vector2(970, 420)
 shape = SubResource("RectangleShape2D_h5km5")
 
 [node name="Door_Area" parent="." unique_id=974499172 instance=ExtResource("5_h5km5")]

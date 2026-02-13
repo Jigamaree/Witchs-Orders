@@ -79,3 +79,9 @@ position = Vector2(114, 120)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1136635451]
 visible = false
+
+[node name="playerCollisionShape2D2" type="Area2D" parent="." unique_id=1109079532 groups=["player", "playerBody"]]
+position = Vector2(111.5, 124)
+
+[node name="playerCollisionShape2D3" type="CollisionShape2D" parent="playerCollisionShape2D2" unique_id=105145017 groups=["player", "playerBody"]]
+shape = SubResource("RectangleShape2D_5gnj7")
