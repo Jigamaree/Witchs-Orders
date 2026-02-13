@@ -4,6 +4,8 @@ signal changingScene(sceneFrom, sceneTo)
 signal startDialogue(objectInteractedWith)
 signal pauseRegularGameplay()
 signal startRegularGameplay()
+signal stopUpwardYMovement()
+signal startUpwardYMovement()
 
 enum interactableType {
 	OBJECT,
@@ -21,6 +23,7 @@ enum roomsInHouse {
 	KITCHEN,
 	GARDEN,
 	STUDY,
+	STAIRS_TO_PIT,
 	PIT_ROOM,
 	FRONT_GARDEN,
 }

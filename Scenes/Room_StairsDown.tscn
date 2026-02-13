@@ -1,8 +1,77 @@
 [gd_scene format=3 uid="uid://8a332bhyqb0m"]
 
-[ext_resource type="PackedScene" uid="uid://mfyiyjn3xqfg" path="res://Scenes/AssetScenes/PlayerCharacter.tscn" id="1_y26w8"]
+[ext_resource type="Script" uid="uid://b81tkgs30wnxp" path="res://Scripts/RoomScripts/room_stairsDown.gd" id="1_f0fgu"]
+[ext_resource type="Texture2D" uid="uid://cuwjf1u18k23c" path="res://Assets/Backgrounds/WB_StairsToPit.png" id="1_mhvmm"]
+[ext_resource type="Texture2D" uid="uid://bxxp4djqn3lla" path="res://Assets/Backgrounds/WB_StairsToPit_Shading.png" id="2_f0fgu"]
+[ext_resource type="PackedScene" uid="uid://dmkvvkru1sug5" path="res://Scenes/AssetScenes/Door_Default.tscn" id="5_h5km5"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_h5km5"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mhfm6"]
+blend_mode = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5km5"]
+size = Vector2(405, 330)
 
 [node name="Room_StairsDown" type="Node2D" unique_id=1850125149]
+script = ExtResource("1_f0fgu")
 
-[node name="PlayerCharacter" parent="." unique_id=725370827 instance=ExtResource("1_y26w8")]
-position = Vector2(822, 474)
+[node name="BackgroundColorRect" type="ColorRect" parent="." unique_id=1170548436]
+z_index = -2
+offset_left = -49.0
+offset_top = -44.0
+offset_right = 2047.0
+offset_bottom = 1140.0
+color = Color(0.22382358, 0.22382358, 0.22382355, 1)
+
+[node name="StairsColorRect2" type="ColorRect" parent="." unique_id=857335028]
+offset_left = 855.0
+offset_top = -74.0
+offset_right = 1064.0
+offset_bottom = 1084.0
+
+[node name="StairsSprite" type="Sprite2D" parent="." unique_id=658030273]
+material = SubResource("CanvasItemMaterial_h5km5")
+position = Vector2(960, 171)
+texture = ExtResource("1_mhvmm")
+
+[node name="Sprite2D" type="Sprite2D" parent="StairsSprite" unique_id=240538886]
+visible = false
+material = SubResource("CanvasItemMaterial_mhfm6")
+position = Vector2(-1, -2)
+texture = ExtResource("2_f0fgu")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1811712205]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MovingStairsArea2D" type="Area2D" parent="." unique_id=2059733167]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingStairsArea2D" unique_id=1611030341]
+position = Vector2(970, 417)
+shape = SubResource("RectangleShape2D_h5km5")
+
+[node name="Door_Area" parent="." unique_id=974499172 instance=ExtResource("5_h5km5")]
+position = Vector2(961, 979)
+
+[node name="Door_Collision" parent="Door_Area" index="0" unique_id=2029805447]
+position = Vector2(0, 94.5)
+
+[node name="Door_Marker" parent="Door_Area" index="1" unique_id=126591328]
+position = Vector2(-333, -200)
+
+[node name="RoomBoundary" type="StaticBody2D" parent="." unique_id=632321887]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="RoomBoundary" unique_id=1192240688]
+position = Vector2(5, 5)
+build_mode = 1
+polygon = PackedVector2Array(850, 7, 856, 1084, 1057, 1088, 1067, -2)
+
+[node name="fallbackMarker" type="Marker2D" parent="RoomBoundary" unique_id=2007255436 groups=["fallback"]]
+position = Vector2(796.99994, 813.99994)
+rotation = -1.3089969
+
+[connection signal="area_entered" from="MovingStairsArea2D" to="." method="_on_moving_stairs_area_2d_area_entered"]
+[connection signal="area_exited" from="MovingStairsArea2D" to="." method="_on_moving_stairs_area_2d_area_exited"]
+
+[editable path="Door_Area"]

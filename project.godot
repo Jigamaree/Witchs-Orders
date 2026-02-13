@@ -59,6 +59,7 @@ door=""
 entity=""
 fallback=""
 playerInteractNode=""
+playerBody=""
 
 [input]
 
