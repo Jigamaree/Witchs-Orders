@@ -65,6 +65,8 @@ rotation = -1.3089969
 
 [node name="Door_Area" parent="." unique_id=974499172 instance=ExtResource("2_vp52i")]
 position = Vector2(1657, 890)
+currentRoom = 1
+roomDestination = 2
 
 [node name="Door_Marker" parent="Door_Area" index="1" unique_id=126591328]
 position = Vector2(-270, -93)

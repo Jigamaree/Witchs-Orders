@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://jywaefgdvso6"]
+
+[ext_resource type="Script" uid="uid://by0ayjefp5ll7" path="res://Scripts/RoomScripts/room_bathroom.gd" id="1_osedi"]
+[ext_resource type="Texture2D" uid="uid://btjkl71ct0m02" path="res://Assets/Backgrounds/CellarFinal.png" id="2_dylba"]
+[ext_resource type="PackedScene" uid="uid://cbuw6o5y7vsaw" path="res://Scenes/AssetScenes/dynamicInteractableObject.tscn" id="3_58l3h"]
+[ext_resource type="Texture2D" uid="uid://bvtj71g77dute" path="res://Assets/InScene Items/Cellar - Sacks.png" id="4_osedi"]
+[ext_resource type="Texture2D" uid="uid://cpii1nxjiijdn" path="res://Assets/InScene Items/Cellar - Table.png" id="5_gn8sj"]
+[ext_resource type="PackedScene" uid="uid://dmkvvkru1sug5" path="res://Scenes/AssetScenes/Door_Default.tscn" id="5_q7aoy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3udo"]
+size = Vector2(412.5, 55.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hq3a"]
+size = Vector2(577.75, 152)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_osedi"]
+size = Vector2(200, 239)
+
+[node name="RoomCellar" type="Node2D" unique_id=940703355]
+script = ExtResource("1_osedi")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1710820961]
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+texture = ExtResource("2_dylba")
+
+[node name="DynamicObject" type="Node2D" parent="." unique_id=192779425]
+
+[node name="Sacks" parent="DynamicObject" unique_id=346532964 instance=ExtResource("3_58l3h")]
+z_index = 1
+
+[node name="Sprite2D" parent="DynamicObject/Sacks" index="1" unique_id=1783952993]
+position = Vector2(665, 823)
+texture = ExtResource("4_osedi")
+
+[node name="StaticBody2D" parent="DynamicObject/Sacks" index="2" unique_id=1731382922]
+visible = true
+
+[node name="Collision" parent="DynamicObject/Sacks/StaticBody2D" index="0" unique_id=2126398544]
+visible = true
+position = Vector2(663.75, 888.75)
+shape = SubResource("RectangleShape2D_p3udo")
+
+[node name="TableArea" parent="DynamicObject" unique_id=965086770 instance=ExtResource("3_58l3h")]
+z_index = 1
+
+[node name="ObjectInteract" parent="DynamicObject/TableArea" index="0" unique_id=1854910098]
+disabled = true
+
+[node name="Sprite2D" parent="DynamicObject/TableArea" index="1" unique_id=1783952993]
+position = Vector2(1159, 814)
+texture = ExtResource("5_gn8sj")
+
+[node name="StaticBody2D" parent="DynamicObject/TableArea" index="2" unique_id=1731382922]
+visible = true
+
+[node name="Collision" parent="DynamicObject/TableArea/StaticBody2D" index="0" unique_id=2126398544]
+visible = true
+position = Vector2(1161.125, 842)
+shape = SubResource("RectangleShape2D_4hq3a")
+
+[node name="RoomBoundary" type="StaticBody2D" parent="." unique_id=1165903164]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomBoundary" unique_id=1423180495]
+build_mode = 1
+polygon = PackedVector2Array(452, 193, 452, 916, 1452, 920, 1450, 184, 1331, 191, 1324, -4, 1099, -7, 1100, 200)
+
+[node name="fallbackMarker" type="Marker2D" parent="." unique_id=1647380448 groups=["fallback"]]
+position = Vector2(900, 512)
+rotation = -1.3089969
+
+[node name="Door_Area" parent="." unique_id=974499172 instance=ExtResource("5_q7aoy")]
+position = Vector2(1192, 247)
+currentRoom = 5
+roomDestination = 4
+
+[node name="Door_Collision" parent="Door_Area" index="0" unique_id=2029805447]
+position = Vector2(22, -124.5)
+shape = SubResource("RectangleShape2D_osedi")
+
+[node name="Door_Marker" parent="Door_Area" index="1" unique_id=126591328]
+position = Vector2(-62, -223)
+
+[editable path="DynamicObject/Sacks"]
+[editable path="DynamicObject/TableArea"]
+[editable path="Door_Area"]

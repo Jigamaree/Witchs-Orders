@@ -46,7 +46,7 @@ folder_colors={
 "res://Scenes/AssetScenes/": "red",
 "res://Scripts/": "blue",
 "res://Scripts/DialogueSystem/": "red",
-"res://Scripts/GlobalScripts/": "yellow",
+"res://Scripts/GlobalScripts/": "gray",
 "res://Scripts/RoomScripts/": "green",
 "res://_SaveData/": "red"
 }

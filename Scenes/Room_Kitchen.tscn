@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://2jvjhypbd8l3"]
+
+[ext_resource type="Script" uid="uid://cnmjqr8hiunef" path="res://Scripts/RoomScripts/room_kitchen.gd" id="1_uo4rx"]
+[ext_resource type="Texture2D" uid="uid://blx4l3cpqlxup" path="res://Assets/Backgrounds/KitchenFinal.png" id="2_xv3t2"]
+[ext_resource type="Texture2D" uid="uid://c1atlq3btb8a8" path="res://Assets/InScene Items/Kitchen - Front Bench.png" id="3_x6as4"]
+[ext_resource type="Texture2D" uid="uid://cif0qah0wsywl" path="res://Assets/InScene Items/Kitchen - Middle Bench.png" id="4_uo4rx"]
+[ext_resource type="PackedScene" uid="uid://cbuw6o5y7vsaw" path="res://Scenes/AssetScenes/dynamicInteractableObject.tscn" id="4_x6as4"]
+[ext_resource type="PackedScene" uid="uid://dmkvvkru1sug5" path="res://Scenes/AssetScenes/Door_Default.tscn" id="5_jqrqp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6as4"]
+size = Vector2(717, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uo4rx"]
+size = Vector2(715, 16.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d17g6"]
+size = Vector2(1242, 40.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5mhq"]
+size = Vector2(229, 226)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3cl6"]
+size = Vector2(247, 260)
+
+[node name="RoomKitchen" type="Node2D" unique_id=940703355]
+script = ExtResource("1_uo4rx")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1710820961]
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+texture = ExtResource("2_xv3t2")
+
+[node name="RoomItems" type="Node2D" parent="." unique_id=1092708632]
+
+[node name="KitchenFrontBench" type="Sprite2D" parent="RoomItems" unique_id=1635250481]
+z_index = 2
+position = Vector2(585, 768)
+texture = ExtResource("3_x6as4")
+
+[node name="KitchenMiddleBench" parent="RoomItems" unique_id=346532964 instance=ExtResource("4_x6as4")]
+position = Vector2(489, 555)
+interactable = false
+
+[node name="ObjectInteract" parent="RoomItems/KitchenMiddleBench" index="0" unique_id=1854910098]
+position = Vector2(462.5, 45)
+shape = SubResource("RectangleShape2D_x6as4")
+
+[node name="Sprite2D" parent="RoomItems/KitchenMiddleBench" index="1" unique_id=1783952993]
+position = Vector2(461, 41)
+texture = ExtResource("4_uo4rx")
+
+[node name="StaticBody2D" parent="RoomItems/KitchenMiddleBench" index="2" unique_id=1731382922]
+visible = true
+
+[node name="Collision" parent="RoomItems/KitchenMiddleBench/StaticBody2D" index="0" unique_id=2126398544]
+visible = true
+position = Vector2(466, 36)
+shape = SubResource("RectangleShape2D_uo4rx")
+
+[node name="Collisions" type="Node2D" parent="." unique_id=547089238]
+position = Vector2(1542, 804)
+
+[node name="BackCounterStaticBody2D" type="StaticBody2D" parent="Collisions" unique_id=1250252564]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/BackCounterStaticBody2D" unique_id=1676118311]
+position = Vector2(-409, -568)
+shape = SubResource("RectangleShape2D_d17g6")
+debug_color = Color(0.9843001, 0, 0.3493436, 0.41960785)
+
+[node name="FrontCounterBody2d" type="StaticBody2D" parent="Collisions" unique_id=589046854]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Collisions/FrontCounterBody2d" unique_id=1935932954]
+position = Vector2(-703, -70)
+polygon = PackedVector2Array(-764, -62, -525, -66, -522, 159, 250, 165, 254, 230, -769, 226)
+
+[node name="fallbackMarker" type="Marker2D" parent="." unique_id=1647380448 groups=["fallback"]]
+position = Vector2(1346, 540)
+rotation = -1.3089969
+
+[node name="Doors" type="Node2D" parent="." unique_id=981873883]
+
+[node name="LoungeDoor_Area" parent="Doors" unique_id=974499172 instance=ExtResource("5_jqrqp")]
+position = Vector2(1910, 858)
+currentRoom = 4
+roomDestination = 3
+
+[node name="Door_Marker" parent="Doors/LoungeDoor_Area" index="1" unique_id=126591328]
+position = Vector2(-258, -112)
+
+[node name="CellarDoor_Area" parent="Doors" unique_id=347536517 instance=ExtResource("5_jqrqp")]
+position = Vector2(1525, 1062)
+currentRoom = 4
+roomDestination = 5
+
+[node name="Door_Collision" parent="Doors/CellarDoor_Area" index="0" unique_id=2029805447]
+position = Vector2(15.5, 7)
+shape = SubResource("RectangleShape2D_s5mhq")
+
+[node name="Door_Marker" parent="Doors/CellarDoor_Area" index="1" unique_id=126591328]
+position = Vector2(-77, -178)
+
+[node name="PitRoomDoor_Area" parent="Doors" unique_id=739315607 instance=ExtResource("5_jqrqp")]
+position = Vector2(360, 232)
+currentRoom = 4
+roomDestination = 8
+
+[node name="Door_Collision" parent="Doors/PitRoomDoor_Area" index="0" unique_id=2029805447]
+position = Vector2(-29, -29)
+shape = SubResource("RectangleShape2D_t3cl6")
+
+[node name="Door_Marker" parent="Doors/PitRoomDoor_Area" index="1" unique_id=126591328]
+position = Vector2(-137, -116)
+
+[node name="baseCover_Door_Area2" parent="Doors" unique_id=619099073 instance=ExtResource("5_jqrqp")]
+position = Vector2(360, 232)
+currentRoom = 4
+roomDestination = 9
+
+[node name="Door_Collision" parent="Doors/baseCover_Door_Area2" index="0" unique_id=2029805447]
+position = Vector2(-29, -29)
+shape = SubResource("RectangleShape2D_t3cl6")
+disabled = true
+
+[node name="Door_Marker" parent="Doors/baseCover_Door_Area2" index="1" unique_id=126591328]
+position = Vector2(-137, -116)
+
+[node name="RoomBoundary" type="StaticBody2D" parent="." unique_id=1165903164]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomBoundary" unique_id=1423180495]
+build_mode = 1
+polygon = PackedVector2Array(77, 130, 76, 960, 1427, 961, 1430, 1063, 1644, 1065, 1644, 960, 1859, 957, 1866, 754, 1754, 752, 1756, 131)
+
+[editable path="RoomItems/KitchenMiddleBench"]
+[editable path="Doors/LoungeDoor_Area"]
+[editable path="Doors/CellarDoor_Area"]
+[editable path="Doors/PitRoomDoor_Area"]
+[editable path="Doors/baseCover_Door_Area2"]

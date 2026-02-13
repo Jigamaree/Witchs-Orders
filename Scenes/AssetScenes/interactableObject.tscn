@@ -7,7 +7,6 @@ size = Vector2(139, 128)
 
 [node name="ObjectArea" type="Area2D" unique_id=346532964 groups=["interactable"]]
 script = ExtResource("1_wup5l")
-objectName = "war"
 
 [node name="ObjectInteract" type="CollisionShape2D" parent="." unique_id=1854910098]
 position = Vector2(73, 64)

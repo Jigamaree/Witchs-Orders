@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://b1rc8e7rp6m7f"]
+
+[ext_resource type="Script" uid="uid://b78gcb16ocom5" path="res://Scenes/room_thePit.gd" id="1_5cf0v"]
+[ext_resource type="Texture2D" uid="uid://df54bluypejb0" path="res://Assets/Backgrounds/ThePitFinal.png" id="2_87nvn"]
+[ext_resource type="Texture2D" uid="uid://bxoxs305n21gy" path="res://Assets/InScene Items/The Pit - Tentacles.png" id="4_keiyp"]
+[ext_resource type="PackedScene" uid="uid://b7p2es7o1w6co" path="res://Scenes/AssetScenes/interactableObject.tscn" id="4_tjy30"]
+[ext_resource type="PackedScene" uid="uid://dmkvvkru1sug5" path="res://Scenes/AssetScenes/Door_Default.tscn" id="12_0xpfu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8h1p"]
+size = Vector2(709, 313)
+
+[node name="RoomThePit" type="Node2D" unique_id=1548855678]
+script = ExtResource("1_5cf0v")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1441383783]
+offset_right = 1920.0
+offset_bottom = 1500.0
+texture = ExtResource("2_87nvn")
+
+[node name="fallbackMarker" type="Marker2D" parent="." unique_id=1393730870 groups=["fallback"]]
+position = Vector2(878, 1261)
+
+[node name="CameraThings" type="Node2D" parent="." unique_id=830525890]
+
+[node name="Camera2D" type="Camera2D" parent="CameraThings" unique_id=300892772]
+position = Vector2(960, 540)
+
+[node name="CameraMarkerUpper" type="Marker2D" parent="CameraThings" unique_id=2062819970]
+position = Vector2(964, 555)
+
+[node name="CameraMarkerLower" type="Marker2D" parent="CameraThings" unique_id=373177944]
+position = Vector2(958, 964)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1646443899]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D" unique_id=2068518300]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/StaticBody2D" unique_id=2140624329]
+polygon = PackedVector2Array(870, 524, 747, 552, 662, 593, 608, 652, 594, 705, 1304, 706, 1299, 644, 1246, 597, 1161, 552, 1051, 529, 953, 522)
+
+[node name="Doors" type="Node2D" parent="." unique_id=122717315]
+
+[node name="Door_Area" parent="Doors" unique_id=974499172 instance=ExtResource("12_0xpfu")]
+position = Vector2(955, 1394)
+currentRoom = 9
+roomDestination = 4
+
+[node name="Door_Marker" parent="Doors/Door_Area" index="1" unique_id=126591328]
+position = Vector2(-82, -98)
+
+[node name="Door_Area2" parent="Doors" unique_id=773673692 instance=ExtResource("12_0xpfu")]
+position = Vector2(955, 1394)
+currentRoom = 9
+roomDestination = 8
+
+[node name="Door_Collision" parent="Doors/Door_Area2" index="0" unique_id=2029805447]
+disabled = true
+
+[node name="Door_Marker" parent="Doors/Door_Area2" index="1" unique_id=126591328]
+position = Vector2(-82, -98)
+
+[node name="RoomBoundary" type="StaticBody2D" parent="." unique_id=1165903164]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomBoundary" unique_id=216016473]
+build_mode = 1
+polygon = PackedVector2Array(860, 1492, 862, 1207, 452, 1209, 458, 122, 1448, 122, 1454, 1213, 1065, 1207, 1069, 1494)
+
+[node name="ThePit" parent="." unique_id=346532964 instance=ExtResource("4_tjy30")]
+position = Vector2(2255, 728)
+objectName = "thePit"
+
+[node name="ObjectInteract" parent="ThePit" index="0" unique_id=1854910098]
+position = Vector2(-1298.5, -50.5)
+shape = SubResource("RectangleShape2D_o8h1p")
+debug_color = Color(0.95138437, 7.70092e-07, 0.56635123, 0.41960785)
+
+[node name="Tentacles" type="Sprite2D" parent="." unique_id=644825793]
+visible = false
+position = Vector2(970, 584)
+texture = ExtResource("4_keiyp")
+
+[editable path="Doors/Door_Area"]
+[editable path="Doors/Door_Area2"]
+[editable path="ThePit"]

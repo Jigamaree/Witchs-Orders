@@ -21,6 +21,7 @@ enum roomsInHouse {
 	SLEEPYROOM,
 	LIVING_ROOM,
 	KITCHEN,
+	CELLAR,
 	GARDEN,
 	STUDY,
 	STAIRS_TO_PIT,
@@ -34,5 +35,7 @@ func roomToString (room: int) -> String:
 		roomsInHouse.BATHROOM: 		return "Bathroom"
 		roomsInHouse.SLEEPYROOM:	return "Bedroom (Sleepyroom)"
 		roomsInHouse.LIVING_ROOM:	return "Living Room"
+		roomsInHouse.STAIRS_TO_PIT: return "Stairs"
+		roomsInHouse.PIT_ROOM: 		return "The Pit"
 		
 		_: return "ERROR"

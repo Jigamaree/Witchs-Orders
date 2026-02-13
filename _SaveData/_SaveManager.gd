@@ -29,7 +29,7 @@ func save_game():
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_debug"):
-		print(save_data.currentGameData.bedroom_doorLocked)
+		print(save_data.currentGameData.thePit_hasCompletedStaircase)
 
 func setSaveVariable(variableName: String, variableValue):
 	if variableName in save_data.currentGameData:			save_data.currentGameData[variableName] = variableValue

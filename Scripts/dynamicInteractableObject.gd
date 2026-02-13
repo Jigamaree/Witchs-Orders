@@ -4,6 +4,7 @@ class_name dynamicInteractableObject
 var playerInArea: bool = false
 var player: Node2D
 @onready var sprite: Sprite2D = $Sprite2D
+@export var interactable: bool = true
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player") and !area.is_in_group("playerInteractNode"): 
@@ -25,3 +26,5 @@ func _process(_delta: float) -> void:
 		else:
 			z_index = 2
 			
+func interact() -> void:
+	if interactable: super.interact()

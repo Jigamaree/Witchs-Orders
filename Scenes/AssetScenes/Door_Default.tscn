@@ -7,8 +7,6 @@ size = Vector2(326, 211.5)
 
 [node name="Door_Area" type="Area2D" unique_id=974499172 groups=["door", "interactable"]]
 script = ExtResource("1_qb6w2")
-currentRoom = 1
-roomDestination = 2
 
 [node name="Door_Collision" type="CollisionShape2D" parent="." unique_id=2029805447]
 shape = SubResource("RectangleShape2D_j1rt5")

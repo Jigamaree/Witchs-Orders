@@ -3,8 +3,6 @@ extends Resource
 class_name Save_Data
 
 ### SINGLE SAVE DATA ###
-#@export var playerData: 					SaveData_Knight
-#@export var choreData: 					SaveData_Chores
 @export var currentGameData: 			SaveData_CurrentGame
 
 #### PERSISTENT SAVE DATA ###
