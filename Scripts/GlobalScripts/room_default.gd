@@ -16,6 +16,7 @@ func _ready():
 	find_player_location()
 	GlobalVariables.startDialogue.connect(_on_start_dialogue)
 	#else call player spawn on fallback place
+	#want a method in here that loads room-specific flags in here and applies that to objects if possible!
 	
 func find_player_location():
 	if NavMan.changed_scene_before == true:

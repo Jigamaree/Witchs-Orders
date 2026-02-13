@@ -34,6 +34,23 @@ window/stretch/aspect="expand"
 
 movie_writer/movie_file="C:/Users/tiger/Videos/Screen Recordings/godot_recording2.avi"
 
+[file_customization]
+
+folder_colors={
+"res://Assets/": "orange",
+"res://Assets/Backgrounds/": "yellow",
+"res://Assets/Dialogue/": "green",
+"res://Assets/Ignus/": "gray",
+"res://Assets/InScene Items/": "teal",
+"res://Scenes/": "teal",
+"res://Scenes/AssetScenes/": "red",
+"res://Scripts/": "blue",
+"res://Scripts/DialogueSystem/": "red",
+"res://Scripts/GlobalScripts/": "yellow",
+"res://Scripts/RoomScripts/": "green",
+"res://_SaveData/": "red"
+}
+
 [global_group]
 
 player=""
@@ -41,6 +58,7 @@ interactable=""
 door=""
 entity=""
 fallback=""
+playerInteractNode=""
 
 [input]
 

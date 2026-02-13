@@ -48,7 +48,6 @@ static var sleepyroom_Convos_Dict = {
 		4: { "speaker": "", "dialogue": "The door will be locked.", "end": true },
 		5: { "speaker": "", "dialogue": "The door will be unlocked.", "end": true },	
 		},
-		
 				
 		"testOfDrawers":{
 		0: {"checkSaveVariable": { "keyToCheck": "bedroom_doorLocked", "wantedValue": "false", "goto_false": 1, "goto_true": 2 }},

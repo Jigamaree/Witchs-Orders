@@ -45,21 +45,23 @@ polygon = PackedVector2Array(313, 226, 313, 995, 1610, 997, 1616, 783, 1504, 782
 [node name="Collisions" type="Node2D" parent="." unique_id=547089238]
 position = Vector2(1542, 804)
 
-[node name="fallbackMarker" type="Marker2D" parent="." unique_id=1647380448 groups=["fallback"]]
-position = Vector2(1346, 540)
-rotation = -1.3089969
+[node name="RoomBoundary2" type="StaticBody2D" parent="Collisions" unique_id=74974803]
+position = Vector2(-1542, -804)
 
-[node name="RoomBoundary2" type="StaticBody2D" parent="." unique_id=74974803]
-
-[node name="CollisionPolygon2D" type="CollisionShape2D" parent="RoomBoundary2" unique_id=901836542]
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Collisions/RoomBoundary2" unique_id=901836542]
 position = Vector2(915.25, 933.25)
 shape = SubResource("RectangleShape2D_jkohm")
 one_way_collision_margin = 16.5
 
-[node name="RoomBoundary3" type="StaticBody2D" parent="." unique_id=1011152999]
+[node name="RoomBoundary3" type="StaticBody2D" parent="Collisions" unique_id=1011152999]
+position = Vector2(-1542, -804)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomBoundary3" unique_id=1814176490]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions/RoomBoundary3" unique_id=1814176490]
 polygon = PackedVector2Array(389, 573, 460, 581, 555, 631, 554, 730, 554, 841, 528, 882, 532, 906, 559, 920, 555, 946, 511, 957, 370, 956, 341, 929, 352, 908, 375, 899, 355, 854, 348, 582)
+
+[node name="fallbackMarker" type="Marker2D" parent="." unique_id=1647380448 groups=["fallback"]]
+position = Vector2(1346, 540)
+rotation = -1.3089969
 
 [node name="Door_Area" parent="." unique_id=974499172 instance=ExtResource("2_vp52i")]
 position = Vector2(1657, 890)

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cbuw6o5y7vsaw"]
+
+[ext_resource type="Script" uid="uid://tx4cyamkswoj" path="res://Scripts/dynamicInteractableObject.gd" id="1_y3mw4"]
+
+[node name="ObjectArea" type="Area2D" unique_id=346532964 groups=["interactable"]]
+script = ExtResource("1_y3mw4")
+objectName = "fallback"
+
+[node name="ObjectInteract" type="CollisionShape2D" parent="." unique_id=1854910098]
+position = Vector2(73, 64)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1783952993]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1731382922]
+visible = false
+
+[node name="Collision" type="CollisionShape2D" parent="StaticBody2D" unique_id=2126398544]
+visible = false
+debug_color = Color(0.7095001, 1.92523e-07, 0.3373963, 0.41960785)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

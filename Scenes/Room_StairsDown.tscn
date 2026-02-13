@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://8a332bhyqb0m"]
+
+[ext_resource type="PackedScene" uid="uid://mfyiyjn3xqfg" path="res://Scenes/AssetScenes/PlayerCharacter.tscn" id="1_y26w8"]
+
+[node name="Room_StairsDown" type="Node2D" unique_id=1850125149]
+
+[node name="PlayerCharacter" parent="." unique_id=725370827 instance=ExtResource("1_y26w8")]
+position = Vector2(822, 474)

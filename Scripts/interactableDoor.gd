@@ -17,6 +17,10 @@ class_name interactableDoor
 
 func interact() -> void:
 	#this should really be handled by the room_bedroom, but im lazy
+	if isLocked == false:
+		NavMan.change_scenes(currentRoom, roomDestination)
+		return
+	
 	isLocked = SaveManager.getSaveVariable("bedroom_doorLocked")
 	
 	if isLocked == true and currentRoom == GlobalVariables.roomsInHouse.SLEEPYROOM and roomDestination == GlobalVariables.roomsInHouse.LIVING_ROOM:
