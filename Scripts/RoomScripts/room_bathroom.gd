@@ -4,4 +4,4 @@ class_name bathroomScript
 
 func _ready():
 	super._ready()
-	dialogueDictionary = bathroomConvos.bathroom_Convos_Dict
+	dialogueDictionary = bathroomConvos.convos_Dict

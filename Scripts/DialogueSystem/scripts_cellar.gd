@@ -2,7 +2,7 @@ extends Node
 
 class_name CellarConvos
 
-static var cellar_Convos_Dict = {
+static var convos_Dict = {
 	"Boxes": {
 		1: { "speaker": "none", "dialogue": "Box munching dialogue goes here.", "end": true }
 		},

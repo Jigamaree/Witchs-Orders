@@ -49,7 +49,6 @@ func _ready() -> void:
 	choice_box.hide()
 	unblock_input_after_delay()
 	inital_conversation_check()
-	#GlobalVariables.startDialogue.connect(_start_dialogue)
 	
 	set_dialogue()
 

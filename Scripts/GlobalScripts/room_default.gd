@@ -41,8 +41,12 @@ func _on_start_dialogue(objectName: String):
 		return
 	dialogue_instance = dialogue_overlay.instantiate()
 	#set conversation
-	get_dialogue_entry(objectName)
 	
+	#if !dialogueDictionary.has(objectName):
+		#print("DIDNT ADD TO DICTIONARY, DUDE")
+		#GlobalVariables.startRegularGameplay.emit()
+		#return		
+	get_dialogue_entry(objectName)
 	add_child(dialogue_instance)
 
 func get_dialogue_entry(objectName: String):
@@ -51,8 +55,5 @@ func get_dialogue_entry(objectName: String):
 		return
 	if objectName == null:
 		print("ASSIGN A NAME DUDE")
-		return
-	if !dialogueDictionary.has(objectName):
-		print("INCORRECT DICT RECALL DUDE")
 		return
 	dialogue_instance.conv = dialogueDictionary[objectName]

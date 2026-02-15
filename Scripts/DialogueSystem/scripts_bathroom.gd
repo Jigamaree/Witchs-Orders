@@ -2,7 +2,7 @@ extends Node
 
 class_name bathroomConvos
 
-static var bathroom_Convos_Dict = {
+static var convos_Dict = {
 	"bandages":{
 		1: { "speaker": "", "dialogue": "[Bandage dialogue goes here.]", "end": true },		
 	},
