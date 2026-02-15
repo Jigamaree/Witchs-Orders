@@ -1,20 +1,42 @@
 [gd_scene format=3 uid="uid://jywaefgdvso6"]
 
-[ext_resource type="Script" uid="uid://by0ayjefp5ll7" path="res://Scripts/RoomScripts/room_bathroom.gd" id="1_osedi"]
+[ext_resource type="Script" uid="uid://bvd4roe1lrfsq" path="res://Scripts/RoomScripts/room_cellar.gd" id="1_osedi"]
 [ext_resource type="Texture2D" uid="uid://btjkl71ct0m02" path="res://Assets/Backgrounds/CellarFinal.png" id="2_dylba"]
 [ext_resource type="PackedScene" uid="uid://cbuw6o5y7vsaw" path="res://Scenes/AssetScenes/dynamicInteractableObject.tscn" id="3_58l3h"]
 [ext_resource type="Texture2D" uid="uid://bvtj71g77dute" path="res://Assets/InScene Items/Cellar - Sacks.png" id="4_osedi"]
 [ext_resource type="Texture2D" uid="uid://cpii1nxjiijdn" path="res://Assets/InScene Items/Cellar - Table.png" id="5_gn8sj"]
 [ext_resource type="PackedScene" uid="uid://dmkvvkru1sug5" path="res://Scenes/AssetScenes/Door_Default.tscn" id="5_q7aoy"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3udo"]
-size = Vector2(412.5, 55.5)
+[ext_resource type="PackedScene" uid="uid://b7p2es7o1w6co" path="res://Scenes/AssetScenes/interactableObject.tscn" id="6_cn5iv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hq3a"]
 size = Vector2(577.75, 152)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osedi"]
 size = Vector2(200, 370)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gn8sj"]
+size = Vector2(356, 353)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uy2q3"]
+size = Vector2(248.5, 238)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmng5"]
+size = Vector2(283, 387)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_05ixj"]
+size = Vector2(182, 261)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1u4x"]
+size = Vector2(219, 238)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7aoy"]
+size = Vector2(400.5, 191)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3udo"]
+size = Vector2(412.5, 55.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cn5iv"]
+size = Vector2(112, 237)
 
 [node name="RoomCellar" type="Node2D" unique_id=940703355]
 script = ExtResource("1_osedi")
@@ -26,21 +48,6 @@ size_flags_horizontal = 3
 texture = ExtResource("2_dylba")
 
 [node name="DynamicObject" type="Node2D" parent="." unique_id=192779425]
-
-[node name="Sacks" parent="DynamicObject" unique_id=346532964 instance=ExtResource("3_58l3h")]
-z_index = 1
-
-[node name="Sprite2D" parent="DynamicObject/Sacks" index="1" unique_id=1783952993]
-position = Vector2(665, 823)
-texture = ExtResource("4_osedi")
-
-[node name="StaticBody2D" parent="DynamicObject/Sacks" index="2" unique_id=1731382922]
-visible = true
-
-[node name="Collision" parent="DynamicObject/Sacks/StaticBody2D" index="0" unique_id=2126398544]
-visible = true
-position = Vector2(663.75, 888.75)
-shape = SubResource("RectangleShape2D_p3udo")
 
 [node name="TableArea" parent="DynamicObject" unique_id=965086770 instance=ExtResource("3_58l3h")]
 z_index = 1
@@ -61,7 +68,6 @@ position = Vector2(1161.125, 842)
 shape = SubResource("RectangleShape2D_4hq3a")
 
 [node name="RoomBoundary" type="StaticBody2D" parent="." unique_id=1165903164]
-visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomBoundary" unique_id=1423180495]
 build_mode = 1
@@ -83,6 +89,84 @@ shape = SubResource("RectangleShape2D_osedi")
 [node name="Door_Marker" parent="Door_Area" index="1" unique_id=126591328]
 position = Vector2(-62, -223)
 
-[editable path="DynamicObject/Sacks"]
+[node name="Interactions" type="Node2D" parent="." unique_id=779707800]
+
+[node name="Boxes" parent="Interactions" unique_id=82740242 instance=ExtResource("6_cn5iv")]
+position = Vector2(645, 215)
+objectName = "Boxes"
+
+[node name="ObjectInteract" parent="Interactions/Boxes" index="0" unique_id=1854910098]
+position = Vector2(51, 89.5)
+shape = SubResource("RectangleShape2D_gn8sj")
+
+[node name="Cheese" parent="Interactions" unique_id=740396159 instance=ExtResource("6_cn5iv")]
+position = Vector2(768, 611)
+objectName = "Cheese"
+
+[node name="ObjectInteract" parent="Interactions/Cheese" index="0" unique_id=1854910098]
+z_index = 1
+position = Vector2(257.75, 225)
+shape = SubResource("RectangleShape2D_uy2q3")
+
+[node name="EmptyShelves" parent="Interactions" unique_id=2043538769 instance=ExtResource("6_cn5iv")]
+position = Vector2(411, 463)
+objectName = "EmptyShelves"
+
+[node name="ObjectInteract" parent="Interactions/EmptyShelves" index="0" unique_id=1854910098]
+position = Vector2(-41.5, 51.5)
+shape = SubResource("RectangleShape2D_wmng5")
+
+[node name="MeatHook" parent="Interactions" unique_id=408969142 instance=ExtResource("6_cn5iv")]
+position = Vector2(888, 56)
+objectName = "MeatHook"
+
+[node name="ObjectInteract" parent="Interactions/MeatHook" index="0" unique_id=1854910098]
+position = Vector2(94, 123.5)
+shape = SubResource("RectangleShape2D_05ixj")
+
+[node name="Milk" parent="Interactions" unique_id=1680954893 instance=ExtResource("6_cn5iv")]
+position = Vector2(1214, 725)
+objectName = "Milk"
+
+[node name="ObjectInteract" parent="Interactions/Milk" index="0" unique_id=1854910098]
+z_index = 1
+position = Vector2(92.5, 108)
+shape = SubResource("RectangleShape2D_p1u4x")
+
+[node name="Sacks" parent="Interactions" unique_id=346532964 instance=ExtResource("3_58l3h")]
+z_index = 1
+objectName = "Sacks"
+
+[node name="ObjectInteract" parent="Interactions/Sacks" index="0" unique_id=1854910098]
+position = Vector2(662.75, 821.5)
+shape = SubResource("RectangleShape2D_q7aoy")
+
+[node name="Sprite2D" parent="Interactions/Sacks" index="1" unique_id=1783952993]
+position = Vector2(665, 823)
+texture = ExtResource("4_osedi")
+
+[node name="StaticBody2D" parent="Interactions/Sacks" index="2" unique_id=1731382922]
+visible = true
+
+[node name="Collision" parent="Interactions/Sacks/StaticBody2D" index="0" unique_id=2126398544]
+visible = true
+position = Vector2(663.75, 888.75)
+shape = SubResource("RectangleShape2D_p3udo")
+
+[node name="SeedHook" parent="Interactions" unique_id=74291733 instance=ExtResource("6_cn5iv")]
+position = Vector2(1138, 504)
+objectName = "SeedHook"
+
+[node name="ObjectInteract" parent="Interactions/SeedHook" index="0" unique_id=1854910098]
+position = Vector2(253, -308.5)
+shape = SubResource("RectangleShape2D_cn5iv")
+
 [editable path="DynamicObject/TableArea"]
 [editable path="Door_Area"]
+[editable path="Interactions/Boxes"]
+[editable path="Interactions/Cheese"]
+[editable path="Interactions/EmptyShelves"]
+[editable path="Interactions/MeatHook"]
+[editable path="Interactions/Milk"]
+[editable path="Interactions/Sacks"]
+[editable path="Interactions/SeedHook"]

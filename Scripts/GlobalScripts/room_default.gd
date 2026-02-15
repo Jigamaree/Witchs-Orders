@@ -52,4 +52,7 @@ func get_dialogue_entry(objectName: String):
 	if objectName == null:
 		print("ASSIGN A NAME DUDE")
 		return
+	if !dialogueDictionary.has(objectName):
+		print("INCORRECT DICT RECALL DUDE")
+		return
 	dialogue_instance.conv = dialogueDictionary[objectName]
