@@ -20,7 +20,7 @@ func _process(_delta: float) -> void:
 	if playerInArea and player:
 		var _y = player.global_position.y
 		#player is below
-		if _y >= global_position.y -10:
+		if _y >= global_position.y - 10:
 			z_index = 0
 		#player is above	
 		else:

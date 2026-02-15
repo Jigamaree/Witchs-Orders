@@ -1,0 +1,311 @@
+[gd_scene format=3 uid="uid://e0g53w4juj0s"]
+
+[ext_resource type="Script" uid="uid://b7ld3df1h2lrf" path="res://Scenes/room_study.gd" id="1_yg8nf"]
+[ext_resource type="Texture2D" uid="uid://brgqxhsnqwu53" path="res://Assets/Backgrounds/StudyFinal.png" id="2_wifhm"]
+[ext_resource type="Texture2D" uid="uid://bfciskpeifapo" path="res://Assets/InScene Items/Study - Front Tables.png" id="3_qtfvp"]
+[ext_resource type="Texture2D" uid="uid://bfolvr6v7oaqo" path="res://Assets/InScene Items/Study - Side Shelves.png" id="3_utp08"]
+[ext_resource type="Texture2D" uid="uid://fc343yan38a6" path="res://Assets/InScene Items/Study - Pentagram.png" id="4_av878"]
+[ext_resource type="Texture2D" uid="uid://ogvlagrq570d" path="res://Assets/InScene Items/Study - PlantGuide.png" id="5_uitw5"]
+[ext_resource type="Texture2D" uid="uid://d12gu5vw816n7" path="res://Assets/InScene Items/Study - Armchair.png" id="6_cn6pw"]
+[ext_resource type="Texture2D" uid="uid://btr1tye1fyfx0" path="res://Assets/InScene Items/Living - Small Table.png" id="6_cqxoo"]
+[ext_resource type="Texture2D" uid="uid://n05vdm45uv07" path="res://Assets/InScene Items/Study - Back Table.png" id="9_0ibxn"]
+[ext_resource type="Texture2D" uid="uid://c5j7cx4qfpdkh" path="res://Assets/InScene Items/Study - Bottles (Before).png" id="10_hq7ly"]
+[ext_resource type="Texture2D" uid="uid://boywubq0n6xb1" path="res://Assets/InScene Items/Study - Cauldron.png" id="11_uhc2p"]
+[ext_resource type="Texture2D" uid="uid://dvyagdidv5ioi" path="res://Assets/InScene Items/Study - Middle Shelf.png" id="12_1jei2"]
+[ext_resource type="PackedScene" uid="uid://dmkvvkru1sug5" path="res://Scenes/AssetScenes/Door_Default.tscn" id="12_j2jkc"]
+[ext_resource type="Texture2D" uid="uid://bnrofk2r4dxh8" path="res://Assets/InScene Items/Study - Note.png" id="13_1jei2"]
+[ext_resource type="PackedScene" uid="uid://cbuw6o5y7vsaw" path="res://Scenes/AssetScenes/dynamicInteractableObject.tscn" id="13_hjbv7"]
+[ext_resource type="Texture2D" uid="uid://bw40iueqiohll" path="res://Assets/InScene Items/Study - Hangings.png" id="16_wifhm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cn6pw"]
+size = Vector2(302, 306)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xbyb"]
+size = Vector2(104, 13.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uitw5"]
+size = Vector2(152, 179)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ibxn"]
+size = Vector2(129, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhc2p"]
+size = Vector2(306.5, 293.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jei2"]
+size = Vector2(92, 28.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fggg6"]
+size = Vector2(561, 337)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hq7ly"]
+size = Vector2(434, 83)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utp08"]
+size = Vector2(907, 259)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wifhm"]
+size = Vector2(632, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_av878"]
+size = Vector2(272.5, 278.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4pnyn"]
+size = Vector2(75, 1075.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gglp"]
+size = Vector2(580, 125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmgh8"]
+size = Vector2(544, 121)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_if2p0"]
+size = Vector2(2010, 328)
+
+[node name="RoomStudy" type="Node2D" unique_id=1548855678]
+script = ExtResource("1_yg8nf")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1710820961]
+z_index = -1
+offset_left = 4.0
+offset_top = -691.0
+offset_right = 1924.0
+offset_bottom = 1189.0
+scale = Vector2(0.9, 0.9)
+size_flags_horizontal = 3
+texture = ExtResource("2_wifhm")
+
+[node name="BasicRoomItems" type="Node2D" parent="." unique_id=1711800554]
+
+[node name="StudySideShelves" type="Sprite2D" parent="BasicRoomItems" unique_id=1768071636]
+z_index = 2
+position = Vector2(1043, 56)
+texture = ExtResource("3_utp08")
+
+[node name="StudyPentagram" type="Sprite2D" parent="BasicRoomItems" unique_id=1120132662]
+position = Vector2(1037, 899)
+texture = ExtResource("4_av878")
+
+[node name="StudyFrontTables" type="Sprite2D" parent="BasicRoomItems" unique_id=2104657712]
+z_index = 1
+position = Vector2(1037, 1017)
+texture = ExtResource("3_qtfvp")
+
+[node name="StudyPlantGuide" type="Sprite2D" parent="BasicRoomItems" unique_id=243597128]
+z_index = 3
+position = Vector2(1588, 114)
+texture = ExtResource("5_uitw5")
+
+[node name="DynamicRoomItems" type="Node2D" parent="." unique_id=1329898779]
+
+[node name="ArmchairObjectArea" parent="DynamicRoomItems" unique_id=346532964 instance=ExtResource("13_hjbv7")]
+
+[node name="ObjectInteract" parent="DynamicRoomItems/ArmchairObjectArea" index="0" unique_id=1854910098]
+position = Vector2(1408.5, 37)
+shape = SubResource("RectangleShape2D_cn6pw")
+
+[node name="Sprite2D" parent="DynamicRoomItems/ArmchairObjectArea" index="1" unique_id=1783952993]
+position = Vector2(1414.5, 40)
+texture = ExtResource("6_cn6pw")
+
+[node name="StaticBody2D" parent="DynamicRoomItems/ArmchairObjectArea" index="2" unique_id=1731382922]
+visible = true
+
+[node name="Collision" parent="DynamicRoomItems/ArmchairObjectArea/StaticBody2D" index="0" unique_id=2126398544]
+visible = true
+position = Vector2(1420.5, 46.875)
+shape = SubResource("RectangleShape2D_6xbyb")
+
+[node name="PlantGuideTable" parent="DynamicRoomItems" unique_id=1057097179 instance=ExtResource("13_hjbv7")]
+
+[node name="ObjectInteract" parent="DynamicRoomItems/PlantGuideTable" index="0" unique_id=1854910098]
+position = Vector2(1587, 141.5)
+shape = SubResource("RectangleShape2D_uitw5")
+
+[node name="Sprite2D" parent="DynamicRoomItems/PlantGuideTable" index="1" unique_id=1783952993]
+position = Vector2(1588, 150)
+texture = ExtResource("6_cqxoo")
+
+[node name="StaticBody2D" parent="DynamicRoomItems/PlantGuideTable" index="2" unique_id=1731382922]
+visible = true
+
+[node name="Collision" parent="DynamicRoomItems/PlantGuideTable/StaticBody2D" index="0" unique_id=2126398544]
+visible = true
+position = Vector2(1588.5, 112)
+shape = SubResource("RectangleShape2D_0ibxn")
+
+[node name="Cauldron" parent="DynamicRoomItems" unique_id=552745865 instance=ExtResource("13_hjbv7")]
+position = Vector2(814, 763)
+
+[node name="ObjectInteract" parent="DynamicRoomItems/Cauldron" index="0" unique_id=1854910098]
+position = Vector2(225.75, 119.25)
+shape = SubResource("RectangleShape2D_uhc2p")
+
+[node name="Sprite2D" parent="DynamicRoomItems/Cauldron" index="1" unique_id=1783952993]
+position = Vector2(221, 110)
+texture = ExtResource("11_uhc2p")
+
+[node name="StaticBody2D" parent="DynamicRoomItems/Cauldron" index="2" unique_id=1731382922]
+visible = true
+
+[node name="Collision" parent="DynamicRoomItems/Cauldron/StaticBody2D" index="0" unique_id=2126398544]
+visible = true
+position = Vector2(224, 92.75)
+shape = SubResource("RectangleShape2D_1jei2")
+
+[node name="BackTable" parent="DynamicRoomItems" unique_id=1167922570 instance=ExtResource("13_hjbv7")]
+
+[node name="ObjectInteract" parent="DynamicRoomItems/BackTable" index="0" unique_id=1854910098]
+position = Vector2(753.5, 74.5)
+shape = SubResource("RectangleShape2D_fggg6")
+
+[node name="Sprite2D" parent="DynamicRoomItems/BackTable" index="1" unique_id=1783952993]
+position = Vector2(754, 72)
+texture = ExtResource("9_0ibxn")
+
+[node name="StaticBody2D" parent="DynamicRoomItems/BackTable" index="2" unique_id=1731382922]
+visible = true
+
+[node name="Collision" parent="DynamicRoomItems/BackTable/StaticBody2D" index="0" unique_id=2126398544]
+visible = true
+position = Vector2(756, 39.5)
+shape = SubResource("RectangleShape2D_hq7ly")
+
+[node name="BottlesToSort" parent="DynamicRoomItems" unique_id=1441205726 instance=ExtResource("13_hjbv7")]
+position = Vector2(738, 416)
+
+[node name="Sprite2D" parent="DynamicRoomItems/BottlesToSort" index="1" unique_id=1783952993]
+z_index = 2
+position = Vector2(897, 643)
+texture = ExtResource("10_hq7ly")
+
+[node name="MiddleShelf" parent="DynamicRoomItems" unique_id=1545558214 instance=ExtResource("13_hjbv7")]
+position = Vector2(729, 481)
+
+[node name="ObjectInteract" parent="DynamicRoomItems/MiddleShelf" index="0" unique_id=1854910098]
+position = Vector2(303.5, 13.5)
+shape = SubResource("RectangleShape2D_utp08")
+
+[node name="Sprite2D" parent="DynamicRoomItems/MiddleShelf" index="1" unique_id=1783952993]
+position = Vector2(300, 9)
+texture = ExtResource("12_1jei2")
+
+[node name="StaticBody2D" parent="DynamicRoomItems/MiddleShelf" index="2" unique_id=1731382922]
+visible = true
+
+[node name="Collision" parent="DynamicRoomItems/MiddleShelf/StaticBody2D" index="0" unique_id=2126398544]
+visible = true
+position = Vector2(301, 39)
+shape = SubResource("RectangleShape2D_wifhm")
+
+[node name="Doors" type="Node2D" parent="." unique_id=122717315]
+
+[node name="LoungeDoor_Area" parent="Doors" unique_id=974499172 instance=ExtResource("12_j2jkc")]
+position = Vector2(22, 779)
+currentRoom = 8
+roomDestination = 3
+
+[node name="Door_Collision" parent="Doors/LoungeDoor_Area" index="0" unique_id=2029805447]
+position = Vector2(18.25, 28.25)
+shape = SubResource("RectangleShape2D_av878")
+
+[node name="Door_Marker" parent="Doors/LoungeDoor_Area" index="1" unique_id=126591328]
+position = Vector2(16, -82)
+
+[node name="Collisions" type="Node2D" parent="." unique_id=547089238]
+
+[node name="LeftBooks" type="StaticBody2D" parent="Collisions" unique_id=1274955841]
+
+[node name="Collision" type="CollisionShape2D" parent="Collisions/LeftBooks" unique_id=421118486]
+position = Vector2(218.5, 2.5)
+shape = SubResource("RectangleShape2D_4pnyn")
+debug_color = Color(0.7095001, 1.92523e-07, 0.3373963, 0.41960785)
+
+[node name="RightTable" type="StaticBody2D" parent="Collisions" unique_id=713093198]
+
+[node name="Collision" type="CollisionShape2D" parent="Collisions/RightTable" unique_id=1301386887]
+position = Vector2(1615, 1095.5)
+shape = SubResource("RectangleShape2D_4gglp")
+debug_color = Color(0.7095001, 1.92523e-07, 0.3373963, 0.41960785)
+
+[node name="LeftTable" type="StaticBody2D" parent="Collisions" unique_id=1177055128]
+
+[node name="Collision" type="CollisionShape2D" parent="Collisions/LeftTable" unique_id=681438687]
+position = Vector2(456, 1097.5)
+shape = SubResource("RectangleShape2D_wmgh8")
+debug_color = Color(0.7095001, 1.92523e-07, 0.3373963, 0.41960785)
+
+[node name="RightBooks" type="StaticBody2D" parent="Collisions" unique_id=498397717]
+
+[node name="Collision" type="CollisionShape2D" parent="Collisions/RightBooks" unique_id=1493083194]
+position = Vector2(1863, -5.75)
+shape = SubResource("RectangleShape2D_4pnyn")
+debug_color = Color(0.7095001, 1.92523e-07, 0.3373963, 0.41960785)
+
+[node name="fallbackMarker" type="Marker2D" parent="." unique_id=1393730870 groups=["fallback"]]
+position = Vector2(497, 520)
+
+[node name="CameraThings" type="Node2D" parent="." unique_id=830525890]
+
+[node name="Camera2D" type="Camera2D" parent="CameraThings" unique_id=300892772]
+position = Vector2(909, 632)
+
+[node name="CameraMarkerUpperLeft" type="Marker2D" parent="CameraThings" unique_id=2062819970]
+position = Vector2(1015, -145)
+
+[node name="CameraMarkerLowerLeft" type="Marker2D" parent="CameraThings" unique_id=373177944]
+position = Vector2(884, 919)
+
+[node name="CameraMarkerFarRight" type="Marker2D" parent="CameraThings" unique_id=841674912]
+position = Vector2(1108, -146)
+
+[node name="RoomBoundary" type="StaticBody2D" parent="." unique_id=1165903164]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomBoundary" unique_id=1587405041]
+build_mode = 1
+polygon = PackedVector2Array(174, -292, 1904, -299, 1907, 1170, 171, 1169, 174, 945, 19, 947, 19, 672, 184, 672)
+
+[node name="StudyNote" type="Sprite2D" parent="." unique_id=760128525]
+z_index = 1
+position = Vector2(1431, 1003)
+texture = ExtResource("13_1jei2")
+
+[node name="Overhang" type="Node2D" parent="." unique_id=288325251]
+position = Vector2(1002, 629)
+
+[node name="StudyHangings" type="Sprite2D" parent="Overhang" unique_id=597319422]
+z_index = 3
+position = Vector2(26.976055, 4)
+scale = Vector2(1.083976, 1.0239521)
+texture = ExtResource("16_wifhm")
+
+[node name="Area2D" type="Area2D" parent="Overhang/StudyHangings" unique_id=958360681]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Overhang/StudyHangings/Area2D" unique_id=1476223621]
+position = Vector2(2, -4)
+shape = SubResource("RectangleShape2D_if2p0")
+debug_color = Color(0, 0.6463689, 0.2311137, 0.15294118)
+
+[node name="MapTopMarker" type="Marker2D" parent="Overhang" unique_id=794527019]
+position = Vector2(62, -770)
+
+[node name="MapBottomMarker" type="Marker2D" parent="Overhang" unique_id=1752743801]
+position = Vector2(46, 535)
+
+[node name="UpperHangingMarker" type="Marker2D" parent="Overhang" unique_id=1841013810]
+position = Vector2(43, -230)
+
+[node name="LowerHangingMarker" type="Marker2D" parent="Overhang" unique_id=979492978]
+position = Vector2(44, -118)
+
+[connection signal="area_entered" from="Overhang/StudyHangings/Area2D" to="." method="_on_hanging_area_entered"]
+[connection signal="area_exited" from="Overhang/StudyHangings/Area2D" to="." method="_on_hanging_area_exited"]
+
+[editable path="DynamicRoomItems/ArmchairObjectArea"]
+[editable path="DynamicRoomItems/PlantGuideTable"]
+[editable path="DynamicRoomItems/Cauldron"]
+[editable path="DynamicRoomItems/BackTable"]
+[editable path="DynamicRoomItems/BottlesToSort"]
+[editable path="DynamicRoomItems/MiddleShelf"]
+[editable path="Doors/LoungeDoor_Area"]

@@ -14,7 +14,7 @@ size = Vector2(412.5, 55.5)
 size = Vector2(577.75, 152)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osedi"]
-size = Vector2(200, 239)
+size = Vector2(200, 370)
 
 [node name="RoomCellar" type="Node2D" unique_id=940703355]
 script = ExtResource("1_osedi")
@@ -73,11 +73,11 @@ rotation = -1.3089969
 
 [node name="Door_Area" parent="." unique_id=974499172 instance=ExtResource("5_q7aoy")]
 position = Vector2(1192, 247)
-currentRoom = 5
-roomDestination = 4
+currentRoom = 6
+roomDestination = 5
 
 [node name="Door_Collision" parent="Door_Area" index="0" unique_id=2029805447]
-position = Vector2(22, -124.5)
+position = Vector2(22, -190)
 shape = SubResource("RectangleShape2D_osedi")
 
 [node name="Door_Marker" parent="Door_Area" index="1" unique_id=126591328]

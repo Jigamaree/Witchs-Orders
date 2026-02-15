@@ -82,7 +82,7 @@ rotation = -1.3089969
 
 [node name="LoungeDoor_Area" parent="Doors" unique_id=974499172 instance=ExtResource("5_jqrqp")]
 position = Vector2(1910, 858)
-currentRoom = 4
+currentRoom = 5
 roomDestination = 3
 
 [node name="Door_Marker" parent="Doors/LoungeDoor_Area" index="1" unique_id=126591328]
@@ -90,8 +90,8 @@ position = Vector2(-258, -112)
 
 [node name="CellarDoor_Area" parent="Doors" unique_id=347536517 instance=ExtResource("5_jqrqp")]
 position = Vector2(1525, 1062)
-currentRoom = 4
-roomDestination = 5
+currentRoom = 5
+roomDestination = 6
 
 [node name="Door_Collision" parent="Doors/CellarDoor_Area" index="0" unique_id=2029805447]
 position = Vector2(15.5, 7)
@@ -102,8 +102,8 @@ position = Vector2(-77, -178)
 
 [node name="PitRoomDoor_Area" parent="Doors" unique_id=739315607 instance=ExtResource("5_jqrqp")]
 position = Vector2(360, 232)
-currentRoom = 4
-roomDestination = 8
+currentRoom = 5
+roomDestination = 9
 
 [node name="Door_Collision" parent="Doors/PitRoomDoor_Area" index="0" unique_id=2029805447]
 position = Vector2(-29, -29)
@@ -114,8 +114,8 @@ position = Vector2(-137, -116)
 
 [node name="baseCover_Door_Area2" parent="Doors" unique_id=619099073 instance=ExtResource("5_jqrqp")]
 position = Vector2(360, 232)
-currentRoom = 4
-roomDestination = 9
+currentRoom = 5
+roomDestination = 10
 
 [node name="Door_Collision" parent="Doors/baseCover_Door_Area2" index="0" unique_id=2029805447]
 position = Vector2(-29, -29)

@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://butqddyex08r5"]
+
+[ext_resource type="Script" uid="uid://by0ayjefp5ll7" path="res://Scripts/RoomScripts/room_bathroom.gd" id="1_m0voj"]
+[ext_resource type="Texture2D" uid="uid://dri6mdv8622qe" path="res://Assets/Backgrounds/FrontDoorFinal.png" id="2_jkaey"]
+[ext_resource type="Texture2D" uid="uid://b21o045ijha4c" path="res://Assets/InScene Items/Front Door - Plant (Alive).png" id="3_c6ueq"]
+[ext_resource type="Texture2D" uid="uid://kcr3knj45y7e" path="res://Assets/InScene Items/Front Door - Plant (Dead).png" id="4_m0voj"]
+[ext_resource type="PackedScene" uid="uid://dmkvvkru1sug5" path="res://Scenes/AssetScenes/Door_Default.tscn" id="6_n56jo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_osedi"]
+size = Vector2(243, 239)
+
+[node name="RoomFrontDoor" type="Node2D" unique_id=940703355]
+script = ExtResource("1_m0voj")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1710820961]
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+texture = ExtResource("2_jkaey")
+
+[node name="Sprites" type="Node2D" parent="." unique_id=192779425]
+
+[node name="FrontDoorPlant(alive)" type="Sprite2D" parent="Sprites" unique_id=852671337]
+visible = false
+position = Vector2(961, 203)
+texture = ExtResource("3_c6ueq")
+
+[node name="FrontDoorPlant(dead)" type="Sprite2D" parent="Sprites" unique_id=648451002]
+position = Vector2(740, 364)
+texture = ExtResource("4_m0voj")
+
+[node name="RoomBoundary" type="StaticBody2D" parent="." unique_id=1165903164]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomBoundary" unique_id=1423180495]
+build_mode = 1
+polygon = PackedVector2Array(836, 754, 831, 1079, 1081, 1077, 1082, 755, 1521, 752, 1522, 282, 396, 285, 397, 751)
+
+[node name="fallbackMarker" type="Marker2D" parent="." unique_id=1647380448 groups=["fallback"]]
+position = Vector2(900, 512)
+rotation = -1.3089969
+
+[node name="Door_Area" parent="." unique_id=974499172 instance=ExtResource("6_n56jo")]
+position = Vector2(1192, 247)
+currentRoom = 4
+roomDestination = 3
+
+[node name="Door_Collision" parent="Door_Area" index="0" unique_id=2029805447]
+position = Vector2(-233.5, 710)
+shape = SubResource("RectangleShape2D_osedi")
+
+[node name="Door_Marker" parent="Door_Area" index="1" unique_id=126591328]
+position = Vector2(-346, 599)
+
+[editable path="Door_Area"]

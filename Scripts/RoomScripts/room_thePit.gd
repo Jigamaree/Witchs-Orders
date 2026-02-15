@@ -13,8 +13,6 @@ func _ready():
 	await get_tree().process_frame
 	camera.global_position.y = lower_marker.global_position.y
 
-
-
 func _process(_delta: float) -> void:		
 	var target_y = player.global_position.y
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b1rc8e7rp6m7f"]
 
-[ext_resource type="Script" uid="uid://b78gcb16ocom5" path="res://Scenes/room_thePit.gd" id="1_5cf0v"]
+[ext_resource type="Script" uid="uid://b78gcb16ocom5" path="res://Scripts/RoomScripts/room_thePit.gd" id="1_5cf0v"]
 [ext_resource type="Texture2D" uid="uid://df54bluypejb0" path="res://Assets/Backgrounds/ThePitFinal.png" id="2_87nvn"]
 [ext_resource type="Texture2D" uid="uid://bxoxs305n21gy" path="res://Assets/InScene Items/The Pit - Tentacles.png" id="4_keiyp"]
 [ext_resource type="PackedScene" uid="uid://b7p2es7o1w6co" path="res://Scenes/AssetScenes/interactableObject.tscn" id="4_tjy30"]
@@ -23,7 +23,7 @@ position = Vector2(878, 1261)
 [node name="CameraThings" type="Node2D" parent="." unique_id=830525890]
 
 [node name="Camera2D" type="Camera2D" parent="CameraThings" unique_id=300892772]
-position = Vector2(960, 540)
+position = Vector2(963, 961)
 
 [node name="CameraMarkerUpper" type="Marker2D" parent="CameraThings" unique_id=2062819970]
 position = Vector2(964, 555)
@@ -42,16 +42,16 @@ polygon = PackedVector2Array(870, 524, 747, 552, 662, 593, 608, 652, 594, 705, 1
 
 [node name="Door_Area" parent="Doors" unique_id=974499172 instance=ExtResource("12_0xpfu")]
 position = Vector2(955, 1394)
-currentRoom = 9
-roomDestination = 4
+currentRoom = 10
+roomDestination = 5
 
 [node name="Door_Marker" parent="Doors/Door_Area" index="1" unique_id=126591328]
 position = Vector2(-82, -98)
 
 [node name="Door_Area2" parent="Doors" unique_id=773673692 instance=ExtResource("12_0xpfu")]
 position = Vector2(955, 1394)
-currentRoom = 9
-roomDestination = 8
+currentRoom = 10
+roomDestination = 9
 
 [node name="Door_Collision" parent="Doors/Door_Area2" index="0" unique_id=2029805447]
 disabled = true

@@ -52,8 +52,8 @@ shape = SubResource("RectangleShape2D_h5km5")
 
 [node name="KicthenDoor_Area" parent="." unique_id=974499172 instance=ExtResource("5_h5km5")]
 position = Vector2(961, 979)
-currentRoom = 8
-roomDestination = 4
+currentRoom = 9
+roomDestination = 5
 
 [node name="Door_Collision" parent="KicthenDoor_Area" index="0" unique_id=2029805447]
 position = Vector2(0, 94.5)
@@ -61,10 +61,10 @@ position = Vector2(0, 94.5)
 [node name="Door_Marker" parent="KicthenDoor_Area" index="1" unique_id=126591328]
 position = Vector2(-88, -118)
 
-[node name="Door_Area" parent="KicthenDoor_Area" unique_id=1770757937 instance=ExtResource("5_h5km5")]
-position = Vector2(-6, -998)
-currentRoom = 8
-roomDestination = 9
+[node name="Door_Area" parent="." unique_id=1770757937 instance=ExtResource("5_h5km5")]
+position = Vector2(955, -19)
+currentRoom = 9
+roomDestination = 10
 
 [node name="RoomBoundary" type="StaticBody2D" parent="." unique_id=632321887]
 

@@ -44,4 +44,7 @@ func _on_start_dialogue(objectName: String):
 	add_child(dialogue_instance)
 
 func get_dialogue_entry(objectName: String):
-	dialogue_instance.conv = dialogue_instance.steve_convos["meeting"]
+	if objectName == null:
+		print("ASSIGN A NAME DUDE")
+		return
+	#dialogue_instance.conv = dialogue_instance.steve_convos["meeting"]

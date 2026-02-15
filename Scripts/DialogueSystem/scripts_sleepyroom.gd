@@ -3,25 +3,53 @@ extends Node
 class_name sleepyroomConvos
 
 static var sleepyroom_Convos_Dict = {
-	"chestOfDrawers": {
-		1: { "speaker": "MC", "emote": "happy", "dialogue": "Happy face!", "goto": 2 },
-		2: { "speaker": "MC", "emote": "angry", "dialogue": "Angry face!", "goto": 3 },
-		3: { "speaker": "MC", "emote": "sad", "dialogue": "Sad face!", "goto": 4 },		
-		4: { "speaker": "MC", "dialogue": "I have so many emotions.", "end": true } 
-		},
-	"windowFire": {
-		1: { "speaker": "MC", "emote": "exasperated", "dialogue": "This window is made of stained glass, and has a fire pattern on it.", "goto": 2 },
-		2: { "speaker": "none", "dialogue": "It's quite beautiful.", "end": true },
-		}, 
-	"windowCrow": {
-		1: { "speaker": "none", "dialogue": "This window is also made of stained glass, and has a crow on it.", "goto": 2 },
-		2: { "speaker": "none", "dialogue": "You know it will be too difficult to break.", "end": true } ,		
-		},
-	"bed": {
+	"Bed": {
 		1: { "speaker": "none", "dialogue": "The sheets for this bed are worn in the way only well loved fabric can be - soft to the touch, but the linen hasn't quite yet thinned.", "goto": 2 },
 		2: { "speaker": "none", "dialogue": "There's a scent clinging to the blankets - vanilla and cedar, along with a touch of petrichor.", "goto": 3 },
 		3: { "speaker": "none", "dialogue": "It's a surprisingly comforting smell. You try not to dwell on that.", "end": true } ,	
 		},
+
+	"GingerAdult": {
+		1: { "speaker": "", "dialogue": "Big ginger dialogue goes here.", "end": true},
+		}, 
+			
+	"GingerBaby": {
+		1: { "speaker": "", "dialogue": "Propogated ginger dialogue goes here.", "end": true},
+		}, 
+		
+	"Note": {
+		1: { "speaker": "", "dialogue": "Note dialogue goes here.", "end": true},
+		}, 
+	
+	"SidetableLeft": {
+		1: { "speaker": "", "dialogue": "Left sidetable w/ string of dreams plant dialogue goes here.", "end": true},
+		}, 	
+	
+	"SidetableRight": {
+		1: { "speaker": "", "dialogue": "Right sidetable dialogue goes here.", "end": true},
+		}, 
+		
+	"Sword": {
+		1: { "speaker": "", "dialogue": "Sword dialogue goes here.", "end": true},
+		}, 	
+		
+	"ToyChest": {
+		1: { "speaker": "", "dialogue": "Toychest dialogue goes here.", "end": true},
+		}, 			
+		
+	"ChestOfDrawers": {
+		1: { "speaker": "", "dialogue": "Chest of drawers dialogue goes here.", "end": true},
+		}, 			
+	
+	"WindowFire": {
+		1: { "speaker": "MC", "dialogue": "This window is made of stained glass, and has a fire pattern on it.", "goto": 2 },
+		2: { "speaker": "none", "dialogue": "It's quite beautiful.", "end": true },
+		}, 
+	"WindowCrow": {
+		1: { "speaker": "none", "dialogue": "This window is made of stained glass, depicting a crow nestled among branches.", "goto": 2 },
+		2: { "speaker": "none", "dialogue": "You know the textured glass and heavy lead edging will be too difficult to break.", "end": true } ,		
+		},
+
 	"bookshelf": {
 		#1: { "speaker": "A Friend", "dialogue": "This is a simple line of dialogue!", "goto": 2 },
 		#2: { "speaker": "A Friend", "dialogue": "Here's one that sets a condition.", "set": "some_flag", "goto": 3 },
@@ -55,3 +83,13 @@ static var sleepyroom_Convos_Dict = {
 		2: { "speaker": "", "dialogue": "You've already gotten dressed, dude.", "end": true } 
 		}					
 }
+
+	#"GingerBaby": {
+		#1: { "speaker": "", "emote": "exasperated", "dialogue": "This window is made of stained glass, and has a fire pattern on it.", "end": true},
+		#
+	#"chestOfDrawers": {
+		#1: { "speaker": "MC", "emote": "happy", "dialogue": "Happy face!", "goto": 2 },
+		#2: { "speaker": "MC", "emote": "angry", "dialogue": "Angry face!", "goto": 3 },
+		#3: { "speaker": "MC", "emote": "sad", "dialogue": "Sad face!", "goto": 4 },		
+		#4: { "speaker": "MC", "dialogue": "I have so many emotions.", "end": true } 
+		#},		

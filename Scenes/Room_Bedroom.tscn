@@ -7,29 +7,53 @@
 [ext_resource type="PackedScene" uid="uid://dmkvvkru1sug5" path="res://Scenes/AssetScenes/Door_Default.tscn" id="4_t7h02"]
 [ext_resource type="Texture2D" uid="uid://byuo2eo75xsmh" path="res://Assets/InScene Items/Bedroom - Quilt.png" id="5_axkeq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t7h02"]
-size = Vector2(141.75, 296.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_samf8"]
+size = Vector2(350, 290)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7di5"]
-size = Vector2(154.5, 300)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oq3d1"]
+size = Vector2(248, 290)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8mrei"]
+size = Vector2(254, 326)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dg73g"]
+size = Vector2(236, 119)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvee6"]
+size = Vector2(136, 163)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e54y3"]
+size = Vector2(243, 145)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u80vc"]
+size = Vector2(247, 135)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5w5pd"]
 size = Vector2(131, 530)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_samf8"]
-size = Vector2(350, 290)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7di5"]
+size = Vector2(154.5, 300)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvee6"]
-size = Vector2(136, 163)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t7h02"]
+size = Vector2(141.75, 296.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_axkeq"]
 size = Vector2(263, 211)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aipf7"]
-size = Vector2(234, 206)
+size = Vector2(285, 206)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwcxd"]
 size = Vector2(126.5, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tak7b"]
+size = Vector2(165.5, 625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vad7l"]
+size = Vector2(133, 557)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l272v"]
+size = Vector2(366, 298)
 
 [node name="RoomBedroom" type="Node2D" unique_id=1548855678]
 script = ExtResource("1_t7h02")
@@ -54,46 +78,93 @@ z_index = 1
 position = Vector2(1372, 806)
 texture = ExtResource("4_aipf7")
 
-[node name="Collisions" type="Node2D" parent="." unique_id=547089238]
+[node name="Interactions" type="Node2D" parent="." unique_id=547089238]
 
-[node name="windowFireArea" parent="Collisions" unique_id=346532964 instance=ExtResource("3_t7h02")]
-position = Vector2(586, 721)
-objectName = "windowFire"
-
-[node name="ObjectInteract" parent="Collisions/windowFireArea" index="0" unique_id=1854910098]
-position = Vector2(865.125, -584.75)
-shape = SubResource("RectangleShape2D_t7h02")
-
-[node name="windowCrowArea" parent="Collisions" unique_id=278018258 instance=ExtResource("3_t7h02")]
-position = Vector2(586, 721)
-objectName = "windowCrow"
-
-[node name="ObjectInteract" parent="Collisions/windowCrowArea" index="0" unique_id=1854910098]
-position = Vector2(-97.25, -591)
-shape = SubResource("RectangleShape2D_w7di5")
-
-[node name="WardrobeArea" parent="Collisions" unique_id=1057571589 instance=ExtResource("3_t7h02")]
-objectName = "testOfDrawers"
-
-[node name="ObjectInteract" parent="Collisions/WardrobeArea" index="0" unique_id=1854910098]
-position = Vector2(1733.5, 523)
-shape = SubResource("RectangleShape2D_5w5pd")
-
-[node name="BedArea" parent="Collisions" unique_id=1772570814 instance=ExtResource("3_t7h02")]
+[node name="Bed" parent="Interactions" unique_id=1772570814 instance=ExtResource("3_t7h02")]
 position = Vector2(826, 229)
-objectName = "bed"
+objectName = "Bed"
 
-[node name="ObjectInteract" parent="Collisions/BedArea" index="0" unique_id=1854910098]
+[node name="ObjectInteract" parent="Interactions/Bed" index="0" unique_id=1854910098]
 position = Vector2(153, 229)
 shape = SubResource("RectangleShape2D_samf8")
 
-[node name="WaterSidetableArea" parent="Collisions" unique_id=314117672 instance=ExtResource("3_t7h02")]
-position = Vector2(1209, 149)
-objectName = "waterSidetable"
+[node name="GingerAdult" parent="Interactions" unique_id=1551397040 instance=ExtResource("3_t7h02")]
+position = Vector2(1304, 783)
+objectName = "GingerAdult"
 
-[node name="ObjectInteract" parent="Collisions/WaterSidetableArea" index="0" unique_id=1854910098]
+[node name="ObjectInteract" parent="Interactions/GingerAdult" index="0" unique_id=1854910098]
+position = Vector2(54, 199)
+shape = SubResource("RectangleShape2D_oq3d1")
+
+[node name="GingerBaby" parent="Interactions" unique_id=1194451275 instance=ExtResource("3_t7h02")]
+position = Vector2(208, 255)
+objectName = "GingerBaby"
+
+[node name="ObjectInteract" parent="Interactions/GingerBaby" index="0" unique_id=1854910098]
+position = Vector2(-73, -6)
+shape = SubResource("RectangleShape2D_8mrei")
+
+[node name="Note" parent="Interactions" unique_id=1097138731 instance=ExtResource("3_t7h02")]
+position = Vector2(109, 590)
+objectName = "Note"
+
+[node name="ObjectInteract" parent="Interactions/Note" index="0" unique_id=1854910098]
+position = Vector2(32, 49.5)
+shape = SubResource("RectangleShape2D_dg73g")
+
+[node name="SidetableLeft" parent="Interactions" unique_id=721590410 instance=ExtResource("3_t7h02")]
+position = Vector2(1209, 149)
+objectName = "SidetableLeft"
+
+[node name="ObjectInteract" parent="Interactions/SidetableLeft" index="0" unique_id=1854910098]
+position = Vector2(-550, 144)
+shape = SubResource("RectangleShape2D_qvee6")
+
+[node name="SidetableRight" parent="Interactions" unique_id=314117672 instance=ExtResource("3_t7h02")]
+position = Vector2(1209, 149)
+objectName = "SidetableRight"
+
+[node name="ObjectInteract" parent="Interactions/SidetableRight" index="0" unique_id=1854910098]
 position = Vector2(77, 146)
 shape = SubResource("RectangleShape2D_qvee6")
+
+[node name="Sword" parent="Interactions" unique_id=204086215 instance=ExtResource("3_t7h02")]
+position = Vector2(108, 440)
+objectName = "Sword"
+
+[node name="ObjectInteract" parent="Interactions/Sword" index="0" unique_id=1854910098]
+position = Vector2(35.5, 56.5)
+shape = SubResource("RectangleShape2D_e54y3")
+
+[node name="ToyChest" parent="Interactions" unique_id=346532964 instance=ExtResource("3_t7h02")]
+objectName = "ToyChest"
+
+[node name="ObjectInteract" parent="Interactions/ToyChest" index="0" unique_id=1854910098]
+position = Vector2(975.5, 703.5)
+shape = SubResource("RectangleShape2D_u80vc")
+
+[node name="ChestOfDrawers" parent="Interactions" unique_id=1057571589 instance=ExtResource("3_t7h02")]
+objectName = "ChestOfDrawers"
+
+[node name="ObjectInteract" parent="Interactions/ChestOfDrawers" index="0" unique_id=1854910098]
+position = Vector2(1733.5, 523)
+shape = SubResource("RectangleShape2D_5w5pd")
+
+[node name="WindowCrow" parent="Interactions" unique_id=278018258 instance=ExtResource("3_t7h02")]
+position = Vector2(586, 721)
+objectName = "WindowCrow"
+
+[node name="ObjectInteract" parent="Interactions/WindowCrow" index="0" unique_id=1854910098]
+position = Vector2(-97.25, -591)
+shape = SubResource("RectangleShape2D_w7di5")
+
+[node name="WindowFire" parent="Interactions" unique_id=2066947764 instance=ExtResource("3_t7h02")]
+position = Vector2(586, 721)
+objectName = "WindowFire"
+
+[node name="ObjectInteract" parent="Interactions/WindowFire" index="0" unique_id=1854910098]
+position = Vector2(865.125, -584.75)
+shape = SubResource("RectangleShape2D_t7h02")
 
 [node name="fallbackMarker" type="Marker2D" parent="." unique_id=1393730870 groups=["fallback"]]
 position = Vector2(962, 319)
@@ -119,36 +190,66 @@ roomDestination = 3
 spawnDirection = 3
 
 [node name="Door_Collision" parent="Doors/Living_Door_Area2" index="0" unique_id=2029805447]
-position = Vector2(87, 151)
+position = Vector2(112.5, 151)
 shape = SubResource("RectangleShape2D_aipf7")
 
 [node name="Door_Marker" parent="Doors/Living_Door_Area2" index="1" unique_id=126591328]
 position = Vector2(-104, 37)
 
-[node name="RoomBoundary2" type="StaticBody2D" parent="." unique_id=1119491541]
+[node name="Collisions" type="Node2D" parent="." unique_id=1157016164]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomBoundary2" unique_id=1857516737]
+[node name="GingerCollide" type="StaticBody2D" parent="Collisions" unique_id=628169919]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/GingerCollide" unique_id=568063119]
+position = Vector2(1357.25, 983)
+shape = SubResource("RectangleShape2D_dwcxd")
+
+[node name="FootofBedCollide" type="StaticBody2D" parent="Collisions" unique_id=1119491541]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions/FootofBedCollide" unique_id=1857516737]
 build_mode = 1
 polygon = PackedVector2Array(794, 571, 1158, 570, 1159, 633, 1172, 646, 1139, 686, 1092, 678, 1093, 715, 852, 712, 846, 681, 811, 685, 776, 653, 776, 644, 793, 636)
 one_way_collision_margin = 16.5
 
-[node name="RoomBoundary3" type="StaticBody2D" parent="." unique_id=628169919]
+[node name="TableandPlantCollide" type="StaticBody2D" parent="Collisions" unique_id=1961290478]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomBoundary3" unique_id=568063119]
-position = Vector2(1357.25, 983)
-shape = SubResource("RectangleShape2D_dwcxd")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/TableandPlantCollide" unique_id=1738106608]
+position = Vector2(187.25, 399.5)
+shape = SubResource("RectangleShape2D_tak7b")
+debug_color = Color(0.97802454, 0, 0.40322107, 0.41960785)
 
-[node name="FullRoomBoundary" type="StaticBody2D" parent="." unique_id=1165903164]
+[node name="WardrobeCollide" type="StaticBody2D" parent="Collisions" unique_id=729810307]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FullRoomBoundary" unique_id=1499209645]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/WardrobeCollide" unique_id=1917330769]
+position = Vector2(1747.5, 348.5)
+shape = SubResource("RectangleShape2D_vad7l")
+debug_color = Color(0.97802454, 0, 0.40322107, 0.41960785)
+
+[node name="WardrobeCollide2" type="StaticBody2D" parent="Collisions" unique_id=1166416866]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/WardrobeCollide2" unique_id=837792558]
+position = Vector2(976, 152)
+shape = SubResource("RectangleShape2D_l272v")
+debug_color = Color(0.97802454, 0, 0.40322107, 0.41960785)
+
+[node name="RoomBoundary" type="StaticBody2D" parent="." unique_id=1165903164]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomBoundary" unique_id=1499209645]
 position = Vector2(-5, -7)
 build_mode = 1
-polygon = PackedVector2Array(102, 293, 1796, 291, 1792, 820, 1850, 818, 1849, 1051, 59, 1055, 57, 808, 110, 806)
+polygon = PackedVector2Array(104, 180, 1800, 180, 1794.8019, 449.419, 1792, 820, 1850, 818, 1849, 1051, 59, 1055, 57, 808, 110, 806)
 
-[editable path="Collisions/windowFireArea"]
-[editable path="Collisions/windowCrowArea"]
-[editable path="Collisions/WardrobeArea"]
-[editable path="Collisions/BedArea"]
-[editable path="Collisions/WaterSidetableArea"]
+[editable path="Interactions/Bed"]
+[editable path="Interactions/GingerAdult"]
+[editable path="Interactions/GingerBaby"]
+[editable path="Interactions/Note"]
+[editable path="Interactions/SidetableLeft"]
+[editable path="Interactions/SidetableRight"]
+[editable path="Interactions/Sword"]
+[editable path="Interactions/ToyChest"]
+[editable path="Interactions/ChestOfDrawers"]
+[editable path="Interactions/WindowCrow"]
+[editable path="Interactions/WindowFire"]
 [editable path="Doors/Bathroom_Door_Area"]
 [editable path="Doors/Living_Door_Area2"]

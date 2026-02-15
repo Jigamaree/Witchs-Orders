@@ -42,7 +42,7 @@ folder_colors={
 "res://Assets/Dialogue/": "green",
 "res://Assets/Ignus/": "gray",
 "res://Assets/InScene Items/": "teal",
-"res://Scenes/": "teal",
+"res://Scenes/": "gray",
 "res://Scenes/AssetScenes/": "red",
 "res://Scripts/": "blue",
 "res://Scripts/DialogueSystem/": "red",

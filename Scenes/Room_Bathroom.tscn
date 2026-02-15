@@ -3,15 +3,40 @@
 [ext_resource type="Script" uid="uid://by0ayjefp5ll7" path="res://Scripts/RoomScripts/room_bathroom.gd" id="1_osrva"]
 [ext_resource type="Texture2D" uid="uid://c2sw8lp25kasw" path="res://Assets/Backgrounds/BathroomFinal2.png" id="2_j1rt5"]
 [ext_resource type="PackedScene" uid="uid://dmkvvkru1sug5" path="res://Scenes/AssetScenes/Door_Default.tscn" id="2_vp52i"]
+[ext_resource type="Texture2D" uid="uid://ca5jwtbyl8t1c" path="res://Assets/InScene Items/Bathroom - Shirt.png" id="3_jaxwo"]
 [ext_resource type="Texture2D" uid="uid://eix40jsk12u3" path="res://Assets/InScene Items/Bathroom - Bottom Table.png" id="3_jkohm"]
 [ext_resource type="Texture2D" uid="uid://bbudtb6to0aif" path="res://Assets/InScene Items/Bathroom - Bath.png" id="4_osrva"]
 [ext_resource type="PackedScene" uid="uid://b7p2es7o1w6co" path="res://Scenes/AssetScenes/interactableObject.tscn" id="6_hvpyx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkohm"]
-size = Vector2(405.5, 130.5)
+size = Vector2(149.75, 24.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejvhm"]
+size = Vector2(261.75, 205.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mywan"]
+size = Vector2(297, 484)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvpyx"]
+size = Vector2(240, 414)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jnjsi"]
+size = Vector2(153, 202.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jaxwo"]
 size = Vector2(181, 286)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aoniy"]
+size = Vector2(185, 393)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfgrr"]
+size = Vector2(297, 334)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvvoc"]
+size = Vector2(193, 401)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktfbd"]
+size = Vector2(159, 415)
 
 [node name="RoomBathroom" type="Node2D" unique_id=940703355]
 script = ExtResource("1_osrva")
@@ -24,6 +49,10 @@ texture = ExtResource("2_j1rt5")
 
 [node name="RoomItems" type="Node2D" parent="." unique_id=1092708632]
 
+[node name="Shirt" type="Sprite2D" parent="RoomItems" unique_id=319963506]
+position = Vector2(737, 364)
+texture = ExtResource("3_jaxwo")
+
 [node name="BottomTable" type="Sprite2D" parent="RoomItems" unique_id=509282693]
 visibility_layer = 16
 z_index = 1
@@ -35,12 +64,6 @@ visibility_layer = 16
 z_index = 1
 position = Vector2(452, 728)
 texture = ExtResource("4_osrva")
-
-[node name="RoomBoundary" type="StaticBody2D" parent="." unique_id=1165903164]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomBoundary" unique_id=1423180495]
-build_mode = 1
-polygon = PackedVector2Array(313, 226, 313, 995, 1610, 997, 1616, 783, 1504, 782, 1504, 225)
 
 [node name="Collisions" type="Node2D" parent="." unique_id=547089238]
 position = Vector2(1542, 804)
@@ -59,6 +82,12 @@ position = Vector2(-1542, -804)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions/RoomBoundary3" unique_id=1814176490]
 polygon = PackedVector2Array(389, 573, 460, 581, 555, 631, 554, 730, 554, 841, 528, 882, 532, 906, 559, 920, 555, 946, 511, 957, 370, 956, 341, 929, 352, 908, 375, 899, 355, 854, 348, 582)
 
+[node name="RoomBoundary" type="StaticBody2D" parent="." unique_id=1165903164]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomBoundary" unique_id=1423180495]
+build_mode = 1
+polygon = PackedVector2Array(313, 226, 313, 995, 1610, 997, 1616, 783, 1504, 782, 1504, 225)
+
 [node name="fallbackMarker" type="Marker2D" parent="." unique_id=1647380448 groups=["fallback"]]
 position = Vector2(1346, 540)
 rotation = -1.3089969
@@ -71,13 +100,88 @@ roomDestination = 2
 [node name="Door_Marker" parent="Door_Area" index="1" unique_id=126591328]
 position = Vector2(-270, -93)
 
-[node name="WindowPlant" parent="." unique_id=346532964 instance=ExtResource("6_hvpyx")]
+[node name="Interactions" type="Node2D" parent="." unique_id=260219603]
+
+[node name="Bandages" parent="Interactions" unique_id=1931861248 instance=ExtResource("6_hvpyx")]
+position = Vector2(744, 836)
+objectName = "bandages"
+
+[node name="ObjectInteract" parent="Interactions/Bandages" index="0" unique_id=1854910098]
+z_index = 1
+position = Vector2(101.125, 58.375)
+shape = SubResource("RectangleShape2D_ejvhm")
+
+[node name="Bath" parent="Interactions" unique_id=2101596928 instance=ExtResource("6_hvpyx")]
+position = Vector2(355, 497)
+objectName = "bath"
+
+[node name="ObjectInteract" parent="Interactions/Bath" index="0" unique_id=1854910098]
+position = Vector2(44.5, 232)
+shape = SubResource("RectangleShape2D_mywan")
+
+[node name="Mirror" parent="Interactions" unique_id=1056209710 instance=ExtResource("6_hvpyx")]
+position = Vector2(847, 67)
+objectName = "mirror"
+
+[node name="ObjectInteract" parent="Interactions/Mirror" index="0" unique_id=1854910098]
+position = Vector2(79, 152)
+shape = SubResource("RectangleShape2D_hvpyx")
+
+[node name="Pestle" parent="Interactions" unique_id=563015909 instance=ExtResource("6_hvpyx")]
+position = Vector2(1006, 822)
+objectName = "pestle"
+
+[node name="ObjectInteract" parent="Interactions/Pestle" index="0" unique_id=1854910098]
+z_index = 1
+position = Vector2(52.5, 74.75)
+shape = SubResource("RectangleShape2D_jnjsi")
+
+[node name="plantWindow" parent="Interactions" unique_id=346532964 instance=ExtResource("6_hvpyx")]
 position = Vector2(1285, 144)
 objectName = "plantWindow"
 
-[node name="ObjectInteract" parent="WindowPlant" index="0" unique_id=1854910098]
+[node name="ObjectInteract" parent="Interactions/plantWindow" index="0" unique_id=1854910098]
 position = Vector2(76.5, 14)
 shape = SubResource("RectangleShape2D_jaxwo")
 
+[node name="Toilet" parent="Interactions" unique_id=682674598 instance=ExtResource("6_hvpyx")]
+position = Vector2(390, 174)
+objectName = "toilet"
+
+[node name="ObjectInteract" parent="Interactions/Toilet" index="0" unique_id=1854910098]
+position = Vector2(67.5, 52.5)
+shape = SubResource("RectangleShape2D_aoniy")
+
+[node name="Towel" parent="Interactions" unique_id=742441440 instance=ExtResource("6_hvpyx")]
+objectName = "towel"
+
+[node name="ObjectInteract" parent="Interactions/Towel" index="0" unique_id=1854910098]
+position = Vector2(1526.5, 598)
+shape = SubResource("RectangleShape2D_vfgrr")
+
+[node name="VanityLeftSide" parent="Interactions" unique_id=856863925 instance=ExtResource("6_hvpyx")]
+position = Vector2(588, 162)
+objectName = "VanityLeft"
+
+[node name="ObjectInteract" parent="Interactions/VanityLeftSide" index="0" unique_id=1854910098]
+position = Vector2(110.5, 64.5)
+shape = SubResource("RectangleShape2D_qvvoc")
+
+[node name="VanityRightSide" parent="Interactions" unique_id=1155734259 instance=ExtResource("6_hvpyx")]
+position = Vector2(1041, 166)
+objectName = "VanityRight"
+
+[node name="ObjectInteract" parent="Interactions/VanityRightSide" index="0" unique_id=1854910098]
+position = Vector2(100.5, 54.5)
+shape = SubResource("RectangleShape2D_ktfbd")
+
 [editable path="Door_Area"]
-[editable path="WindowPlant"]
+[editable path="Interactions/Bandages"]
+[editable path="Interactions/Bath"]
+[editable path="Interactions/Mirror"]
+[editable path="Interactions/Pestle"]
+[editable path="Interactions/plantWindow"]
+[editable path="Interactions/Toilet"]
+[editable path="Interactions/Towel"]
+[editable path="Interactions/VanityLeftSide"]
+[editable path="Interactions/VanityRightSide"]
