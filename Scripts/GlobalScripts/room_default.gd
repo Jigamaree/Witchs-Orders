@@ -9,6 +9,8 @@ var player: PlayerClass
 var dialogue_instance: DialogueSystem
 var activity_on_first_entry = false
 
+var dialogueDictionary: Dictionary
+
 func _ready():
 	# Spawn player
 	player = player_scene.instantiate()
@@ -44,7 +46,10 @@ func _on_start_dialogue(objectName: String):
 	add_child(dialogue_instance)
 
 func get_dialogue_entry(objectName: String):
+	if !dialogueDictionary:
+		print("ASSIGN THE DICTIONARY DUDE")
+		return
 	if objectName == null:
 		print("ASSIGN A NAME DUDE")
 		return
-	#dialogue_instance.conv = dialogue_instance.steve_convos["meeting"]
+	dialogue_instance.conv = dialogueDictionary[objectName]

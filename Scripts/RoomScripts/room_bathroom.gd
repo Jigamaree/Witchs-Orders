@@ -1,4 +1,5 @@
 extends class_defaultRoom
 
-func get_dialogue_entry(objectName: String):
-	dialogue_instance.conv = bathroomConvos.bathroom_Convos_Dict[objectName]
+func _ready():
+	super._ready()
+	dialogueDictionary = bathroomConvos.bathroom_Convos_Dict
