@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://br4w8eibnxvob"]
 
+[ext_resource type="Script" uid="uid://cgjk781empu67" path="res://Scripts/MainMenu.gd" id="1_yjivs"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_nhr3y"]
 font_size = 100
 
@@ -10,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_yjivs")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1936050943]
 layout_mode = 1
@@ -47,6 +50,12 @@ layout_mode = 2
 layout_mode = 2
 text = "Start Game"
 
+[node name="Epilogue" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1846682678]
+layout_mode = 2
+text = "Epilogue"
+
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1264639478]
 layout_mode = 2
 text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Epilogue" to="." method="_on_epilogue_pressed"]

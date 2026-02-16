@@ -5,7 +5,7 @@ class_name hardEndings
 static var endingsDict = {
 	"": 
 	{
-		1: { "speaker": "none", "dialogue": "Box munching dialogue goes here.", "end": true }
+		1: { "speaker": "none", "dialogue": "Oops! Ending wasn't defined.", "end": true }
 	},
 	
 	#Ending 1 - Captured. Leave the witch's house. True bad end.	

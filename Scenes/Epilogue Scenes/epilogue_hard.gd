@@ -15,7 +15,11 @@ func _ready():
 	GlobalVariables.quickCountdown.connect(_quick_countdown)
 	#else call player spawn on fallback place
 	#want a method in here that loads room-specific flags in here and applies that to objects if possible!
-	_on_start_dialogue("Captured")	
+	if SaveManager.getSaveVariable("finalEnding"):
+		_on_start_dialogue("Captured")	
+	
+	else:
+		_on_start_dialogue("")	
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):

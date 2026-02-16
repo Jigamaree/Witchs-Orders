@@ -271,10 +271,9 @@ func advance_line():
 		
 		elif conv[index].has("playEnding"):
 			print("this will go to ending when i figure out wtf")
-			#putIntoMotionEnding(_ending)
-			GlobalVariables.startRegularGameplay.emit()
-			queue_free()			
-		
+			SaveManager.setSaveVariable("finalEnding", conv[index].get("playEnding", null))
+			get_tree().change_scene_to_file("res://Scenes/Epilogue Scenes/Epilogue_Hard.tscn")
+			
 	else:
 		dialogue.visible_characters = len(dialogue.text)
 

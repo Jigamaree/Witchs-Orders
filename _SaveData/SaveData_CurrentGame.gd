@@ -52,7 +52,9 @@ var default_save_data_dictionary: Dictionary = {
 	"dildo_usage": 0,
 	"corruptionPoints_Cow": 0,
 	"corruptionPoints_Demon": 0,
-	"corruptionPoints_Pet": 0,		
+	"corruptionPoints_Pet": 0,	
+	
+	"finalEnding": null	
 }
 
 var current_save_data_dictionary: Dictionary
