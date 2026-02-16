@@ -39,8 +39,13 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_start_dialogue(objectName: String):
 	if dialogue_instance:
 		return
+	if 	!dialogueDictionary.has(objectName):
+		print("Couldn't find + '" + str(objectName) + "' in dict.")
+		return
 	dialogue_instance = dialogue_overlay.instantiate()
 	#set conversation
+	
+	###TODO: Fail gracefully if I forgot to add something to the citionary
 	
 	#if !dialogueDictionary.has(objectName):
 		#print("DIDNT ADD TO DICTIONARY, DUDE")

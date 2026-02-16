@@ -54,12 +54,12 @@ folder_colors={
 [global_group]
 
 player=""
-interactable=""
 door=""
 entity=""
 fallback=""
 playerInteractNode=""
 playerBody=""
+interactable=""
 
 [input]
 

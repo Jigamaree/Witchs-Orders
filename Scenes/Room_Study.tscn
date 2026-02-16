@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://e0g53w4juj0s"]
 
-[ext_resource type="Script" uid="uid://b7ld3df1h2lrf" path="res://Scenes/room_study.gd" id="1_yg8nf"]
+[ext_resource type="Script" uid="uid://b7ld3df1h2lrf" path="res://Scripts/RoomScripts/room_study.gd" id="1_yg8nf"]
 [ext_resource type="Texture2D" uid="uid://brgqxhsnqwu53" path="res://Assets/Backgrounds/StudyFinal.png" id="2_wifhm"]
 [ext_resource type="Texture2D" uid="uid://bfciskpeifapo" path="res://Assets/InScene Items/Study - Front Tables.png" id="3_qtfvp"]
 [ext_resource type="Texture2D" uid="uid://bfolvr6v7oaqo" path="res://Assets/InScene Items/Study - Side Shelves.png" id="3_utp08"]
