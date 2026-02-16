@@ -7,7 +7,7 @@ static var convos_Dict = {
 		1: { "speaker": "none", "dialogue": "Dead plant dialogue goes here.", "end": true }
 		},
 	"FrontDoor": {
-		1: { "speaker": "none", "dialogue": "Front door dialogue goes here.", "end": true }
+		1: { "speaker": "none", "dialogue": "Front door dialogue goes here.", "playEnding": "Captured" }
 		},	
 	"NoticeBoard": {
 		1: { "speaker": "none", "dialogue": "Notice board dialogue goes here.", "end": true }

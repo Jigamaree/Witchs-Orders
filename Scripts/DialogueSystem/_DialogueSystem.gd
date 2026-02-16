@@ -268,11 +268,25 @@ func advance_line():
 		elif conv[index].has("end"):
 			GlobalVariables.startRegularGameplay.emit()
 			queue_free()
+		
+		elif conv[index].has("playEnding"):
+			print("this will go to ending when i figure out wtf")
+			#putIntoMotionEnding(_ending)
+			GlobalVariables.startRegularGameplay.emit()
+			queue_free()			
+		
 	else:
 		dialogue.visible_characters = len(dialogue.text)
 
 func set_condition(cond):
 	flag_dict[cond] = true
+	
+#func putIntoMotionEnding(endingEntry: String):
+	#var epilogue = epilogue_scene.instantiate()
+	#epilogue.setEnding(endingEntry)
+	#get_tree().current_scene.queue_free()
+	#get_tree().root.add_child(epilogue)
+	#get_tree().current_scene = epilogue		
 	
 # popped this out so that i can use it on the onset
 func checkValueInSave():
