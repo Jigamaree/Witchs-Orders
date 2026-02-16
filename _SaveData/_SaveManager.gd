@@ -14,11 +14,9 @@ func load_or_create():
 		#print("Save loaded.")
 	#else:
 		save_data = Save_Data.new()
-		#save_data.playerData = SaveData_Knight.new()
-		#save_data.choreData = SaveData_Chores.new()
-		save_data.currentGameData = SaveData_CurrentGame.new()
 		save_data.persitstent_EndingRecords_data = AllEndings_SaveData.new()
-				
+		save_data.currentGameData = SaveData_CurrentGame.new()		
+			
 		print(OS.get_user_data_dir())
 		save_game()
 		print("New save created.")
@@ -29,8 +27,8 @@ func save_game():
 
 func _input(event: InputEvent) -> void:
 	pass
-	#if event.is_action_pressed("ui_dxebug"):
-		#print(save_data.currentGameData.thePit_hasCompletedStaircase)
+	if event.is_action_pressed("ui_debug2"):
+		print("hi!")
 
 func setSaveVariable(variableName: String, variableValue):
 	if variableName in save_data.currentGameData:			save_data.currentGameData[variableName] = variableValue
