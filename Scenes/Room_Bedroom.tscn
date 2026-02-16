@@ -188,6 +188,7 @@ position = Vector2(1730, 792)
 currentRoom = 2
 roomDestination = 3
 spawnDirection = 3
+isLocked = true
 
 [node name="Door_Collision" parent="Doors/Living_Door_Area2" index="0" unique_id=2029805447]
 position = Vector2(112.5, 151)

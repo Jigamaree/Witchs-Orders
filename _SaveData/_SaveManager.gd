@@ -31,11 +31,11 @@ func _input(event: InputEvent) -> void:
 		print("hi!")
 
 func setSaveVariable(variableName: String, variableValue):
-	if variableName in save_data.currentGameData:			save_data.currentGameData[variableName] = variableValue
+	if variableName in save_data.currentGameData.current_save_data_dictionary:			save_data.currentGameData.current_save_data_dictionary[variableName] = variableValue
 	elif variableName in save_data.persitstent_EndingRecords_data: 	save_data.persitstent_EndingRecords_data[variableName] = variableValue
 	else: Error.ERR_DOES_NOT_EXIST
 	
 func getSaveVariable(variableName: String):
-	if variableName in save_data.currentGameData:			return save_data.currentGameData[variableName]
+	if variableName in save_data.currentGameData.current_save_data_dictionary:			return save_data.currentGameData.current_save_data_dictionary[variableName]
 	elif variableName in save_data.persitstent_EndingRecords_data:	return save_data.persitstent_EndingRecords_data[variableName]
 	else: Error.ERR_DOES_NOT_EXIST	

@@ -37,9 +37,9 @@ static var sleepyroom_Convos_Dict = {
 		1: { "speaker": "", "dialogue": "Toychest dialogue goes here.", "end": true},
 		}, 			
 		
-	"ChestOfDrawers": {
-		1: { "speaker": "", "dialogue": "Chest of drawers dialogue goes here.", "end": true},
-		}, 			
+	#"ChestOfDrawers": {
+		#1: { "speaker": "", "dialogue": "Chest of drawers dialogue goes here.", "end": true},
+		#}, 			
 	
 	"WindowFire": {
 		1: { "speaker": "MC", "dialogue": "This window is made of stained glass, and has a fire pattern on it.", "goto": 2 },
@@ -77,7 +77,7 @@ static var sleepyroom_Convos_Dict = {
 		5: { "speaker": "", "dialogue": "The door will be unlocked.", "end": true },	
 		},
 				
-		"testOfDrawers":{
+		"ChestOfDrawers":{
 		0: {"checkSaveVariable": { "keyToCheck": "bedroom_doorLocked", "wantedValue": "false", "goto_false": 1, "goto_true": 2 }},
 		1: { "speaker": "none", "dialogue": "You find some clothes! Wow!", "backgroundImage": true, "setSaveVariable": ["bedroom_doorLocked", false], "end": true },
 		2: { "speaker": "", "dialogue": "You've already gotten dressed, dude.", "end": true } 
