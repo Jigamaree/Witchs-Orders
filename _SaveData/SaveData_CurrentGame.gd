@@ -19,6 +19,9 @@ var default_save_data_dictionary: Dictionary = {
 	# the pit
 	"thePit_hasTentacleFood": false,
 	"thePit_hasCompletedStaircase": false,
+	
+	#lounge
+	"lounge_enteredFirstTime": false,
 
 	#immediate player-state data	
 	"knight_clothing": Clothing.NAKED,

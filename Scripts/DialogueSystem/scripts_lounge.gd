@@ -6,6 +6,11 @@ static var convos_Dict = {
 	"": {
 		1: { "speaker": "none", "dialogue": "Hello! You didn't put a thing in!", "end": true }
 		},
+	
+	"firstEntry":{
+		1: { "speaker": "", "dialogue": "First entry into lounge dialogue here.", "setSaveVariable": ["lounge_enteredFirstTime", true], "end": true }
+	},	
+		
 	"rightArmchair": {
 		1: { "speaker": "", "dialogue": "Right armchair dialogue goes here.", "end": true},
 		}, 

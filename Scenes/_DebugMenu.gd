@@ -2,7 +2,7 @@ extends CanvasLayer
 
 class_name DebugMenu
 
-@onready var vbox = $CenterContainer/ColorRect/ColorRect/Container/VBoxContainer
+@onready var vbox = $CenterContainer/ColorRect/ColorRect/CenterContainer/VBoxContainer
 
 func _ready() -> void:
 	if SaveManager.save_data.currentGameData.current_save_data_dictionary:
@@ -23,18 +23,15 @@ func _ready() -> void:
 				hbox.add_child(checkBox)
 				
 				vbox.add_child(hbox)
-				
-				
 			
-			else:
-				#print(key)
-				#print(SaveManager.save_data.currentGameData.current_save_data_dictionary[key])			
+			#TO:DO - change value of anything besides bools			
+			else:	
 				var _v = str(key) + ": " + str(SaveManager.save_data.currentGameData.current_save_data_dictionary[key])			
 				label.text = _v		
 				vbox.add_child(label)		
 		
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_debug"):
+	if Input.is_action_just_pressed("ui_debug") or Input.is_action_just_pressed("ui_pause"):
 		remove_debug_menu()
 
 func remove_debug_menu() -> void:

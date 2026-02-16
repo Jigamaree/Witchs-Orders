@@ -40,7 +40,7 @@ func find_player_location():
 			player.global_position = marker.global_position
 		
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("pause_button"):
+	if event.is_action_pressed("pause_button") and canOpenDebug == true:
 		var pause_instance = pause_menu.instantiate()
 		add_child(pause_instance)
 		get_tree().paused = true

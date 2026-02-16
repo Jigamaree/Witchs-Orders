@@ -14,6 +14,9 @@ func _ready():
 	else: camera.global_position.y = upper_marker.global_position.y
 	dialogueDictionary = LoungeConvos.convos_Dict
 	ignusSprite.play("default")
+	if SaveManager.getSaveVariable("lounge_enteredFirstTime") == false:
+		GlobalVariables.startDialogue.emit("firstEntry")
+		GlobalVariables.pauseRegularGameplay.emit()		
 
 func _process(_delta: float) -> void:		
 	var target_y = player.global_position.y
