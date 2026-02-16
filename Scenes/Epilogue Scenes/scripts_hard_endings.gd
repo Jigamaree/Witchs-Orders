@@ -11,7 +11,7 @@ static var endingsDict = {
 	#Ending 1 - Captured. Leave the witch's house. True bad end.	
 	"Captured": 
 	{
-		1: { "speaker": "none", "dialogue": "Ending 1 - Captured.", "end": true }
+		1: { "speaker": "none", "dialogue": "Ending 1 - Captured.", "END_OF_GAME": true }
 	},
 	
 	#Ending 4 - Desperate Milkings. Hard cow end.

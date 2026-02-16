@@ -274,18 +274,17 @@ func advance_line():
 			SaveManager.setSaveVariable("finalEnding", conv[index].get("playEnding", null))
 			get_tree().change_scene_to_file("res://Scenes/Epilogue Scenes/Epilogue_Hard.tscn")
 			
+		elif conv[index].has("END_OF_GAME"):
+			#set ending number in persistent save
+			#clear save in current game
+			get_tree().change_scene_to_file("res://Scenes/AssetScenes/MainMenu.tscn")
+			pass
+			
 	else:
 		dialogue.visible_characters = len(dialogue.text)
 
 func set_condition(cond):
 	flag_dict[cond] = true
-	
-#func putIntoMotionEnding(endingEntry: String):
-	#var epilogue = epilogue_scene.instantiate()
-	#epilogue.setEnding(endingEntry)
-	#get_tree().current_scene.queue_free()
-	#get_tree().root.add_child(epilogue)
-	#get_tree().current_scene = epilogue		
 	
 # popped this out so that i can use it on the onset
 func checkValueInSave():
