@@ -3,12 +3,17 @@ extends class_defaultRoom
 @onready var upper_marker: 	Marker2D = $CameraThings/CameraMarkerUpper
 @onready var lower_marker: 	Marker2D = $CameraThings/CameraMarkerLower
 @onready var camera: 		Camera2D = $CameraThings/Camera2D
+@onready var ignusSprite: AnimatedSprite2D = $BasicRoomItems/LivingIgnus
+var loungeConvosDictionary = LoungeConvos.convos_Dict
 
 func _ready():
+	super._ready()		
 	await get_tree().process_frame
-	if NavMan.last_scene == GlobalVariables.roomsInHouse.SLEEPYROOM:
+	if NavMan.last_scene == GlobalVariables.roomsInHouse.SLEEPYROOM or NavMan.last_scene == GlobalVariables.roomsInHouse.FRONT_DOOR or NavMan.last_scene == GlobalVariables.roomsInHouse.STUDY:
 		camera.global_position.y = lower_marker.global_position.y
-	super._ready()	
+	else: camera.global_position.y = upper_marker.global_position.y
+	dialogueDictionary = LoungeConvos.convos_Dict
+	ignusSprite.play("default")
 
 func _process(_delta: float) -> void:		
 	var target_y = player.global_position.y
@@ -21,4 +26,23 @@ func _process(_delta: float) -> void:
 
 	camera.global_position.y = target_y		
 
+func _on_start_dialogue(objectName: String):
 	
+	if dialogue_instance:
+		return
+		
+	if objectName == "Ignus":
+		dialogueDictionary = ignusConvoDict
+		objectName = ""
+		print("Special dialogue")
+	else: dialogueDictionary = loungeConvosDictionary	
+			
+	if 	!dialogueDictionary.has(objectName):
+		print("Couldn't find + '" + str(objectName) + "' in dict.")
+		objectName = ""
+		print("!!!")
+		
+	dialogue_instance = dialogue_overlay.instantiate()
+
+	get_dialogue_entry(objectName)
+	add_child(dialogue_instance)	

@@ -9,6 +9,7 @@ var player: PlayerClass
 var dialogue_instance: DialogueSystem
 var activity_on_first_entry = false
 
+var ignusConvoDict = IgnusConvos.convos_Dict
 var dialogueDictionary: Dictionary
 
 func _ready():
@@ -37,11 +38,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_tree().paused = true	
 
 func _on_start_dialogue(objectName: String):
+	
 	if dialogue_instance:
 		return
-	if 	!dialogueDictionary.has(objectName):
+	elif 	!dialogueDictionary.has(objectName):
 		print("Couldn't find + '" + str(objectName) + "' in dict.")
-		return
+		objectName = ""
+		
+		
 	dialogue_instance = dialogue_overlay.instantiate()
 	#set conversation
 	
