@@ -63,8 +63,6 @@ func _physics_process(delta: float) -> void:
 		characterSprite.play("default")
 		
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_debug"):
-		print(str(global_position))
 	if isPaused == false:
 		if event.is_action_pressed("ui_accept"):
 			for area in interactionArea.get_overlapping_areas():

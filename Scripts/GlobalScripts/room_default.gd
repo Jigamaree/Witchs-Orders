@@ -5,12 +5,14 @@ class_name class_defaultRoom
 @onready var player_scene: PackedScene = preload("res://Scenes/AssetScenes/PlayerCharacter.tscn")
 @onready var dialogue_overlay: PackedScene = preload("res://Scenes/DialogueTestScene.tscn")
 @onready var pause_menu: PackedScene = preload("res://Scenes/PauseMenu.tscn")
+@onready var debug_menu: PackedScene = preload("res://Scenes/DebugMenu.tscn")
 var player: PlayerClass
 var dialogue_instance: DialogueSystem
 var activity_on_first_entry = false
 
 var ignusConvoDict = IgnusConvos.convos_Dict
 var dialogueDictionary: Dictionary
+var canOpenDebug: bool = true
 
 func _ready():
 	# Spawn player
@@ -18,8 +20,14 @@ func _ready():
 	add_child(player)
 	find_player_location()
 	GlobalVariables.startDialogue.connect(_on_start_dialogue)
+	GlobalVariables.quickCountdown.connect(_quick_countdown)
 	#else call player spawn on fallback place
 	#want a method in here that loads room-specific flags in here and applies that to objects if possible!
+	
+func _quick_countdown():
+	canOpenDebug = false
+	await get_tree().create_timer(0.3).timeout
+	canOpenDebug = true
 	
 func find_player_location():
 	if NavMan.changed_scene_before == true:
@@ -35,7 +43,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause_button"):
 		var pause_instance = pause_menu.instantiate()
 		add_child(pause_instance)
-		get_tree().paused = true	
+		get_tree().paused = true
+	elif Input.is_action_just_pressed("ui_debug") and canOpenDebug == true:
+		print("opened!")
+		var debug_instance = debug_menu.instantiate()
+		add_child(debug_instance)
+		get_tree().paused = true			
 
 func _on_start_dialogue(objectName: String):
 	

@@ -11,11 +11,6 @@ func _ready():
 	if SaveManager.getSaveVariable("thePit_hasCompletedStaircase"):
 		doorToPit.roomDestination = GlobalVariables.roomsInHouse.PIT_ROOM
 
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_debug"):
-		var x = GlobalVariables.roomToString(doorToPit.roomDestination)
-		print(x)
-
 
 func _on_area_entered(area: Area2D) -> void:
 	pass # Replace with function body.
