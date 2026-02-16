@@ -22,6 +22,7 @@ func _ready():
 	if NavMan.last_scene == GlobalVariables.roomsInHouse.SLEEPYROOM:
 		camera.global_position.y = lower_left_marker.global_position.y
 	super._ready()	
+	dialogueDictionary = studyConvos.Convos_Dict
 
 func _process(_delta: float) -> void:		
 	#placement of camera 

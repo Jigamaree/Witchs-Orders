@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://brgqxhsnqwu53" path="res://Assets/Backgrounds/StudyFinal.png" id="2_wifhm"]
 [ext_resource type="Texture2D" uid="uid://bfciskpeifapo" path="res://Assets/InScene Items/Study - Front Tables.png" id="3_qtfvp"]
 [ext_resource type="Texture2D" uid="uid://bfolvr6v7oaqo" path="res://Assets/InScene Items/Study - Side Shelves.png" id="3_utp08"]
+[ext_resource type="PackedScene" uid="uid://b7p2es7o1w6co" path="res://Scenes/AssetScenes/interactableObject.tscn" id="3_wmgh8"]
 [ext_resource type="Texture2D" uid="uid://fc343yan38a6" path="res://Assets/InScene Items/Study - Pentagram.png" id="4_av878"]
 [ext_resource type="Texture2D" uid="uid://ogvlagrq570d" path="res://Assets/InScene Items/Study - PlantGuide.png" id="5_uitw5"]
 [ext_resource type="Texture2D" uid="uid://d12gu5vw816n7" path="res://Assets/InScene Items/Study - Armchair.png" id="6_cn6pw"]
@@ -16,6 +17,18 @@
 [ext_resource type="Texture2D" uid="uid://bnrofk2r4dxh8" path="res://Assets/InScene Items/Study - Note.png" id="13_1jei2"]
 [ext_resource type="PackedScene" uid="uid://cbuw6o5y7vsaw" path="res://Scenes/AssetScenes/dynamicInteractableObject.tscn" id="13_hjbv7"]
 [ext_resource type="Texture2D" uid="uid://bw40iueqiohll" path="res://Assets/InScene Items/Study - Hangings.png" id="16_wifhm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqxoo"]
+size = Vector2(351, 386)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oishu"]
+size = Vector2(572, 217)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v43ce"]
+size = Vector2(587, 209)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d60j5"]
+size = Vector2(1102, 395)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cn6pw"]
 size = Vector2(302, 306)
@@ -75,7 +88,46 @@ scale = Vector2(0.9, 0.9)
 size_flags_horizontal = 3
 texture = ExtResource("2_wifhm")
 
+[node name="Interactions" type="Node2D" parent="." unique_id=283355494]
+
+[node name="Ladder" parent="Interactions" unique_id=346532964 instance=ExtResource("3_wmgh8")]
+position = Vector2(297, -517)
+objectName = "Ladder"
+
+[node name="ObjectInteract" parent="Interactions/Ladder" index="0" unique_id=1854910098]
+position = Vector2(170.5, 180)
+shape = SubResource("RectangleShape2D_cqxoo")
+
+[node name="FrontTableLeft" parent="Interactions" unique_id=60748030 instance=ExtResource("3_wmgh8")]
+position = Vector2(184, 950)
+objectName = "FrontTableLeft"
+
+[node name="ObjectInteract" parent="Interactions/FrontTableLeft" index="0" unique_id=1854910098]
+position = Vector2(287, 104.5)
+shape = SubResource("RectangleShape2D_oishu")
+
+[node name="FrontTableRight" parent="Interactions" unique_id=1423853038 instance=ExtResource("3_wmgh8")]
+position = Vector2(1343, 951)
+objectName = "FrontTableRight"
+
+[node name="ObjectInteract" parent="Interactions/FrontTableRight" index="0" unique_id=1854910098]
+position = Vector2(264.5, 104.5)
+shape = SubResource("RectangleShape2D_v43ce")
+
+[node name="BackBoofshelf" parent="Interactions" unique_id=1815035144 instance=ExtResource("3_wmgh8")]
+position = Vector2(670, -515)
+objectName = "BackBoofshelf"
+
+[node name="ObjectInteract" parent="Interactions/BackBoofshelf" index="0" unique_id=1854910098]
+position = Vector2(551, 179.5)
+shape = SubResource("RectangleShape2D_d60j5")
+
 [node name="BasicRoomItems" type="Node2D" parent="." unique_id=1711800554]
+
+[node name="StudyBottles" type="Sprite2D" parent="BasicRoomItems" unique_id=1835232832]
+z_index = 2
+position = Vector2(1620, 1055)
+texture = ExtResource("10_hq7ly")
 
 [node name="StudySideShelves" type="Sprite2D" parent="BasicRoomItems" unique_id=1768071636]
 z_index = 2
@@ -96,9 +148,15 @@ z_index = 3
 position = Vector2(1588, 114)
 texture = ExtResource("5_uitw5")
 
+[node name="StudyNote" type="Sprite2D" parent="BasicRoomItems" unique_id=760128525]
+z_index = 1
+position = Vector2(1431, 1003)
+texture = ExtResource("13_1jei2")
+
 [node name="DynamicRoomItems" type="Node2D" parent="." unique_id=1329898779]
 
-[node name="ArmchairObjectArea" parent="DynamicRoomItems" unique_id=346532964 instance=ExtResource("13_hjbv7")]
+[node name="ArmchairObjectArea" parent="DynamicRoomItems" unique_id=944527995 instance=ExtResource("13_hjbv7")]
+objectName = "Armchair"
 
 [node name="ObjectInteract" parent="DynamicRoomItems/ArmchairObjectArea" index="0" unique_id=1854910098]
 position = Vector2(1408.5, 37)
@@ -117,8 +175,10 @@ position = Vector2(1420.5, 46.875)
 shape = SubResource("RectangleShape2D_6xbyb")
 
 [node name="PlantGuideTable" parent="DynamicRoomItems" unique_id=1057097179 instance=ExtResource("13_hjbv7")]
+objectName = "PlantGuide"
 
 [node name="ObjectInteract" parent="DynamicRoomItems/PlantGuideTable" index="0" unique_id=1854910098]
+z_index = 1
 position = Vector2(1587, 141.5)
 shape = SubResource("RectangleShape2D_uitw5")
 
@@ -136,6 +196,7 @@ shape = SubResource("RectangleShape2D_0ibxn")
 
 [node name="Cauldron" parent="DynamicRoomItems" unique_id=552745865 instance=ExtResource("13_hjbv7")]
 position = Vector2(814, 763)
+objectName = "Cauldron"
 
 [node name="ObjectInteract" parent="DynamicRoomItems/Cauldron" index="0" unique_id=1854910098]
 position = Vector2(225.75, 119.25)
@@ -154,13 +215,14 @@ position = Vector2(224, 92.75)
 shape = SubResource("RectangleShape2D_1jei2")
 
 [node name="BackTable" parent="DynamicRoomItems" unique_id=1167922570 instance=ExtResource("13_hjbv7")]
+position = Vector2(754, 72)
+objectName = "BackTable"
 
 [node name="ObjectInteract" parent="DynamicRoomItems/BackTable" index="0" unique_id=1854910098]
-position = Vector2(753.5, 74.5)
+position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_fggg6")
 
 [node name="Sprite2D" parent="DynamicRoomItems/BackTable" index="1" unique_id=1783952993]
-position = Vector2(754, 72)
 texture = ExtResource("9_0ibxn")
 
 [node name="StaticBody2D" parent="DynamicRoomItems/BackTable" index="2" unique_id=1731382922]
@@ -168,32 +230,24 @@ visible = true
 
 [node name="Collision" parent="DynamicRoomItems/BackTable/StaticBody2D" index="0" unique_id=2126398544]
 visible = true
-position = Vector2(756, 39.5)
 shape = SubResource("RectangleShape2D_hq7ly")
 
-[node name="BottlesToSort" parent="DynamicRoomItems" unique_id=1441205726 instance=ExtResource("13_hjbv7")]
-position = Vector2(738, 416)
-
-[node name="Sprite2D" parent="DynamicRoomItems/BottlesToSort" index="1" unique_id=1783952993]
-z_index = 2
-position = Vector2(897, 643)
-texture = ExtResource("10_hq7ly")
-
-[node name="MiddleShelf" parent="DynamicRoomItems" unique_id=1545558214 instance=ExtResource("13_hjbv7")]
+[node name="MiddleRoomShelf" parent="DynamicRoomItems" unique_id=1545558214 instance=ExtResource("13_hjbv7")]
 position = Vector2(729, 481)
+objectName = "MiddleRoomShelf"
 
-[node name="ObjectInteract" parent="DynamicRoomItems/MiddleShelf" index="0" unique_id=1854910098]
+[node name="ObjectInteract" parent="DynamicRoomItems/MiddleRoomShelf" index="0" unique_id=1854910098]
 position = Vector2(303.5, 13.5)
 shape = SubResource("RectangleShape2D_utp08")
 
-[node name="Sprite2D" parent="DynamicRoomItems/MiddleShelf" index="1" unique_id=1783952993]
+[node name="Sprite2D" parent="DynamicRoomItems/MiddleRoomShelf" index="1" unique_id=1783952993]
 position = Vector2(300, 9)
 texture = ExtResource("12_1jei2")
 
-[node name="StaticBody2D" parent="DynamicRoomItems/MiddleShelf" index="2" unique_id=1731382922]
+[node name="StaticBody2D" parent="DynamicRoomItems/MiddleRoomShelf" index="2" unique_id=1731382922]
 visible = true
 
-[node name="Collision" parent="DynamicRoomItems/MiddleShelf/StaticBody2D" index="0" unique_id=2126398544]
+[node name="Collision" parent="DynamicRoomItems/MiddleRoomShelf/StaticBody2D" index="0" unique_id=2126398544]
 visible = true
 position = Vector2(301, 39)
 shape = SubResource("RectangleShape2D_wifhm")
@@ -266,11 +320,6 @@ visible = false
 build_mode = 1
 polygon = PackedVector2Array(174, -292, 1904, -299, 1907, 1170, 171, 1169, 174, 945, 19, 947, 19, 672, 184, 672)
 
-[node name="StudyNote" type="Sprite2D" parent="." unique_id=760128525]
-z_index = 1
-position = Vector2(1431, 1003)
-texture = ExtResource("13_1jei2")
-
 [node name="Overhang" type="Node2D" parent="." unique_id=288325251]
 position = Vector2(1002, 629)
 
@@ -302,10 +351,13 @@ position = Vector2(44, -118)
 [connection signal="area_entered" from="Overhang/StudyHangings/Area2D" to="." method="_on_hanging_area_entered"]
 [connection signal="area_exited" from="Overhang/StudyHangings/Area2D" to="." method="_on_hanging_area_exited"]
 
+[editable path="Interactions/Ladder"]
+[editable path="Interactions/FrontTableLeft"]
+[editable path="Interactions/FrontTableRight"]
+[editable path="Interactions/BackBoofshelf"]
 [editable path="DynamicRoomItems/ArmchairObjectArea"]
 [editable path="DynamicRoomItems/PlantGuideTable"]
 [editable path="DynamicRoomItems/Cauldron"]
 [editable path="DynamicRoomItems/BackTable"]
-[editable path="DynamicRoomItems/BottlesToSort"]
-[editable path="DynamicRoomItems/MiddleShelf"]
+[editable path="DynamicRoomItems/MiddleRoomShelf"]
 [editable path="Doors/LoungeDoor_Area"]
