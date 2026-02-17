@@ -23,15 +23,17 @@ func _unhandled_input(event):
 		get_viewport().set_input_as_handled()
 		_on_unpause_button_pressed()
 
-
 func _on_test_save_button_pressed() -> void:
 	SaveManager.updateSave("knight_fed", true)
 	SaveManager.updateSave("ignus_fed", true)
 	SaveManager.updateSave("corruptionPoints_Demon", 1)
 	SaveManager.updateSave("sword_interracted", true)
 
-
 func _on_main_menu_button_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/AssetScenes/MainMenu.tscn")
 	queue_free()
+
+func _on_quit_button_pressed() -> void:
+	SaveManager.save_game()
+	get_tree().quit()

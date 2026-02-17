@@ -37,6 +37,15 @@ func reset_all_data():
 	save_data.multiRunSaveData.reset_endings_data()
 	NavMan.changed_scene_before = false	
 	save_game()
+	
+func endingMenuUnlock():
+	if save_data.multiRunSaveData.tracked_ending_data_dictionary:
+		for key in save_data.multiRunSaveData.tracked_ending_data_dictionary:
+			var dict = save_data.multiRunSaveData.tracked_ending_data_dictionary
+			var value = dict[key]
+			if value == true:
+				return true
+	return false
 		
 func setSaveVariable(variableName: String, variableValue):
 	#current game data

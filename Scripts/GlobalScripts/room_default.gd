@@ -30,14 +30,14 @@ func _quick_countdown():
 	canOpenDebug = true
 	
 func find_player_location():
+	for marker: Marker2D in get_tree().get_nodes_in_group("fallback"):
+		player.global_position = marker.global_position	
+	
 	if NavMan.changed_scene_before == true:
 		for door: interactableDoor in get_tree().get_nodes_in_group("door"):
 			if door.currentRoom == NavMan.scene_were_currently_instancing and door.roomDestination == NavMan.last_scene:
 				player.global_position = door.markerPos
-				return
-	else:
-		for marker: Marker2D in get_tree().get_nodes_in_group("fallback"):
-			player.global_position = marker.global_position
+
 		
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause_button") and canOpenDebug == true:

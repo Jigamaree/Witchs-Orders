@@ -2,16 +2,13 @@ extends Control
 
 @onready var debug_menu: PackedScene = preload("res://Scenes/DebugMenu.tscn")
 @onready var startButton: Button = $MarginContainer/VBoxContainer/VBoxContainer/StartGame
-
+@onready var endingsButton: Button = $MarginContainer/VBoxContainer/VBoxContainer/Endings
 
 func _ready() -> void:
 	if SaveManager.getSaveVariable("started_game"):
-		startButton.text = "Continue Game"		
-		
-func _process(delta: float) -> void:
-	#if SaveManager.getSaveVariable("started_game"):
-		#startButton.text = "Continue Game"	
-		pass
+		startButton.text = "Continue Game"	
+	if SaveManager.endingMenuUnlock():
+		endingsButton.disabled = false	 
 		
 func _on_epilogue_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Epilogue Scenes/Epilogue_Hard.tscn")
@@ -25,7 +22,5 @@ func _input(event: InputEvent) -> void:
 		var debug_instance = debug_menu.instantiate()	
 		add_child(debug_instance)
 
-
 func _on_quit_pressed() -> void:
-	print("???")
 	get_tree().quit()

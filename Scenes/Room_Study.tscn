@@ -46,7 +46,7 @@ size = Vector2(129, 78)
 size = Vector2(306.5, 293.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jei2"]
-size = Vector2(92, 28.5)
+size = Vector2(202, 36.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fggg6"]
 size = Vector2(561, 337)
@@ -211,7 +211,7 @@ visible = true
 
 [node name="Collision" parent="DynamicRoomItems/Cauldron/StaticBody2D" index="0" unique_id=2126398544]
 visible = true
-position = Vector2(224, 92.75)
+position = Vector2(217, 96.75)
 shape = SubResource("RectangleShape2D_1jei2")
 
 [node name="BackTable" parent="DynamicRoomItems" unique_id=1167922570 instance=ExtResource("13_hjbv7")]
