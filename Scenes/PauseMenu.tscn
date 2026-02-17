@@ -93,7 +93,6 @@ text = "Options"
 [node name="MainMenuButton" type="Button" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=708801128]
 layout_mode = 2
 theme_override_styles/focus = ExtResource("3_5w4ur")
-disabled = true
 text = " Main Menu"
 
 [node name="QuitButton" type="Button" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1751141820]

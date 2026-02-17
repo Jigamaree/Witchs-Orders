@@ -30,25 +30,24 @@ func _ready() -> void:
 				var _v = str(key) + ": " + str(SaveManager.save_data.currentGameData.current_save_data_dictionary[key])			
 				label.text = _v		
 				currentGameDataVBox.add_child(label)
-		#if SaveManager.save_data.persitstent_EndingRecords_data.endings:
-			#for key in SaveManager.save_data.persitstent_EndingRecords_data.endings:
-				#var dict = SaveManager.save_data.persitstent_EndingRecords_data.endings
-				#var value = dict[key]
-				#var label: Label = Label.new()
-				#var checkBox: CheckBox
-				#
-				#if typeof(value) == TYPE_BOOL:
-					#var hbox := HBoxContainer.new()
-					#label.text = str(key)
-					#hbox.add_child(label)
-					#
-					#checkBox = CheckBox.new()
-					#checkBox.button_pressed = value
-					#checkBox.toggled.connect(func(pressed: bool) -> void: SaveManager.setSaveVariable(key, pressed))
-					#hbox.add_child(checkBox)
-					#
-					#persistentDataVBox.add_child(hbox)				
- 			
+		if SaveManager.save_data.multiRunSaveData.tracked_ending_data_dictionary:
+			var dict = SaveManager.save_data.multiRunSaveData.tracked_ending_data_dictionary
+			for key in dict:
+				var value = dict[key]
+				var label: Label = Label.new()
+				var checkBox: CheckBox
+				
+				if typeof(value) == TYPE_BOOL:
+					var hbox := HBoxContainer.new()
+					label.text = str(key)
+					hbox.add_child(label)
+					
+					checkBox = CheckBox.new()
+					checkBox.button_pressed = value
+					checkBox.toggled.connect(func(pressed: bool) -> void: SaveManager.setSaveVariable(key, pressed))
+					hbox.add_child(checkBox)
+					
+					persistentDataVBox.add_child(hbox)						
 		
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_debug") or Input.is_action_just_pressed("ui_pause"):

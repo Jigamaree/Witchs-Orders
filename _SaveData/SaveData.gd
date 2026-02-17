@@ -3,11 +3,11 @@ extends Resource
 class_name Save_Data
 
 func _init() -> void:
-	currentGameData = SaveData_CurrentGame.new()
-	#add all endings save here
+	currentGameData 		= SaveData_CurrentGame.new()
+	multiRunSaveData 		= SaveData_EndingTracker.new()
 
 ### SINGLE SAVE DATA ###
 @export var currentGameData: 			SaveData_CurrentGame
 
 #### PERSISTENT SAVE DATA ###
-### TODO: ADD
+@export var multiRunSaveData: 			SaveData_EndingTracker

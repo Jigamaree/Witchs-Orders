@@ -271,11 +271,9 @@ func advance_line():
 			SaveManager.setSaveVariable("finalEnding", conv[index].get("playEnding", null))
 			get_tree().change_scene_to_file("res://Scenes/Epilogue Scenes/Epilogue_Hard.tscn")
 			
-		elif conv[index].has("END_OF_GAME"):
-			#set ending number in persistent save
-			#clear save in current game
-			#SaveManager.setEndingVariable( conv[index].get("END_OF_GAME", true))
-			#print("_ds: " + str(SaveManager.getEndingVariable("hardEnding_bad")))
+		elif conv[index].has("END_OF_GAME"):	
+			SaveManager.setSaveVariable(conv[index].get("END_OF_GAME", true), true)
+			SaveManager.reset_current_run()
 			get_tree().change_scene_to_file("res://Scenes/AssetScenes/MainMenu.tscn")
 			
 	else:
