@@ -54,13 +54,11 @@ func textRectColorChange(delta: float, rect: ColorRect, _sc: Color, _ec: Color):
 		rect.color = new_color	
 
 func _on_moving_stairs_area_2d_area_entered(area: Area2D) -> void:
-	print("hi!")
 	if area.is_in_group("playerBody"):
 		playerMovementLocked = true
 		GlobalVariables.stopUpwardYMovement.emit()
 
 func _on_moving_stairs_area_2d_area_exited(area: Area2D) -> void:
-	print("bye!")
 	if area.is_in_group("playerBody"):	
 		playerMovementLocked = false
 		GlobalVariables.startUpwardYMovement.emit()

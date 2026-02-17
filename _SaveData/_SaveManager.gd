@@ -4,6 +4,8 @@ var save_data: Save_Data
 const SAVE_PATH = "user://Witches_Orders_Savedata.tres"
 
 func _ready():
+	
+	print("is this being called???")
 	# Load existing save or create new one
 	load_or_create()
 
@@ -14,10 +16,9 @@ func load_or_create():
 		#print("Save loaded.")
 	#else:
 		save_data = Save_Data.new()
-		save_data.persitstent_EndingRecords_data = AllEndings_SaveData.new()
 		save_data.currentGameData = SaveData_CurrentGame.new()		
 			
-		print(OS.get_user_data_dir())
+		print("user dict: " + OS.get_user_data_dir())
 		save_game()
 		print("New save created.")
 
@@ -26,16 +27,15 @@ func save_game():
 	print("Game saved.")
 
 func _input(event: InputEvent) -> void:
-	pass
 	if event.is_action_pressed("ui_debug2"):
-		print("hi!")
+		pass
 
 func setSaveVariable(variableName: String, variableValue):
 	if variableName in save_data.currentGameData.current_save_data_dictionary:			save_data.currentGameData.current_save_data_dictionary[variableName] = variableValue
-	elif variableName in save_data.persitstent_EndingRecords_data: 	save_data.persitstent_EndingRecords_data[variableName] = variableValue
+	#check for endings save
 	else: Error.ERR_DOES_NOT_EXIST
 	
 func getSaveVariable(variableName: String):
 	if variableName in save_data.currentGameData.current_save_data_dictionary:			return save_data.currentGameData.current_save_data_dictionary[variableName]
-	elif variableName in save_data.persitstent_EndingRecords_data:	return save_data.persitstent_EndingRecords_data[variableName]
+	#get ending save
 	else: Error.ERR_DOES_NOT_EXIST	

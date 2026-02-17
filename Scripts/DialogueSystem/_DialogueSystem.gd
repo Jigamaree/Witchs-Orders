@@ -56,7 +56,6 @@ func inital_conversation_check():
 	if conv.has(0):
 		index = 0
 		checkValueInSave()
-	else: print("nah")
 
 func unblock_input_after_delay():
 	await get_tree().create_timer(0.3).timeout
@@ -77,7 +76,6 @@ func _process(_delta: float) -> void:
 		continue_arrow.play("default")
 
 func set_dialogue():
-	print(str(index))
 	#var dlg = conv[index].dialogue
 	# Make a temp variable to make the code cleaner
 	var dlg = replace_tags()
@@ -270,15 +268,15 @@ func advance_line():
 			queue_free()
 		
 		elif conv[index].has("playEnding"):
-			print("this will go to ending when i figure out wtf")
 			SaveManager.setSaveVariable("finalEnding", conv[index].get("playEnding", null))
 			get_tree().change_scene_to_file("res://Scenes/Epilogue Scenes/Epilogue_Hard.tscn")
 			
 		elif conv[index].has("END_OF_GAME"):
 			#set ending number in persistent save
 			#clear save in current game
+			#SaveManager.setEndingVariable( conv[index].get("END_OF_GAME", true))
+			#print("_ds: " + str(SaveManager.getEndingVariable("hardEnding_bad")))
 			get_tree().change_scene_to_file("res://Scenes/AssetScenes/MainMenu.tscn")
-			pass
 			
 	else:
 		dialogue.visible_characters = len(dialogue.text)
@@ -293,10 +291,8 @@ func checkValueInSave():
 	var _currSavedValue = SaveManager.getSaveVariable(_curr)			
 	
 	if str(_currSavedValue) == conv[index].checkSaveVariable["wantedValue"]:
-		print("slay")
 		index = conv[index].checkSaveVariable.goto_true
 	else:
-		print("nope")
 		index = conv[index].checkSaveVariable.goto_false				
 	# If the condition dictionary doesn't have the condition, it counts as false
 	#else:

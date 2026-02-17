@@ -29,3 +29,7 @@ func _on_test_save_button_pressed() -> void:
 	SaveManager.updateSave("ignus_fed", true)
 	SaveManager.updateSave("corruptionPoints_Demon", 1)
 	SaveManager.updateSave("sword_interracted", true)
+
+
+func _on_main_menu_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/AssetScenes/MainMenu.tscn")
