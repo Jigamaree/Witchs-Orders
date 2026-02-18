@@ -16,6 +16,7 @@ func reset_current_game_data(): current_save_data_dictionary = default_save_data
 	
 var default_save_data_dictionary: Dictionary = {
 	#tracking stuff
+	"plant_guide_read": false,	
 	"started_game": false,
 	
 	# bedroom	
@@ -34,7 +35,6 @@ var default_save_data_dictionary: Dictionary = {
 	"knight_fed": false,
 	"knight_eaten_item": Eaten_Item.NOTHING,
 	"stretched": false,
-	"plant_guide_read": false,
 	
 	# chores	
 	"ignus_fed": false,
