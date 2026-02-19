@@ -55,6 +55,15 @@ func setSaveVariable(variableName: String, variableValue):
 	if variableName in save_data.multiRunSaveData.tracked_ending_data_dictionary:
 		save_data.multiRunSaveData.tracked_ending_data_dictionary[variableName]			= variableValue
 	else: push_error(Error.ERR_DOES_NOT_EXIST)
+	
+	## then we check if we need to set any related values
+	if variableName == "knight_clothing":
+		if getSaveVariable("knight_clothing") != SaveData_CurrentGame.Clothing.NAKED:
+			setSaveVariable ("knight_clothed", true)
+			setSaveVariable ("bedroom_doorLocked", false)
+		elif getSaveVariable("knight_clothing") != SaveData_CurrentGame.Clothing.NAKED:
+			setSaveVariable ("knight_clothed", false)
+	
 	save_game()
 	
 func getSaveVariable(variableName: String):

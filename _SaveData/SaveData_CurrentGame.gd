@@ -22,6 +22,7 @@ var default_save_data_dictionary: Dictionary = {
 	# bedroom	
 	"bedroom_waterDrunk": false,
 	"bedroom_doorLocked": true,
+	"bedroom_testedTheDoor": false,
 	
 	# the pit
 	"thePit_hasTentacleFood": false,
@@ -32,6 +33,7 @@ var default_save_data_dictionary: Dictionary = {
 
 	#immediate player-state data	
 	"knight_clothing": Clothing.NAKED,
+	"knight_clothed": false,
 	"knight_fed": false,
 	"knight_eaten_item": Eaten_Item.NOTHING,
 	"stretched": false,
