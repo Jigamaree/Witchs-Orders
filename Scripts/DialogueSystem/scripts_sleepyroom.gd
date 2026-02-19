@@ -12,8 +12,7 @@ static var sleepyroom_Convos_Dict = {
 	"GingerBaby": {
 		0: {"checkSaveVariable": { "keyToCheck": "plant_guide_read", "wantedValue": "true", "goto_false": 1, "goto_true": 2 }},
 		1: { "speaker": "", "dialogue": "This plant is the spitting image of the larger potted plant across the room. The leaves closest to you are just a touch warm from the light filtering in the window.", "end": true},
-		2: { "speaker": "", "dialogue": "This appears to be not just a Buttermilk Ginger plant, but a propagation of the other larger plant in the room. Shit - you know this plant would sell for hundreds of gold. The knowledge? Thousands, probably.
-Something tells you that money isn't the point of this plant's existence.", "end": true},		
+		2: { "speaker": "", "dialogue": "This appears to be not just a Buttermilk Ginger plant, but a propagation of the other larger plant in the room. Shit - you know this plant would sell for hundreds of gold. The knowledge? Thousands, probably. Something tells you that money isn't the point of this plant's existence.", "end": true},		
 		}, 
 			
 	"GingerAdult": {
@@ -67,29 +66,35 @@ Something tells you that money isn't the point of this plant's existence.", "end
 		1: { "speaker": "none", "dialogue": "One of two stained glass windows in the room, this one depicts a crow nestled among branches. A sly look in its eye glints the same as a key grasped between its talons.", "goto": 2 },
 		2: { "speaker": "none", "dialogue": "You know the textured glass and heavy lead edging will be too difficult to break.", "end": true } ,		
 		},
-
-	"bookshelf": {
-		#1: { "speaker": "A Friend", "dialogue": "This is a simple line of dialogue!", "goto": 2 },
-		#2: { "speaker": "A Friend", "dialogue": "Here's one that sets a condition.", "set": "some_flag", "goto": 3 },
-		#3: { "speaker": "A Friend", "dialogue": "Now we can check that condition and change what comes next.", "check": { "condition": "some_flag", "goto_false": 4, "goto_true": 5 } },
-		1: { "speaker": "none", "dialogue": "I can make choices looking at books.", "goto": 6 },
-		6: { "speaker": "none", "dialogue": "Like this!", "choice": {"c1": {"choice": "I like choices.", "goto": 7 }, "c2": { "choice": "Choices are scary.", "goto": 8 } } },
-		7: { "speaker": "MC", "dialogue": "I like them too.", "goto": 9 },
-		8: { "speaker": "MC", "dialogue": "They do suck.", "goto": 9 },
-		9: { "speaker": "none", "dialogue": "Wow! Options!", "end": true } ,	
-		},		
 		
 	"lockedDoor": {
+		0: {"checkSaveVariable": { "keyToCheck": "bedroom_testedTheDoor", "wantedValue": "true", "goto_false": 1, "goto_true": 7 }},
+		#first time		
 		1: { "speaker": "none", "dialogue": "The door is made of sturdy wood, with a decorative brass handle. As you walk up, red threads of magic flicker to life, before racing along a complex arcane swirl on the door.", "goto": 2 },
 		2: { "speaker": "MC", "emote": "eep", "dialogue": " Witchcraft!", "goto": 3 },
-
 		3: { "speaker": "none", "dialogue": "You hesitate briefly before trying to open the door - no luck. The door doesn't budge an inch; you'd honestly think it jammed if the sigil didn't flare with the attempt.", "goto": 4 },
 		4: { "speaker": "none", "dialogue": "Just as you let go, a thought thunders through your mind like a premonition.", "goto": 5 },		
 		5: { "speaker": "none", "dialogue": "%wsTo exit, you must be of more than what you are.%ws", "completelyCentered": true, "goto": 6 },			
-		6: { "speaker": "MC", "emote": "exasperated", "dialogue": "...Is this door really telling me to get dressed?", "end": true },
-		},
+		6: { "speaker": "MC", "emote": "exasperated", "dialogue": "...Is this door really telling me to get dressed?", 
+		"setSaveVariable": ["bedroom_testedTheDoor", true], "end": true },
+		#second time
+		7: { "speaker": "none", "dialogue": "%wsTo exit, you must be of more than what you are.%ws", "completelyCentered": true, "checkSaveVariable": { "keyToCheck": "bedroom_testedTheDoorTwice", "wantedValue": "true", "goto_false": 8, "goto_true": 9 } },
+		8: { "speaker": "MC", "emote": "exasperated", "dialogue": "The fact this door can tell me what to do is really getting on my nerves.", "setSaveVariable": ["bedroom_testedTheDoorTwice", true], "end": true }, 
+		9: { "speaker": "MC", "dialogue": "I don't need to play these games.", 
+		"choice": {"c1": {"choice": "Take a breath.", "goto": 10 }, "c2": { "choice": "Kick in the door", "goto": 12 } } }, 	
+		10: { "speaker": "", "dialogue": "Maybe it's not a good idea to go kicking in enchanted doors. You take a few moments to steady yourself - closed eyes, counting to three on each inhale and exhale.", "goto": 11 },
+		11: { "speaker": "", "dialogue": "This witch may be playing games with you - but there's no reason to lose your cool.", "end": true },		
+		12: { "speaker": "", "dialogue": "You've trained for this exact moment. Steadying yourself, you kick the door open.", "fadeToBlack":true, "playEnding": "Captured" },											
+	},
+	
+	"Test":{
+		1: { "speaker": "", "dialogue": "This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll.", 
+		"choice": {"c1": {"choice": "Take a breath.", "goto": 2 }, "c2": { "choice": "Kick in the door", "goto": 2 } } }, 
+		2: { "speaker": "", "dialogue": "This should fade back in.", "end": true },
+	},
+		
 				
-		"ChestOfDrawers":{
+	"ChestOfDrawers":{
 		0: {"checkSaveVariable": { "keyToCheck": "bedroom_doorLocked", "wantedValue": "false", "goto_false": 1, "goto_true": 2 }},
 		1: { "speaker": "none", "dialogue": "You find some clothes! Wow!", "backgroundImage": true, "setSaveVariable": ["bedroom_doorLocked", false], "end": true },
 		2: { "speaker": "", "dialogue": "You've already gotten dressed, dude.", "end": true } 

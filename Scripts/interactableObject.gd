@@ -7,9 +7,10 @@ class_name interactableObject
 signal playDialogue(objectName)
 
 func interact() -> void:
+	
+	GlobalVariables.pauseRegularGameplay.emit()		
 	spawn_dialogue()
 
 func spawn_dialogue():
 	GlobalVariables.startDialogue.emit(objectName)
-	GlobalVariables.pauseRegularGameplay.emit()
 	

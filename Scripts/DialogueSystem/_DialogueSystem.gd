@@ -44,6 +44,11 @@ var pc_expression_dict = {
 @onready var background_tint_rect: ColorRect = $Control/BackgroundTintRect
 @onready var background_image_rect: TextureRect = $Control/CenterContainer/imageDisplayRect
 
+var scroll_direction := 0
+@export var scroll_speed := 400.0
+var boxHasFocus = true
+var scroll_amount = 30
+
 func _ready() -> void:
 	continue_arrow.hide()
 	choice_box.hide()
@@ -61,10 +66,7 @@ func unblock_input_after_delay():
 	await get_tree().create_timer(0.3).timeout
 	inital_input_blocked = false
 
-func _process(_delta: float) -> void:
-	if text_finished and choice_box.visible == true:
-		print("keyboard select?")
-	
+func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and inital_input_blocked == false:
 		advance_line()
 	
@@ -74,6 +76,44 @@ func _process(_delta: float) -> void:
 
 	if continue_arrow.visible: 
 		continue_arrow.play("default")
+		
+	if scroll_direction == 0:
+		return
+
+	var bar = dialogue.get_v_scroll_bar()
+	bar.value += scroll_direction * scroll_speed * delta
+	
+func any_button_has_focus() -> bool:
+	var focused := get_viewport().gui_get_focus_owner()
+	return focused != null and choice_box.is_ancestor_of(focused)
+		
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_left") or event.is_action_pressed("ui_right"):
+		if choice_box.visible == true:		
+			if !boxHasFocus:
+				get_viewport().gui_release_focus()
+				dialogue.grab_focus()
+				boxHasFocus = true
+			else:
+				choice_box.get_child(0).grab_focus()
+				boxHasFocus = false
+		
+	if event.is_action_pressed("ui_down"):
+		scroll_direction = 1
+
+	elif event.is_action_pressed("ui_up"):
+		scroll_direction = -1
+
+	elif event.is_action_released("ui_down") or event.is_action_released("ui_up"):
+		scroll_direction = 0
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.is_action("ui_scroll_down"):
+		var bar = dialogue.get_v_scroll_bar()
+		bar.value += scroll_amount
+	elif event is InputEventMouseButton and event.is_action("ui_scroll_up"):
+		var bar = dialogue.get_v_scroll_bar()
+		bar.value -= scroll_amount		
 
 func set_dialogue():
 	#var dlg = conv[index].dialogue
@@ -83,6 +123,7 @@ func set_dialogue():
 	set_speaker_title_and_visability()
 	set_portrait()
 	check_for_background_or_full_image()
+	fade_in_or_out()
 	set_text_alignment()
 		
 	# Set label text to line
@@ -172,8 +213,21 @@ func check_for_background_or_full_image():
 	#illustration - replaces the background image like (hopeful) sex scene images!
 	if conv[index].has("illustration"):
 		print("a FULL image would be set here!")
-				
-
+		
+func fade_in_or_out():
+	if conv[index].has("fadeIntoScene"):	
+		var tween = get_tree().create_tween()
+		tween.tween_property(background_tint_rect, "modulate:a", 0, 0.5).from(255.0)
+		await tween.finished			
+	elif conv[index].has("fadeToBlack"):	
+		background_tint_rect.visible = true
+		var tween = get_tree().create_tween()
+		#tween.set_parallel(true)
+		tween.tween_property(background_tint_rect, "modulate:a", 255.0, 0.5).from(0)
+		await tween.finished
+		#this means the next statement doesn't run unnessasarily
+		last_was_background = true			
+	
 var rate_norm = 0.03
 var rate_comma = 0.12
 var rate_period = 0.24
@@ -222,7 +276,7 @@ func manage_choices():
 			btn.pressed.connect(make_choice.bind(conv[index].choice[c].goto))
 			# Add the button to the container
 			choice_box.add_child(btn)
-		choice_box.get_child(0).grab_focus()
+		#choice_box.get_child(0).grab_focus()
 
 func make_choice(goto):
 	index = goto
@@ -231,6 +285,7 @@ func make_choice(goto):
 
 func advance_line():
 	if text_finished:
+		boxHasFocus = true
 		# Simple line, always goes to the same next line
 		if conv[index].has("setSaveVariable"):
 			var setValueArr = conv[index].setSaveVariable

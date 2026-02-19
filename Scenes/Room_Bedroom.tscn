@@ -229,7 +229,7 @@ debug_color = Color(0.97802454, 0, 0.40322107, 0.41960785)
 [node name="WardrobeCollide2" type="StaticBody2D" parent="Collisions" unique_id=1166416866]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/WardrobeCollide2" unique_id=837792558]
-position = Vector2(976, 152)
+position = Vector2(975, 142)
 shape = SubResource("RectangleShape2D_l272v")
 debug_color = Color(0.97802454, 0, 0.40322107, 0.41960785)
 

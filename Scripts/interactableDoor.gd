@@ -23,7 +23,8 @@ func interact() -> void:
 	
 	isLocked = SaveManager.getSaveVariable("bedroom_doorLocked")
 	
-	if isLocked == true and currentRoom == GlobalVariables.roomsInHouse.SLEEPYROOM and roomDestination == GlobalVariables.roomsInHouse.LIVING_ROOM:
+	if isLocked == true and currentRoom == GlobalVariables.roomsInHouse.SLEEPYROOM and roomDestination == GlobalVariables.roomsInHouse.LIVING_ROOM:	
+		GlobalVariables.pauseRegularGameplay.emit()		
 		GlobalVariables.startDialogue.emit("lockedDoor")
 	else:
 		NavMan.change_scenes(currentRoom, roomDestination)

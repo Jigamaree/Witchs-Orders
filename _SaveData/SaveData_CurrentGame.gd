@@ -23,6 +23,7 @@ var default_save_data_dictionary: Dictionary = {
 	"bedroom_waterDrunk": false,
 	"bedroom_doorLocked": true,
 	"bedroom_testedTheDoor": false,
+	"bedroom_testedTheDoorTwice": false,
 	
 	"bathroom_furnaceFern": false,
 	

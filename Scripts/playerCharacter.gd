@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-class_name  PlayerClass
+class_name PlayerClass
 
 @onready var interactionArea = $InteractionArea
 @onready var characterSprite = $characterSprite2D
@@ -63,6 +63,8 @@ func _physics_process(delta: float) -> void:
 		characterSprite.play("default")
 		
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_debug2"):
+		print(str(isPaused))	
 	if isPaused == false:
 		if event.is_action_pressed("ui_accept"):
 			for area in interactionArea.get_overlapping_areas():
