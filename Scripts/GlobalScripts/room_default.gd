@@ -13,6 +13,7 @@ var activity_on_first_entry = false
 var ignusConvoDict = IgnusConvos.convos_Dict
 var dialogueDictionary: Dictionary
 var canOpenDebug: bool = true
+var canPause: bool = true
 
 func _ready():
 	# Spawn player
@@ -21,6 +22,8 @@ func _ready():
 	find_player_location()
 	GlobalVariables.startDialogue.connect(_on_start_dialogue)
 	GlobalVariables.quickCountdown.connect(_quick_countdown)
+	GlobalVariables.pauseRegularGameplay.connect(_disable_pausing)
+	GlobalVariables.startRegularGameplay.connect(_re_enable_pausing)
 	#else call player spawn on fallback place
 	#want a method in here that loads room-specific flags in here and applies that to objects if possible!
 	
@@ -38,9 +41,12 @@ func find_player_location():
 			if door.currentRoom == NavMan.scene_were_currently_instancing and door.roomDestination == NavMan.last_scene:
 				player.global_position = door.markerPos
 
+	
+func _disable_pausing(): 	canPause = false
+func _re_enable_pausing(): 	canPause = true
 		
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("pause_button") and canOpenDebug == true:
+	if event.is_action_pressed("pause_button") and canPause == true:
 		var pause_instance = pause_menu.instantiate()
 		add_child(pause_instance)
 		get_tree().paused = true

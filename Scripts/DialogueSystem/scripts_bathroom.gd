@@ -2,6 +2,10 @@ extends Node
 
 class_name bathroomConvos
 
+### TODO: 
+# - Mirror; including all possible states
+# - pestle: has read book
+
 static var convos_Dict = {
 	
 	"bandages":{
@@ -22,13 +26,14 @@ static var convos_Dict = {
 	},	
 	
 	"pestle":{
-		0: {"checkSaveVariable": { "keyToCheck": "plant_guide_read", "wantedValue": "true", "goto_false": 1, "goto_true": 3 }},			
-		1: { "speaker": "", "dialogue": "The mixture the mortar and pestle was used on has been left streaked on the worn stone. Some sort of healing tincure, perhaps? You knew witch sorts usually kept their freedoms by posing as Salvekeepers, medicinal folks that could treat pains simple and complex.", "goto": 2 },
-		2: { "speaker": "", "dialogue": "Before today, you would have called them crooks. The fact you're alive and breathing now makes you hesitate.", "end": true },
+		0: {"checkSaveVariable": { "keyToCheck": "plant_guide_read", "wantedValue": "true", "goto_false": 1, "goto_true": 3 }},	
+		#		
+		1: { "speaker": "", "dialogue": "The mixture the mortar and pestle was used on has been left streaked on the worn stone. Some sort of healing tincure, perhaps? You know witches kept their freedoms by posing as Salvekeepers; medicinal folks that could treat pains both simple and complex.", "goto": 2 },
+		2: { "speaker": "", "dialogue": "Before today, you would have called witches crooks, as any good Divine's Chosen would. The fact you're alive and breathing now makes you hesitate.", "end": true },
 		
 		###TODO: Pestle: Plant guide read.
 		
-		3: { "speaker": "", "dialogue": "", "goto": 2 },						
+		3: { "speaker": "", "dialogue": "...", "end": true },						
 	},		
 
 	"plantWindow":{
@@ -44,14 +49,26 @@ static var convos_Dict = {
 		1: { "speaker": "", "dialogue": "An exceptionally large, fluffy towel. It's currently still damp, with a few miscellaneous scuffs of blood and dirt on it.", "goto": 2 },
 		2: { "speaker": "none", "dialogue": "Given the state of yourself, you're pretty sure it's your own.", "end": true }		
 	},				
-	
-	#3 lane (before taking shirt, after taking shirt, already dressed)
+
+	#furnancefern 
 	"VanityRight":{
-		1: { "speaker": "", "dialogue": "[Left side of vanity dialogue goes here.]", "end": true },		
+		0: {"checkSaveVariable": { "keyToCheck": "plant_guide_read", "wantedValue": "true", "goto_false": 1, "goto_true": 20 }},	
+		# havent read book
+		1: { "speaker": "", "dialogue": "The plant on this side of the vanity looks like some sort of fern, the ends of it coloured a vibrant orange. It curls towards the light coming from the stained glass window.", "end": true },		
+		20: { "speaker": "", "dialogue": "Furnace fern – the appearance of the plant is too striking to mistake it as anything else. It makes sense to find it here; the humid environment, low light of the bathroom indeed seems to have it growing quite happily. Not to mention a quick rub of its fronds between the fingers would see to poor smells.",
+		"checkSaveVariable": { "keyToCheck": "bathroom_furnaceFern", "wantedValue": "true", "goto_false": 21, "goto_true": 24 }},	
+		#have read book, have not aquired frond
+		21: { "speaker": "", "dialogue": "Having some on you could be quite useful.", 
+		"choice": {"c1": {"choice": "Take a frond.", "goto": 23 }, "c2": { "choice": "Leave it.", "goto": 22 } } },	
+		22: { "speaker": "", "dialogue": "You'd rather not carry this around right now.", "end": true },
+		23: { "speaker": "", "dialogue": "The baby frond you select - no larger than your finger - snaps off easily in your hand. The call of warmth - or plain arson - now sits neatly in your hands. You suspect one of these calls is better listened to than the other.", 
+		"setSaveVariable": ["bathroom_furnaceFern", true],
+		"end": true },
+		24: { "speaker": "", "dialogue": "You don't have any further use for it right now.", "end": true },											
 	},		
 	
-	#short tree (before reading book, before taking furnacefern, after taking fernace furn)
 	"VanityLeft":{
+		#pre-clothing
 		0: {"checkSaveVariable": { "keyToCheck": "knight_clothed", "wantedValue": "true", "goto_false": 1, "goto_true": 20 }},		
 		1: { "speaker": "", "dialogue": "The sunny yellow flowers on this side of the vanity are quite beautiful. Still, they’re not the focus of your attention as you rummage. ", "goto": 2 },
 		2: { "speaker": "", "dialogue": "Your attention is drawn to the white cloth slung over the drawer. Shaking it out, you see it to be a plain poet’s shirt, made of a white linen that feels crisp, yet soft in the hands. To say you’d be adequately dressed to your standards wearing this would be an understatement. It’s not long enough to cover your ass, and the neckline would dip drastically between your cleavage.", "goto": 3 },
@@ -62,8 +79,7 @@ static var convos_Dict = {
 		"checkSaveVariable": { "keyToCheck": "bedroom_testedTheDoor", "wantedValue": "true", "goto_false": 6, "goto_true": 7 }},
  		6: { "speaker": "", "dialogue": "As you run your hands down the fabric, you hear a crackling fizz from the other room. Wonder what that was about?", "end": true },
  		7: { "speaker": "", "dialogue": "As you run your hands down the fabric, you hear a crackling fizz from the other room. The door! Even if this would not pass as clothing in any sort of polite company, it’s clearly enough for the current circumstances. That’s… Something, at least.", "end": true },		
- 		#1: { "speaker": "", "dialogue": "[Right side of vanity dialogue goes here.]", "goto": 2 },
- 		#1: { "speaker": "", "dialogue": "[Right side of vanity dialogue goes here.]", "goto": 2 },
+		#post-clothing
  		20: { "speaker": "", "dialogue": "The bright yellow flowers here fill you with determination.", "goto": 21 },
  		21: { "speaker": "", "dialogue": "…To continue to figure out what the fuck is going on, here.", "end": true },		
   				

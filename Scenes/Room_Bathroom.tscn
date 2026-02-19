@@ -11,6 +11,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkohm"]
 size = Vector2(149.75, 24.25)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dj7lx"]
+size = Vector2(424.5, 135.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejvhm"]
 size = Vector2(261.75, 205.25)
 
@@ -18,7 +21,7 @@ size = Vector2(261.75, 205.25)
 size = Vector2(297, 484)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hvpyx"]
-size = Vector2(240, 414)
+size = Vector2(221, 414)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jnjsi"]
 size = Vector2(153, 202.5)
@@ -36,7 +39,7 @@ size = Vector2(297, 334)
 size = Vector2(193, 401)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktfbd"]
-size = Vector2(159, 415)
+size = Vector2(185, 415)
 
 [node name="RoomBathroom" type="Node2D" unique_id=940703355]
 script = ExtResource("1_osrva")
@@ -82,6 +85,13 @@ position = Vector2(-1542, -804)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions/RoomBoundary3" unique_id=1814176490]
 polygon = PackedVector2Array(389, 573, 460, 581, 555, 631, 554, 730, 554, 841, 528, 882, 532, 906, 559, 920, 555, 946, 511, 957, 370, 956, 341, 929, 352, 908, 375, 899, 355, 854, 348, 582)
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Collisions" unique_id=2078232556]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/StaticBody2D" unique_id=889184634]
+position = Vector2(-624.25, 123.75)
+shape = SubResource("RectangleShape2D_dj7lx")
+debug_color = Color(0.98084277, 0, 0.3802296, 0.41960785)
+
 [node name="RoomBoundary" type="StaticBody2D" parent="." unique_id=1165903164]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomBoundary" unique_id=1423180495]
@@ -124,7 +134,7 @@ position = Vector2(847, 67)
 objectName = "mirror"
 
 [node name="ObjectInteract" parent="Interactions/Mirror" index="0" unique_id=1854910098]
-position = Vector2(79, 152)
+position = Vector2(69.5, 152)
 shape = SubResource("RectangleShape2D_hvpyx")
 
 [node name="Pestle" parent="Interactions" unique_id=563015909 instance=ExtResource("6_hvpyx")]
@@ -172,7 +182,7 @@ position = Vector2(1041, 166)
 objectName = "VanityRight"
 
 [node name="ObjectInteract" parent="Interactions/VanityRightSide" index="0" unique_id=1854910098]
-position = Vector2(100.5, 54.5)
+position = Vector2(87.5, 54.5)
 shape = SubResource("RectangleShape2D_ktfbd")
 
 [editable path="Door_Area"]

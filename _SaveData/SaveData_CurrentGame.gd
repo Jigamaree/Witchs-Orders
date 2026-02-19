@@ -24,6 +24,8 @@ var default_save_data_dictionary: Dictionary = {
 	"bedroom_doorLocked": true,
 	"bedroom_testedTheDoor": false,
 	
+	"bathroom_furnaceFern": false,
+	
 	# the pit
 	"thePit_hasTentacleFood": false,
 	"thePit_hasCompletedStaircase": false,
