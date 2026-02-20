@@ -47,6 +47,10 @@ alignment = 1
 layout_mode = 2
 alignment = 1
 
+[node name="currentGameDataVBox2" type="VBoxContainer" parent="CenterContainer/ColorRect/ColorRect/HBoxContainer" unique_id=33575258]
+layout_mode = 2
+alignment = 1
+
 [node name="EndingsVBox" type="VBoxContainer" parent="CenterContainer/ColorRect/ColorRect/HBoxContainer" unique_id=355102093]
 layout_mode = 2
 alignment = 1

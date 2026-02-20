@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://dvho5a8pt138o"]
+
+[ext_resource type="Script" uid="uid://ct4cca3juvcf" path="res://Scripts/endingsMenu.gd" id="1_87tf2"]
+[ext_resource type="Texture2D" uid="uid://cnedufk3xjqmb" path="res://Assets/Dialogue/BookMenu.png" id="2_87tf2"]
+[ext_resource type="PackedScene" uid="uid://c07rhtxb4v8s0" path="res://Scenes/AssetScenes/EndingMenuContainer.tscn" id="3_87tf2"]
+[ext_resource type="StyleBox" uid="uid://cfg4t3f3c1ai5" path="res://buttonFocusedStyleBox.tres" id="3_arndx"]
+
+[node name="EndingsMenu" type="Control" unique_id=1073303519]
+process_mode = 3
+z_index = 99
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_87tf2")
+
+[node name="Background Fade" type="ColorRect" parent="." unique_id=1202986295]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -41.0
+offset_top = -17.0
+offset_right = 1951.0
+offset_bottom = 1105.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.4)
+
+[node name="BookBase" type="TextureRect" parent="." unique_id=982632053]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_87tf2")
+
+[node name="LeftPage" type="ColorRect" parent="." unique_id=1610651927]
+layout_mode = 0
+offset_left = 277.0
+offset_top = 97.0
+offset_right = 932.0
+offset_bottom = 911.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.43137255, 1, 1, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="LeftPage" unique_id=1461017470]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeftPage/MarginContainer" unique_id=1316211205]
+layout_mode = 2
+alignment = 1
+
+[node name="TitleCentered" type="CenterContainer" parent="LeftPage/MarginContainer/VBoxContainer" unique_id=957789080]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LeftPage/MarginContainer/VBoxContainer/TitleCentered" unique_id=1588700566]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Endings"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LeftPage/MarginContainer/VBoxContainer" unique_id=1992265427]
+layout_mode = 2
+alignment = 1
+
+[node name="Container" type="VBoxContainer" parent="LeftPage/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1166067634]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="VBoxContainer" parent="LeftPage/MarginContainer/VBoxContainer/HBoxContainer/Container" unique_id=400305204 instance=ExtResource("3_87tf2")]
+layout_mode = 2
+
+[node name="VBoxContainer2" parent="LeftPage/MarginContainer/VBoxContainer/HBoxContainer/Container" unique_id=157435532 instance=ExtResource("3_87tf2")]
+layout_mode = 2
+
+[node name="VBoxContainer3" parent="LeftPage/MarginContainer/VBoxContainer/HBoxContainer/Container" unique_id=955073279 instance=ExtResource("3_87tf2")]
+layout_mode = 2
+
+[node name="VBoxContainer4" parent="LeftPage/MarginContainer/VBoxContainer/HBoxContainer/Container" unique_id=2119947323 instance=ExtResource("3_87tf2")]
+layout_mode = 2
+
+[node name="VBoxContainer5" parent="LeftPage/MarginContainer/VBoxContainer/HBoxContainer/Container" unique_id=638645732 instance=ExtResource("3_87tf2")]
+layout_mode = 2
+
+[node name="VBoxContainer6" parent="LeftPage/MarginContainer/VBoxContainer/HBoxContainer/Container" unique_id=217934516 instance=ExtResource("3_87tf2")]
+layout_mode = 2
+
+[node name="RightPage" type="ColorRect" parent="." unique_id=995532869]
+layout_mode = 0
+offset_left = 1002.0
+offset_top = 97.0
+offset_right = 1657.0
+offset_bottom = 911.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.43137255, 1, 1, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="RightPage" unique_id=1225233779]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RightPage/MarginContainer" unique_id=1708012300]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RightPage/MarginContainer/HBoxContainer" unique_id=1487269840]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="VBoxContainer" parent="RightPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=515682016 instance=ExtResource("3_87tf2")]
+layout_mode = 2
+
+[node name="VBoxContainer2" parent="RightPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=786768581 instance=ExtResource("3_87tf2")]
+layout_mode = 2
+
+[node name="VBoxContainer3" parent="RightPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=868092180 instance=ExtResource("3_87tf2")]
+layout_mode = 2
+
+[node name="VBoxContainer4" parent="RightPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1095593383 instance=ExtResource("3_87tf2")]
+layout_mode = 2
+
+[node name="VBoxContainer5" parent="RightPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=130028006 instance=ExtResource("3_87tf2")]
+layout_mode = 2
+
+[node name="VBoxContainer6" parent="RightPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1519130769 instance=ExtResource("3_87tf2")]
+layout_mode = 2
+
+[node name="MainMenuButton" type="Button" parent="RightPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=675625074]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("3_arndx")
+text = " Main Menu"
+
+[connection signal="pressed" from="RightPage/MarginContainer/HBoxContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+
+[editable path="LeftPage/MarginContainer/VBoxContainer/HBoxContainer/Container/VBoxContainer"]

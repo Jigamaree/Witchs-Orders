@@ -6,6 +6,8 @@ static var convos_Dict = {
 	"DeadPlant": {
 		1: { "speaker": "none", "dialogue": "Dead plant dialogue goes here.", "end": true }
 		},
+		
+	##TODO: escaped pet +1	
 	"FrontDoor": {
 		1: { "speaker": "none", "dialogue": "Front door dialogue goes here.", "playEnding": "Captured" }
 		},	

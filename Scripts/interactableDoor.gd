@@ -23,6 +23,7 @@ func interact() -> void:
 	
 	isLocked = SaveManager.getSaveVariable("bedroom_doorLocked")
 	
+	###should not be able to go through door if note hasn't been read
 	if isLocked == true and currentRoom == GlobalVariables.roomsInHouse.SLEEPYROOM and roomDestination == GlobalVariables.roomsInHouse.LIVING_ROOM:	
 		GlobalVariables.pauseRegularGameplay.emit()		
 		GlobalVariables.startDialogue.emit("lockedDoor")

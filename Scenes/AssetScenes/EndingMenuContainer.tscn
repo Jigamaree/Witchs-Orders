@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c07rhtxb4v8s0"]
+
+[node name="VBoxContainer" type="VBoxContainer" unique_id=400305204]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=337387213]
+layout_mode = 2
+alignment = 1
+
+[node name="EndingTitleLabel" type="Label" parent="HBoxContainer" unique_id=1315454681]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Ending 1"
+
+[node name="CheckBox" type="CheckBox" parent="HBoxContainer" unique_id=255340382]
+layout_mode = 2
+toggle_mode = false
+
+[node name="Description Label" type="Label" parent="." unique_id=1879912699]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "This is where the details are described."
+horizontal_alignment = 1

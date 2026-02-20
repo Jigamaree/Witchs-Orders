@@ -20,6 +20,7 @@ var default_save_data_dictionary: Dictionary = {
 	"started_game": false,
 	
 	# bedroom	
+	"bedroom_prologuePlayed": false,	
 	"bedroom_waterDrunk": false,
 	"bedroom_doorLocked": true,
 	"bedroom_testedTheDoor": false,

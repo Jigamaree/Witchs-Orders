@@ -3,6 +3,26 @@ extends Node
 class_name sleepyroomConvos
 
 static var sleepyroom_Convos_Dict = {
+	"Prologue": {
+		1: { "speaker": "", "dialogue": "You wake. That is the only thing normal about your current circumstances.", "goto": 2 },
+		2: { "speaker": "", "dialogue": "The battle- your fellow men- Too many, too much, too [b]powerful-[/b] Your heart pounds like a warhorse, fractured memories crashing over your mind too fast to piece together.", "goto": 3 },
+		3: { "speaker": "", "dialogue": "This isn’t the Daybreak Plains –  why are you [i]here?![/i] Your squadron needs you. The Divine needs you! Your hands fly on instinct to where your sword should be-", "goto": 4 },
+		4: { "speaker": "MC", "dialogue": "Argh!", "goto": 5 },
+		5: { "speaker": "", "dialogue": "That, apparently, was a bad idea.", "goto": 6 },
+		6: { "speaker": "", "dialogue": "The pain of that movement though is enough to shock you out of the panic gripping your body cold – you take the opportunity to force a few intentionally slow breaths through your lungs. [i]Focus, solider.[/i] You start with the simple facts to ground yourself, like you were taught.", "goto": 7 },
+		7: { "speaker": "", "dialogue": "You are Alessia Venefican, of the Divine’s Chosen. The God-King Himself had just called on you and your sqaudron, as they had countless time before. The Saevii army loomed on the Daybreak Plains. You were to dispatch them.", "goto": 71 },
+		71: { "speaker": "", "dialogue": "This wasn't an out of the blue command from Him; the Saevii have been a growing threat for years now. You've even come to blows with their scimitars before, and the sheer number of men sighted for this encroaching battle threated to be of more weight than the Divine had claimed....", "goto": 72 },
+		72: { "speaker": "", "dialogue": "Hersay thoughts. You had answered Him - of course you answered. There is no questioning the Divine, only being the enactment of His word.", "goto": 8 },				
+		8: { "speaker": "", "dialogue": "You and the other Chosen had arrived. Had charged.", "goto": 81 },
+		81: { "speaker": "", "dialogue": "You…", "goto": 9 },		
+		9: { "speaker": "", "dialogue": "You…?", "goto": 10 },
+		10: { "speaker": "", "dialogue": "You don’t remember anything more than that. Not concrete, anyway. There’s flashes of things, sure – you remember the rush of battle in your ears, the singing of steel in your hands more desperate than before. A roar. Pain. Darkness.", "goto": 11 },
+		11: { "speaker": "", "dialogue": "Your fingers drift up to your chest, touching to bandages you don’t remember putting on and recoiling from an aching wound you don’t remember getting. Anything more than slow, simple movements seems to make it ache.", "goto": 12 },		
+		12: { "speaker": "", "dialogue": "You remember a woman standing over your battered body, eyes shining like wildfire.", "goto": 13 },
+		13: { "speaker": "", "dialogue": "Wherever you are now, you need to get out of here – better yet, figure out what on earth happened. Your eyes are drawn to a note sitting on the desk – the dark ink looks intentional. No better place to start than there, you suppose. ",
+		"setSaveVariable": ["bedroom_prologuePlayed", true], "end": true },		
+	},
+	
 	"Bed": {
 		1: { "speaker": "none", "dialogue": "The sheets for this bed are worn in the way only well loved fabric can be - soft to the touch, but the linen hasn't quite yet thinned.", "goto": 2 },
 		2: { "speaker": "none", "dialogue": "There's a scent clinging to the blankets - vanilla and cedar, along with a touch of petrichor.", "goto": 3 },
@@ -24,7 +44,8 @@ static var sleepyroom_Convos_Dict = {
 		5: { "speaker": "", "dialogue": "She didn't stop for another three rounds.", "goto": 6 },						
 		6: { "speaker": "", "dialogue": "Just recalling it all is enough to make your thighs clench - the celibacy you'd sworn yourself to in Their Holiness' service had always been something you'd told yourself was worth the loss. Now, in a bedroom with such easy access to the slick, you're not so sure.",  "end": true},	
 		}, 
-		
+
+### TODO		
 	"Note": {
 		0: {"checkSaveVariable": { "keyToCheck": "plant_guide_read", "wantedValue": "true", "goto_false": 1, "goto_true": 2 }},	
 		1: { "speaker": "", "dialogue": "", "end": true},		
@@ -32,12 +53,13 @@ static var sleepyroom_Convos_Dict = {
 		}, 
 	
 	"SidetableLeft": {
-		0: {"checkSaveVariable": { "keyToCheck": "plant_guide_read", "wantedValue": "true", "goto_false": 1, "goto_true": 3 }},	
-		1: { "speaker": "", "dialogue": "The side table on this side looks more used that your own, wear marks around the sidetable's edges speaking to long term use. The strange pot-plant with bubbled leaves makes your nose wrinkle; you remember eating it as a kid, falling asleep and having strange, vivid dreams.", "goto": 2},		
-		2: { "speaker": "", "dialogue": "You attempt to get in the drawer, but a light zap like static bolts up your arm. Seems like somebody didn't want you going through these particular personal belongings.", "end": true },
+		0: {"checkSaveVariable": { "keyToCheck": "plant_guide_read", "wantedValue": "true", "goto_false": 1, "goto_true": 10 }},	
+		1: { "speaker": "", "dialogue": "The side table on this side has a few more dents and scrapes than your own - still carefully polished and tended to, but wearing the signs of more frequent use.", "goto": 2},
+		2: { "speaker": "", "dialogue": "The pot plant on the with bubbled leaves makes your nose wrinkle. You remember, in your infinite wisdom as a child, eating some of the bright green pearls. The dreams you'd had were as vivid as waking - and the scolding you'd gotten about poisoning yourself had made you never touch them again.", "goto": 3 },				
+		3: { "speaker": "", "dialogue": "You attempt to get in the drawer, but a light zap like static bolts up your arm. Seems like somebody didn't want you going through these particular personal belongings.", "end": true },
 		
-		3: { "speaker": "", "dialogue": "A String-of-Dreams sits on the sidetable - you'd never known this was what the plant actually looked like. You'd believed the Capital's salvekeepers at their word when they'd said the plant was poisonous and never thought much more of it - why would you?", "goto": 4 },		
-		4: { "speaker": "", "dialogue": "Considering you now remember eating it yourself, you suspect they had other reasons to suppress its use. But... Why?", "end": true}				
+		10: { "speaker": "", "dialogue": "A String-of-Dreams sits on the sidetable - you'd never known this was what the plant actually looked like. You'd believed the Capital's salvekeepers at their word when they'd said the plant was poisonous and never thought much more of it - why would you?", "goto": 11 },		
+		11: { "speaker": "", "dialogue": "Considering you now remember eating it yourself, you suspect they had other reasons to suppress its use. But... Why?", "end": true}				
 		}, 	
 	
 	"SidetableRight": {
@@ -49,10 +71,19 @@ static var sleepyroom_Convos_Dict = {
 		3: { "speaker": "", "dialogue": "The sidetable is a steady wooden sort, plain in design but very functional. It's also been barely used - there's nothing but a few dust bunnies tucked into the corners of the drawers.", "end": true },		
 		}, 
 		
+#sword_interracted		
 	"Sword": {
-		1: { "speaker": "", "dialogue": "Sword dialogue goes here.", "end": true},
-		}, 	
-		
+		0: {"checkSaveVariable": { "keyToCheck": "sword_interracted", "wantedValue": "true", "goto_false": 1, "goto_true": 30 }},		 	
+		1: { "speaker": "MC", "dialogue": "Valiance!", "goto": 2 },
+		2: { "speaker": "", "dialogue": "You fall forward, cradling the hilt of the sword – [i]your[/i] precious sword - in your hands. Not that you could call it one anymore in the state it’s in now – the blade is shattered into pottery like shards, catching the light from the window.", "goto": 3 },
+		3: { "speaker": "", "dialogue": "The memory suddenly comes to you – bringing Valiance down on scaled hide, right behind the neck. It should have pierced the hide clean through – instead you felt the metal shock, fall to pieces like cheap glass. Pain burned through your body like lightning soon after.", "goto": 4 },
+		4: { "speaker": "", "dialogue": "Blessed steel shouldn’t break like this. The Divine Himself imbues it, the holy blessing from His hands making it one of the strongest materials known to man – you’ve cut through solid marble like butter, before. This should of been easy.", "goto": 5 },
+		5: { "speaker": "", "dialogue": "The discoloration on the metal is worrying too; it’s tarnished like a cheap mirror, blackening at its edges. You’ve spent too much time polishing its length and sharpening its blade to believe for a second that flaking darkness is due to neglect.", "goto": 6 },
+		6: { "speaker": "", "dialogue": "You search your memories for anything more about the [i]why[/i] of what caused this, but come up short. It appears you’ll have to figure this out both alone and unarmed.", 
+		"setSaveVariable": ["sword_interracted", true], "end": true },
+		30: { "speaker": "", "dialogue": "The pieces of your most faithful companion lay shattered. What is a knight without her sword? The hollow part of your chest can't find an answer.", "end": true },
+		},
+### TODO		
 	"ToyChest": {
 		1: { "speaker": "", "dialogue": "Toychest dialogue goes here.", "end": true},
 		}, 			
@@ -86,14 +117,8 @@ static var sleepyroom_Convos_Dict = {
 		11: { "speaker": "", "dialogue": "This witch may be playing games with you - but there's no reason to lose your cool.", "end": true },		
 		12: { "speaker": "", "dialogue": "You've trained for this exact moment. Steadying yourself, you kick the door open.", "fadeToBlack":true, "playEnding": "Captured" },											
 	},
-	
-	"Test":{
-		1: { "speaker": "", "dialogue": "This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll. This is a test of the scroll.", 
-		"choice": {"c1": {"choice": "Take a breath.", "goto": 2 }, "c2": { "choice": "Kick in the door", "goto": 2 } } }, 
-		2: { "speaker": "", "dialogue": "This should fade back in.", "end": true },
-	},
-		
-				
+
+### TODO				
 	"ChestOfDrawers":{
 		0: {"checkSaveVariable": { "keyToCheck": "bedroom_doorLocked", "wantedValue": "false", "goto_false": 1, "goto_true": 2 }},
 		1: { "speaker": "none", "dialogue": "You find some clothes! Wow!", "backgroundImage": true, "setSaveVariable": ["bedroom_doorLocked", false], "end": true },

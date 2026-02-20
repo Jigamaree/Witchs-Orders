@@ -3,11 +3,20 @@ extends CanvasLayer
 class_name DebugMenu
 
 @onready var currentGameDataVBox = $CenterContainer/ColorRect/ColorRect/HBoxContainer/currentGameDataVBox
+@onready var currentGameDataVBox2 = $CenterContainer/ColorRect/ColorRect/HBoxContainer/currentGameDataVBox2
 @onready var persistentDataVBox = $CenterContainer/ColorRect/ColorRect/HBoxContainer/EndingsVBox
+
+var count = 0
 
 func _ready() -> void:
 	if SaveManager.save_data.currentGameData.current_save_data_dictionary:
 		for key in SaveManager.save_data.currentGameData.current_save_data_dictionary:
+			
+			var currentVBox		
+			if count <= 27: currentVBox = currentGameDataVBox
+			else: currentVBox = currentGameDataVBox2		
+			count = count+1			
+			
 			var dict = SaveManager.save_data.currentGameData.current_save_data_dictionary
 			var value = dict[key]
 			var label: Label = Label.new()
@@ -23,7 +32,7 @@ func _ready() -> void:
 				checkBox.toggled.connect(func(pressed: bool) -> void: SaveManager.setSaveVariable(key, pressed))
 				hbox.add_child(checkBox)
 				
-				currentGameDataVBox.add_child(hbox)
+				currentVBox.add_child(hbox)
 			
 			#TO:DO - change value of anything besides bools			
 			else:	
@@ -48,6 +57,7 @@ func _ready() -> void:
 					hbox.add_child(checkBox)
 					
 					persistentDataVBox.add_child(hbox)						
+	print(str(count))
 		
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_debug") or Input.is_action_just_pressed("ui_pause"):
