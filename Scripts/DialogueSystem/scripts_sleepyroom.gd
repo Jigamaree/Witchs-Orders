@@ -156,7 +156,7 @@ static var sleepyroom_Convos_Dict = {
 		#second time
 		7: { "speaker": "none", "dialogue": "%wsTo exit, you must be of more than what you are.%ws", "completelyCentered": true, "checkSaveVariable": { "keyToCheck": "bedroom_testedTheDoorTwice", "wantedValue": "true", "goto_false": 8, "goto_true": 9 } },
 		8: { "speaker": "MC", "emote": "exasperated", "dialogue": "The fact this door can tell me what to do is really getting on my nerves.", 
-		"setSaveVariable": ["bedroom_testedTheDoorTwice", true], "end": true }, 
+		"setSaveVariable": ["ignus_fed", true], "end": true }, 
 		9: { "speaker": "MC", "dialogue": "I don't need to play these games.", 
 		"choice": {"c1": {"choice": "Take a breath.", "goto": 10 }, "c2": { "choice": "Kick in the door", "goto": 12 } } }, 	
 		10: { "speaker": "", "dialogue": "Maybe it's not a good idea to go kicking in enchanted doors. You take a few moments to steady yourself - closed eyes, counting to three on each inhale and exhale.", "goto": 11 },

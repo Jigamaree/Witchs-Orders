@@ -18,6 +18,7 @@ var pitch_dict = {
 	"none": preload("res://Audio/clink1.wav"),
 	"": preload("res://Audio/clink1.wav"),
 	"MC": preload("res://Audio/voice2.wav"),
+	"Ignus": preload("res://Audio/ignusVoice.wav"),
 }
 
 # Image setup
@@ -60,7 +61,10 @@ func _ready() -> void:
 func inital_conversation_check():
 	if conv.has(0):
 		index = 0
-		checkValueInSave()
+		if conv[index].has("checkIgnusState"):
+			checkIgnusState()			
+		else:
+			checkValueInSave()
 
 func unblock_input_after_delay():
 	await get_tree().create_timer(0.3).timeout
@@ -118,6 +122,8 @@ func _input(event: InputEvent) -> void:
 func set_dialogue():
 	#var dlg = conv[index].dialogue
 	# Make a temp variable to make the code cleaner
+	
+	
 	var dlg = replace_tags()
 	
 	set_speaker_title_and_visability()
@@ -182,8 +188,9 @@ func set_text_alignment():
 
 func set_portrait():
 	#deal with portrait
-	var emote = ""	
-	if conv[index].has("emote"):
+	var emote = ""
+		
+	if conv[index].has("emote") and conv[index].speaker == "MC" or conv[index].speaker == "Alessia":
 		match conv[index].emote:
 			"exasperated": 	portTextRect.texture = pc_expression_dict["exasperated"]
 			"eep": 			portTextRect.texture = pc_expression_dict["eep"]
@@ -245,6 +252,7 @@ func control_rate():
 		text_rate = rate_norm
 
 func replace_tags():
+	var dl = conv[index]
 	var dlg = conv[index].dialogue
 		# For if the player can name their own character
 	dlg = dlg.replace("%p", "[Player's custom name") 
@@ -270,6 +278,9 @@ func manage_choices():
 		for c in conv[index].choice:
 			# Make a new button
 			var btn = Button.new()
+			var theme: Theme = load("res://ButtonTheme.tres")
+			btn.theme = theme
+			btn.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 			# Set the button's text to the player's choice dialogue
 			btn.text = conv[index].choice[c].choice
 			# Connect the button's pressed signal to the make_choice function and pass the number of the line it leads to
@@ -293,10 +304,14 @@ func advance_line():
 									
 		if conv[index].has("set"):
 			var flag = conv[index].get("set", null)
-			set_condition(flag)		
+			set_condition(flag)
+					
 		if conv[index].has("goto"):
 			index = conv[index].goto
 			set_dialogue()
+		
+		elif conv[index].has("checkIgnusState"): 
+			checkIgnusState()
 		
 		# "keyToCheck": "bedroom_doorLocked", "wantedValue": "false", "goto_false": 4, "goto_true": 5			
 		elif conv[index].has("checkSaveVariable"):
@@ -342,13 +357,24 @@ func checkValueInSave():
 	# get the data to check
 	var _curr = conv[index].checkSaveVariable["keyToCheck"] 
 	var _currSavedValue = SaveManager.getSaveVariable(_curr)			
-	
-	
+		
 	if str(_currSavedValue) == str(conv[index].checkSaveVariable["wantedValue"]):
 		index = conv[index].checkSaveVariable.goto_true
 	else:
 		index = conv[index].checkSaveVariable.goto_false				
-	# If the condition dictionary doesn't have the condition, it counts as false
-	#else:
-		#index = conv[index].check.goto_false
 	set_dialogue()	
+		
+func checkIgnusState():
+	var ignus_fed 				= SaveManager.getSaveVariable("ignus_fed")
+	var ignus_fucked_ate_out  	= SaveManager.getSaveVariable("ignus_fucked_ate_out")
+	var cellar_haveIgnusMeat 	= SaveManager.getSaveVariable("cellar_haveIgnusMeat")
+	
+	if ignus_fucked_ate_out:
+		index = conv[index].checkIgnusState.goto_fucked
+	elif ignus_fed:
+		index = conv[index].checkIgnusState.goto_fed
+	elif !ignus_fed and cellar_haveIgnusMeat:
+		index = conv[index].checkIgnusState.goto_canfeed
+	else:
+		index = conv[index].checkIgnusState.goto_cantfeed	
+	 

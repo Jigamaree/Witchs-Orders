@@ -20,18 +20,17 @@ static var convos_Dict = {
 		4: { "speaker": "", "dialogue": "You have better things to do than lose time to this.", "end": true },								
 	},
 	
-	#complex
+	#TODO: either full implementation, or just generic
 	"mirror":{
 		1: { "speaker": "", "dialogue": "[Mirror dialogue goes here.]", "end": true },		
 	},	
-	
+
+	###TODO: Pestle: Plant guide read.	
 	"pestle":{
 		0: {"checkSaveVariable": { "keyToCheck": "plant_guide_read", "wantedValue": "true", "goto_false": 1, "goto_true": 3 }},	
 		#		
 		1: { "speaker": "", "dialogue": "The mixture the mortar and pestle was used on has been left streaked on the worn stone. Some sort of healing tincure, perhaps? You know witches kept their freedoms by posing as Salvekeepers; medicinal folks that could treat pains both simple and complex.", "goto": 2 },
 		2: { "speaker": "", "dialogue": "Before today, you would have called witches crooks, as any good Divine's Chosen would. The fact you're alive and breathing now makes you hesitate.", "end": true },
-		
-		###TODO: Pestle: Plant guide read.
 		
 		3: { "speaker": "", "dialogue": "...", "end": true },						
 	},		

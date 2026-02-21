@@ -15,7 +15,7 @@ func _ready():
 	dialogueDictionary = LoungeConvos.convos_Dict
 	ignusSprite.play("default")
 	if SaveManager.getSaveVariable("lounge_enteredFirstTime") == false:
-		GlobalVariables.startDialogue.emit("Prologue")
+		GlobalVariables.startDialogue.emit("firstEntry")
 		GlobalVariables.pauseRegularGameplay.emit()		
 
 func _process(_delta: float) -> void:		

@@ -28,13 +28,16 @@ var default_save_data_dictionary: Dictionary = {
 	"bedroom_testedTheDoorTwice": false,
 	
 	"bathroom_furnaceFern": false,
-	
+		
 	# the pit
 	"thePit_hasTentacleFood": false,
 	"thePit_hasCompletedStaircase": false,
 	
 	#lounge
 	"lounge_enteredFirstTime": false,
+	
+	#cellar
+	"cellar_haveIgnusMeat": false,
 
 	#immediate player-state data	
 	"knight_clothing": Clothing.NAKED,
@@ -45,7 +48,7 @@ var default_save_data_dictionary: Dictionary = {
 	
 	# chores	
 	"ignus_fed": false,
-	"ignus_fucked": false,
+	"ignus_fucked_ate_out": false,
 	"pit_fed": false,
 	"pit_fucked": false,
 	"cauldron_state":  Puzzle_State.NOT_FINISHED,

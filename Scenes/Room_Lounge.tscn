@@ -73,6 +73,9 @@ size = Vector2(101, 89)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dc0ri"]
 size = Vector2(153, 387)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnvhu"]
+size = Vector2(521.25, 33)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vjrxh"]
 size = Vector2(191, 203)
 
@@ -83,10 +86,10 @@ size = Vector2(143, 166)
 size = Vector2(217, 428)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kh7kr"]
-size = Vector2(230, 111)
+size = Vector2(233, 273)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cigei"]
-size = Vector2(540, 304)
+size = Vector2(296, 304)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jx5iv"]
 size = Vector2(529.5, 392)
@@ -282,6 +285,14 @@ position = Vector2(133.5, -238.5)
 shape = SubResource("RectangleShape2D_dc0ri")
 debug_color = Color(0.98255795, 0, 0.3653197, 0.41960785)
 
+[node name="Ignus" type="StaticBody2D" parent="Collisions" unique_id=363525638]
+position = Vector2(1214, -384)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Ignus" unique_id=1281859621]
+position = Vector2(285.375, 133.5)
+shape = SubResource("RectangleShape2D_xnvhu")
+debug_color = Color(0.98255795, 0, 0.3653197, 0.41960785)
+
 [node name="fallbackMarker" type="Marker2D" parent="." unique_id=1393730870 groups=["fallback"]]
 position = Vector2(911, 258)
 
@@ -337,7 +348,7 @@ position = Vector2(1513, -60)
 objectName = "Bowls"
 
 [node name="ObjectInteract" parent="Interactions/Bowls" index="0" unique_id=1854910098]
-position = Vector2(129, 62.5)
+position = Vector2(127.5, -18.5)
 shape = SubResource("RectangleShape2D_kh7kr")
 
 [node name="Ignus" parent="Interactions" unique_id=194977907 instance=ExtResource("16_83a4s")]
@@ -345,7 +356,7 @@ position = Vector2(1234, -390)
 objectName = "Ignus"
 
 [node name="ObjectInteract" parent="Interactions/Ignus" index="0" unique_id=1854910098]
-position = Vector2(265, 164)
+position = Vector2(143, 164)
 shape = SubResource("RectangleShape2D_cigei")
 debug_color = Color(0.67304784, 0.35708997, 0.56563306, 0.41960785)
 

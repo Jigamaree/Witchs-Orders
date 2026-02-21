@@ -162,10 +162,11 @@ frame_progress = 0.32761258
 
 [node name="ChoiceBox" type="VBoxContainer" parent="Control" unique_id=990140104]
 layout_mode = 0
-offset_left = 1459.0
-offset_top = 520.0
-offset_right = 1675.0
-offset_bottom = 714.0
+offset_left = 1687.0
+offset_top = 544.0
+offset_right = 1902.0
+offset_bottom = 1039.0
+alignment = 2
 
 [node name="PortraitBox" type="ColorRect" parent="Control" unique_id=1571534205]
 layout_mode = 0
