@@ -61,7 +61,9 @@ var default_save_data_dictionary: Dictionary = {
 	"apprentice_seed_taken": false,  #"pendant got"
 
 	### other ending measures
-	"dildo_usage": 0,
+	"dildo_fucked_first": false,
+	"dildo_fucked_second": false,
+	"dildo_fucked_third": false,	
 	"corruptionPoints_Cow": 0,
 	"corruptionPoints_Demon": 0,
 	"corruptionPoints_Pet": 0,	

@@ -57,12 +57,17 @@ func setSaveVariable(variableName: String, variableValue):
 	else: push_error(Error.ERR_DOES_NOT_EXIST)
 	
 	## then we check if we need to set any related values
+	# the knight is clothed if we set her to anything besides naked
 	if variableName == "knight_clothing":
 		if getSaveVariable("knight_clothing") != SaveData_CurrentGame.Clothing.NAKED:
 			setSaveVariable ("knight_clothed", true)
 			setSaveVariable ("bedroom_doorLocked", false)
 		elif getSaveVariable("knight_clothing") != SaveData_CurrentGame.Clothing.NAKED:
 			setSaveVariable ("knight_clothed", false)
+	
+	#if she gets fucked in any capacity, she is now stretched.
+	if variableName.contains("fucked"):
+		setSaveVariable ("stretched", true)
 	
 	save_game()
 	

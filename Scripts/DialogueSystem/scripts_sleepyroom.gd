@@ -83,9 +83,50 @@ static var sleepyroom_Convos_Dict = {
 		"setSaveVariable": ["sword_interracted", true], "end": true },
 		30: { "speaker": "", "dialogue": "The pieces of your most faithful companion lay shattered. What is a knight without her sword? The hollow part of your chest can't find an answer.", "end": true },
 		},
+
 ### TODO		
 	"ToyChest": {
-		1: { "speaker": "", "dialogue": "Toychest dialogue goes here.", "end": true},
+			1: { "speaker": "", "dialogue": "Dialogue start", "goto": 2 },
+			2: { "speaker": "", "dialogue": "This is where the choice is made", 		
+			"choice": {
+				"c1": {"choice": "First dildo.", "goto": 100 }, 
+				"c2": { "choice": "Second dildo.", "goto": 200 }, 
+				"c3": { "choice": "Third dildo.", "goto": 300 }, 
+				"c4": { "choice": "Step away.", "goto": 999 }, } }, 
+
+			100: { "speaker": "", "dialogue": "Pick up the first dildo", 
+			"checkSaveVariable": { 
+				"keyToCheck": "dildo_fucked_first", 
+				"wantedValue": "true", 
+				"goto_false": 102, 
+				"goto_true": 101 }},
+					
+			101: { "speaker": "", "dialogue": "You have used this.", "end": true },
+			102: { "speaker": "", "dialogue": "You haven't used this, but now you have", 
+			"setSaveVariable": ["dildo_fucked_first", true], "end": true },
+		
+			200: { "speaker": "", "dialogue": "Pick up the second dildo", 
+			"checkSaveVariable": { 
+				"keyToCheck": "dildo_fucked_second", 
+				"wantedValue": "true", 
+				"goto_false": 202, 
+				"goto_true": 201 }},
+				
+			201: { "speaker": "", "dialogue": "You have used this.", "end": true },					
+			202: { "speaker": "", "dialogue": "You haven't used this, but now you have", 
+			"setSaveVariable": ["dildo_fucked_second", true], "end": true },
+
+			300: { "speaker": "", "dialogue": "Pick up the third dildo.", 
+			"checkSaveVariable": { 
+				"keyToCheck": "stretched", 
+				"wantedValue": "true", 
+				"goto_false": 301, 
+				"goto_true": 302 }},
+			301: { "speaker": "", "dialogue": "You're not stretched enough to use this.", "end": true },					
+			302: { "speaker": "", "dialogue": "You fuck yourself with it, nice.", 
+			"setSaveVariable": ["dildo_fucked_third", true], "end": true },
+			
+			999: { "speaker": "", "dialogue": "You step away.", "end": true },						
 		}, 			
 	
 	"WindowFire": {
@@ -110,7 +151,8 @@ static var sleepyroom_Convos_Dict = {
 		"setSaveVariable": ["bedroom_testedTheDoor", true], "end": true },
 		#second time
 		7: { "speaker": "none", "dialogue": "%wsTo exit, you must be of more than what you are.%ws", "completelyCentered": true, "checkSaveVariable": { "keyToCheck": "bedroom_testedTheDoorTwice", "wantedValue": "true", "goto_false": 8, "goto_true": 9 } },
-		8: { "speaker": "MC", "emote": "exasperated", "dialogue": "The fact this door can tell me what to do is really getting on my nerves.", "setSaveVariable": ["bedroom_testedTheDoorTwice", true], "end": true }, 
+		8: { "speaker": "MC", "emote": "exasperated", "dialogue": "The fact this door can tell me what to do is really getting on my nerves.", 
+		"setSaveVariable": ["bedroom_testedTheDoorTwice", true], "end": true }, 
 		9: { "speaker": "MC", "dialogue": "I don't need to play these games.", 
 		"choice": {"c1": {"choice": "Take a breath.", "goto": 10 }, "c2": { "choice": "Kick in the door", "goto": 12 } } }, 	
 		10: { "speaker": "", "dialogue": "Maybe it's not a good idea to go kicking in enchanted doors. You take a few moments to steady yourself - closed eyes, counting to three on each inhale and exhale.", "goto": 11 },
