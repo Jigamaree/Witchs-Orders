@@ -9,6 +9,7 @@ var pitRoom: PackedScene = preload("res://Scenes/Room_ThePit.tscn")
 var cellarRoom: PackedScene = preload("res://Scenes/Room_Cellar.tscn")
 var frontDoorRoom: PackedScene = preload("res://Scenes/Room_FrontDoor.tscn")
 var studyRoom: PackedScene = preload("res://Scenes/Room_Study.tscn")
+var gardenRoom: PackedScene =  preload("res://Scenes/Room_Garden.tscn")
 
 var changed_scene_before: bool = false
 var last_scene
@@ -30,6 +31,7 @@ func change_scenes (_sceneFrom: GlobalVariables.roomsInHouse, _sceneTo: GlobalVa
 		GlobalVariables.roomsInHouse.CELLAR:		scene_to_load = cellarRoom	
 		GlobalVariables.roomsInHouse.FRONT_DOOR:	scene_to_load = frontDoorRoom
 		GlobalVariables.roomsInHouse.STUDY:			scene_to_load = studyRoom
+		GlobalVariables.roomsInHouse.GARDEN:		scene_to_load = gardenRoom
 		_:											print("didnt assign the room in Navman, dummy!")
 			
 	get_tree().change_scene_to_packed(scene_to_load)

@@ -100,6 +100,9 @@ size = Vector2(293, 175)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_admn8"]
 size = Vector2(167, 175)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1immk"]
+size = Vector2(228, 350)
+
 [node name="RoomLounge" type="Node2D" unique_id=1548855678]
 script = ExtResource("1_bmw2n")
 
@@ -387,6 +390,18 @@ z_index = 1
 position = Vector2(89.5, 71.5)
 shape = SubResource("RectangleShape2D_admn8")
 
+[node name="Door_Area" parent="." unique_id=338871437 instance=ExtResource("4_u2gad")]
+position = Vector2(476, -353)
+currentRoom = 3
+roomDestination = 7
+
+[node name="Door_Collision" parent="Door_Area" index="0" unique_id=2029805447]
+position = Vector2(-2, -84)
+shape = SubResource("RectangleShape2D_1immk")
+
+[node name="Door_Marker" parent="Door_Area" index="1" unique_id=126591328]
+position = Vector2(-103, -78)
+
 [connection signal="area_entered" from="DynamicRoomItems/DiningTableArea" to="DynamicRoomItems/DiningTableArea" method="_on_area_entered"]
 [connection signal="area_exited" from="DynamicRoomItems/DiningTableArea" to="DynamicRoomItems/DiningTableArea" method="_on_area_exited"]
 
@@ -405,3 +420,4 @@ shape = SubResource("RectangleShape2D_admn8")
 [editable path="Interactions/Fireplace"]
 [editable path="Interactions/OtherChair"]
 [editable path="Interactions/WitchChair"]
+[editable path="Door_Area"]
