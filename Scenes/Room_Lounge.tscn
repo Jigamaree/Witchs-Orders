@@ -98,7 +98,7 @@ size = Vector2(529.5, 392)
 size = Vector2(293, 175)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_admn8"]
-size = Vector2(167, 157)
+size = Vector2(167, 175)
 
 [node name="RoomLounge" type="Node2D" unique_id=1548855678]
 script = ExtResource("1_bmw2n")
@@ -384,7 +384,7 @@ objectName = "WitchChair"
 process_priority = 1
 process_physics_priority = 1
 z_index = 1
-position = Vector2(89.5, 62.5)
+position = Vector2(89.5, 71.5)
 shape = SubResource("RectangleShape2D_admn8")
 
 [connection signal="area_entered" from="DynamicRoomItems/DiningTableArea" to="DynamicRoomItems/DiningTableArea" method="_on_area_entered"]

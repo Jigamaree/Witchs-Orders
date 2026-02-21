@@ -62,7 +62,9 @@ func inital_conversation_check():
 	if conv.has(0):
 		index = 0
 		if conv[index].has("checkIgnusState"):
-			checkIgnusState()			
+			checkIgnusState()
+		elif conv[index].has("checkSaveConditions"):
+			checkSaveConditions()			
 		else:
 			checkValueInSave()
 
@@ -379,20 +381,6 @@ func checkIgnusState():
 		index = conv[index].checkIgnusState.goto_canfeed
 	else:
 		index = conv[index].checkIgnusState.goto_cantfeed	
-	 
-func checkFireplace():
-	var keyGet			= SaveManager.getSaveVariable("fire_key")
-	var fireLit 		= SaveManager.getSaveVariable("lounge_fireplaceLit")
-	var furnacefurnHave = SaveManager.getSaveVariable("bathroom_furnaceFern")
-	
-	if keyGet:
-		index = conv[index].checkFireplace.goto_key
-	elif fireLit:
-		index = conv[index].checkFireplace.goto_litFire
-	elif furnacefurnHave:	
-		index = conv[index].checkFireplace.goto_canLight
-	else:
-		index = conv[index].checkFireplace.goto_default
 
 func checkSaveConditions():
 	var _ci = conv[index]
