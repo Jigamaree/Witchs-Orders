@@ -35,6 +35,11 @@ var default_save_data_dictionary: Dictionary = {
 	
 	#lounge
 	"lounge_enteredFirstTime": false,
+	"lounge_takenWateringCan": false,
+	"lounge_fireplaceLit": false,
+	
+	#frontDoor
+	"frontdoor_interactedwithdeadplant": false,
 	
 	#cellar
 	"cellar_haveIgnusMeat": false,

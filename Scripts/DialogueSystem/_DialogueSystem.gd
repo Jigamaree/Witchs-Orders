@@ -70,7 +70,7 @@ func unblock_input_after_delay():
 	await get_tree().create_timer(0.3).timeout
 	inital_input_blocked = false
 
-func _process(delta: float) -> void:
+func _process(delta: float) -> void:			
 	if Input.is_action_just_pressed("ui_accept") and inital_input_blocked == false:
 		advance_line()
 	
@@ -122,8 +122,7 @@ func _input(event: InputEvent) -> void:
 func set_dialogue():
 	#var dlg = conv[index].dialogue
 	# Make a temp variable to make the code cleaner
-	
-	
+
 	var dlg = replace_tags()
 	
 	set_speaker_title_and_visability()
@@ -307,8 +306,11 @@ func advance_line():
 			set_condition(flag)
 					
 		if conv[index].has("goto"):
-			index = conv[index].goto
+			index = conv[index].goto		
 			set_dialogue()
+		
+		elif conv[index].has("checkSaveConditions"):
+			checkSaveConditions()
 		
 		elif conv[index].has("checkIgnusState"): 
 			checkIgnusState()
@@ -378,3 +380,35 @@ func checkIgnusState():
 	else:
 		index = conv[index].checkIgnusState.goto_cantfeed	
 	 
+func checkFireplace():
+	var keyGet			= SaveManager.getSaveVariable("fire_key")
+	var fireLit 		= SaveManager.getSaveVariable("lounge_fireplaceLit")
+	var furnacefurnHave = SaveManager.getSaveVariable("bathroom_furnaceFern")
+	
+	if keyGet:
+		index = conv[index].checkFireplace.goto_key
+	elif fireLit:
+		index = conv[index].checkFireplace.goto_litFire
+	elif furnacefurnHave:	
+		index = conv[index].checkFireplace.goto_canLight
+	else:
+		index = conv[index].checkFireplace.goto_default
+
+func checkSaveConditions():
+	var _ci = conv[index]
+	var block = conv[index].checkSaveConditions
+	
+	for condition in block:
+		var save_key = condition["save_key"]
+		
+		if save_key != "":
+			var value = SaveManager.getSaveVariable(condition.save_key)		
+			if value == true:
+				index = condition["goto"]
+				print(str(save_key) + " is true")
+				break
+		else:
+			index = condition["goto"]
+
+	print(str(index))
+	set_dialogue()		

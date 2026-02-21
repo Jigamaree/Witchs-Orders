@@ -4,10 +4,13 @@ extends class_defaultRoom
 @onready var lower_marker: 	Marker2D = $CameraThings/CameraMarkerLower
 @onready var camera: 		Camera2D = $CameraThings/Camera2D
 @onready var ignusSprite: AnimatedSprite2D = $BasicRoomItems/LivingIgnus
+@onready var wateringCan: Sprite2D = $BasicRoomItems/WateringCan
 var loungeConvosDictionary = LoungeConvos.convos_Dict
 
 func _ready():
-	super._ready()		
+	super._ready()
+	GlobalVariables.startRegularGameplay.connect(_post_dialogue_check)	
+	_post_dialogue_check()
 	await get_tree().process_frame
 	if NavMan.last_scene == GlobalVariables.roomsInHouse.SLEEPYROOM or NavMan.last_scene == GlobalVariables.roomsInHouse.FRONT_DOOR or NavMan.last_scene == GlobalVariables.roomsInHouse.STUDY:
 		camera.global_position.y = lower_marker.global_position.y
@@ -17,6 +20,10 @@ func _ready():
 	if SaveManager.getSaveVariable("lounge_enteredFirstTime") == false:
 		GlobalVariables.startDialogue.emit("firstEntry")
 		GlobalVariables.pauseRegularGameplay.emit()		
+
+func _post_dialogue_check():
+	if SaveManager.getSaveVariable("lounge_takenWateringCan") == true:
+		wateringCan.visible = false
 
 func _process(_delta: float) -> void:		
 	var target_y = player.global_position.y
