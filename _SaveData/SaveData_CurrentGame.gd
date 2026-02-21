@@ -21,6 +21,7 @@ var default_save_data_dictionary: Dictionary = {
 	
 	# bedroom	
 	"bedroom_prologuePlayed": false,	
+	"bedroom_noteRead": false,	
 	"bedroom_waterDrunk": false,
 	"bedroom_doorLocked": true,
 	"bedroom_testedTheDoor": false,
@@ -61,11 +62,11 @@ var default_save_data_dictionary: Dictionary = {
 	"apprentice_seed_taken": false,  #"pendant got"
 
 	### other ending measures
-	"dildo_fucked_first": false,
-	"dildo_fucked_second": false,
-	"dildo_fucked_third": false,	
+	"imp_dildo_fucked_first": false,
+	"imp_dildo_fucked_second": false,
+	"imp_dildo_fucked_third": false,	
 	"corruptionPoints_Cow": 0,
-	"corruptionPoints_Demon": 0,
+	"corruptionPoints_Imp": 0,
 	"corruptionPoints_Pet": 0,	
 	
 	"finalEnding": null	

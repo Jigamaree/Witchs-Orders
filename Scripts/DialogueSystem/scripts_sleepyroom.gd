@@ -45,11 +45,15 @@ static var sleepyroom_Convos_Dict = {
 		6: { "speaker": "", "dialogue": "Just recalling it all is enough to make your thighs clench - the celibacy you'd sworn yourself to in Their Holiness' service had always been something you'd told yourself was worth the loss. Now, in a bedroom with such easy access to the slick, you're not so sure.",  "end": true},	
 		}, 
 
-### TODO		
+### TODO: Writing		
 	"Note": {
-		0: {"checkSaveVariable": { "keyToCheck": "plant_guide_read", "wantedValue": "true", "goto_false": 1, "goto_true": 2 }},	
-		1: { "speaker": "", "dialogue": "", "end": true},		
-		
+		0: {"checkSaveVariable": { "keyToCheck": "bedroom_noteRead", "wantedValue": "true", "goto_false": 1, "goto_true": 20 }},	
+		#note not read
+		1: { "speaker": "", "dialogue": "You have not read the note.", "goto": 2 },
+		2: { "speaker": "", "dialogue": "You have now read the note.", 		
+		"setSaveVariable": ["bedroom_noteRead", true], "end": true },
+		#note read		
+		20: { "speaker": "", "dialogue": "This reminds you of what the note says.", "end": true},			
 		}, 
 	
 	"SidetableLeft": {
@@ -84,7 +88,7 @@ static var sleepyroom_Convos_Dict = {
 		30: { "speaker": "", "dialogue": "The pieces of your most faithful companion lay shattered. What is a knight without her sword? The hollow part of your chest can't find an answer.", "end": true },
 		},
 
-### TODO		
+### TODO: Writing		
 	"ToyChest": {
 			1: { "speaker": "", "dialogue": "Dialogue start", "goto": 2 },
 			2: { "speaker": "", "dialogue": "This is where the choice is made", 		
@@ -96,25 +100,25 @@ static var sleepyroom_Convos_Dict = {
 
 			100: { "speaker": "", "dialogue": "Pick up the first dildo", 
 			"checkSaveVariable": { 
-				"keyToCheck": "dildo_fucked_first", 
+				"keyToCheck": "imp_dildo_fucked_first", 
 				"wantedValue": "true", 
 				"goto_false": 102, 
 				"goto_true": 101 }},
 					
 			101: { "speaker": "", "dialogue": "You have used this.", "end": true },
 			102: { "speaker": "", "dialogue": "You haven't used this, but now you have", 
-			"setSaveVariable": ["dildo_fucked_first", true], "end": true },
+			"setSaveVariable": ["imp_dildo_fucked_first", true], "end": true },
 		
 			200: { "speaker": "", "dialogue": "Pick up the second dildo", 
 			"checkSaveVariable": { 
-				"keyToCheck": "dildo_fucked_second", 
+				"keyToCheck": "imp_dildo_fucked_second", 
 				"wantedValue": "true", 
 				"goto_false": 202, 
 				"goto_true": 201 }},
 				
 			201: { "speaker": "", "dialogue": "You have used this.", "end": true },					
 			202: { "speaker": "", "dialogue": "You haven't used this, but now you have", 
-			"setSaveVariable": ["dildo_fucked_second", true], "end": true },
+			"setSaveVariable": ["imp_dildo_fucked_second", true], "end": true },
 
 			300: { "speaker": "", "dialogue": "Pick up the third dildo.", 
 			"checkSaveVariable": { 
@@ -124,7 +128,7 @@ static var sleepyroom_Convos_Dict = {
 				"goto_true": 302 }},
 			301: { "speaker": "", "dialogue": "You're not stretched enough to use this.", "end": true },					
 			302: { "speaker": "", "dialogue": "You fuck yourself with it, nice.", 
-			"setSaveVariable": ["dildo_fucked_third", true], "end": true },
+			"setSaveVariable": ["imp_dildo_fucked_third", true], "end": true },
 			
 			999: { "speaker": "", "dialogue": "You step away.", "end": true },						
 		}, 			
@@ -160,10 +164,58 @@ static var sleepyroom_Convos_Dict = {
 		12: { "speaker": "", "dialogue": "You've trained for this exact moment. Steadying yourself, you kick the door open.", "fadeToBlack":true, "playEnding": "Captured" },											
 	},
 
-### TODO				
+### TODO: Writing				
 	"ChestOfDrawers":{
-		0: {"checkSaveVariable": { "keyToCheck": "bedroom_doorLocked", "wantedValue": "false", "goto_false": 1, "goto_true": 2 }},
-		1: { "speaker": "none", "dialogue": "You find some clothes! Wow!", "backgroundImage": true, "setSaveVariable": ["bedroom_doorLocked", false], "end": true },
-		2: { "speaker": "", "dialogue": "You've already gotten dressed, dude.", "end": true } 
+		0: {"checkSaveVariable": { "keyToCheck": "knight_clothed", "wantedValue": "true", "goto_false": 100, "goto_true": 1 }},
+		# knight is clothed		
+		1: { "speaker": "", "dialogue": "The drawers are filled with clothes.", 
+		"checkSaveVariable": 
+			{ "keyToCheck": "knight_clothing", 
+			"wantedValue": 5, 
+			"goto_false": 2, 
+			"goto_true": 5 } },
+			
+		5: { "speaker": "", "dialogue": "Of course, you already knew that from what you're wearing right now. You don't need to put on any more clothes.", "end": true },	
+			
+		2: { "speaker": "", "dialogue": "They don't look to be your size, but you could probably put these on now, though", 
+			"choice": {
+				"c1": {"choice": "Change your clothes.", "goto": 4 }, 
+				"c2": { "choice": "Leave these be.", "goto": 3 }, 
+				} 
+			},
+		# leave with no concerquence	
+		3: { "speaker": "", "dialogue": "This was probably hidden from you for a reason. You leave it alone.", "end": true },
+		#imp +1, stolen clothes
+		4: { "speaker": "", "dialogue": "You find something in your size. Much better.", 
+			"setSaveVariable": ["knight_clothing", SaveData_CurrentGame.Clothing.STOLEN_ROBES], "end": true },
+		
+		# knight isnt clothed
+		100: { "speaker": "", "dialogue": "You aren't clothed. You find your options.", "goto": 101 },
+		101: { "speaker": "", "dialogue": "A bikini", "goto": 102 },
+		102: { "speaker": "", "dialogue": "A fluffy auburn set with long sleeves.", "goto": 103 },
+		103: { "speaker": "", "dialogue": "And a strappy leotard.", 
+			"choice": {
+				"c1": {"choice": "Put on the bikini.", "goto": 200 }, 
+				"c2": { "choice": "Put on the fluffy set.", "goto": 300 }, 
+				"c3": { "choice": "Put on the strappy leotard.", "goto": 400 }, 
+				"c4": { "choice": "Step away.", "goto": 999 }, 
+				} 
+			}, 	
+		# bikiki - cow
+			200: { "speaker": "", "dialogue": "You put on the cow bikini.", "goto": 201 },
+			201: { "speaker": "", "dialogue": "You are now dressed.", 
+			"setSaveVariable": ["knight_clothing", SaveData_CurrentGame.Clothing.COW_BIKINI], "end": true },		
+		# fluffy set - pet			
+			300: { "speaker": "", "dialogue": "You put on the pet outfit", "goto": 301 },
+			301: { "speaker": "", "dialogue": "You are now dressed.", 
+			"setSaveVariable": ["knight_clothing", SaveData_CurrentGame.Clothing.BUTTPLUG], "end": true },		
+			# leotard - imp
+			400: { "speaker": "", "dialogue": "You put on the imp outfit", "goto": 401 },
+			401: { "speaker": "", "dialogue": "You are now dressed", 
+			"setSaveVariable": ["knight_clothing", SaveData_CurrentGame.Clothing.SLUTTY_OUTFIT], "end": true },		
+	
+		999: { "speaker": "", "dialogue": "You step away. You're not sure any of this is worth putting on.", "end": true },						
 		}					
 }
+
+# 		1: { "speaker": "none", "dialogue": "You find some clothes! Wow!", "backgroundImage": true, "setSaveVariable": ["bedroom_doorLocked", false], "end": true },

@@ -343,7 +343,8 @@ func checkValueInSave():
 	var _curr = conv[index].checkSaveVariable["keyToCheck"] 
 	var _currSavedValue = SaveManager.getSaveVariable(_curr)			
 	
-	if str(_currSavedValue) == conv[index].checkSaveVariable["wantedValue"]:
+	
+	if str(_currSavedValue) == str(conv[index].checkSaveVariable["wantedValue"]):
 		index = conv[index].checkSaveVariable.goto_true
 	else:
 		index = conv[index].checkSaveVariable.goto_false				

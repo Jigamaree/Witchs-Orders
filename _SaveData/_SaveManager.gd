@@ -48,6 +48,7 @@ func endingMenuUnlock():
 	return false
 		
 func setSaveVariable(variableName: String, variableValue):
+	print("Setting save variable for: " + variableName)
 	#current game data
 	if variableName in save_data.currentGameData.current_save_data_dictionary:
 		save_data.currentGameData.current_save_data_dictionary[variableName] 			= variableValue
@@ -69,7 +70,37 @@ func setSaveVariable(variableName: String, variableValue):
 	if variableName.contains("fucked"):
 		setSaveVariable ("stretched", true)
 	
+	if variableName != "corruptionPoints_Imp" and variableName != "corruptionPoints_Pet" and variableName != "corruptionPoints_Cow":
+		checkForEndingIncreases(variableName, variableValue)
+	
 	save_game()
+
+#checks to see if any variables are associated with a specific ending, and increases their counter.
+func checkForEndingIncreases(variableName: String, variableValue):
+	var impPoints = save_data.currentGameData.current_save_data_dictionary["corruptionPoints_Imp"]
+	var petPoints = save_data.currentGameData.current_save_data_dictionary["corruptionPoints_Pet"]
+	var cowPoints = save_data.currentGameData.current_save_data_dictionary["corruptionPoints_Cow"]		
+	
+	var _vN = variableName.to_lower()
+	
+	if _vN.contains("imp") and _vN != "corruptionpoints_imp":	
+		setSaveVariable("corruptionPoints_Imp", impPoints + 1)
+
+	if _vN.contains("pet") and _vN != "corruptionpoints_pet": 
+		setSaveVariable("corruptionPoints_Pet", petPoints + 1)
+
+	if _vN.contains("cow") and _vN != "corruptionpoints_cow": 
+		setSaveVariable("corruptionPoints_Cow", cowPoints + 1)		
+	
+	if variableValue is SaveData_CurrentGame.Clothing:
+		if variableValue == SaveData_CurrentGame.Clothing.STOLEN_ROBES or variableValue == SaveData_CurrentGame.Clothing.SLUTTY_OUTFIT: 
+			setSaveVariable("corruptionPoints_Imp", impPoints + 1)
+		elif variableValue == SaveData_CurrentGame.Clothing.BUTTPLUG:
+			setSaveVariable("corruptionPoints_Pet", petPoints + 1)
+		elif variableValue == SaveData_CurrentGame.Clothing.COW_BIKINI:
+			setSaveVariable("corruptionPoints_Cow", cowPoints + 1)
+	
+	pass
 	
 func getSaveVariable(variableName: String):
 	#current game data
