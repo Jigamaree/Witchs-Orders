@@ -57,7 +57,7 @@ func _ready() -> void:
 					hbox.add_child(checkBox)
 					
 					persistentDataVBox.add_child(hbox)						
-	print(str(count))
+	#print(str(count))
 		
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_debug") or Input.is_action_just_pressed("ui_pause"):

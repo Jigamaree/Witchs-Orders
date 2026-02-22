@@ -96,7 +96,9 @@ static var sleepyroom_Convos_Dict = {
 				"c1": {"choice": "First dildo.", "goto": 100 }, 
 				"c2": { "choice": "Second dildo.", "goto": 200 }, 
 				"c3": { "choice": "Third dildo.", "goto": 300 }, 
-				"c4": { "choice": "Step away.", "goto": 999 }, } }, 
+				"c4": { "choice": "Step away.", "goto": 999 }, 
+				} 
+			}, 
 
 			100: { "speaker": "", "dialogue": "Pick up the first dildo", 
 			"checkSaveVariable": { 

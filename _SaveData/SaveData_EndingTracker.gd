@@ -5,9 +5,9 @@ class_name SaveData_EndingTracker
 var tracked_ending_data_dictionary: Dictionary
 
 func _init() -> void:
-	tracked_ending_data_dictionary = default_ending_data_dictionary
+	tracked_ending_data_dictionary = default_ending_data_dictionary.duplicate(true)
 
-func reset_endings_data(): tracked_ending_data_dictionary = default_ending_data_dictionary
+func reset_endings_data(): tracked_ending_data_dictionary = default_ending_data_dictionary.duplicate(true)
 
 var default_ending_data_dictionary: Dictionary = {
 	# Special Endings: Triggered when at least 1 key has been aquirred

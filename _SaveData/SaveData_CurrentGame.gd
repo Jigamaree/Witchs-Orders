@@ -10,9 +10,10 @@ enum Puzzle_State	 	{NOT_FINISHED, INCORRECT, CORRECT}
 var current_save_data_dictionary: Dictionary
 
 func _init() -> void:
-	current_save_data_dictionary = default_save_data_dictionary
+	current_save_data_dictionary = default_save_data_dictionary.duplicate(true)
 
-func reset_current_game_data(): current_save_data_dictionary = default_save_data_dictionary
+func reset_current_game_data(): 
+	current_save_data_dictionary = default_save_data_dictionary.duplicate(true)
 	
 var default_save_data_dictionary: Dictionary = {
 	#tracking stuff
@@ -62,6 +63,7 @@ var default_save_data_dictionary: Dictionary = {
 	### apprentice
 	"sword_interracted": false, 
 	"armour_interracted": false, 
+	"read_notice": false,
 	"looked_out_front_windows": false, 
 	"identified_bandages": false, 
 	"crow_key": false, 

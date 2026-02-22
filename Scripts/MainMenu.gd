@@ -9,9 +9,6 @@ func _ready() -> void:
 		startButton.text = "Continue Game"	
 	if SaveManager.endingMenuUnlock():
 		endingsButton.disabled = false	 
-		
-func _on_epilogue_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Epilogue Scenes/Epilogue_Hard.tscn")
 
 func _on_start_game_pressed() -> void:
 	if SaveManager.getSaveVariable("started_game") == false: SaveManager.setSaveVariable("started_game", true)

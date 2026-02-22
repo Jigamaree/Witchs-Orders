@@ -51,7 +51,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		add_child(pause_instance)
 		get_tree().paused = true
 	elif Input.is_action_just_pressed("ui_debug") and canOpenDebug == true:
-		print("opened!")
 		var debug_instance = debug_menu.instantiate()
 		add_child(debug_instance)
 		get_tree().paused = true			

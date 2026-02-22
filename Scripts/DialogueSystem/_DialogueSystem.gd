@@ -15,10 +15,13 @@ var index = 1 # Used to track the current line of dialogue within the conversati
 var flag_dict = {} 
 
 var pitch_dict = {
-	"none": preload("res://Audio/clink1.wav"),
-	"": preload("res://Audio/clink1.wav"),
-	"MC": preload("res://Audio/voice2.wav"),
-	"Ignus": preload("res://Audio/ignusVoice.wav"),
+	"none": 		preload("res://Audio/clink1.wav"),
+	"": 			preload("res://Audio/clink1.wav"),
+	"MC": 			preload("res://Audio/voice2.wav"),
+	"Ignus": 		preload("res://Audio/ignusVoice.wav"),
+	"Saevii": 		preload("res://Audio/Saevii.wav"),
+	"Witch": 		preload("res://Audio/Witch.wav"),
+	"Witch_hide": 	preload("res://Audio/Witch.wav"),	
 }
 
 # Image setup
@@ -73,9 +76,9 @@ func unblock_input_after_delay():
 	inital_input_blocked = false
 
 func _process(delta: float) -> void:			
-	if Input.is_action_just_pressed("ui_accept") and inital_input_blocked == false:
+	if Input.is_action_just_pressed("ui_accept") and inital_input_blocked == false and !choice_box.visible:
 		advance_line()
-	
+
 	# Show continue button after typewriter effect (this could also be an arrow prompt or such)
 	if conv[index].has("choice"): continue_arrow.hide()
 	else: continue_arrow.visible = text_finished
@@ -93,7 +96,7 @@ func any_button_has_focus() -> bool:
 	var focused := get_viewport().gui_get_focus_owner()
 	return focused != null and choice_box.is_ancestor_of(focused)
 		
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:	
 	if event.is_action_pressed("ui_left") or event.is_action_pressed("ui_right"):
 		if choice_box.visible == true:		
 			if !boxHasFocus:
@@ -171,8 +174,10 @@ func set_speaker_title_and_visability():
 	# Set speaker name
 	npc_name.text = conv[index].speaker
 	#hide name box if nobody is talking
+	if npc_name.text == "MC":
+		npc_name.text = "Alessia"
 	
-	if npc_name.text == "none" or npc_name.text == "": 
+	if npc_name.text == "none" or npc_name.text == "" or npc_name.text == "Saevii" or npc_name.text.contains("hide"): 
 		name_rect.visible = false
 		portrait_box.visible = false
 	else: 
@@ -234,7 +239,6 @@ func fade_in_or_out():
 		tween.tween_property(background_tint_rect, "modulate:a", 255.0, 0.5).from(0)
 		await tween.finished
 		#this means the next statement doesn't run unnessasarily
-		last_was_background = true			
 	
 var rate_norm = 0.03
 var rate_comma = 0.12
@@ -275,6 +279,10 @@ var demo_conv2 = {
 
 func manage_choices():
 	if conv[index].has("choice"):
+		for n in choice_box.get_children():
+			choice_box.remove_child(n)
+			n.queue_free()
+			
 		choice_box.show()
 		for c in conv[index].choice:
 			# Make a new button
@@ -288,8 +296,7 @@ func manage_choices():
 			btn.pressed.connect(make_choice.bind(conv[index].choice[c].goto))
 			# Add the button to the container
 			choice_box.add_child(btn)
-		#choice_box.get_child(0).grab_focus()
-
+			
 func make_choice(goto):
 	index = goto
 	choice_box.hide()

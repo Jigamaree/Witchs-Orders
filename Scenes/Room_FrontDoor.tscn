@@ -14,10 +14,10 @@ size = Vector2(243, 239)
 size = Vector2(154.5, 370)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m0voj"]
-size = Vector2(261, 333)
+size = Vector2(200, 333)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofcc1"]
-size = Vector2(152, 334)
+size = Vector2(179, 334)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vtv2"]
 size = Vector2(206, 345)
@@ -79,7 +79,7 @@ position = Vector2(822, 134)
 objectName = "FrontDoor"
 
 [node name="ObjectInteract" parent="Interactables/FrontDoor" index="0" unique_id=1854910098]
-position = Vector2(126.5, 161.5)
+position = Vector2(127, 161.5)
 shape = SubResource("RectangleShape2D_m0voj")
 
 [node name="NoticeBoard" parent="Interactables" unique_id=1626917955 instance=ExtResource("6_m0voj")]
@@ -87,7 +87,7 @@ position = Vector2(1105, 124)
 objectName = "NoticeBoard"
 
 [node name="ObjectInteract" parent="Interactables/NoticeBoard" index="0" unique_id=1854910098]
-position = Vector2(76, 171)
+position = Vector2(62.5, 171)
 shape = SubResource("RectangleShape2D_ofcc1")
 
 [node name="WindowRight" parent="Interactables" unique_id=1629649579 instance=ExtResource("6_m0voj")]

@@ -50,6 +50,12 @@ func endingMenuUnlock():
 func setSaveVariable(variableName: String, variableValue):
 	print("Setting save variable for: " + variableName)
 	#current game data
+	
+	if variableName.contains("corruptionPoints"):
+		increasePoints(variableName, variableValue)
+		save_game()
+		return
+	
 	if variableName in save_data.currentGameData.current_save_data_dictionary:
 		save_data.currentGameData.current_save_data_dictionary[variableName] 			= variableValue
 	#ending tracking data
@@ -99,8 +105,19 @@ func checkForEndingIncreases(variableName: String, variableValue):
 			setSaveVariable("corruptionPoints_Pet", petPoints + 1)
 		elif variableValue == SaveData_CurrentGame.Clothing.COW_BIKINI:
 			setSaveVariable("corruptionPoints_Cow", cowPoints + 1)
+
+func increasePoints(variableName, variableValue):
+	var impPoints = save_data.currentGameData.current_save_data_dictionary["corruptionPoints_Imp"]
+	var petPoints = save_data.currentGameData.current_save_data_dictionary["corruptionPoints_Pet"]
+	var cowPoints = save_data.currentGameData.current_save_data_dictionary["corruptionPoints_Cow"]
+	var _vN = variableName.to_lower()
 	
-	pass
+	if _vN.contains("cow"):
+		save_data.currentGameData.current_save_data_dictionary[variableName] = 	(cowPoints + 1)	
+	if _vN.contains("imp"):
+		save_data.currentGameData.current_save_data_dictionary[variableName] = 	(impPoints + 1)	
+	if _vN.contains("pet"):		
+		save_data.currentGameData.current_save_data_dictionary[variableName] = 	(petPoints + 1)	
 	
 func getSaveVariable(variableName: String):
 	#current game data
