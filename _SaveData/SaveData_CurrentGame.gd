@@ -4,7 +4,7 @@ class_name SaveData_CurrentGame
 
 enum Clothing 			{NAKED, BUTTPLUG, COW_BIKINI, SLUTTY_OUTFIT, POET_SHIRT, STOLEN_ROBES}
 #only need to track the ones that make a difference gamewise
-enum Eaten_Item 		{NOTHING, BIRDSEED, DOGFOOD, BREAD, CORRUPTED_ITEM} 
+enum Eaten_Item 		{NOTHING, BIRDSEED, DOGFOOD, BREAD, CHEESE, MILK} 
 enum Puzzle_State	 	{NOT_FINISHED, INCORRECT, CORRECT}
 
 var current_save_data_dictionary: Dictionary
@@ -44,6 +44,13 @@ var default_save_data_dictionary: Dictionary = {
 	
 	#cellar
 	"cellar_haveIgnusMeat": false,
+	"cellar_eatenBirdSeed": false,	
+	"cellar_takenBirdSeed": false,
+	
+	#garden
+	"garden_interactedWithCrowTree": false,
+	"garden_putOnNippleClamps": false,
+	"garden_putOnClitRing": false,
 
 	#immediate player-state data	
 	"knight_clothing": Clothing.NAKED,
@@ -65,6 +72,7 @@ var default_save_data_dictionary: Dictionary = {
 	"armour_interracted": false, 
 	"read_notice": false,
 	"looked_out_front_windows": false, 
+	"realise_shit_is_fucked": false,
 	"identified_bandages": false, 
 	"crow_key": false, 
 	"fire_key": false, 

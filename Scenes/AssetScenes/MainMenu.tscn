@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://br4w8eibnxvob"]
 
 [ext_resource type="Script" uid="uid://cgjk781empu67" path="res://Scripts/MainMenu.gd" id="1_yjivs"]
+[ext_resource type="PackedScene" uid="uid://xbg08m0ojxxe" path="res://Scenes/AssetScenes/FloatingBubble.tscn" id="2_gnrtw"]
+[ext_resource type="Texture2D" uid="uid://dnluw0cmjwc4b" path="res://Assets/Backgrounds/TitleScreenBackground.png" id="2_n2h8k"]
+[ext_resource type="Texture2D" uid="uid://dljes1xd4ofqx" path="res://Assets/InScene Items/_Title - CauldronBack.png" id="3_gnrtw"]
+[ext_resource type="Texture2D" uid="uid://cbxvg4gq653rf" path="res://Assets/InScene Items/_Title - CauldronFront.png" id="4_75rn1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nhr3y"]
 font_size = 100
@@ -13,15 +17,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yjivs")
+floating_sprite_scene = ExtResource("2_gnrtw")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1936050943]
+[node name="ColorRect" type="TextureRect" parent="." unique_id=1861504944]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.53224236, 0.53224236, 0.53224236, 1)
+texture = ExtResource("2_n2h8k")
+
+[node name="CauldronBack" type="Sprite2D" parent="." unique_id=995950383]
+position = Vector2(1374, 835)
+texture = ExtResource("3_gnrtw")
+
+[node name="CauldronFront" type="Sprite2D" parent="CauldronBack" unique_id=438155316]
+z_index = 10
+texture = ExtResource("4_75rn1")
+
+[node name="MarkerRight" type="Marker2D" parent="CauldronBack" unique_id=731657446]
+position = Vector2(448, 95)
+
+[node name="MarkerLeft" type="Marker2D" parent="CauldronBack" unique_id=1844636638]
+position = Vector2(-322, 66)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1933620091]
 layout_mode = 1
@@ -64,6 +83,11 @@ text = "Endings"
 layout_mode = 2
 text = "Quit"
 
+[node name="SpawnTimer" type="Timer" parent="." unique_id=212287560]
+wait_time = 0.2
+autostart = true
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Endings" to="." method="_on_endings_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

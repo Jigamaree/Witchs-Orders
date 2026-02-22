@@ -72,8 +72,18 @@ func setSaveVariable(variableName: String, variableValue):
 		elif getSaveVariable("knight_clothing") != SaveData_CurrentGame.Clothing.NAKED:
 			setSaveVariable ("knight_clothed", false)
 	
+	#if we're setting an item, we know the knight is fed
+	if variableName == "knight_eaten_item":
+		setSaveVariable("knight_fed", true)
+	if variableName == "knight_eaten_item" and (variableValue == SaveData_CurrentGame.Eaten_Item.CHEESE or variableValue == SaveData_CurrentGame.Eaten_Item.MILK):
+		increasePoints("corruptionPoints_Cow", 1)
+	if variableName == "knight_eaten_item" and variableValue == SaveData_CurrentGame.Eaten_Item.BIRDSEED:
+		setSaveVariable("cellar_eatenBirdSeed", true)
+			
+	if variableName == "read_notice" or variableName == "looked_out_front_windows":
+		setSaveVariable("realise_shit_is_fucked", true)
 	#if she gets fucked in any capacity, she is now stretched.
-	if variableName.contains("fucked"):
+	elif variableName.contains("fucked"):
 		setSaveVariable ("stretched", true)
 	
 	if variableName != "corruptionPoints_Imp" and variableName != "corruptionPoints_Pet" and variableName != "corruptionPoints_Cow":

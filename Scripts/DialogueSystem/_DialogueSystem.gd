@@ -128,7 +128,7 @@ func set_dialogue():
 	#var dlg = conv[index].dialogue
 	# Make a temp variable to make the code cleaner
 
-	var dlg = replace_tags()
+	var dlg: String = replace_tags()
 	
 	set_speaker_title_and_visability()
 	set_portrait()
@@ -136,7 +136,10 @@ func set_dialogue():
 	fade_in_or_out()
 	set_text_alignment()
 		
-	# Set label text to line
+	# remove indentations
+	dlg = dlg.replace("\t", "")
+	var tab_count = dlg.count("\t")
+
 	dialogue.text = dlg
 	
 	# Typewriter effect + sound
@@ -258,7 +261,7 @@ func control_rate():
 
 func replace_tags():
 	var dl = conv[index]
-	var dlg = conv[index].dialogue
+	var dlg: String = conv[index].dialogue
 		# For if the player can name their own character
 	dlg = dlg.replace("%p", "[Player's custom name") 
 		# Simpler color change starting/end tags for highlights

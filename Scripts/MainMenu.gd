@@ -4,6 +4,11 @@ extends Control
 @onready var startButton: Button = $MarginContainer/VBoxContainer/VBoxContainer/StartGame
 @onready var endingsButton: Button = $MarginContainer/VBoxContainer/VBoxContainer/Endings
 
+@onready var marker_left = $CauldronBack/MarkerLeft
+@onready var marker_right = $CauldronBack/MarkerRight
+
+@export var floating_sprite_scene: PackedScene 
+
 func _ready() -> void:
 	if SaveManager.getSaveVariable("started_game"):
 		startButton.text = "Continue Game"	
@@ -24,3 +29,21 @@ func _on_quit_pressed() -> void:
 
 func _on_endings_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/EndingsMenu.tscn")
+
+
+func _on_spawn_timer_timeout() -> void:
+	spawn_sprite()
+
+func spawn_sprite():
+	var sprite = floating_sprite_scene.instantiate()
+	
+	var min_x = marker_left.global_position.x
+	var max_x = marker_right.global_position.x
+	var random_x = randf_range(min_x, max_x)
+	
+	sprite.global_position = Vector2(
+		random_x,
+		marker_right.global_position.y
+	)
+	
+	add_child(sprite)

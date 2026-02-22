@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://xbg08m0ojxxe"]
+
+[ext_resource type="Script" uid="uid://impvnmq7aewc" path="res://Scripts/BG_Bubble.gd" id="1_gmeuc"]
+[ext_resource type="Texture2D" uid="uid://sthotngxv4s" path="res://Assets/InScene Items/_Title - Bubble1.png" id="2_y7lir"]
+
+[node name="FloatingBubble" type="Node2D" unique_id=543444638]
+script = ExtResource("1_gmeuc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=882779202]
+texture = ExtResource("2_y7lir")

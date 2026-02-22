@@ -77,9 +77,10 @@ Guess even a witch as talented as this one can't keep everything alive.", "end":
 					}
 	   	 		},
 		
-		#letter from beewoman		
+		#letter from beewoman	
+		#WITCH'S NAME HERE	
 		100: { 
-			"speaker": "", "dialogue": "The letter appears to be from a 'Jullibee Busyworth', addressing 'my dearest Titania'. In extravagant cursive, Jullibee details her thanks for the hellhound shed and Plushdrop blooms Titania has supplied, promising some un-enchanted honey and fabrics - the former to eat, the later to use on the injured, given the influx of them.", "goto": 101 },
+			"speaker": "", "dialogue": "The letter appears to be from a 'Jullibee Busyworth', addressing 'my dearest Vivienne'. In extravagant cursive, Jullibee details her thanks for the hellhound shed and Plushdrop blooms Titania has supplied, promising some un-enchanted honey and fabrics - the former to eat, the later to use on the injured, given the influx of them.", "goto": 101 },
 		101: { 
 			"speaker": "", "dialogue": "The letter makes it sound like the trade routes were so deeply affected that [i]nothing[/i] could get into the country - but you'd been told that wasn't the case, multiple times. Why would the Divine lie?", "goto": 1 },
 	
@@ -88,32 +89,32 @@ Guess even a witch as talented as this one can't keep everything alive.", "end":
 		
 		#offical notice
 		299: { 
-			"speaker": "", "dialogue": "A green and silver snake winds around the boarder of the paper. The letterhead's banner states this to be an 'Important Notice'.", 
-			"checkSaveVariable": { "keyToCheck": "read_notice", "wantedValue": "true", "goto_false": 200, "goto_true": 350 }},
+				"speaker": "", "dialogue": "A green and silver snake winds around the boarder of the paper. The letterhead's banner states this to be an 'Important Notice'.", 
+				"checkSaveVariable": { "keyToCheck": "read_notice", "wantedValue": "true", "goto_false": 300, "goto_true": 350 }},
 		300: { 
-			"speaker": "", "dialogue": "As you look over the letterhead, you feel a chill run down your neck. You recognise this letter head - but only in offical demands made to the Divine, letters crooning of a wanted 'peaceful end' to the conflict that [i]they[/i] started. 
-This shouldn't be in the hands of a civilian.", "goto": 301 },
+				"speaker": "", "dialogue": "As you look over the letterhead, you feel a chill run down your neck. You recognise this letter head - but only in offical demands made to the Divine, letters crooning of a wanted 'peaceful end' to the conflict that [i]they[/i] started. 
+				This shouldn't be in the hands of a civilian.", "goto": 301 },
 		301: { 
-			"speaker": "Saevii", "dialogue": "The Divine is dead. We, the Saevii, claim rightful ownership of this land and their people. 
-500 gold reward to those who turn in Radiance sympathisers.
-1000 gold reward to those who turn in Radiance soldiers and personnel.", "completelyCentered": true, "goto": 302 },
+				"speaker": "Saevii", "dialogue": "The Divine is dead. We, the Saevii, claim rightful ownership of this land and their people. 
+				500 gold reward to those who turn in Radiance sympathisers.
+				1000 gold reward to those who turn in Radiance soldiers and personnel.", "completelyCentered": true, "goto": 302 },
 		302: { 
-			"speaker": "", "dialogue": "No. No this can't be right.", "goto": 303 },
+				"speaker": "", "dialogue": "No. No this can't be right.", "goto": 303 },
 		303: { 
-			"speaker": "", "dialogue": "Your fingers move over the text, as if this was all some trick of the light. You don't want to believe it. You can't believe it.", "goto": 304 },
+				"speaker": "", "dialogue": "Your fingers move over the text, as if this was all some trick of the light. You don't want to believe it. You can't believe it.", "goto": 304 },
 		304: { 
-			"speaker": "", "dialogue": "You know better than to discount anything close to a truth, sitting plainly in your hands.
-Before you can tear the notice up in anger, you gingerly place it back on the noticeboard.", 
-		"setSaveVariable": ["read_notice", true], "goto": 1 },	
+				"speaker": "", "dialogue": "You know better than to discount anything close to a truth, sitting plainly in your hands.
+				Before you can tear the notice up in anger, you gingerly place it back on the noticeboard.", 
+				"setSaveVariable": ["read_notice", true], "goto": 1 },	
 		350: { 
-			"speaker": "", "dialogue": "It reads like a nightmare, as your eyes scan over it over and over again. Better to know... Even if you struggle to believe it.", "goto": 1 },	
+				"speaker": "", "dialogue": "It reads like a nightmare, as your eyes scan over it over and over again. Better to know... Even if you struggle to believe it.", "goto": 1 },	
 		
 		#paper pad
 		400: { "speaker": "", "dialogue": "It appears to be a shopping list; pinned in a covenient location to grab and go. While the most current one is missing, you can still read the last one from where the pen indented the paper behind.", "goto": 401 },
 		401: { "speaker": "Witch_hide", "dialogue": "Check in with hunters - are animals still being culled?
-Eggs, milk (prepare for excess), sugar.
-Check Dalla made it out.
-Robe (for guest).", "completelyCentered": true, "goto": 402 },
+				Eggs, milk (prepare for excess), sugar.
+				Check Dalla made it out.
+				Robe (for Alessia).", "completelyCentered": true, "goto": 402 },
 		402: { "speaker": "MC", "dialogue": "...How does she know my name?", "goto": 1 },		
 				
 		#notes
