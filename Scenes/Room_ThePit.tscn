@@ -37,7 +37,7 @@ position = Vector2(958, 964)
 [node name="StaticBody2D" type="StaticBody2D" parent="Node2D" unique_id=2068518300]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/StaticBody2D" unique_id=2140624329]
-polygon = PackedVector2Array(870, 524, 747, 552, 662, 593, 608, 652, 594, 705, 1304, 706, 1299, 644, 1246, 597, 1161, 552, 1051, 529, 953, 522)
+polygon = PackedVector2Array(870, 524, 747, 552, 662, 593, 608, 652, 460, 708, 1456, 709, 1299, 644, 1246, 597, 1161, 552, 1051, 529, 953, 522)
 
 [node name="Doors" type="Node2D" parent="." unique_id=122717315]
 

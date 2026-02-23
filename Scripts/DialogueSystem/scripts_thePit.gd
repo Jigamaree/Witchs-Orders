@@ -84,15 +84,44 @@ static var thePit_Convos_Dict = {
 				300: { "speaker": "", "dialogue": "Getting between a... Tentacle monster? Whatever the hells that thing is- Getting between it and it's food sounds like a recipe for disaster.", "goto": 301 },
 				301: { "speaker": "", "dialogue": "With a deft heft, you send the bucket flying - before it can clang noisily to get ground, you watch another tentacle snap it out of the air like a well trained dog.", "goto": 302 },
 				302: { "speaker": "", "dialogue": "The bucket is drawn down into the dark, along with the single searching tentacle you saw. Not a few momnets later the bucket is kicked into some obscure corner of the room - the sweet scent on the air intensifies even more.", "goto": 303 },
-				303: { "speaker": "", "dialogue": "And as that smell intensifies the well [i]blooms[/i] open. Tentacle after tentacle unfurls from the dark, curling into the air like some sort of exotic coral. They swirls and coil in the air, an endless cycling pattern. It's... Almost beautiful?", "goto": 304 },
+				303: { "speaker": "", "dialogue": "And as that smell intensifies the well [i]blooms[/i] open. Tentacle after tentacle unfurls from the dark, curling into the air like some sort of exotic coral. They swirls and coil in the air, an endless cycling pattern. It's... Almost beautiful?","specialAction": "singleTentacle", "goto": 304 },
 				304: { "speaker": "", "dialogue": "Despite its clear size and strength advantage - a baffling thing to say as a [i]Divine's Chosen[/i] - it seems to be in no rush to overpower you.
 				You daresay it might even be trying to impress you. Huh.", "end": true },
 				
 				#FUCK! THAT! SQUID!
-				400: { "speaker": "", "dialogue": "Testing this", "loadDifferentConvo": "test", "end": true },
+				400: { "speaker": "", "dialogue": "Testing this", "preloadConversation": "FuckThatSquid", "end": true },
 		},							
+
+	# the player has either fucked it - in which case it wants to make it a willing broodmare, or has not, and its not going to ask.
+	"thePit": {
+			0: {"checkSaveVariable": { "keyToCheck": "pit_fucked", "wantedValue": "true", "goto_false": 100, "goto_true": 1 }},
+			#if you HAVE fucked it.
+			1: { "speaker": "", "dialogue": "As you move forward, tentacles curl around your legs, smooth over your hair. There's a tenderness to it, a wanting that's both surprisingly human and yet entirely alien.", "goto": 2 },
+			2: { "speaker": "", "dialogue": "You know that this creature wants you for something more than a simple fuck. This is its nest, after all. You know how good it made you feel just now - what would happen if you gave yourself over entirely?", "choice": {
+								"c1": { "choice": "Step away", "goto": 10 },
+								"c2": { "choice": "Embrace your fate", "goto": 20 },
+						}
+				},
+			10: { "speaker": "", "dialogue": "It's an entertaining fantasy - but it has to stay a fantasy, for now. You extract yourself from the tentacles once more.", "end": true },
+			20: { "speaker": "", "dialogue": "You can't resist - not when you know how good it feels. You open your arms and feel the tentacles wrap around you, pulling you once more again into this creature's euphoric clutches.", 
+			"fadeToBlack": true, "playEnding": SaveData_EndingTracker.EndingEnum.TENTACLE_BAIT },	
+			#if you HAVENT
+			100: { "speaker": "", "dialogue": "The tentacles seen to close around you as you get closer - curious, questing. Tentacles slither over your body; the cool sweet slick it leaves behind feeling like a claiming bond.", "goto": 101 },
+			101: { "speaker": "", "dialogue": "You've sent quite the message, walking into it's clutches again.",  
+			"choice": {
+								"c1": { "choice": "Leave", "goto": 111 },
+								"c2": { "choice": "Tend to the monster", "goto": 200 },
+						}
+				},
+			111: { "speaker": "", "dialogue": "You try to extract yourself - this time, though, the tentacles don't budge. When you try to shove them harder, they wrap around all the tighter before dragging you in.", "goto": 112 },
+			112: { "speaker": "", "dialogue": "They weren't asking, anymore.",  "specialAction": "drag", "fadeToBlack": true, "playEnding": SaveData_EndingTracker.EndingEnum.TENTACLE_BAIT },	
+			
+			200: { "speaker": "", "dialogue": "You hold out your arms - tentative, but willing. Whatever this creatures wants to do, you're going into it willingly.", "goto": 201 },	
+			201: { "speaker": "", "dialogue": "As you feel tentacles wind about your body, you can tell it will treat you kindly in kind.", "preloadConversation": "FuckThatSquid", "end": true },		
+		},
 	
-	"test": {
-				1: { "speaker": "none", "dialogue": "%wsA mysterious hole.%ws", "completelyCentered": true, "end": true }
+	##TODO: write tentacle fucking the first
+	"FuckThatSquid": {
+				1: { "speaker": "none", "dialogue": "%wsInsert tentacle fucking here.%ws", "completelyCentered": true, "setSaveVariable": ["pit_fucked", true], "end": true }
 		},			
 }

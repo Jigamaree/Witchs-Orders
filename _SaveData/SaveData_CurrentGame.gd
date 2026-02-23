@@ -49,6 +49,7 @@ var default_save_data_dictionary: Dictionary = {
 	# the pit
 	"thePit_warned": false,
 	"thePit_hasCompletedStaircase": false,
+	"thePit_seenConvo": false,
 	
 	#lounge
 	"lounge_enteredFirstTime": false,

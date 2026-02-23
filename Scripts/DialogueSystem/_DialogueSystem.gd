@@ -322,8 +322,8 @@ func advance_line():
 			SaveManager.setSaveVariable(setValueArr[0],setValueArr[1])
 
 		##TEST	
-		if conv[index].has("loadDifferentConvo"):
-			GlobalVariables.emit_signal("preloadConversation", "test")
+		if conv[index].has("preloadConversation"):
+			GlobalVariables.emit_signal("preloadConversation", conv[index].get("preloadConversation", null))
 									
 		if conv[index].has("set"):
 			var flag = conv[index].get("set", null)

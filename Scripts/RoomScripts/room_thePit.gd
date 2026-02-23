@@ -15,12 +15,20 @@ func _ready():
 		SaveManager.setSaveVariable("thePit_hasCompletedStaircase", true)
 	await get_tree().process_frame
 	camera.global_position.y = lower_marker.global_position.y
-	GlobalVariables.startDialogue.emit("enteringRoom")
-	GlobalVariables.pauseRegularGameplay.emit()		
+	if SaveManager.getSaveVariable("thePit_seenConvo") == false:
+		GlobalVariables.startDialogue.emit("enteringRoom")
+		GlobalVariables.pauseRegularGameplay.emit()		
+		SaveManager.setSaveVariable("thePit_seenConvo", true)
+	else: 
+		tentacles.visible = true		
 	GlobalVariables.dragPlayerForward.connect(_on_player_drag)
 	GlobalVariables.showSingleTentacle.connect(_on_single_tentacle)
+	if SaveManager.getSaveVariable("pit_fed") or SaveManager.getSaveVariable("pit_fucked"):
+		tentacles.visible = true 
+
 
 func _process(_delta: float) -> void:
+
 	super._process(_delta)		
 	var target_y = player.global_position.y
 
@@ -37,4 +45,7 @@ func get_dialogue_entry(objectName: String):
 	
 func _on_player_drag(): tentacles.visible = true
 
-func _on_single_tentacle(): singleTent.visible = true
+func _on_single_tentacle(): 
+	if singleTent.visible == false:
+		singleTent.visible = true
+	else: tentacles.visible = true
