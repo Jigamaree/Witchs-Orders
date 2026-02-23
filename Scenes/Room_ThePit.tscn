@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://df54bluypejb0" path="res://Assets/Backgrounds/ThePitFinal.png" id="2_87nvn"]
 [ext_resource type="Texture2D" uid="uid://bxoxs305n21gy" path="res://Assets/InScene Items/The Pit - Tentacles.png" id="4_keiyp"]
 [ext_resource type="PackedScene" uid="uid://b7p2es7o1w6co" path="res://Scenes/AssetScenes/interactableObject.tscn" id="4_tjy30"]
+[ext_resource type="Texture2D" uid="uid://veb5ebxb5p1h" path="res://Assets/InScene Items/The Pit - Tentacle Singular.png" id="6_o8h1p"]
 [ext_resource type="PackedScene" uid="uid://dmkvvkru1sug5" path="res://Scenes/AssetScenes/Door_Default.tscn" id="12_0xpfu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8h1p"]
@@ -78,6 +79,11 @@ debug_color = Color(0.95138437, 7.70092e-07, 0.56635123, 0.41960785)
 visible = false
 position = Vector2(970, 584)
 texture = ExtResource("4_keiyp")
+
+[node name="SingleTent" type="Sprite2D" parent="." unique_id=802479430]
+visible = false
+position = Vector2(970, 584)
+texture = ExtResource("6_o8h1p")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=315675369 groups=["dragPoint"]]
 position = Vector2(828, 535)

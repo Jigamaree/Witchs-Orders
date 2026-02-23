@@ -15,17 +15,32 @@ var dialogueDictionary: Dictionary
 var canOpenDebug: bool = true
 var canPause: bool = true
 
+var waitingConvo = ""
+var isWaitingConvo = false
+
 func _ready():
 	# Spawn player
-	player = player_scene.instantiate()
-	add_child(player)
-	find_player_location()
+	if !player:
+		player = player_scene.instantiate()
+		add_child(player)
+		find_player_location()
 	GlobalVariables.startDialogue.connect(_on_start_dialogue)
 	GlobalVariables.quickCountdown.connect(_quick_countdown)
 	GlobalVariables.pauseRegularGameplay.connect(_disable_pausing)
 	GlobalVariables.startRegularGameplay.connect(_re_enable_pausing)
+	GlobalVariables.preloadConversation.connect(_line_up_convo)
 	#else call player spawn on fallback place
 	#want a method in here that loads room-specific flags in here and applies that to objects if possible!
+
+func _process(delta: float) -> void:
+	if isWaitingConvo and canPause == true:
+		GlobalVariables.pauseRegularGameplay.emit()	
+		GlobalVariables.startDialogue.emit(waitingConvo)	
+		isWaitingConvo = false
+
+func _line_up_convo(test: String):
+	isWaitingConvo = true
+	waitingConvo = test
 	
 func _quick_countdown():
 	canOpenDebug = false

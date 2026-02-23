@@ -8,6 +8,8 @@ signal stopUpwardYMovement()
 signal startUpwardYMovement()
 signal quickCountdown()
 signal dragPlayerForward()
+signal showSingleTentacle()
+signal preloadConversation()
 
 enum interactableType {
 	OBJECT,

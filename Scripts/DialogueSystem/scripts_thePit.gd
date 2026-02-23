@@ -37,7 +37,7 @@ static var thePit_Convos_Dict = {
 	#Can either toss the food - completes "tend to pit" and allows player to engage later (exit EnteringRoom)
 	#OR wait it out, and engage
 	"enteringRoom": {
-				0: { "checkSaveVariable": { "keyToCheck": "garden_hasTentacleFood", "wantedValue": "true", "goto_false": 1, "goto_true": 10 }},
+				0: { "checkSaveVariable": { "keyToCheck": "garden_hasTentacleFood", "wantedValue": "true", "goto_false": 100, "goto_true": 100 }},
 				#does not have food
 				1: { "speaker": "none", "dialogue": "The room is lit by a single flickering blue torch - while dim, it brings your attention to the massive pit in the ground.", "goto": 40 },
 				2: { "speaker": "", "dialogue": "Its [i]huge[/i]. You'd think it access to some sort of ancient sewage system, like you've heard adventurers finding in antiquity ruins, but this looks more tended to than that. Scrubbed stone, free of lichen or crumbling rock makes up the floor, with solid brick overhead.", "goto": 3 },
@@ -62,12 +62,37 @@ static var thePit_Convos_Dict = {
 						}
 				},
 				40: { "speaker": "", "dialogue": "But it's too late.", "specialAction": "drag", "fadeToBlack": true, "playEnding": SaveData_EndingTracker.EndingEnum.TENTACLE_BAIT },
-				#does have food
-				10: { "speaker": "none", "dialogue": "%wsDoes have food.%ws", "completelyCentered": true, "end": true },
 				
+				#does have food
+				100: { "speaker": "none", "dialogue": "The room is dim, lit only by that single, flickering blue light. A simple light for a simple room, though the colour makes it feel less like waking life and more like some strange dream-state that you've fallen into.", "goto": 101 },
+				101: { "speaker": "", "dialogue": "In front of you is a massive hole in the ground - it looks like a water well, but it's truly enormous size leaves you wondering if this is some sort of paved over sink hole. However it got here in the first place, you can see the stone is clearly kept clean and the place free of lichen and dust - the closest thing to mess is the slick on the edge of the hole.", "goto": 102 },
+				102: { "speaker": "", "dialogue": "As you figure out exactly what you're looking at, you see a single long tentacle reach out of the hole. The things is as large around as your torso, but endlessly dexterous - it curls through the air, as if tasting something on it.","specialAction": "singleTentacle", "goto": 103 },
+				103: { "speaker": "", "dialogue": "The sweet smell you've been following down here intensifies as well - strangest of all is how that directly correlates to a heat rising in your cheeks and an ache between your legs.", "goto": 104 },
+				104: { "speaker": "", "dialogue": "You could just throw the bucket at this thing and be done with it.... But the note did say it needed to be [i]tended[/i] to...", 
+								"choice": {
+								"c1": { "choice": "Throw the bucket", "goto": 300 },
+								"c2": { "choice": "Offer yourself as well", "goto": 400 },
+								"c3": { "choice": "BOOK IT", "goto": 200 },
+						}
+				},
+				#whoops! bad end time!
+				200: { "speaker": "MC", "dialogue": "Fuck this. Fuck this fuck this [i]fuck this[/i].", "goto": 201 },
+				201: { "speaker": "", "dialogue": "You need a minute to collect yourself - to figure out what on earth is going on and why some creature from the far realms has parked itself in a Divine-forsaken basement. Twisting on your heels, you book it toward the stairs.", "goto": 202 },
+				202: { "speaker": "", "dialogue": "Unfortunately, you've made yourself a moving target.", "specialAction": "drag", "fadeToBlack": true, "playEnding": SaveData_EndingTracker.EndingEnum.TENTACLE_BAIT },
+				
+				# neutral end
+				300: { "speaker": "", "dialogue": "Getting between a... Tentacle monster? Whatever the hells that thing is- Getting between it and it's food sounds like a recipe for disaster.", "goto": 301 },
+				301: { "speaker": "", "dialogue": "With a deft heft, you send the bucket flying - before it can clang noisily to get ground, you watch another tentacle snap it out of the air like a well trained dog.", "goto": 302 },
+				302: { "speaker": "", "dialogue": "The bucket is drawn down into the dark, along with the single searching tentacle you saw. Not a few momnets later the bucket is kicked into some obscure corner of the room - the sweet scent on the air intensifies even more.", "goto": 303 },
+				303: { "speaker": "", "dialogue": "And as that smell intensifies the well [i]blooms[/i] open. Tentacle after tentacle unfurls from the dark, curling into the air like some sort of exotic coral. They swirls and coil in the air, an endless cycling pattern. It's... Almost beautiful?", "goto": 304 },
+				304: { "speaker": "", "dialogue": "Despite its clear size and strength advantage - a baffling thing to say as a [i]Divine's Chosen[/i] - it seems to be in no rush to overpower you.
+				You daresay it might even be trying to impress you. Huh.", "end": true },
+				
+				#FUCK! THAT! SQUID!
+				400: { "speaker": "", "dialogue": "Testing this", "loadDifferentConvo": "test", "end": true },
 		},							
 	
-	"thePit": {
+	"test": {
 				1: { "speaker": "none", "dialogue": "%wsA mysterious hole.%ws", "completelyCentered": true, "end": true }
 		},			
 }

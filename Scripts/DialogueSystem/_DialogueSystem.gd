@@ -248,6 +248,8 @@ func specialActions():
 	if conv[index].has("specialAction"):
 		if conv[index].get("specialAction", null) == "drag":
 			GlobalVariables.emit_signal("dragPlayerForward")
+		if conv[index].get("specialAction", null) == "singleTentacle":
+			GlobalVariables.emit_signal("showSingleTentacle")
 	
 var rate_norm = 0.03
 var rate_comma = 0.12
@@ -318,6 +320,10 @@ func advance_line():
 		if conv[index].has("setSaveVariable"):
 			var setValueArr = conv[index].setSaveVariable
 			SaveManager.setSaveVariable(setValueArr[0],setValueArr[1])
+
+		##TEST	
+		if conv[index].has("loadDifferentConvo"):
+			GlobalVariables.emit_signal("preloadConversation", "test")
 									
 		if conv[index].has("set"):
 			var flag = conv[index].get("set", null)
@@ -365,6 +371,9 @@ func advance_line():
 			SaveManager.setSaveVariable(conv[index].get("END_OF_GAME", true), true)
 			SaveManager.reset_current_run()
 			get_tree().change_scene_to_file("res://Scenes/AssetScenes/MainMenu.tscn")
+			
+			#@export var conv = {} # This will have different conversations loaded into it when dialogue starts
+			#var index = 1 			
 			
 	else:
 		dialogue.visible_characters = len(dialogue.text)
