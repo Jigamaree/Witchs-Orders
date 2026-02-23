@@ -66,22 +66,29 @@ static var convos_Dict = {
 		31: { "speaker": "", "dialogue": "That first taste, though.
 		Oh.
 		[i]Oh.[/i]", "goto": 32 },
-		32: { "speaker": "", "dialogue": "You've joked before that bread is but a vehicle to get butter into your body, but this is something else. Warm, rich, creamy - the taste of the butter coats the inside of your mouth. Somehow you're salivating even more now that you're eat", "end": true },
+		32: { "speaker": "", "dialogue": "You've joked before that bread is but a vehicle to get butter into your body, but this is something else. Warm, rich, creamy - the taste of the butter coats the inside of your mouth. Somehow you're salivating even more now that you're eating, leaning over the counter as you shove bite into bite into your face.", "goto": 33 },
+		33: { "speaker": "", "dialogue": "You're panting, you're shoving food into your mouth so fast - by the time the pre-sliced bread runs out your mind is a haze of [i]need need need[/i]. A bone deep hunger that's alomst animalistic in nature grips you as you try desperately to sate it, no longer quite aware of where your limbs are.", "goto": 34 },
+		34: { "speaker": "", "dialogue": "Coming back to yourself is an effort of pulling your rag-tag thoughts together; you tongue is sore in a way you've only felt after a night face deep in pussy, your fingers and face greasy in a way that's quickly become  unpleasant.", "goto": 35 },
+		35: { "speaker": "", "dialogue": "Quickly you stand up, rinsing off your face and hands in the sink. You're not sure what sort of supernatural hunger posessed you there, but it's at least left you sated for the moment.
+		...And perhaps craving some more dairy, once you have stomach for it again.", 
+		"setSaveVariable": ["knight_eaten_item", SaveData_CurrentGame.Eaten_Item.BUTTER], "end": true },
 		
 		#full dining experience - desperate milkings game over
-		40: { "speaker": "", "dialogue": "", "end": true },
+		40: { "speaker": "", "dialogue": "Might as well make a feast of it, or at least as much of a feast as you can given the limited selections here. You grab a plate, quickly constructing yourself a buttered cheese sandwich.", "goto": 41 },
+		41: { "speaker": "", "dialogue": "It's [i]delicious[/i] - certianly decadantly rich in a way you wouldn't usually go for. But right now? Oh, it's just absolutely what you felt like.", "goto": 42 },
+		42: { "speaker": "", "dialogue": "You don't even really notice how much you eat, but you do feel yourself growing lazy, sated by a good meal.
+		...And finding another, more pressing issue come to the forefront.", "playEnding": SaveData_EndingTracker.EndingEnum.DESPERATE_MILKINGS},
 		
 		}, ###
 		
 	"Plant": {
-		1: { "speaker": "", "dialogue": "Plant dialogue goes here.", "end": true},
+		1: { "speaker": "", "dialogue": "A rather lush vine grows over the sink. Clearly it doesn't want for water, given it's position.", "end": true},
 		}, 
 	
 	"noTentacleFood": {
 		1: { "speaker": "", "dialogue": "The door is hefty - more so than any other one in the house. A slight cool breeze is coming up from under the door - the chain on the door is a paltry thing, and mainly seems to be there for show. Either that, or to make you think twice before going down.", "goto": 2 },
 		2: { "speaker": "", "dialogue": "You unlatch the door, lost in thought. Maybe you should find whatever you’re supposed to feed this thing before you make your way beyond this door - though scoping out the area is never a bad idea...", "setSaveVariable": ["thePit_warned", true],  "end": true },		
 		}, 	
-
 		
 	"RisingBread": {
 		1: { "speaker": "", "dialogue": "There’s a loaf of bread rising underneath this tea towel - unfortunately you can tell this one isn’t ready to cook just yet.", 

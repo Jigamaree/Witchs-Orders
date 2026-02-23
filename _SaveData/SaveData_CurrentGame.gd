@@ -16,7 +16,8 @@ enum Eaten_Item 		{
 	DOGFOOD = 102, 
 	BREAD = 103, 
 	CHEESE = 104, 
-	MILK = 105} 
+	MILK = 105,
+	BUTTER = 106} 
 	
 enum Puzzle_State	 	{
 	NOT_FINISHED  = 201, 

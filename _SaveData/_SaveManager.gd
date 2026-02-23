@@ -75,7 +75,7 @@ func setSaveVariable(variableName: String, variableValue):
 	#if we're setting an item, we know the knight is fed
 	if variableName == "knight_eaten_item":
 		setSaveVariable("knight_fed", true)
-	if variableName == "knight_eaten_item" and (variableValue == SaveData_CurrentGame.Eaten_Item.CHEESE or variableValue == SaveData_CurrentGame.Eaten_Item.MILK):
+	if variableName == "knight_eaten_item" and (variableValue == SaveData_CurrentGame.Eaten_Item.CHEESE or variableValue == SaveData_CurrentGame.Eaten_Item.MILK or variableValue == SaveData_CurrentGame.Eaten_Item.BUTTER):
 		increasePoints("corruptionPoints_Cow", 1)
 	if variableName == "knight_eaten_item" and variableValue == SaveData_CurrentGame.Eaten_Item.BIRDSEED:
 		setSaveVariable("cellar_eatenBirdSeed", true)

@@ -111,7 +111,7 @@ layout_mode = 2
 text = "Ending 4 - Desperate Milkings"
 
 [node name="Description Label" parent="LeftPage/VBoxContainer/HBoxContainer/Container/4" index="1" unique_id=1879912699]
-text = "Gained by giving in to your cow-like instincts."
+text = "Gained by being overwhelmed by your cow-like instincts."
 
 [node name="5" parent="LeftPage/VBoxContainer/HBoxContainer/Container" unique_id=638645732 instance=ExtResource("3_87tf2")]
 layout_mode = 2
