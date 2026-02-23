@@ -59,7 +59,7 @@ func setSaveVariable(variableName: String, variableValue):
 	if variableName in save_data.currentGameData.current_save_data_dictionary:
 		save_data.currentGameData.current_save_data_dictionary[variableName] 			= variableValue
 	#ending tracking data
-	if variableName in save_data.multiRunSaveData.tracked_ending_data_dictionary:
+	elif variableName in save_data.multiRunSaveData.tracked_ending_data_dictionary:
 		save_data.multiRunSaveData.tracked_ending_data_dictionary[variableName]			= variableValue
 	else: push_error(Error.ERR_DOES_NOT_EXIST)
 	
@@ -79,12 +79,17 @@ func setSaveVariable(variableName: String, variableValue):
 		increasePoints("corruptionPoints_Cow", 1)
 	if variableName == "knight_eaten_item" and variableValue == SaveData_CurrentGame.Eaten_Item.BIRDSEED:
 		setSaveVariable("cellar_eatenBirdSeed", true)
+	if variableName == "knight_eaten_item" and variableValue == SaveData_CurrentGame.Eaten_Item.DOGFOOD:
+		setSaveVariable("cellar_eatenIgnusMeat", true)	
 			
 	if variableName == "read_notice" or variableName == "looked_out_front_windows":
 		setSaveVariable("realise_shit_is_fucked", true)
 	#if she gets fucked in any capacity, she is now stretched.
 	elif variableName.contains("fucked"):
 		setSaveVariable ("stretched", true)
+	
+	if variableName == "ignus_fucked_ate_out":
+		setSaveVariable ("ignus_fed", true)
 	
 	if variableName != "corruptionPoints_Imp" and variableName != "corruptionPoints_Pet" and variableName != "corruptionPoints_Cow":
 		checkForEndingIncreases(variableName, variableValue)

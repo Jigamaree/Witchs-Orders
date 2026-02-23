@@ -29,7 +29,6 @@ grow_vertical = 2
 color = Color(0.35006404, 0.35006392, 0.35006377, 1)
 
 [node name="BookBase" type="TextureRect" parent="." unique_id=982632053]
-visible = false
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -96,6 +95,7 @@ horizontal_alignment = 1
 
 [node name="MasterLabel" type="Label" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1295471355]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Master Volume"
 horizontal_alignment = 1
 
@@ -104,6 +104,7 @@ layout_mode = 2
 
 [node name="MusicLabel" type="Label" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1392751576]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Music Volume"
 horizontal_alignment = 1
 
@@ -112,6 +113,7 @@ layout_mode = 2
 
 [node name="SFXLabel" type="Label" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2060576206]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Sound FX Volume"
 horizontal_alignment = 1
 
@@ -124,6 +126,7 @@ size_flags_vertical = 3
 
 [node name="SaveData2" type="Label" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=979398486]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Window Type"
 horizontal_alignment = 1
 
@@ -141,6 +144,7 @@ size_flags_vertical = 3
 
 [node name="SaveData" type="Label" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1404005253]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Save Data"
 horizontal_alignment = 1
 
@@ -160,6 +164,7 @@ size_flags_vertical = 3
 
 [node name="ResetData" type="Label" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=704118829]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Reset Data"
 horizontal_alignment = 1
 

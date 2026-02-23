@@ -40,11 +40,40 @@ static var convos_Dict = {
 		2: { "speaker": "", "dialogue": "You want to blame this on the witch being disorganised - but witches are known for their capacity to hide amongst the commonfolk. If there was food to be had, she would have just as much capacity to get it as any other civilian... The fact there's nothing here worries you.", "end": true },
 		},
 	
+	#TODO: decide if this increases pet or imp
 	"MeatHook": {
-		1: { "speaker": "none", "dialogue": "Meat hook dialogue goes here.", "end": true }
-		},
+			0: { "checkSaveConditions": [
+			{ "save_key": "cellar_haveIgnusMeat", "goto": 1 },
+			{ "save_key": "cellar_eatenIgnusMeat", "goto": 1 },
+			{ "save_key": "", "goto": 2 },		]},		
+
+			#has the meat
+			1: { "speaker": "", "dialogue": "This should be an empty hook, but a certain dev didn't have time to remove it. Oops.", "end": true },
+			#does not have the meat
+			2: { "speaker": "", "dialogue": "The shelves along this back wall have hooks set in the wall, clearly set up to hold up salamis and other curing meats to dry. The picking are incredibly slim though - and by slim, there is but a single meager bone hung up. Around the bone hangs the tag 'Ignus'.", "choice": {
+								"c1": { "choice": "Leave the meat", "goto": 999 },
+								"c2": { "choice": "Take it for Ignus", "goto": 5 },
+								"c3": { "choice": "Eat it", "goto": 9 },
+						}
+				},
+			5: { "speaker": "", "dialogue": "You take the hefty bone - now, where was his bowl...?", 			
+			"setSaveVariable": ["cellar_haveIgnusMeat", true], "end": true},	
+
+			9: { "speaker": "", "dialogue": "Come to think of it, it's been a long while since you've had a lovely bit of cured meat like this...", 
+			"checkSaveVariable": { "keyToCheck": "knight_fed", "wantedValue": "true", "goto_false": 10, "goto_true": 998 }},
+			10: { "speaker": "MC", "dialogue": "You know what?", "goto": 11 },
+			11: { "speaker": "MC", "dialogue": "Fuck it.", "goto": 12 },
+			12: { "speaker": "", "dialogue": "You've been knocked around so hard your memory's been scrambled, got picked up by a witch instead of your own squadron, and now need to solve little puzzles like a circus monkey? 			
+			It's [i]you[/i] that deserves the damn meat.", "goto": 13 },
+			13: { "speaker": "", "dialogue": "Hunkering down in the closet, you tear into it caveman style, making a pleased sound at the taste on your tongue. You could probably have combined this with... Basically anything else in the house to make a more respectable meal out of it - but frankly? You're hungry, and this feels like a damn win.", 
+			"setSaveVariable": ["knight_eaten_item", SaveData_CurrentGame.Eaten_Item.DOGFOOD], "end": true},			
 	
-### TODO: figure out how to filter by X points	
+			998: { "speaker": "", "dialogue": "...But you've already eaten. That's probably saved you from a bad decision, in hindsight.", "goto": 2 },
+			999: { "speaker": "", "dialogue": "You decide to scope out your surroundings a bit more.", "end": true },				
+				
+		},####
+	
+	### TODO: figure out how to filter by X points	
 	"Milk": {
 			0: {
 				"checkSaveVariable": { "keyToCheck": "knight_fed", "wantedValue": "true", "goto_false": 2, "goto_true": 1 }},
@@ -91,7 +120,7 @@ static var convos_Dict = {
 			It looks [i]technically[/i] edible, but not appetising in the slightest - it is an option, though.", 
 			"choice": {
 					"c1": { "choice": "Leave it", "goto": 999 },
-					"c2": { "choice": "Eat the seed", "goto": 100 },
+					"c2": { "choice": "Eat the seed", "goto": 99 },
 					"c3": { "choice": "Take some seed with you", "goto": 200 },
 					}
 			},
@@ -102,16 +131,18 @@ static var convos_Dict = {
 			It looks [i]technically[/i] edible, but not appetising in the slightest - it is an option, though.", 
 			"choice": {
 					"c1": { "choice": "Leave it", "goto": 999 },
-					"c2": { "choice": "Eat the seed", "goto": 100 },
+					"c2": { "choice": "Eat the seed", "goto": 99 },
 					}
 			},
-				
-		100: { "speaker": "", "dialogue": "Grimacing, you take down the bag. Survival has never looked so... Unpleasant. 
-				Each mouthful of seed has you regretting your decision more; you'd have stale travel rations three times over if it meant not subjecting yourself to [i]this[/i] again. ", "goto": 101 },
+		
+		99: { "speaker": "", "dialogue": "You look at the little parcel. Are you really considering this?", 
+		"checkSaveVariable": { "keyToCheck": "knight_fed", "wantedValue": "true", "goto_false": 100, "goto_true": 998 }},	
+		100: { "speaker": "", "dialogue": "...Yes, yes you are.Grimacing, you take down the bag. Survival has never looked so... Unpleasant. The reality isn't much better; each mouthful of seed has you regretting your decision more, with its gritty, slightly oily texture drying your mouth out fast. ", "goto": 101 },
 		101: { "speaker": "", "dialogue": "By the time the bag is empty you're somehow both unpleasantly full and unsatiated. 
 		One order off the list - but at what cost?", 
 		"setSaveVariable": ["knight_eaten_item", SaveData_CurrentGame.Eaten_Item.BIRDSEED], "end": true},
 				
+		998: { "speaker": "", "dialogue": "...No, no you're not. You've already eaten - you don't need to subject yourself to this.", "end": true },		
 		999: { "speaker": "", "dialogue": "You leave the small sack of seed alone.", "end": true },
 		
 		},###	

@@ -38,6 +38,12 @@ size = Vector2(412.5, 55.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cn5iv"]
 size = Vector2(112, 237)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rvyaa"]
+size = Vector2(343, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkmki"]
+size = Vector2(124, 372)
+
 [node name="RoomCellar" type="Node2D" unique_id=940703355]
 script = ExtResource("1_osedi")
 
@@ -142,6 +148,7 @@ position = Vector2(662.75, 821.5)
 shape = SubResource("RectangleShape2D_q7aoy")
 
 [node name="Sprite2D" parent="Interactions/Sacks" index="1" unique_id=1783952993]
+z_index = 1
 position = Vector2(665, 823)
 texture = ExtResource("4_osedi")
 
@@ -160,6 +167,22 @@ objectName = "SeedHook"
 [node name="ObjectInteract" parent="Interactions/SeedHook" index="0" unique_id=1854910098]
 position = Vector2(253, -308.5)
 shape = SubResource("RectangleShape2D_cn5iv")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Interactions" unique_id=789276659]
+position = Vector2(496, 238)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/StaticBody2D" unique_id=1175549921]
+position = Vector2(192.5, 28)
+shape = SubResource("RectangleShape2D_rvyaa")
+debug_color = Color(0.97452074, 0, 0.42962334, 0.41960785)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Interactions/StaticBody2D" unique_id=930893583]
+position = Vector2(496, 238)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/StaticBody2D/StaticBody2D" unique_id=1350113212]
+position = Vector2(-549, 38)
+shape = SubResource("RectangleShape2D_dkmki")
+debug_color = Color(0.97452074, 0, 0.42962334, 0.41960785)
 
 [editable path="DynamicObject/TableArea"]
 [editable path="Door_Area"]

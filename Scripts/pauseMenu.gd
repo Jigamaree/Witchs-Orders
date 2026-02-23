@@ -6,9 +6,20 @@ extends Control
 @onready var mainMenuButton: Button = 	$LeftPage/MarginContainer/HBoxContainer/VBoxContainer/MainMenuButton
 @onready var quitButton: Button = 		$LeftPage/MarginContainer/HBoxContainer/VBoxContainer/QuitButton
 
+@onready var feedBox: 		CheckBox = $RightPage/MarginContainer/HBoxContainer/RightVBox/FeedYourself/CheckBox
+@onready var ignusBox: 		CheckBox = $RightPage/MarginContainer/HBoxContainer/RightVBox/FeedIgnus/CheckBox 
+@onready var pitBox: 		CheckBox = $RightPage/MarginContainer/HBoxContainer/RightVBox/TendToPit/CheckBox
+@onready var potionsBox: 	CheckBox = $RightPage/MarginContainer/HBoxContainer/RightVBox/OrganisePotions/CheckBox
+@onready var cauldronBox: 	CheckBox = $RightPage/MarginContainer/HBoxContainer/RightVBox/CompleteCauldron/CheckBox
+
 func _ready() -> void:
 	unpauseButton.grab_focus()
-	pass
+	feedBox.button_pressed = SaveManager.getSaveVariable("knight_fed")
+	ignusBox.button_pressed = SaveManager.getSaveVariable("ignus_fed")
+	#pitBox.button_pressed = SaveManager.getSaveVariable("knight_fed")
+	#potionsBox.button_pressed = SaveManager.getSaveVariable("knight_fed")
+	#cauldronBox.button_pressed = SaveManager.getSaveVariable("knight_fed")
+	
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_pause"):

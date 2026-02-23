@@ -2,10 +2,26 @@ extends Resource
 
 class_name SaveData_CurrentGame
 
-enum Clothing 			{NAKED, BUTTPLUG, COW_BIKINI, SLUTTY_OUTFIT, POET_SHIRT, STOLEN_ROBES}
-#only need to track the ones that make a difference gamewise
-enum Eaten_Item 		{NOTHING, BIRDSEED, DOGFOOD, BREAD, CHEESE, MILK} 
-enum Puzzle_State	 	{NOT_FINISHED, INCORRECT, CORRECT}
+enum Clothing 			{
+	NAKED = 0, 
+	BUTTPLUG = 1, 
+	COW_BIKINI = 2, 
+	SLUTTY_OUTFIT = 3, 
+	POET_SHIRT = 4, 
+	STOLEN_ROBES = 5}
+	
+enum Eaten_Item 		{
+	NOTHING = 100, 
+	BIRDSEED = 101, 
+	DOGFOOD = 102, 
+	BREAD = 103, 
+	CHEESE = 104, 
+	MILK = 105} 
+	
+enum Puzzle_State	 	{
+	NOT_FINISHED  = 201, 
+	INCORRECT=  202,  
+	CORRECT = 203, }
 
 var current_save_data_dictionary: Dictionary
 
@@ -43,6 +59,7 @@ var default_save_data_dictionary: Dictionary = {
 	"frontdoor_interactedwithdeadplant": false,
 	
 	#cellar
+	"cellar_eatenIgnusMeat": false,
 	"cellar_haveIgnusMeat": false,
 	"cellar_eatenBirdSeed": false,	
 	"cellar_takenBirdSeed": false,
