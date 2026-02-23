@@ -81,6 +81,9 @@ var default_save_data_dictionary: Dictionary = {
 	"ignus_fucked_ate_out": false,
 	"pit_fed": false,
 	"pit_fucked": false,
+	"cauldron_finished_bool": false,
+	"potions_sorted_bool": false,
+	
 	"cauldron_state":  Puzzle_State.NOT_FINISHED,
 	"potion_state": Puzzle_State.NOT_FINISHED, #not touched, incomplete, completed
 	

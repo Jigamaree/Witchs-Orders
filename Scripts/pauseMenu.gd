@@ -16,10 +16,9 @@ func _ready() -> void:
 	unpauseButton.grab_focus()
 	feedBox.button_pressed = SaveManager.getSaveVariable("knight_fed")
 	ignusBox.button_pressed = SaveManager.getSaveVariable("ignus_fed")
-	#pitBox.button_pressed = SaveManager.getSaveVariable("knight_fed")
-	#potionsBox.button_pressed = SaveManager.getSaveVariable("knight_fed")
-	#cauldronBox.button_pressed = SaveManager.getSaveVariable("knight_fed")
-	
+	pitBox.button_pressed = SaveManager.getSaveVariable("pit_fed")
+	potionsBox.button_pressed = SaveManager.getSaveVariable("potions_sorted_bool")
+	cauldronBox.button_pressed = SaveManager.getSaveVariable("cauldron_finished_bool")
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_pause"):
