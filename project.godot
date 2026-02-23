@@ -61,6 +61,7 @@ playerInteractNode=""
 playerBody=""
 interactable=""
 playerClass=""
+dragPoint=""
 
 [input]
 

@@ -39,7 +39,7 @@ static var thePit_Convos_Dict = {
 	"enteringRoom": {
 				0: { "checkSaveVariable": { "keyToCheck": "garden_hasTentacleFood", "wantedValue": "true", "goto_false": 1, "goto_true": 10 }},
 				#does not have food
-				1: { "speaker": "none", "dialogue": "The room is lit by a single flickering blue torch - while dim, it brings your attention to the massive pit in the ground.", "goto": 2 },
+				1: { "speaker": "none", "dialogue": "The room is lit by a single flickering blue torch - while dim, it brings your attention to the massive pit in the ground.", "goto": 40 },
 				2: { "speaker": "", "dialogue": "Its [i]huge[/i]. You'd think it access to some sort of ancient sewage system, like you've heard adventurers finding in antiquity ruins, but this looks more tended to than that. Scrubbed stone, free of lichen or crumbling rock makes up the floor, with solid brick overhead.", "goto": 3 },
 				3: { "speaker": "", "dialogue": "The only true blemishes in the room are a slickness to the edge of the pit, something that only catches your attention because of the flickering light. You realise that isn't some failed attempt of cleaning - it's beause of what's inside the hole itself.", "goto": 4 },
 				4: { "speaker": "", "dialogue": "You can barely make it out, even from where you're standing at the door - something undulating in the dark, the picture of unrest- No. Somethings, [i]plural[/i]. There's an impossible amount of movement from an impossible amount of limbs, all barely visible to the eye.",  "goto": 5 },
@@ -61,7 +61,7 @@ static var thePit_Convos_Dict = {
 								"c11": { "choice": "RUN", "goto": 40 },
 						}
 				},
-				40: { "speaker": "", "dialogue": "But it's too late.", "playEnding": SaveData_EndingTracker.EndingEnum.TENTACLE_BAIT },
+				40: { "speaker": "", "dialogue": "But it's too late.", "specialAction": "drag", "fadeToBlack": true, "playEnding": SaveData_EndingTracker.EndingEnum.TENTACLE_BAIT },
 				#does have food
 				10: { "speaker": "none", "dialogue": "%wsDoes have food.%ws", "completelyCentered": true, "end": true },
 				

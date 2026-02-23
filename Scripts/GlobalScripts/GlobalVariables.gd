@@ -7,6 +7,7 @@ signal startRegularGameplay()
 signal stopUpwardYMovement()
 signal startUpwardYMovement()
 signal quickCountdown()
+signal dragPlayerForward()
 
 enum interactableType {
 	OBJECT,

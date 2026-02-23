@@ -79,6 +79,9 @@ visible = false
 position = Vector2(970, 584)
 texture = ExtResource("4_keiyp")
 
+[node name="Marker2D" type="Marker2D" parent="." unique_id=315675369 groups=["dragPoint"]]
+position = Vector2(828, 535)
+
 [editable path="Doors/Door_Area"]
 [editable path="Doors/Door_Area2"]
 [editable path="ThePit"]

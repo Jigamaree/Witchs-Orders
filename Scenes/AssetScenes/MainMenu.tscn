@@ -89,6 +89,45 @@ text = "Quit"
 wait_time = 0.2
 autostart = true
 
+[node name="FloatingBubble" parent="." unique_id=543444638 instance=ExtResource("2_gnrtw")]
+position = Vector2(1121, 441)
+
+[node name="FloatingBubble2" parent="." unique_id=768629552 instance=ExtResource("2_gnrtw")]
+position = Vector2(1452, 276)
+
+[node name="FloatingBubble3" parent="." unique_id=1788398059 instance=ExtResource("2_gnrtw")]
+position = Vector2(1526, 579)
+
+[node name="FloatingBubble4" parent="." unique_id=1874722685 instance=ExtResource("2_gnrtw")]
+position = Vector2(1282, 623)
+
+[node name="FloatingBubble5" parent="." unique_id=1030433155 instance=ExtResource("2_gnrtw")]
+position = Vector2(1732, 322)
+
+[node name="FloatingBubble6" parent="." unique_id=1652454488 instance=ExtResource("2_gnrtw")]
+position = Vector2(1247, 81)
+
+[node name="FloatingBubble7" parent="." unique_id=812616535 instance=ExtResource("2_gnrtw")]
+position = Vector2(1663, 154)
+
+[node name="FloatingBubble8" parent="." unique_id=461098951 instance=ExtResource("2_gnrtw")]
+position = Vector2(1437, 743)
+
+[node name="FloatingBubble9" parent="." unique_id=695644424 instance=ExtResource("2_gnrtw")]
+position = Vector2(1686, 532)
+
+[node name="FloatingBubble10" parent="." unique_id=1711606066 instance=ExtResource("2_gnrtw")]
+position = Vector2(1051, 186)
+
+[node name="FloatingBubble11" parent="." unique_id=554935160 instance=ExtResource("2_gnrtw")]
+position = Vector2(1095, 728)
+
+[node name="FloatingBubble12" parent="." unique_id=875320170 instance=ExtResource("2_gnrtw")]
+position = Vector2(1732, 770)
+
+[node name="FloatingBubble13" parent="." unique_id=645296580 instance=ExtResource("2_gnrtw")]
+position = Vector2(1686, 701)
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Endings" to="." method="_on_endings_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

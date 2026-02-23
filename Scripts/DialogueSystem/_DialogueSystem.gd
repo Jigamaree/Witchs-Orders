@@ -135,6 +135,7 @@ func set_dialogue():
 	check_for_background_or_full_image()
 	fade_in_or_out()
 	set_text_alignment()
+	specialActions()
 		
 	# remove indentations
 	dlg = dlg.replace("\t", "")
@@ -242,6 +243,11 @@ func fade_in_or_out():
 		tween.tween_property(background_tint_rect, "modulate:a", 255.0, 0.5).from(0)
 		await tween.finished
 		#this means the next statement doesn't run unnessasarily
+
+func specialActions():
+	if conv[index].has("specialAction"):
+		if conv[index].get("specialAction", null) == "drag":
+			GlobalVariables.emit_signal("dragPlayerForward")
 	
 var rate_norm = 0.03
 var rate_comma = 0.12

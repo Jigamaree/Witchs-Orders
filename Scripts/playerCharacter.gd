@@ -22,6 +22,7 @@ func _ready() -> void:
 	GlobalVariables.startRegularGameplay.connect(_ok_you_can_go_again)	
 	GlobalVariables.startUpwardYMovement.connect(_start_moving_up_again)
 	GlobalVariables.stopUpwardYMovement.connect(_dont_move_up)
+	GlobalVariables.dragPlayerForward.connect(_on_drag_player)
 
 func _physics_process(delta: float) -> void:
 	if isPaused == false:
@@ -79,3 +80,14 @@ func _ok_you_can_go_again() -> void: 	isPaused = false
 func _dont_move_up() -> void: canMoveUp = false
 
 func _start_moving_up_again() -> void: canMoveUp = true
+
+func _on_drag_player():
+	var collision = $playerCollisionShape2D
+	collision.disabled = true
+	var endPoint: Vector2 = Vector2(0,0)
+	for marker: Marker2D in get_tree().get_nodes_in_group("dragPoint"):
+		endPoint = marker.global_position	
+		print(str(endPoint))
+	var tween = create_tween()
+	tween.tween_property(self, "global_position", endPoint, 0.2)		
+	await tween.finished

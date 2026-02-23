@@ -23,6 +23,9 @@ func _ready():
 	scale = Vector2.ONE * random_scale	
 	
 	var randNum = RandomNumberGenerator.new()
+		
+	wave_amplitude = randNum.randf_range(10.0, 100.0)
+	wave_frequency = randNum.randf_range(1.0,5.0)
 	var brightness = randNum.randf_range(0.5, 1.5)
 	spriteText.modulate = Color(brightness, brightness, brightness, 1.0)		
 	
