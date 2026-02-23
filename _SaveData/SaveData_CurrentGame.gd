@@ -47,7 +47,7 @@ var default_save_data_dictionary: Dictionary = {
 	"bathroom_furnaceFern": false,
 		
 	# the pit
-	"thePit_hasTentacleFood": false,
+	"thePit_warned": false,
 	"thePit_hasCompletedStaircase": false,
 	
 	#lounge
@@ -68,6 +68,7 @@ var default_save_data_dictionary: Dictionary = {
 	"garden_interactedWithCrowTree": false,
 	"garden_putOnNippleClamps": false,
 	"garden_putOnClitRing": false,
+	"garden_hasTentacleFood": false,
 
 	#immediate player-state data	
 	"knight_clothing": Clothing.NAKED,

@@ -21,7 +21,7 @@ size = Vector2(1242, 40.5)
 size = Vector2(229, 226)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3cl6"]
-size = Vector2(247, 260)
+size = Vector2(247, 257)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqrqp"]
 size = Vector2(264, 430)
@@ -136,6 +136,7 @@ position = Vector2(-77, -178)
 position = Vector2(360, 232)
 currentRoom = 5
 roomDestination = 9
+checkForFood = true
 
 [node name="Door_Collision" parent="Doors/PitRoomDoor_Area" index="0" unique_id=2029805447]
 position = Vector2(-29, -29)
@@ -148,9 +149,10 @@ position = Vector2(-137, -116)
 position = Vector2(360, 232)
 currentRoom = 5
 roomDestination = 10
+checkForFood = true
 
 [node name="Door_Collision" parent="Doors/baseCover_Door_Area2" index="0" unique_id=2029805447]
-position = Vector2(-29, -29)
+position = Vector2(-29, -27.5)
 shape = SubResource("RectangleShape2D_t3cl6")
 disabled = true
 

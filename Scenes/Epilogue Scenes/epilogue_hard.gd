@@ -13,8 +13,13 @@ func _ready():
 	GlobalVariables.startDialogue.connect(_on_start_dialogue)
 	#else call player spawn on fallback place
 	#want a method in here that loads room-specific flags in here and applies that to objects if possible!
-	if SaveManager.getSaveVariable("finalEnding"):
+	var endingCode = SaveManager.getSaveVariable("finalEnding")
+	print("!!!" + str(endingCode))
+	
+	if SaveManager.getSaveVariable("finalEnding") == SaveData_EndingTracker.EndingEnum.CAPTURED: 
 		_on_start_dialogue("Captured")	
+	elif SaveManager.getSaveVariable("finalEnding") == SaveData_EndingTracker.EndingEnum.TENTACLE_BAIT:
+		_on_start_dialogue("TentacleBait")
 	
 	else:
 		_on_start_dialogue("")	

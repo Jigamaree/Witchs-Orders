@@ -76,6 +76,12 @@ static var convos_Dict = {
 	"Plant": {
 		1: { "speaker": "", "dialogue": "Plant dialogue goes here.", "end": true},
 		}, 
+	
+	"noTentacleFood": {
+		1: { "speaker": "", "dialogue": "The door is hefty - more so than any other one in the house. A slight cool breeze is coming up from under the door - the chain on the door is a paltry thing, and mainly seems to be there for show. Either that, or to make you think twice before going down.", "goto": 2 },
+		2: { "speaker": "", "dialogue": "You unlatch the door, lost in thought. Maybe you should find whatever you’re supposed to feed this thing before you make your way beyond this door - though scoping out the area is never a bad idea...", "setSaveVariable": ["thePit_warned", true],  "end": true },		
+		}, 	
+
 		
 	"RisingBread": {
 		1: { "speaker": "", "dialogue": "There’s a loaf of bread rising underneath this tea towel - unfortunately you can tell this one isn’t ready to cook just yet.", 

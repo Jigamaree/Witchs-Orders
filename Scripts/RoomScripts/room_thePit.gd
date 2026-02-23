@@ -7,11 +7,14 @@ class_name room_thePit
 @onready var camera: 		Camera2D = $CameraThings/Camera2D
 
 func _ready():
-	super._ready()		
+	super._ready()
+	dialogueDictionary = thePitConvos.thePit_Convos_Dict			
 	if !SaveManager.getSaveVariable("thePit_hasCompletedStaircase"):	
 		SaveManager.setSaveVariable("thePit_hasCompletedStaircase", true)
 	await get_tree().process_frame
 	camera.global_position.y = lower_marker.global_position.y
+	GlobalVariables.startDialogue.emit("enteringRoom")
+	GlobalVariables.pauseRegularGameplay.emit()		
 
 func _process(_delta: float) -> void:		
 	var target_y = player.global_position.y

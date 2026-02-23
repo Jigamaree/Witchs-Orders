@@ -4,6 +4,20 @@ class_name SaveData_EndingTracker
 
 var tracked_ending_data_dictionary: Dictionary
 
+enum EndingEnum 			{
+	CAPTURED = 1001, 
+	BETTER_NOT_TO_THINK = 1002, 
+	PRIZED_COW = 1003, 
+	DESPERATE_MILKINGS = 1004, 
+	KNOW_YOUR_PLACE = 1005, 
+	MARKED_HEELED = 1006,
+	PRETTY_PET = 1007,
+	IGNUS_BITCH = 1008,
+	TENTACLE_BAIT = 1009,
+	TRUE_END = 1010,
+	FAILED_TRUE_END = 1011,
+	DID_LITERALLY_NOTHING = 1012}
+
 func _init() -> void:
 	tracked_ending_data_dictionary = default_ending_data_dictionary.duplicate(true)
 

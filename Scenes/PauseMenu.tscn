@@ -9,7 +9,6 @@ process_mode = 3
 script = ExtResource("1_qwhev")
 
 [node name="Background Fade" type="ColorRect" parent="." unique_id=1202986295]
-anchors_preset = -1
 offset_left = -41.0
 offset_top = -17.0
 offset_right = 1951.0
@@ -167,7 +166,7 @@ disabled = true
 [node name="Label" type="Label" parent="RightPage/MarginContainer/HBoxContainer/RightVBox/TendToPit" unique_id=1928560117]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Tend to the Pit"
+text = "Tend to the pit"
 
 [node name="OrganisePotions" type="HBoxContainer" parent="RightPage/MarginContainer/HBoxContainer/RightVBox" unique_id=253482884]
 layout_mode = 2

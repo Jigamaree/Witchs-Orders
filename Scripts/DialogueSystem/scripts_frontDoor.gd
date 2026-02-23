@@ -13,7 +13,7 @@ static var convos_Dict = {
 			2: { "speaker": "", "dialogue": "The [i]Luck of the Lady[/i] seems to be even more lush than it was before. Then again, a good fuck leaves most folk feeling re-energised - no reason that same logic can't apply to plants.", "end": true },	
 			#baseline interaction
 			3: { "speaker": "", "dialogue": "In a home filled with as much greenery as this one, a dead plant - right by the front door, no less - sticks out like a sore thumb.
-Guess even a witch as talented as this one can't keep everything alive.", "end": true },
+			Guess even a witch as talented as this one can't keep everything alive.", "end": true },
 			#has read plant book
  			10: { "speaker": "MC", "dialogue": "...Wait a second.", "goto": 11 },
 			11: { "speaker": "", "dialogue": "You grab the plant guide book, flicking through it. According to the tome, a particular vine often seen by front doors - the Luck of the Lady - often retreats into a dormant state during periods of drought. It's apparently theoriesed to do this over winter, so it's ready for the spring.", "goto": 12 },
@@ -46,7 +46,7 @@ Guess even a witch as talented as this one can't keep everything alive.", "end":
 		}, 
 		6: { "speaker": "", "dialogue": "You make your way back inside - a tactical retreat, you tell yourself. It's hard to convince even yourself of that though when you feel less like the well seasoned warrior you are and more like a sheepish dog returning home. The important thing is, however, that you're back - and the mysteries of the house still awaits you.", "fadeIntoScene": true, 
 		"setSaveVariable": ["corruptionPoints_Pet", 1], "end": true },
-		7: { "speaker": "", "dialogue": "You've made your decision, and you're not backing down from it now.", "playEnding": "Captured" },
+		7: { "speaker": "", "dialogue": "You've made your decision, and you're not backing down from it now.", "playEnding": SaveData_EndingTracker.EndingEnum.CAPTURED},
 		},###
 
 	"Window": {
