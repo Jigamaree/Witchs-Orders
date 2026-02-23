@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @onready var unpauseButton: Button = 	$LeftPage/MarginContainer/HBoxContainer/VBoxContainer/UnpauseButton
 @onready var saveButton: Button =	 	$LeftPage/MarginContainer/HBoxContainer/VBoxContainer/SaveButton

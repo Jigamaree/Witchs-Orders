@@ -4,21 +4,11 @@
 [ext_resource type="Script" uid="uid://noypn53jq8cb" path="res://Scripts/pauseMenu.gd" id="1_qwhev"]
 [ext_resource type="StyleBox" uid="uid://cfg4t3f3c1ai5" path="res://buttonFocusedStyleBox.tres" id="3_5w4ur"]
 
-[node name="PauseMenu" type="Control" unique_id=1073303519]
+[node name="PauseMenu" type="CanvasLayer" unique_id=1395104076]
 process_mode = 3
-z_index = 99
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 script = ExtResource("1_qwhev")
 
 [node name="Background Fade" type="ColorRect" parent="." unique_id=1202986295]
-layout_mode = 1
 anchors_preset = -1
 offset_left = -41.0
 offset_top = -17.0
@@ -29,13 +19,11 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.4)
 
 [node name="BookBase" type="TextureRect" parent="." unique_id=982632053]
-layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("1_lj4oq")
 
 [node name="LeftPage" type="ColorRect" parent="." unique_id=1610651927]
-layout_mode = 0
 offset_left = 277.0
 offset_top = 97.0
 offset_right = 932.0
@@ -102,7 +90,6 @@ disabled = true
 text = "Quit"
 
 [node name="RightPage" type="ColorRect" parent="." unique_id=995532869]
-layout_mode = 0
 offset_left = 1002.0
 offset_top = 97.0
 offset_right = 1657.0

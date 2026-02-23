@@ -4,7 +4,7 @@ class_name kicthenConvos
 
 static var convos_Dict = {					
 	"Book": {
-		1: { "speaker": "", "dialogue": "Recipe and bowl dialogue goes here.", "end": true},
+		1: { "speaker": "", "dialogue": "The recipe book on the counter seems to be handwritten - it’s turned to a page noting a dandelion summer salad with vinegar and herbs. While the ingredient note it serves one, the large bowl next to you implies that the recipe is likely being scaled up..", "end": true},
 		}, 
 					
 	"BubbleSink": {
@@ -22,7 +22,7 @@ static var convos_Dict = {
 		}, 
 					
 	"CuttingBoard": {
-		1: { "speaker": "", "dialogue": "Cutting board dialogue goes here.", "end": true},
+		1: { "speaker": "", "dialogue": "A cutting board and knife sit ready for food preparations. You consider taking the knife for protection - and then think about the massive hound outside the door. Not to mention what magics the witch herself is capable of... You’re not sure this would go how you would want it to.", "end": true},
 		}, 
 					
 	"Dishes": {
@@ -50,19 +50,26 @@ static var convos_Dict = {
 		
 		10: { "speaker": "", "dialogue": "You take the bread over to the cutting board - much as biting into a hunk of bread would be satisfying, you're not some [i]animal[/i]. However, as you cut a couple of thick slices off one end, your eyes drift to the butter dish on the other side of the room. Nothing stopping you having it plain, but...", 
 		"choice": {
-					"c1": { "choice": "Add some butter", "goto": 12 },
-					"c2": { "choice": "Butter, cheese, a glass of milk too...", "goto": 12 },					
+					"c1": { "choice": "Add some butter", "goto": 30 },
+					"c2": { "choice": "Butter, cheese, a glass of milk too...", "goto": 40 },					
 					"c3": { "choice": "Nope, just plain bread", "goto": 20 },
 					}
 			},			
-		# reasonable!
+			
+		# plain bread - reasonable!
 		20: { "speaker": "", "dialogue": "No - you don't need anything else on here. Fresh bread is delicious on its own, anyway. You don't regret the choice as you start eating, either; the bread is soft and filling, with a specific tang to it that spoke of sourdough yeast. Once done, you pop the partially cut break back into the oven for safe keeping.", 
 		"setSaveVariable": ["knight_eaten_item", SaveData_CurrentGame.Eaten_Item.BREAD],  "goto": 21 },
 		21: { "speaker": "", "dialogue": "That's one order, down.", "end": true },
 		
 		#have the butter
+		30: { "speaker": "", "dialogue": "You enjoy bread, sure - but buttered bread? That's one of those simple life pleasures that one never really outgrows. You sweep over to the side of the kitchen, grabbing the little butter dish. Just a little dab will do - especially since the bread is still hot enough to let the butter melt and seep into the crumb.", "goto": 31 },
+		31: { "speaker": "", "dialogue": "That first taste, though.
+		Oh.
+		[i]Oh.[/i]", "goto": 32 },
+		32: { "speaker": "", "dialogue": "You've joked before that bread is but a vehicle to get butter into your body, but this is something else. Warm, rich, creamy - the taste of the butter coats the inside of your mouth. Somehow you're salivating even more now that you're eat", "end": true },
 		
 		#full dining experience - desperate milkings game over
+		40: { "speaker": "", "dialogue": "", "end": true },
 		
 		}, ###
 		

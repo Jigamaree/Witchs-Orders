@@ -56,3 +56,7 @@ func _on_start_dialogue(objectName: String):
 
 	get_dialogue_entry(objectName)
 	add_child(dialogue_instance)	
+
+func handleCamera(pause_instance: Control):
+	pause_instance.global_position = camera.get_screen_center_position() - pause_instance.size 
+	

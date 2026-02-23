@@ -49,14 +49,18 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause_button") and canPause == true:
 		var pause_instance = pause_menu.instantiate()
 		add_child(pause_instance)
-		get_tree().paused = true
+		#handleCamera(pause_instance)
+		get_tree().paused = true	
+
 	elif Input.is_action_just_pressed("ui_debug") and canOpenDebug == true:
 		var debug_instance = debug_menu.instantiate()
 		add_child(debug_instance)
 		get_tree().paused = true			
 
+func handleCamera(pause_instance):
+	pass
+
 func _on_start_dialogue(objectName: String):
-	
 	if dialogue_instance:
 		return
 	elif 	!dialogueDictionary.has(objectName):
