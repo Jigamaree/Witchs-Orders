@@ -52,13 +52,18 @@ static var convos_Dict = {
 		"choice": {
 					"c1": { "choice": "Add some butter", "goto": 12 },
 					"c2": { "choice": "Butter, cheese, a glass of milk too...", "goto": 12 },					
-					"c3": { "choice": "Nope, just plain bread", "goto": 99 },
+					"c3": { "choice": "Nope, just plain bread", "goto": 20 },
 					}
 			},			
+		# reasonable!
+		20: { "speaker": "", "dialogue": "No - you don't need anything else on here. Fresh bread is delicious on its own, anyway. You don't regret the choice as you start eating, either; the bread is soft and filling, with a specific tang to it that spoke of sourdough yeast. Once done, you pop the partially cut break back into the oven for safe keeping.", 
+		"setSaveVariable": ["knight_eaten_item", SaveData_CurrentGame.Eaten_Item.BREAD],  "goto": 21 },
+		21: { "speaker": "", "dialogue": "That's one order, down.", "end": true },
 		
-		99: { "speaker": "", "dialogue": "No - you don't need anything else on here. Fresh bread is delicious on its own, anyway. You don't regret the choice as you start eating, either; the bread is soft and filling, with a specific tang to it that spoke of sourdough yeast. Once done, you pop the partially cut break back into the oven for safe keeping.", 
-		"setSaveVariable": ["knight_eaten_item", SaveData_CurrentGame.Eaten_Item.BREAD],  "goto": 100 },
-		100: { "speaker": "", "dialogue": "That's one order, down.", "end": true },
+		#have the butter
+		
+		#full dining experience - desperate milkings game over
+		
 		}, ###
 		
 	"Plant": {

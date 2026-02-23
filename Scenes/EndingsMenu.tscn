@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cnedufk3xjqmb" path="res://Assets/Dialogue/BookMenu.png" id="2_87tf2"]
 [ext_resource type="PackedScene" uid="uid://c07rhtxb4v8s0" path="res://Scenes/AssetScenes/EndingMenuContainer.tscn" id="3_87tf2"]
 [ext_resource type="StyleBox" uid="uid://cfg4t3f3c1ai5" path="res://buttonFocusedStyleBox.tres" id="3_arndx"]
+[ext_resource type="Texture2D" uid="uid://fc343yan38a6" path="res://Assets/InScene Items/Study - Pentagram.png" id="4_6a05o"]
+[ext_resource type="Theme" uid="uid://u8ldn1u81cy" path="res://ButtonTheme.tres" id="4_arndx"]
 
 [node name="EndingsMenu" type="Control" unique_id=1073303519]
 process_mode = 3
@@ -45,57 +47,93 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.43137255, 1, 1, 0)
 
-[node name="MarginContainer" type="MarginContainer" parent="LeftPage" unique_id=1461017470]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="VBoxContainer" type="VBoxContainer" parent="LeftPage/MarginContainer" unique_id=1316211205]
-layout_mode = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="LeftPage" unique_id=1316211205]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 605.0
+offset_bottom = 764.0
 alignment = 1
 
-[node name="TitleCentered" type="CenterContainer" parent="LeftPage/MarginContainer/VBoxContainer" unique_id=957789080]
+[node name="TitleCentered" type="CenterContainer" parent="LeftPage/VBoxContainer" unique_id=957789080]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="LeftPage/MarginContainer/VBoxContainer/TitleCentered" unique_id=1588700566]
+[node name="Label" type="Label" parent="LeftPage/VBoxContainer/TitleCentered" unique_id=1588700566]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "Endings"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="LeftPage/MarginContainer/VBoxContainer" unique_id=1992265427]
+[node name="Control2" type="Control" parent="LeftPage/VBoxContainer" unique_id=1240289517]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LeftPage/VBoxContainer" unique_id=1992265427]
 layout_mode = 2
 alignment = 1
 
-[node name="Container" type="VBoxContainer" parent="LeftPage/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1166067634]
+[node name="Container" type="VBoxContainer" parent="LeftPage/VBoxContainer/HBoxContainer" unique_id=1166067634]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="VBoxContainer" parent="LeftPage/MarginContainer/VBoxContainer/HBoxContainer/Container" unique_id=400305204 instance=ExtResource("3_87tf2")]
+[node name="1" parent="LeftPage/VBoxContainer/HBoxContainer/Container" unique_id=400305204 instance=ExtResource("3_87tf2")]
 layout_mode = 2
 
-[node name="VBoxContainer2" parent="LeftPage/MarginContainer/VBoxContainer/HBoxContainer/Container" unique_id=157435532 instance=ExtResource("3_87tf2")]
+[node name="EndingTitleLabel" parent="LeftPage/VBoxContainer/HBoxContainer/Container/1/HBoxContainer" parent_id_path=PackedInt32Array(400305204, 337387213) index="0" unique_id=1315454681]
+text = "Ending 1 - Captured"
+
+[node name="Description Label" parent="LeftPage/VBoxContainer/HBoxContainer/Container/1" index="1" unique_id=1879912699]
+text = "Gained by not putting up with the witch's games."
+
+[node name="2" parent="LeftPage/VBoxContainer/HBoxContainer/Container" unique_id=157435532 instance=ExtResource("3_87tf2")]
 layout_mode = 2
 
-[node name="VBoxContainer3" parent="LeftPage/MarginContainer/VBoxContainer/HBoxContainer/Container" unique_id=955073279 instance=ExtResource("3_87tf2")]
+[node name="EndingTitleLabel" parent="LeftPage/VBoxContainer/HBoxContainer/Container/2/HBoxContainer" parent_id_path=PackedInt32Array(157435532, 337387213) index="0" unique_id=1315454681]
+text = "Ending 2 - Better Not to Think"
+
+[node name="Description Label" parent="LeftPage/VBoxContainer/HBoxContainer/Container/2" index="1" unique_id=1879912699]
+text = "Gained by failing in your tasks."
+
+[node name="3" parent="LeftPage/VBoxContainer/HBoxContainer/Container" unique_id=955073279 instance=ExtResource("3_87tf2")]
 layout_mode = 2
 
-[node name="VBoxContainer4" parent="LeftPage/MarginContainer/VBoxContainer/HBoxContainer/Container" unique_id=2119947323 instance=ExtResource("3_87tf2")]
+[node name="EndingTitleLabel" parent="LeftPage/VBoxContainer/HBoxContainer/Container/3/HBoxContainer" parent_id_path=PackedInt32Array(955073279, 337387213) index="0" unique_id=1315454681]
+text = "Ending 3 - Prized Cow"
+
+[node name="Description Label" parent="LeftPage/VBoxContainer/HBoxContainer/Container/3" index="1" unique_id=1879912699]
+text = "Gained by greeting the witch as bovine you are."
+
+[node name="4" parent="LeftPage/VBoxContainer/HBoxContainer/Container" unique_id=2119947323 instance=ExtResource("3_87tf2")]
 layout_mode = 2
 
-[node name="VBoxContainer5" parent="LeftPage/MarginContainer/VBoxContainer/HBoxContainer/Container" unique_id=638645732 instance=ExtResource("3_87tf2")]
+[node name="EndingTitleLabel" parent="LeftPage/VBoxContainer/HBoxContainer/Container/4/HBoxContainer" parent_id_path=PackedInt32Array(2119947323, 337387213) index="0" unique_id=1315454681]
+text = "Ending 4 - Desperate Milkings"
+
+[node name="Description Label" parent="LeftPage/VBoxContainer/HBoxContainer/Container/4" index="1" unique_id=1879912699]
+text = "Gained by giving in to your cow-like instincts."
+
+[node name="5" parent="LeftPage/VBoxContainer/HBoxContainer/Container" unique_id=638645732 instance=ExtResource("3_87tf2")]
 layout_mode = 2
 
-[node name="VBoxContainer6" parent="LeftPage/MarginContainer/VBoxContainer/HBoxContainer/Container" unique_id=217934516 instance=ExtResource("3_87tf2")]
+[node name="EndingTitleLabel" parent="LeftPage/VBoxContainer/HBoxContainer/Container/5/HBoxContainer" parent_id_path=PackedInt32Array(638645732, 337387213) index="0" unique_id=1315454681]
+text = "Ending 5 - To Know Your Place"
+
+[node name="Description Label" parent="LeftPage/VBoxContainer/HBoxContainer/Container/5" index="1" unique_id=1879912699]
+text = "Gained by presenting to the witch as one who needs a steady hand."
+
+[node name="6" parent="LeftPage/VBoxContainer/HBoxContainer/Container" unique_id=217934516 instance=ExtResource("3_87tf2")]
 layout_mode = 2
+
+[node name="EndingTitleLabel" parent="LeftPage/VBoxContainer/HBoxContainer/Container/6/HBoxContainer" parent_id_path=PackedInt32Array(217934516, 337387213) index="0" unique_id=1315454681]
+text = "Ending 6 - Marked and Heeled"
+
+[node name="Description Label" parent="LeftPage/VBoxContainer/HBoxContainer/Container/6" index="1" unique_id=1879912699]
+text = "Gained by being too unruly and disruptive to be ignored."
+
+[node name="Control3" type="Control" parent="LeftPage/VBoxContainer" unique_id=773246452]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="RightPage" type="ColorRect" parent="." unique_id=995532869]
 layout_mode = 0
@@ -119,37 +157,110 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="HBoxContainer" type="HBoxContainer" parent="RightPage/MarginContainer" unique_id=1708012300]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="RightPage/MarginContainer/HBoxContainer" unique_id=1487269840]
+[node name="VBoxContainer" type="VBoxContainer" parent="RightPage/MarginContainer" unique_id=1487269840]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="VBoxContainer" parent="RightPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=515682016 instance=ExtResource("3_87tf2")]
+[node name="Control2" type="Control" parent="RightPage/MarginContainer/VBoxContainer" unique_id=1803564898]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="RightPage/MarginContainer/VBoxContainer/Control2" unique_id=1902870857]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Winning Star" type="TextureRect" parent="RightPage/MarginContainer/VBoxContainer/Control2/CenterContainer" unique_id=1385937829]
+clip_contents = true
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+texture = ExtResource("4_6a05o")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control3" type="Control" parent="RightPage/MarginContainer/VBoxContainer" unique_id=1051910972]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="7" parent="RightPage/MarginContainer/VBoxContainer" unique_id=515682016 instance=ExtResource("3_87tf2")]
 layout_mode = 2
 
-[node name="VBoxContainer2" parent="RightPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=786768581 instance=ExtResource("3_87tf2")]
+[node name="EndingTitleLabel" parent="RightPage/MarginContainer/VBoxContainer/7/HBoxContainer" parent_id_path=PackedInt32Array(515682016, 337387213) index="0" unique_id=1315454681]
+text = "Ending 7 - A Pretty Pet"
+
+[node name="Description Label" parent="RightPage/MarginContainer/VBoxContainer/7" index="1" unique_id=1879912699]
+text = "Gained by presenting to the witch as a soft creature in need of guidance."
+
+[node name="8" parent="RightPage/MarginContainer/VBoxContainer" unique_id=786768581 instance=ExtResource("3_87tf2")]
 layout_mode = 2
 
-[node name="VBoxContainer3" parent="RightPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=868092180 instance=ExtResource("3_87tf2")]
+[node name="EndingTitleLabel" parent="RightPage/MarginContainer/VBoxContainer/8/HBoxContainer" parent_id_path=PackedInt32Array(786768581, 337387213) index="0" unique_id=1315454681]
+text = "Ending 8 - Ignus' Bitch"
+
+[node name="Description Label" parent="RightPage/MarginContainer/VBoxContainer/8" index="1" unique_id=1879912699]
+text = "Gained by letting the beast finish the job"
+
+[node name="9" parent="RightPage/MarginContainer/VBoxContainer" unique_id=868092180 instance=ExtResource("3_87tf2")]
 layout_mode = 2
 
-[node name="VBoxContainer4" parent="RightPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1095593383 instance=ExtResource("3_87tf2")]
+[node name="EndingTitleLabel" parent="RightPage/MarginContainer/VBoxContainer/9/HBoxContainer" parent_id_path=PackedInt32Array(868092180, 337387213) index="0" unique_id=1315454681]
+text = "Ending 9 - Tentacle Bait"
+
+[node name="Description Label" parent="RightPage/MarginContainer/VBoxContainer/9" index="1" unique_id=1879912699]
+text = "Gained by fighting back at an inoppportune time."
+
+[node name="10" parent="RightPage/MarginContainer/VBoxContainer" unique_id=1095593383 instance=ExtResource("3_87tf2")]
 layout_mode = 2
 
-[node name="VBoxContainer5" parent="RightPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=130028006 instance=ExtResource("3_87tf2")]
+[node name="EndingTitleLabel" parent="RightPage/MarginContainer/VBoxContainer/10/HBoxContainer" parent_id_path=PackedInt32Array(1095593383, 337387213) index="0" unique_id=1315454681]
+text = "Ending 10 - True End"
+
+[node name="Description Label" parent="RightPage/MarginContainer/VBoxContainer/10" index="1" unique_id=1879912699]
+text = "Gained by figuring out the secrets of the Witch's home."
+
+[node name="11" parent="RightPage/MarginContainer/VBoxContainer" unique_id=130028006 instance=ExtResource("3_87tf2")]
 layout_mode = 2
 
-[node name="VBoxContainer6" parent="RightPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1519130769 instance=ExtResource("3_87tf2")]
+[node name="EndingTitleLabel" parent="RightPage/MarginContainer/VBoxContainer/11/HBoxContainer" parent_id_path=PackedInt32Array(130028006, 337387213) index="0" unique_id=1315454681]
+text = "Bonus - So Close, Yet So Far"
+
+[node name="Description Label" parent="RightPage/MarginContainer/VBoxContainer/11" index="1" unique_id=1879912699]
+text = "Gained by faling to reach your destiny."
+
+[node name="12" parent="RightPage/MarginContainer/VBoxContainer" unique_id=186571478 instance=ExtResource("3_87tf2")]
 layout_mode = 2
 
-[node name="MainMenuButton" type="Button" parent="RightPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=675625074]
+[node name="EndingTitleLabel" parent="RightPage/MarginContainer/VBoxContainer/12/HBoxContainer" parent_id_path=PackedInt32Array(186571478, 337387213) index="0" unique_id=1315454681]
+text = "Bonus - Little to Do, Less to Think"
+
+[node name="Description Label" parent="RightPage/MarginContainer/VBoxContainer/12" index="1" unique_id=1879912699]
+text = "Gained by completely forgetting the game's namesake."
+
+[node name="Control" type="Control" parent="RightPage/MarginContainer/VBoxContainer" unique_id=1901219052]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MainMenuButton" type="Button" parent="RightPage/MarginContainer/VBoxContainer" unique_id=675625074]
+layout_mode = 2
+theme = ExtResource("4_arndx")
 theme_override_styles/focus = ExtResource("3_arndx")
 text = " Main Menu"
 
-[connection signal="pressed" from="RightPage/MarginContainer/HBoxContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="RightPage/MarginContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 
-[editable path="LeftPage/MarginContainer/VBoxContainer/HBoxContainer/Container/VBoxContainer"]
+[editable path="LeftPage/VBoxContainer/HBoxContainer/Container/1"]
+[editable path="LeftPage/VBoxContainer/HBoxContainer/Container/2"]
+[editable path="LeftPage/VBoxContainer/HBoxContainer/Container/3"]
+[editable path="LeftPage/VBoxContainer/HBoxContainer/Container/4"]
+[editable path="LeftPage/VBoxContainer/HBoxContainer/Container/5"]
+[editable path="LeftPage/VBoxContainer/HBoxContainer/Container/6"]
+[editable path="RightPage/MarginContainer/VBoxContainer/7"]
+[editable path="RightPage/MarginContainer/VBoxContainer/8"]
+[editable path="RightPage/MarginContainer/VBoxContainer/9"]
+[editable path="RightPage/MarginContainer/VBoxContainer/10"]
+[editable path="RightPage/MarginContainer/VBoxContainer/11"]
+[editable path="RightPage/MarginContainer/VBoxContainer/12"]

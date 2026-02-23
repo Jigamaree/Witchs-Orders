@@ -140,5 +140,5 @@ func getSaveVariable(variableName: String):
 		return save_data.currentGameData.current_save_data_dictionary[variableName]
 	#ending tracking data	
 	elif variableName in save_data.multiRunSaveData.tracked_ending_data_dictionary:		
-		return save_data.multiRunEndingSaveData.tracked_ending_data_dictionary[variableName]
+		return save_data.multiRunSaveData.tracked_ending_data_dictionary[variableName]
 	else: push_error(Error.ERR_DOES_NOT_EXIST)

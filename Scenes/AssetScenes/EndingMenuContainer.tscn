@@ -14,7 +14,6 @@ text = "Ending 1"
 
 [node name="CheckBox" type="CheckBox" parent="HBoxContainer" unique_id=255340382]
 layout_mode = 2
-toggle_mode = false
 
 [node name="Description Label" type="Label" parent="." unique_id=1879912699]
 layout_mode = 2
