@@ -127,9 +127,10 @@ static var convos_Dict = {
 		502: { 
 			"speaker": "", "dialogue": "You know these later notes all come from women - the way the Saevii treat them is something you've both heard from the Divine and witnessed first hand. Treated worse than livestock, sold as much as well. But things were nowhere near that dire... Right?", "goto": 1 },		
 		
-		#diagram
+		#frontdoor_diagram
 		600: { 
-			"speaker": "", "dialogue": "The drawing shows a small box, tucked into a hollow over a cliff.", "goto": 1 },	
+			"speaker": "", "dialogue": "The drawing shows a small box, tucked into a hollow over a cliff.", 
+			"setSaveVariable": ["frontdoor_diagram", true], "goto": 1 },		
 		
 		#leave				
 		999: { 

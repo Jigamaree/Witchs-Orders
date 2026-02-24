@@ -65,12 +65,25 @@ func setSaveVariable(variableName: String, variableValue):
 	
 	## then we check if we need to set any related values
 	
+	#"crow_key": false, 
+	#"fire_key": false, 
+	#"plant_key": false, 
+	#"all_three_keys": false,	
+	
+	if variableName == "crow_key" or variableName == "fire_key" or variableName == "plant_key":
+		if getSaveVariable("crow_key") and getSaveVariable("fire_key") and getSaveVariable("plant_key"):
+			print("all three!")
+			setSaveVariable("all_three_keys", true)
+	
 	if variableName == "study_cauldron_state" and variableValue == SaveData_CurrentGame.Puzzle_State.INCORRECT:
 		setSaveVariable("cauldron_finished_bool", true)
 		setSaveVariable("study_cauldron_succeeded", false)				
 	elif variableName == "study_cauldron_state" and variableValue == SaveData_CurrentGame.Puzzle_State.CORRECT:
 		setSaveVariable("cauldron_finished_bool", true)
 		setSaveVariable("study_cauldron_succeeded", true)	
+	
+	if variableName == "pit_fucked":
+		setSaveVariable("pit_fed", true)
 	
 	#correct or incorrect, we've solved the potion stuff
 	if variableName == "potion_state":

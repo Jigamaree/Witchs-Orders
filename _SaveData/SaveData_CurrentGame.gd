@@ -59,6 +59,7 @@ var default_save_data_dictionary: Dictionary = {
 	
 	#frontDoor
 	"frontdoor_interactedwithdeadplant": false,
+	"frontdoor_diagram": false,
 	
 	#cellar
 	"cellar_eatenIgnusMeat": false,
@@ -76,8 +77,8 @@ var default_save_data_dictionary: Dictionary = {
 	"study_putting_ingred_1_in": false,
 	"study_putting_ingred_2_in": false,
 	"study_putting_ingred_3_in": false,		
-	"study_cauldron_succeeded": false,		 #############
-	"study_cauldron_state":  Puzzle_State.NOT_FINISHED,   ###############
+	"study_cauldron_succeeded": false,		
+	"study_cauldron_state":  Puzzle_State.NOT_FINISHED,   
 
 	#immediate player-state data	
 	"knight_clothing": Clothing.NAKED,
@@ -108,6 +109,7 @@ var default_save_data_dictionary: Dictionary = {
 	"crow_key": false, 
 	"fire_key": false, 
 	"plant_key": false, 
+	"all_three_keys": false,
 	"apprentice_seed_taken": false,  #"pendant got"
 
 	### other ending measures
