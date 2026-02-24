@@ -211,9 +211,17 @@ func set_portrait():
 
 func check_for_background_or_full_image():
 	# background image - image that appears over a dark background, like key items
+	if conv[index].has("keepImage"):
+		return
+	
 	if conv[index].has("backgroundImage"):
+		# set image here
+		
+		if conv[index].get("backgroundImage", null) == "bottles":
+			background_image_rect.texture = load("res://Assets/InScene Items/Study - Close Up Bottles.png")
+		
 		var tween = get_tree().create_tween()
-		#tween.set_parallel(true)
+		tween.set_parallel(true)
 		tween.tween_property(background_tint_rect, "modulate:a", 140.0, 0.5).from(0)
 		tween.tween_property(background_image_rect, "modulate:a", 1.0, 0.2).from(0)		
 		await tween.finished
@@ -324,6 +332,9 @@ func advance_line():
 		##TEST	
 		if conv[index].has("preloadConversation"):
 			GlobalVariables.emit_signal("preloadConversation", conv[index].get("preloadConversation", null))
+			
+		if conv[index].has("preloadPotionMenu"):
+			GlobalVariables.emit_signal("preloadPotionMenu")
 									
 		if conv[index].has("set"):
 			var flag = conv[index].get("set", null)

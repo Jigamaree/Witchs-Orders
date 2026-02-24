@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://ct4cca3juvcf" path="res://Scripts/endingsMenu.gd" id="1_87tf2"]
 [ext_resource type="Texture2D" uid="uid://cnedufk3xjqmb" path="res://Assets/Dialogue/BookMenu.png" id="2_87tf2"]
 [ext_resource type="PackedScene" uid="uid://c07rhtxb4v8s0" path="res://Scenes/AssetScenes/EndingMenuContainer.tscn" id="3_87tf2"]
-[ext_resource type="StyleBox" uid="uid://cfg4t3f3c1ai5" path="res://buttonFocusedStyleBox.tres" id="3_arndx"]
+[ext_resource type="StyleBox" uid="uid://cfg4t3f3c1ai5" path="res://Assets/buttonFocusedStyleBox.tres" id="3_arndx"]
 [ext_resource type="Texture2D" uid="uid://fc343yan38a6" path="res://Assets/InScene Items/Study - Pentagram.png" id="4_6a05o"]
-[ext_resource type="Theme" uid="uid://u8ldn1u81cy" path="res://ButtonTheme.tres" id="4_arndx"]
+[ext_resource type="Theme" uid="uid://u8ldn1u81cy" path="res://Assets/ButtonTheme.tres" id="4_arndx"]
 
 [node name="EndingsMenu" type="Control" unique_id=1073303519]
 process_mode = 3

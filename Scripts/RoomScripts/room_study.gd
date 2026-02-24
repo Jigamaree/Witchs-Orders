@@ -16,6 +16,7 @@ class_name studyRoom
 @onready var mapTopMarker: 			Marker2D = $Overhang/MapTopMarker
 @onready var mapBottomMarker: 		Marker2D = $Overhang/MapBottomMarker
 
+var isWaitingPotion: bool = false
 
 func _ready():
 	await get_tree().process_frame
@@ -23,19 +24,25 @@ func _ready():
 		camera.global_position.y = lower_left_marker.global_position.y
 	super._ready()	
 	dialogueDictionary = studyConvos.Convos_Dict
+	GlobalVariables.preloadPotionMenu.connect(_on_potion_menu_request)
 
 func _process(_delta: float) -> void:		
 	#placement of camera 
+	super._process(_delta)
+	
+	if isWaitingPotion and canPause == true:
+		GlobalVariables.pauseRegularGameplay.emit()	
+		var potion_select = preload("res://Scenes/PotionSelect.tscn").instantiate()
+		add_child(potion_select)
+		isWaitingPotion = false
+	
 	var target_y = player.global_position.y
-
+	var target_x = player.global_position.x
 	target_y = clamp(
 		target_y,
 		upper_left_marker.global_position.y,
 		lower_left_marker.global_position.y
 	)
-
-	var target_x = player.global_position.x
-	
 	target_x = clamp(
 		target_x,
 		upper_left_marker.global_position.x,
@@ -45,12 +52,6 @@ func _process(_delta: float) -> void:
 	camera.global_position.y = target_y		
 	camera.global_position.x = target_x
 	
-	##visibility of the overhead hanging
-	#if inHangingArea == true:
-		#overheadHanging.modulate.a = 0.5
-	#else: 
-		#overheadHanging.modulate.a = 1
-		
 	#placement of hanging area
 	var _t: float = inverse_lerp(mapTopMarker.global_position.y, mapBottomMarker.global_position.y, player.global_position.y)
 	_t = clamp(_t, 0.0, 1.0)
@@ -63,6 +64,8 @@ func _process(_delta: float) -> void:
 	
 	overheadHanging.global_position.y = hanging_y
 	
+func _on_potion_menu_request():
+	isWaitingPotion = true
 
 func _on_hanging_area_entered(area: Area2D) -> void:
 	if area.is_in_group("playerBody"):
@@ -78,3 +81,8 @@ func _on_hanging_area_exited(area: Area2D) -> void:
 		var tween = get_tree().create_tween()
 		tween.tween_property(overheadHanging, "modulate:a", 1.0, 0.5).from(0.5)
 		await tween.finished
+
+func _re_enable_pausing(): 	
+	super._re_enable_pausing()
+	if SaveManager.getSaveVariable("plant_guide_read") == true:
+		$BasicRoomItems/StudyPlantGuide.visible = false

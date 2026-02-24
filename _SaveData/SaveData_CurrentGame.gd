@@ -20,9 +20,9 @@ enum Eaten_Item 		{
 	BUTTER = 106} 
 	
 enum Puzzle_State	 	{
-	NOT_FINISHED  = 201, 
-	INCORRECT=  202,  
-	CORRECT = 203, }
+	NOT_FINISHED  = 200, 
+	INCORRECT=  204,  
+	CORRECT = 222, }
 
 var current_save_data_dictionary: Dictionary
 
@@ -86,6 +86,7 @@ var default_save_data_dictionary: Dictionary = {
 	"pit_fucked": false,
 	"cauldron_finished_bool": false,
 	"potions_sorted_bool": false,
+	"learned_witchs_name": false,
 	
 	"cauldron_state":  Puzzle_State.NOT_FINISHED,
 	"potion_state": Puzzle_State.NOT_FINISHED, #not touched, incomplete, completed

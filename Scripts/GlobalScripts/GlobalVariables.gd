@@ -10,6 +10,7 @@ signal quickCountdown()
 signal dragPlayerForward()
 signal showSingleTentacle()
 signal preloadConversation()
+signal preloadPotionMenu()
 
 enum interactableType {
 	OBJECT,

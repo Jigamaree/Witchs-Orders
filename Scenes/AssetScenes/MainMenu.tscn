@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dnluw0cmjwc4b" path="res://Assets/Backgrounds/TitleScreenBackground.png" id="2_n2h8k"]
 [ext_resource type="Texture2D" uid="uid://dljes1xd4ofqx" path="res://Assets/InScene Items/_Title - CauldronBack.png" id="3_gnrtw"]
 [ext_resource type="Texture2D" uid="uid://cbxvg4gq653rf" path="res://Assets/InScene Items/_Title - CauldronFront.png" id="4_75rn1"]
-[ext_resource type="Theme" uid="uid://u8ldn1u81cy" path="res://ButtonTheme.tres" id="6_75rn1"]
+[ext_resource type="Theme" uid="uid://u8ldn1u81cy" path="res://Assets/ButtonTheme.tres" id="6_75rn1"]
 [ext_resource type="Texture2D" uid="uid://gn70hws4jups" path="res://Assets/InScene Items/_Title - Actual Title.png" id="6_gumkj"]
 
 [node name="MainMenu" type="Control" unique_id=996654869]

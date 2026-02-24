@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dtuw6vmnmss4i" path="res://Scripts/OptionsMenu.gd" id="1_ayvsw"]
 [ext_resource type="Texture2D" uid="uid://cnedufk3xjqmb" path="res://Assets/Dialogue/BookMenu.png" id="2_s3xhb"]
-[ext_resource type="StyleBox" uid="uid://cfg4t3f3c1ai5" path="res://buttonFocusedStyleBox.tres" id="3_un4xt"]
+[ext_resource type="StyleBox" uid="uid://cfg4t3f3c1ai5" path="res://Assets/buttonFocusedStyleBox.tres" id="3_un4xt"]
 
 [node name="PauseMenu" type="Control" unique_id=1073303519]
 process_mode = 3

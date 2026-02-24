@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://df86p6p6nrsg8"]
+
+[ext_resource type="Script" uid="uid://5uugd6okplyf" path="res://Scenes/potionSelect.gd" id="1_63kwn"]
+[ext_resource type="Theme" uid="uid://u8ldn1u81cy" path="res://Assets/ButtonTheme.tres" id="1_in6pe"]
+[ext_resource type="Texture2D" uid="uid://dinv6cugc1sep" path="res://Assets/InScene Items/Study - Close Up Bottles.png" id="2_63kwn"]
+[ext_resource type="Texture2D" uid="uid://s4vfi17oxi12" path="res://Assets/Dialogue/TextBox.png" id="3_66d30"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1899290962]
+script = ExtResource("1_63kwn")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1436303895]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.24405202, 0.24405205, 0.24405202, 1)
+
+[node name="Control" type="Control" parent="." unique_id=1309543765]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -156.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_in6pe")
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1651071956]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -540.0
+offset_right = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_63kwn")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="Control" unique_id=1722853972]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AngelsClimax" type="Button" parent="Control/Control" unique_id=597117563]
+layout_mode = 0
+offset_left = 872.0
+offset_top = 816.0
+offset_right = 1078.0
+offset_bottom = 859.0
+text = "Angel's Climax"
+
+[node name="SuccubusHeat" type="Button" parent="Control/Control" unique_id=1937309415]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 262.0
+offset_right = 481.0
+offset_bottom = 305.0
+text = " Succubus' Heat"
+
+[node name="KnockerGawker" type="Button" parent="Control/Control" unique_id=468237640]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 816.0
+offset_right = 682.0
+offset_bottom = 859.0
+text = "Knocker Gawker"
+
+[node name="StudX" type="Button" parent="Control/Control" unique_id=302520864]
+layout_mode = 0
+offset_left = 801.0
+offset_top = 40.0
+offset_right = 1019.0
+offset_bottom = 83.0
+text = "Stud X"
+
+[node name="DanceFervor" type="Button" parent="Control/Control" unique_id=925404208]
+layout_mode = 0
+offset_left = 1298.0
+offset_top = 785.0
+offset_right = 1523.0
+offset_bottom = 863.0
+text = "Dance of the 
+Fervored One"
+
+[node name="LoversKiss" type="Button" parent="Control/Control" unique_id=1029416843]
+layout_mode = 0
+offset_left = 1336.0
+offset_top = 138.0
+offset_right = 1542.0
+offset_bottom = 181.0
+text = "Lover's Kiss"
+
+[node name="TextBox" type="ColorRect" parent="." unique_id=1231393919]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -603.0
+offset_top = -180.0
+offset_right = 603.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="TextBox" unique_id=131846132]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="Dialogue" type="RichTextLabel" parent="TextBox/MarginContainer" unique_id=592033609]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+bbcode_enabled = true
+text = "Test
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextBox" unique_id=442736488]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.5
+offset_top = -18.0
+offset_right = 24.5
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_66d30")
+expand_mode = 1
+
+[connection signal="pressed" from="Control/Control/AngelsClimax" to="." method="_on_angels_climax_pressed"]
+[connection signal="pressed" from="Control/Control/SuccubusHeat" to="." method="_on_succubus_heat_pressed"]
+[connection signal="pressed" from="Control/Control/KnockerGawker" to="." method="_on_knocker_gawker_pressed"]
+[connection signal="pressed" from="Control/Control/StudX" to="." method="_on_stud_x_pressed"]
+[connection signal="pressed" from="Control/Control/DanceFervor" to="." method="_on_dance_fervor_pressed"]
+[connection signal="pressed" from="Control/Control/LoversKiss" to="." method="_on_lovers_kiss_pressed"]

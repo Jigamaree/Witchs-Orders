@@ -80,7 +80,7 @@ static var convos_Dict = {
 		41: { "speaker": "", "dialogue": "Good to know where this is - now, time to find the food.", "end": true },		
 		},
 	
-	## TODO: finish writing		 
+	## TODO: finish writing, add proper ignus stuff		 
 	"Fireplace": {
 		0: { "checkSaveConditions": [
 		{ "save_key": "fire_key", "goto": 2 },

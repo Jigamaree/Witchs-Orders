@@ -64,6 +64,11 @@ func setSaveVariable(variableName: String, variableValue):
 	else: push_error(Error.ERR_DOES_NOT_EXIST)
 	
 	## then we check if we need to set any related values
+	
+	#correct or incorrect, we've solved the potion stuff
+	if variableName == "potion_state":
+		setSaveVariable("potions_sorted_bool", true)
+	
 	# the knight is clothed if we set her to anything besides naked
 	if variableName == "knight_clothing":
 		if getSaveVariable("knight_clothing") != SaveData_CurrentGame.Clothing.NAKED:
