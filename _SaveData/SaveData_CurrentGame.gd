@@ -69,8 +69,8 @@ var default_save_data_dictionary: Dictionary = {
 	
 	#garden
 	"garden_interactedWithCrowTree": false,
-	"garden_putOnNippleClamps": false,
-	"garden_putOnClitRing": false,
+	"garden_fedbird": false,
+	"garden_putClitRingOnWrong": false,
 	"garden_hasTentacleFood": false,
 
 	#study

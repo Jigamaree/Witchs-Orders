@@ -4,7 +4,69 @@ class_name gardenConvos
 
 static var Convos_Dict = {
 	"Tree": {
-				1: { "speaker": "", "dialogue": "Tree!", "end": true },
+			0: { "checkSaveConditions": [
+			{ "save_key": "crow_key", "goto": 200 },							#finished crow tree
+			{ "save_key": "cellar_eatenBirdSeed", "goto": 201},					#fucked the route
+			{ "save_key": "garden_putClitRingOnWrong", "goto": 100 },			#player fucked up route
+			{ "save_key": "cellar_takenBirdSeed", "goto": 10 }, 				#bird can be fed - once done, starts clamps/ring bit
+			{ "save_key": "garden_interactedWithCrowTree", "goto": 4 },			#bird is chilling		
+			{ "save_key": "", "goto": 1 },		]}, 							#first found tree
+			#Completed route
+			200: { "speaker": "", "dialogue": "[Has Crow Key]", "end": true },		
+			201: { "speaker": "", "dialogue": "The tree is alive with activity - singing birds enjoying the afternoon sun, the rustle of the breeze through the leaves.
+			Corvid activity does not, however, seem to be charting.", "end": true },
+			100: { "speaker": "", "dialogue": "Your fresh nose ring is a strange reminder of your current circumstances. The crow has changed his, however, and is no longer here.", "end": true },								
+		
+			#introduction
+			1: { "speaker": "", "dialogue": "This thing is huge - and yet wears its age well. An immense halo of greenery surrounds the great tree's crown, creating a safe haven for an endless ensemble of birds.", "goto": 2 },
+			2: { "speaker": "", "dialogue": "It's mostly sparrows and pigeons you can see from here - though there seems to be a large crow hopping among the branches. Occasionally he seems to stop, peering down as if as fascinated with you as you are him.", "goto": 3 },
+			3: { "speaker": "", "dialogue": "He doesn't seem to have any interest in approaching, though - clearly you're not [i]that[/i] level of interesting to him.", 
+			"setSaveVariable": ["garden_interactedWithCrowTree", true], "end": true }, 
+			
+			#post intro
+			4: { "speaker": "", "dialogue": "You spend some time birdwatching - the silly spats and flurry of activity from the little guys is a nice distraction from your current situation.
+			Occasionally you see that crow still watching, but he disappears once you meet his eyes.", "end": true },
+			
+			10: { "speaker": "", "dialogue": "[Taken bird feed, have option to feed crow]", "choice": {
+								"c1": { "choice": "Feed the crow", "goto": 20 },
+								"c2": { "choice": "Blatantly eat the seed in front of it", "goto": 11 },
+						}
+				},		
+			11: { "speaker": "", "dialogue": "Looking that black crow fuck right in the eye, you scoop a handful of seed into your mouth. Who's interesting now, buddy?", "goto": 12 },
+			12: { "speaker": "", "dialogue": "To absolutely nobody's surprise, tactics of intimidation and belittlement do not work on crows.", 
+			"setSaveVariable": ["cellar_eatenBirdSeed", true], "goto": 13 }, 
+			13: { "speaker": "", "dialogue": "The crow hops down, watching you with a long, long look. The moment that your mouth starts to feel dry from the gritty, uncooked seeds crowding it through? He futters off, a smudge of black disappearing into the treeline.
+			...You've probably made better decisions in your life.", "goto": 14 }, 
+			14: { "speaker": "", "dialogue": "Looking that black crow fuck right in the eye, you scoop a handful of seed into your mouth. Who's interesting now, buddy?",  "end": true },
+			
+			
+			20: { "speaker": "", "dialogue": "[Crow eats seeds]", "goto": 21 },
+			21: { "speaker": "", "dialogue": "[Crow then throws the player a set of rings. Emphasis on it being time sensitive the decision.]", "choice": {
+								"c1": { "choice": "Put the rings on your ears", "goto": 23 },
+								"c2": { "choice": "Put the rings on your nipples", "goto": 30 },
+								"c3": { "choice": "Think about it and come back to it", "goto": 22 },
+						}
+				},
+			22: { "speaker": "", "dialogue": "You want to think this through - unfortunately, the crow does not agree with your puny human decisions. With a beat of those powerful wings he takes off, quickly disappearing into the treeline.", 
+			"setSaveVariable": ["cellar_eatenBirdSeed", true], "end": true }, 
+			23: { "speaker": "", "dialogue": "You make a decision. It's the wrong one. You can try one more time", "choice": {
+								"c2": { "choice": "Put the rings on your nipples", "goto": 30 },
+								"c3": { "choice": "Think about it and come back to it", "goto": 22 },
+						}
+				},
+			30: { "speaker": "", "dialogue": "[Sexy nipple ring enchantment scene]", "goto": 31 },
+			31: { "speaker": "", "dialogue": "[Crow offers you one more ring] It naturally goes on your.", "choice": {
+								"c1": { "choice": "Nose", "goto": 32 },
+								"c3": { "choice": "Clit", "goto": 40 },
+						}
+				},
+			32: { "speaker": "", "dialogue": "Nose was wrong, cow points up!", 
+			"setSaveVariable": ["corruptionPoints_Cow", 1], "goto": 33 },
+			33: { "speaker": "", "dialogue": "Now all of game knows you fucked up.", 
+			"setSaveVariable": ["garden_putClitRingOnWrong", true], "end": true }, 			 
+			
+			40: { "speaker": "", "dialogue": "Clit was right - get a key for your troubles.", 
+			"setSaveVariable": ["crow_key", true], "end": true }, 		
 		},
 		
 	#true end route placement

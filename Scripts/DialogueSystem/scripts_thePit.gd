@@ -89,7 +89,7 @@ static var thePit_Convos_Dict = {
 				You daresay it might even be trying to impress you. Huh.", "end": true },
 				
 				#FUCK! THAT! SQUID!
-				400: { "speaker": "", "dialogue": "Testing this", "preloadConversation": "FuckThatSquid", "end": true },
+				400: { "speaker": "", "dialogue": "It's feeding time - and you're dessert.", "preloadConversation": "FuckThatSquid", "end": true },
 		},							
 
 	# the player has either fucked it - in which case it wants to make it a willing broodmare, or has not, and its not going to ask.
@@ -122,6 +122,7 @@ static var thePit_Convos_Dict = {
 	
 	##TODO: write tentacle fucking the first
 	"FuckThatSquid": {
-				1: { "speaker": "none", "dialogue": "%wsInsert tentacle fucking here.%ws", "completelyCentered": true, "setSaveVariable": ["pit_fucked", true], "end": true }
+				1: { "speaker": "none", "dialogue": "%wsInsert tentacle fucking here.%ws", "completelyCentered": true, 
+				"setSaveVariable": ["pit_fucked", true], "end": true }
 		},			
 }
