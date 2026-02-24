@@ -42,6 +42,8 @@ func evaluateNextPotion(i: int):
 		#GlobalVariables.emit_signal("startRegularGameplay")
 		GlobalVariables.emit_signal("pauseRegularGameplay")
 		GlobalVariables.startDialogue.emit("FinishedPotionSort")
+	else:
+		dialogBox.text = arr_words[nextValue-1]
 			
 func _on_angels_climax_pressed() -> void: 	
 	buttonAngel.disabled = true

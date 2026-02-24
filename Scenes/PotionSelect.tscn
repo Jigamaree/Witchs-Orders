@@ -14,7 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.24405202, 0.24405205, 0.24405202, 1)
+color = Color(0, 0, 0, 0.7294118)
 
 [node name="Control" type="Control" parent="." unique_id=1309543765]
 layout_mode = 3
