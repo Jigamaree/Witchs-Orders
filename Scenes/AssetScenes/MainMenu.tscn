@@ -71,7 +71,7 @@ text = "Start Game"
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1472386961]
 layout_mode = 2
 theme = ExtResource("6_75rn1")
-text = "Options"
+text = "Options & Controls"
 
 [node name="Endings" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=47117408]
 layout_mode = 2

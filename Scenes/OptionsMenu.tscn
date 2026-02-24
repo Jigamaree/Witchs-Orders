@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dtuw6vmnmss4i" path="res://Scripts/OptionsMenu.gd" id="1_ayvsw"]
 [ext_resource type="Texture2D" uid="uid://cnedufk3xjqmb" path="res://Assets/Dialogue/BookMenu.png" id="2_s3xhb"]
 [ext_resource type="StyleBox" uid="uid://cfg4t3f3c1ai5" path="res://Assets/buttonFocusedStyleBox.tres" id="3_un4xt"]
+[ext_resource type="Texture2D" uid="uid://dcee2tfk4h45f" path="res://Assets/Controls.png" id="4_s3xhb"]
 
 [node name="PauseMenu" type="Control" unique_id=1073303519]
 process_mode = 3
@@ -208,6 +209,106 @@ offset_bottom = 911.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.43137255, 1, 1, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="RightPage" unique_id=140672403]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RightPage/MarginContainer" unique_id=64167928]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="RightPage/MarginContainer/VBoxContainer" unique_id=268623707]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="RightPage/MarginContainer/VBoxContainer" unique_id=571179507]
+layout_mode = 2
+texture = ExtResource("4_s3xhb")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="RightPage" unique_id=261430736]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TitleLabel" type="Label" parent="RightPage/Control" unique_id=506810613]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 175.0
+offset_right = 332.0
+offset_bottom = 217.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Up"
+horizontal_alignment = 2
+
+[node name="TitleLabel2" type="Label" parent="RightPage/Control" unique_id=854405010]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 243.0
+offset_right = 341.0
+offset_bottom = 285.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Down"
+horizontal_alignment = 2
+
+[node name="TitleLabel3" type="Label" parent="RightPage/Control" unique_id=1948747476]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 309.0
+offset_right = 338.0
+offset_bottom = 351.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Left"
+horizontal_alignment = 2
+
+[node name="TitleLabel4" type="Label" parent="RightPage/Control" unique_id=1535831562]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 377.0
+offset_right = 341.0
+offset_bottom = 419.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Right"
+horizontal_alignment = 2
+
+[node name="TitleLabel5" type="Label" parent="RightPage/Control" unique_id=923192208]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 493.0
+offset_right = 357.0
+offset_bottom = 535.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Interact"
+horizontal_alignment = 2
+
+[node name="TitleLabel6" type="Label" parent="RightPage/Control" unique_id=1126665958]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 593.0
+offset_right = 355.0
+offset_bottom = 680.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Pause/In-Game Item Access"
+horizontal_alignment = 2
+autowrap_mode = 3
 
 [connection signal="canceled" from="RestartConfirmDialogue" to="." method="_close_confirm_stuff"]
 [connection signal="confirmed" from="RestartConfirmDialogue" to="." method="_on_restart_confirm_dialogue_confirmed"]
