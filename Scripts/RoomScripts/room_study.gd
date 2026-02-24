@@ -86,3 +86,5 @@ func _re_enable_pausing():
 	super._re_enable_pausing()
 	if SaveManager.getSaveVariable("plant_guide_read") == true:
 		$BasicRoomItems/StudyPlantGuide.visible = false
+	if SaveManager.getSaveVariable("potions_sorted_bool") == true:
+		$BasicRoomItems/StudyBottles.texture = load("res://Assets/InScene Items/Study - Bottles (After).png")

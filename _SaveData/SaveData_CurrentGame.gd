@@ -72,6 +72,13 @@ var default_save_data_dictionary: Dictionary = {
 	"garden_putOnClitRing": false,
 	"garden_hasTentacleFood": false,
 
+	#study
+	"study_putting_ingred_1_in": false,
+	"study_putting_ingred_2_in": false,
+	"study_putting_ingred_3_in": false,		
+	"study_cauldron_succeeded": false,		 #############
+	"study_cauldron_state":  Puzzle_State.NOT_FINISHED,   ###############
+
 	#immediate player-state data	
 	"knight_clothing": Clothing.NAKED,
 	"knight_clothed": false,
@@ -84,11 +91,11 @@ var default_save_data_dictionary: Dictionary = {
 	"ignus_fucked_ate_out": false,
 	"pit_fed": false,
 	"pit_fucked": false,
-	"cauldron_finished_bool": false,
+	"cauldron_finished_bool": false,  ################
 	"potions_sorted_bool": false,
 	"learned_witchs_name": false,
 	
-	"cauldron_state":  Puzzle_State.NOT_FINISHED,
+
 	"potion_state": Puzzle_State.NOT_FINISHED, #not touched, incomplete, completed
 	
 	### apprentice

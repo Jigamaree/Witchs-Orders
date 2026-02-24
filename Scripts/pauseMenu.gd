@@ -11,6 +11,7 @@ extends CanvasLayer
 @onready var pitBox: 		CheckBox = $RightPage/MarginContainer/HBoxContainer/RightVBox/TendToPit/CheckBox
 @onready var potionsBox: 	CheckBox = $RightPage/MarginContainer/HBoxContainer/RightVBox/OrganisePotions/CheckBox
 @onready var cauldronBox: 	CheckBox = $RightPage/MarginContainer/HBoxContainer/RightVBox/CompleteCauldron/CheckBox
+@onready var rightPage: 	ColorRect = $RightPage
 
 func _ready() -> void:
 	unpauseButton.grab_focus()
@@ -19,6 +20,12 @@ func _ready() -> void:
 	pitBox.button_pressed = SaveManager.getSaveVariable("pit_fed")
 	potionsBox.button_pressed = SaveManager.getSaveVariable("potions_sorted_bool")
 	cauldronBox.button_pressed = SaveManager.getSaveVariable("cauldron_finished_bool")
+	
+	if !SaveManager.getSaveVariable("bedroom_noteRead"):
+		rightPage.visible = false
+	if SaveManager.getSaveVariable("plant_guide_read"):
+		$"Forward Button".visible = true
+		
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_pause"):
@@ -33,12 +40,6 @@ func _unhandled_input(event):
 		get_viewport().set_input_as_handled()
 		_on_unpause_button_pressed()
 
-func _on_test_save_button_pressed() -> void:
-	SaveManager.updateSave("knight_fed", true)
-	SaveManager.updateSave("ignus_fed", true)
-	SaveManager.updateSave("corruptionPoints_Demon", 1)
-	SaveManager.updateSave("sword_interracted", true)
-
 func _on_main_menu_button_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/AssetScenes/MainMenu.tscn")
@@ -47,3 +48,9 @@ func _on_main_menu_button_pressed() -> void:
 func _on_quit_button_pressed() -> void:
 	SaveManager.save_game()
 	get_tree().quit()
+
+
+func _on_forward_button_pressed() -> void:
+		var potion_select = preload("res://Scenes/PlantGuide.tscn").instantiate()
+		potion_select.layer = 10
+		add_child(potion_select)

@@ -24,11 +24,13 @@ func _ready():
 		player = player_scene.instantiate()
 		add_child(player)
 		find_player_location()
+	
 	GlobalVariables.startDialogue.connect(_on_start_dialogue)
 	GlobalVariables.quickCountdown.connect(_quick_countdown)
 	GlobalVariables.pauseRegularGameplay.connect(_disable_pausing)
 	GlobalVariables.startRegularGameplay.connect(_re_enable_pausing)
 	GlobalVariables.preloadConversation.connect(_line_up_convo)
+	GlobalVariables.pauseGame.connect(pauseGame)
 	#else call player spawn on fallback place
 	#want a method in here that loads room-specific flags in here and applies that to objects if possible!
 
@@ -57,20 +59,26 @@ func find_player_location():
 				player.global_position = door.markerPos
 
 	
-func _disable_pausing(): 	canPause = false
-func _re_enable_pausing(): 	canPause = true
+func _disable_pausing(): 	
+	canPause = false
+	
+func _re_enable_pausing(): 	
+	canPause = true
 		
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause_button") and canPause == true:
-		var pause_instance = pause_menu.instantiate()
-		add_child(pause_instance)
-		#handleCamera(pause_instance)
-		get_tree().paused = true	
+		pauseGame()
 
 	elif Input.is_action_just_pressed("ui_debug") and canOpenDebug == true:
 		var debug_instance = debug_menu.instantiate()
 		add_child(debug_instance)
 		get_tree().paused = true			
+
+func pauseGame():
+	var pause_instance = pause_menu.instantiate()
+	add_child(pause_instance)
+	#handleCamera(pause_instance)
+	get_tree().paused = true	
 
 func handleCamera(pause_instance):
 	pass

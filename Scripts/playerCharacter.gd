@@ -63,12 +63,12 @@ func _physics_process(delta: float) -> void:
 	else: 
 		characterSprite.play("default")
 		
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_debug2"):
-		print(str(isPaused))	
+func _unhandled_input(event: InputEvent) -> void:
 	if isPaused == false:
 		if event.is_action_pressed("ui_accept"):
+			print("heard!")
 			for area in interactionArea.get_overlapping_areas():
+				print(str(area))
 				if area.is_in_group("interactable"):
 					area.interact()
 					break

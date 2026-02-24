@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://dl3v384bxkmmh"]
+
+[ext_resource type="Script" uid="uid://bhq5d4qiuntbv" path="res://Scripts/PlantGuide.gd" id="1_bcjyr"]
+[ext_resource type="Texture2D" uid="uid://cnedufk3xjqmb" path="res://Assets/Dialogue/BookMenu.png" id="2_bcjyr"]
+[ext_resource type="Texture2D" uid="uid://ba3rfvx223sum" path="res://Assets/InScene Items/_Menu - FlipArrow.png" id="3_bdte4"]
+[ext_resource type="Texture2D" uid="uid://bjprrxitu58bg" path="res://Assets/InScene Items/_Menu - FlipArrow2.png" id="4_ge3p7"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_igk0s"]
+
+[node name="PlantGuide" type="CanvasLayer" unique_id=1395104076]
+process_mode = 3
+script = ExtResource("1_bcjyr")
+
+[node name="BookBase" type="TextureRect" parent="." unique_id=982632053]
+material = SubResource("CanvasItemMaterial_igk0s")
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_bcjyr")
+
+[node name="LeftPage" type="ColorRect" parent="." unique_id=1610651927]
+offset_left = 277.0
+offset_top = 97.0
+offset_right = 932.0
+offset_bottom = 801.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.43137255, 1, 1, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="LeftPage" unique_id=1461017470]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LeftPage/MarginContainer" unique_id=1992265427]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeftPage/MarginContainer/HBoxContainer" unique_id=1166067634]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="LeftPageTitle" type="Label" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1588700566]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "LeftTitle"
+horizontal_alignment = 1
+
+[node name="LeftPageText" type="RichTextLabel" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1483330792]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 25
+theme_override_font_sizes/bold_italics_font_size = 25
+theme_override_font_sizes/italics_font_size = 25
+theme_override_font_sizes/mono_font_size = 25
+bbcode_enabled = true
+text = "Left text"
+
+[node name="RightPage" type="ColorRect" parent="." unique_id=995532869]
+offset_left = 1002.0
+offset_top = 97.0
+offset_right = 1657.0
+offset_bottom = 799.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.43137255, 1, 1, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="RightPage" unique_id=189779841]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RightPage/MarginContainer" unique_id=1077636643]
+layout_mode = 2
+
+[node name="RightVBox" type="VBoxContainer" parent="RightPage/MarginContainer/HBoxContainer" unique_id=1625117086]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="RightPageTitle" type="Label" parent="RightPage/MarginContainer/HBoxContainer/RightVBox" unique_id=1932601203]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "RightTitle"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RightPageText" type="RichTextLabel" parent="RightPage/MarginContainer/HBoxContainer/RightVBox" unique_id=35915164]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 25
+theme_override_font_sizes/bold_italics_font_size = 25
+theme_override_font_sizes/italics_font_size = 25
+theme_override_font_sizes/mono_font_size = 25
+bbcode_enabled = true
+text = "Right text"
+
+[node name="BackButton" type="Button" parent="." unique_id=199611214]
+offset_left = 240.0
+offset_top = 737.0
+offset_right = 448.0
+offset_bottom = 945.0
+theme_override_colors/icon_pressed_color = Color(0.23248088, 0.23248091, 0.23248091, 1)
+icon = ExtResource("3_bdte4")
+flat = true
+
+[node name="Forward Button" type="Button" parent="." unique_id=170311233]
+offset_left = 1463.0
+offset_top = 733.0
+offset_right = 1671.0
+offset_bottom = 941.0
+theme_override_colors/icon_pressed_color = Color(0.23137255, 0.23137255, 0.23137255, 1)
+icon = ExtResource("4_ge3p7")
+flat = true
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Forward Button" to="." method="_on_forward_button_pressed"]

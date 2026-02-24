@@ -18,13 +18,118 @@ static var Convos_Dict = {
 				},
 				10: { "speaker": "", "dialogue": "As useful as it seems to be, taking this book still feels sort of sacrilegious. You leave it for now.", "end": true },
 				20: { "speaker": "", "dialogue": "You pick up the book, flicking through it before tucking it under your arm. Oh, you can already tell this is going to open up a [i]wealth[/i] of opportunities.", 
-				"setSaveVariable": ["plant_guide_read", true], "end": true },
+				"setSaveVariable": ["plant_guide_read", true], "goto": 21 },
+				21: { "speaker": "Witch_hide", "dialogue": "[i]You can now access the plant guide via the pause menu[/i].", "completelyCentered": true, "end": true },
 				100: { "speaker": "", "dialogue": "There's nothing left for you, here.", "end": true },				
 		},	
 	
 	#complex
 	"Cauldron": {
-				1: { "speaker": "", "dialogue": "Cauldron dialogue goes here", "end": true }
+			0: { "checkSaveConditions": [
+			{ "save_key": "cauldron_finished_bool", "goto": 1 },
+			{ "save_key": "study_putting_ingred_1_in", "goto": 10 },
+			{ "save_key": "study_putting_ingred_2_in", "goto": 30 },
+			{ "save_key": "study_putting_ingred_3_in", "goto": 50 },			
+			{ "save_key": "", "goto": 5 },		]},
+			
+			#finished the caudron
+			1: { "speaker": "", "dialogue": "You stand and stare at the bubbling cauldron.", 
+			"checkSaveVariable": { "keyToCheck": "study_cauldron_succeeded", "wantedValue": "true", "goto_false": 2, "goto_true": 3 }},	
+			2: { "speaker": "", "dialogue": "The dark, gurgling muck in the cauldron stares back. 
+			Divine help you - why did you think you could do this in the first place? You might as well go wait for the witch now...", "end": true },
+			3: { "speaker": "", "dialogue": "The liquid has turned a vibrant pink, the magic circle under your feet glowing approvingly. You heave a sigh of relief - there's a part of you that's worried that it's going to suddenly implode the moment you stop looking at it.", "goto": 4 },
+			4: {"speaker": "", "dialogue": "You're more proud you managed this than you expected.", "end": true },
+			
+			5: { "speaker": "", "dialogue": "The cauldron is intimidating; a large thing of cast iron, thrumming with an energy you can feel from across the room. The large magic circle under it is almost certainly helping with that effect; you shiver, just from the sheer feeling of [i]magic[/i] on the air.", "goto": 6 },
+			6: { "speaker": "", "dialogue": "As you approach, you can hear a thrum on the air - you realise with a start that instead of you finding notes, this thing is going to [b]tell[/b] you what it wants.", "goto": 7 },
+			7: { "speaker": "", "dialogue": "You suspect you'll have time to double check your work - but a bubbling cauldron is quite the unforgiving mistress.",  "choice": {
+								"c1": { "choice": "Leave", "goto": 999 },
+								"c2": { "choice": "Ask for the first instruction", "goto": 10 },
+						}
+			},
+			
+			10: { "speaker": "Witch_hide", "dialogue": "%wsFirst: I seek to see magic flow%we", "completelyCentered": true, "setSaveVariable": ["study_putting_ingred_1_in", true],
+			"checkSaveVariable": { "keyToCheck": "plant_guide_read", "wantedValue": "true", "goto_false": 11, "goto_true": 12 }},
+			
+			11: { "speaker": "", "dialogue": "What have you gotten yourself into?", "choice": {
+								"c1": { "choice": "Leave for now", "goto": 999 },
+								"c2": { "choice": "Add the pink and white heart-shaped flowers", "goto": 666 },
+								"c3": { "choice": "Add the dark purple flower with light edges", "goto": 666 },
+								"c4": { "choice": "Add the purple flower with bladed leaves", "goto": 20 },
+						}
+				},	
+								
+			12: { "speaker": "", "dialogue": "You consider your options; you think you read something about a Dahlia doing that....", "choice": {
+								"c1": { "choice": "Leave for now", "goto": 999 },				
+								"c2": { "choice": "Add Dryad's Kiss", "goto": 666 },
+								"c3": { "choice": "Add Zigll's Bloom", "goto": 666 },
+								"c4": { "choice": "Add Dusk Dahlia", "goto": 20 },
+						}
+				},	
+			
+			20: { "speaker": "", "dialogue": "You drop the ingredient into the bubbling mixture...", "goto": 21 },
+			21: { "speaker": "", "dialogue": "....And the cauldron continues to roil happily, flashing a lilac purple briefly as the Dusk Dahlia is muddled into the mix.
+			The voice speaks for a second time.", "goto": 30 },
+			
+			
+			###part 2 study_putting_ingred_2_in
+			
+			30: { "speaker": "Witch_hide", "dialogue": "%wsSecond: I seek arousal, potent and honed%we", "completelyCentered": true, "setSaveVariable": ["study_putting_ingred_2_in", true],
+			"checkSaveVariable": { "keyToCheck": "plant_guide_read", "wantedValue": "true", "goto_false": 31, "goto_true": 32 }},
+			
+			31: { "speaker": "", "dialogue": "How... Degenerate.", "choice": {
+								"c1": { "choice": "Leave for now", "goto": 999 },
+								"c2": { "choice": "Add the pink and white teardrop flower", "goto": 40 }, ########
+								"c3": { "choice": "Add the pink and purple teardrop flower", "goto": 666 },
+								"c4": { "choice": "Add the phallic, waxy flower", "goto": 666 },
+						}
+				},				
+			
+			32: { "speaker": "", "dialogue": "There's certainly a lot of aphrodisiac-styled effects - which one is she asking for?", "choice": {
+								"c1": { "choice": "Leave for now", "goto": 999 },
+								"c2": { "choice": "Add Heatflush", "goto": 40 }, ########
+								"c3": { "choice": "Add Plushdrop", "goto": 666 },
+								"c4": { "choice": "Lover's Drop", "goto": 666 },
+						}
+				},					
+			
+			40: { 
+				"speaker": "", "dialogue": "You drop the ingredient into the bubbling mixture...", "goto": 41 },
+			41: { 
+				"speaker": "", "dialogue": "....And the cauldron bubbles in delight. A sweet smell wafts from the cauldron, and it makes you clench your thighs together.
+				The voice speaks for a final time.", "goto": 50 },
+			
+			50: { "speaker": "Witch_hide", "dialogue": "%wsFinally: I seek amplification, truest to my craft%we", "completelyCentered": true, "setSaveVariable": ["study_putting_ingred_3_in", true],
+			"checkSaveVariable": { "keyToCheck": "plant_guide_read", "wantedValue": "true", "goto_false": 51, "goto_true": 52 }},	
+			
+			51: { "speaker": "", "dialogue": "That's so vague!", "choice": {
+								"c1": { "choice": "Leave", "goto": 999 },
+								"c2": { "choice": "Add the dried dark blue fruits", "goto": 666 }, 
+								"c3": { "choice": "Add the red and yellow trumpet flower", "goto": 666 },
+								"c4": { "choice": "Add pea green succulent leaves", "goto": 666 },
+								"c5": { "choice": "Add the tiny white flowers", "goto": 60 }, ###
+								"c6": { "choice": "Phallic! Flower! Time!", "goto": 666 },
+						}
+				},						
+			
+			52: { "speaker": "", "dialogue": "The final ingrediant seems to be honing the mixture, like a lens on kindling.", "choice": {
+								"c1": { "choice": "Leave", "goto": 999 },
+								"c2": { "choice": "Add String of Dreams", "goto": 666 },
+								"c3": { "choice": "Add Dryad's Kiss", "goto": 666 },
+								"c4": { "choice": "Add Altharia", "goto": 60 }, ###
+						}
+				},				
+
+			60: { "speaker": "", "dialogue": "You drop the ingredient into the bubbling mixture...", 
+			"setSaveVariable": ["study_cauldron_state", SaveData_CurrentGame.Puzzle_State.CORRECT], "goto": 61 },	
+			61: { "speaker": "", "dialogue": "And brighten as the roiling mix settles down completely!", 
+			"end": true },
+			
+			666: { "speaker": "", "dialogue": "You drop the ingredient into the bubbling mixture...", 
+			"setSaveVariable": ["study_cauldron_state", SaveData_CurrentGame.Puzzle_State.INCORRECT], "goto": 667 },		
+			667: { "speaker": "", "dialogue": "...And yelp as the cauldron sudden hisses and boil, the mixure suddenly going an unpleasant black.
+			Oh no.", "end": true },
+			999: { "speaker": "", "dialogue": "You leave for now - surely you can find [i]something[/i] poking around.", "end": true },
 		},	
 	
 	"BackTable": {
@@ -102,11 +207,11 @@ static var Convos_Dict = {
 				"completelyCentered": true, "keepImage": true, "goto": 207 },	
 				207: { "speaker": "", "dialogue": "Your head spins with possibilities - and also, frankly, how on earth to order these.", "goto": 1  },
 				
-				300: { "speaker": "", "dialogue": "Lets do this", "preloadPotionMenu": true, "end": true },
+				300: { "speaker": "MC", "dialogue": "Lets do this.", "preloadPotionMenu": true, "end": true },
 		},
 		
 	"FinishedPotionSort": {
-				1: { "speaker": "", "dialogue": "That should do it! You hope, anyway.", "end": true }
+				1: { "speaker": "", "dialogue": "That should do it! You hope, anyway. You suppose you could always give it another shot if you need to...", "end": true }
 		},		
 		
 	"BackBoofshelf": {

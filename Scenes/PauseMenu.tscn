@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cnedufk3xjqmb" path="res://Assets/Dialogue/BookMenu.png" id="1_lj4oq"]
 [ext_resource type="Script" uid="uid://noypn53jq8cb" path="res://Scripts/pauseMenu.gd" id="1_qwhev"]
 [ext_resource type="StyleBox" uid="uid://cfg4t3f3c1ai5" path="res://Assets/buttonFocusedStyleBox.tres" id="3_5w4ur"]
+[ext_resource type="Texture2D" uid="uid://bjprrxitu58bg" path="res://Assets/InScene Items/_Menu - FlipArrow2.png" id="4_ey1tb"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1395104076]
 process_mode = 3
@@ -13,8 +14,6 @@ offset_left = -41.0
 offset_top = -17.0
 offset_right = 1951.0
 offset_bottom = 1105.0
-grow_horizontal = 2
-grow_vertical = 2
 color = Color(0, 0, 0, 0.4)
 
 [node name="BookBase" type="TextureRect" parent="." unique_id=982632053]
@@ -72,6 +71,7 @@ disabled = true
 text = "Save"
 
 [node name="OptionsButton" type="Button" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=871554500]
+visible = false
 layout_mode = 2
 theme_override_styles/focus = ExtResource("3_5w4ur")
 disabled = true
@@ -140,6 +140,7 @@ disabled = true
 [node name="Label" type="Label" parent="RightPage/MarginContainer/HBoxContainer/RightVBox/FeedYourself" unique_id=384895655]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
 text = "Feed yourself"
 
 [node name="FeedIgnus" type="HBoxContainer" parent="RightPage/MarginContainer/HBoxContainer/RightVBox" unique_id=1784235989]
@@ -153,6 +154,7 @@ disabled = true
 [node name="Label" type="Label" parent="RightPage/MarginContainer/HBoxContainer/RightVBox/FeedIgnus" unique_id=1716641905]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
 text = "Feed Ignus"
 
 [node name="TendToPit" type="HBoxContainer" parent="RightPage/MarginContainer/HBoxContainer/RightVBox" unique_id=1913704699]
@@ -166,6 +168,7 @@ disabled = true
 [node name="Label" type="Label" parent="RightPage/MarginContainer/HBoxContainer/RightVBox/TendToPit" unique_id=1928560117]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
 text = "Tend to the pit"
 
 [node name="OrganisePotions" type="HBoxContainer" parent="RightPage/MarginContainer/HBoxContainer/RightVBox" unique_id=253482884]
@@ -179,6 +182,7 @@ disabled = true
 [node name="Label" type="Label" parent="RightPage/MarginContainer/HBoxContainer/RightVBox/OrganisePotions" unique_id=946187965]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
 text = "Organise Potions"
 
 [node name="CompleteCauldron" type="HBoxContainer" parent="RightPage/MarginContainer/HBoxContainer/RightVBox" unique_id=254908649]
@@ -192,8 +196,37 @@ disabled = true
 [node name="Label" type="Label" parent="RightPage/MarginContainer/HBoxContainer/RightVBox/CompleteCauldron" unique_id=912739438]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
 text = "Complete the Cauldron"
 
+[node name="Forward Button" type="Button" parent="." unique_id=1466322586]
+visible = false
+offset_left = 1456.0
+offset_top = 706.0
+offset_right = 1664.0
+offset_bottom = 914.0
+theme_override_colors/icon_pressed_color = Color(0.23137255, 0.23137255, 0.23137255, 1)
+icon = ExtResource("4_ey1tb")
+flat = true
+
+[node name="Label" type="Label" parent="Forward Button" unique_id=749018019]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Plant Guide"
+
 [connection signal="pressed" from="LeftPage/MarginContainer/HBoxContainer/VBoxContainer/UnpauseButton" to="." method="_on_unpause_button_pressed"]
+[connection signal="pressed" from="LeftPage/MarginContainer/HBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="LeftPage/MarginContainer/HBoxContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="LeftPage/MarginContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Forward Button" to="." method="_on_forward_button_pressed"]

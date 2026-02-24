@@ -10,7 +10,7 @@ class_name class_Garden
 func _ready() -> void:
 	super._ready()
 	camera.global_position.y = lower_marker.global_position.y
-
+	dialogueDictionary = gardenConvos.Convos_Dict
 
 func _process(_delta: float) -> void:		
 	var target_y = player.global_position.y

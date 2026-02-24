@@ -65,6 +65,13 @@ func setSaveVariable(variableName: String, variableValue):
 	
 	## then we check if we need to set any related values
 	
+	if variableName == "study_cauldron_state" and variableValue == SaveData_CurrentGame.Puzzle_State.INCORRECT:
+		setSaveVariable("cauldron_finished_bool", true)
+		setSaveVariable("study_cauldron_succeeded", false)				
+	elif variableName == "study_cauldron_state" and variableValue == SaveData_CurrentGame.Puzzle_State.CORRECT:
+		setSaveVariable("cauldron_finished_bool", true)
+		setSaveVariable("study_cauldron_succeeded", true)	
+	
 	#correct or incorrect, we've solved the potion stuff
 	if variableName == "potion_state":
 		setSaveVariable("potions_sorted_bool", true)

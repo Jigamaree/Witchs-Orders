@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://iqq224jfaguq"]
+
+[ext_resource type="Texture2D" uid="uid://d0q3xvoxxyj0j" path="res://Assets/InScene Items/_Default - Pause.png" id="2_0osoi"]
+
+[sub_resource type="GDScript" id="GDScript_qy1rg"]
+script/source = "extends CanvasLayer
+
+class_name Pause_Layer
+
+@onready var pauseButton = $Button
+
+func _process(delta: float) -> void:
+	if get_tree().paused == true:
+		pauseButton.hide()
+
+func _on_pause_button_pressed() -> void:
+	var menu = preload(\"res://Scenes/PauseMenu.tscn\").instantiate()
+	add_child(menu)
+	pauseButton.hide()
+
+func hidePauseButton():  
+	self.hide()	
+	#$Button.visible = false
+
+
+func showPauseButton():
+	$Button.show()
+"
+
+[node name="PauseOverlay" type="CanvasLayer" unique_id=1906385637]
+script = SubResource("GDScript_qy1rg")
+
+[node name="Button" type="Button" parent="." unique_id=390314534]
+process_mode = 3
+offset_right = 106.0
+offset_bottom = 112.0
+icon = ExtResource("2_0osoi")
+flat = true
+expand_icon = true
+
+[connection signal="pressed" from="Button" to="." method="_on_pause_button_pressed"]

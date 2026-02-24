@@ -11,6 +11,7 @@ signal dragPlayerForward()
 signal showSingleTentacle()
 signal preloadConversation()
 signal preloadPotionMenu()
+signal pauseGame()
 
 enum interactableType {
 	OBJECT,

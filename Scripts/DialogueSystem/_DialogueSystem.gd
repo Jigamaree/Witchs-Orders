@@ -306,7 +306,7 @@ func manage_choices():
 		for c in conv[index].choice:
 			# Make a new button
 			var btn = Button.new()
-			var theme: Theme = load("res://ButtonTheme.tres")
+			var theme: Theme = preload("res://Assets/ButtonTheme.tres")
 			btn.theme = theme
 			btn.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 			# Set the button's text to the player's choice dialogue
@@ -315,6 +315,8 @@ func manage_choices():
 			btn.pressed.connect(make_choice.bind(conv[index].choice[c].goto))
 			# Add the button to the container
 			choice_box.add_child(btn)
+
+
 			
 func make_choice(goto):
 	index = goto

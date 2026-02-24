@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://msevtm017pbs" path="res://Assets/InScene Items/Garden - Roof.png" id="3_81me3"]
 [ext_resource type="PackedScene" uid="uid://cbuw6o5y7vsaw" path="res://Scenes/AssetScenes/dynamicInteractableObject.tscn" id="4_0okdk"]
 [ext_resource type="Texture2D" uid="uid://nbamektqc7kx" path="res://Assets/InScene Items/Garden - Bucket.png" id="4_3to63"]
+[ext_resource type="Script" uid="uid://tx4cyamkswoj" path="res://Scripts/dynamicInteractableObject.gd" id="4_7isbp"]
 [ext_resource type="Texture2D" uid="uid://cvpfrc7fxvfe1" path="res://Assets/InScene Items/Garden - Middle Middle Bushes.png" id="5_0okdk"]
 [ext_resource type="Texture2D" uid="uid://da10ln03iakwf" path="res://Assets/InScene Items/Garden - Front Middle Bushes.png" id="5_4rrfk"]
 [ext_resource type="Texture2D" uid="uid://cybwefmac8wne" path="res://Assets/InScene Items/Garden - Back Bush.png" id="6_05a4e"]
@@ -12,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://pdgnpvgkimvf" path="res://Assets/InScene Items/Garden - Top Middle Bushes.png" id="7_x1j58"]
 [ext_resource type="Texture2D" uid="uid://bu8iev2eop3ba" path="res://Assets/InScene Items/Garden - Bin.png" id="11_7isbp"]
 [ext_resource type="PackedScene" uid="uid://dmkvvkru1sug5" path="res://Scenes/AssetScenes/Door_Default.tscn" id="12_05a4e"]
+[ext_resource type="PackedScene" uid="uid://b7p2es7o1w6co" path="res://Scenes/AssetScenes/interactableObject.tscn" id="13_jlv4c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_05a4e"]
 size = Vector2(468, 437)
@@ -26,19 +28,28 @@ size = Vector2(2121, 263)
 size = Vector2(2090, 68)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4rrfk"]
-size = Vector2(1407, 290)
+size = Vector2(1407, 292)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0okdk"]
 size = Vector2(1387, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sriqb"]
-size = Vector2(1081, 320)
+size = Vector2(1081, 330)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3to63"]
 size = Vector2(1063, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7isbp"]
 size = Vector2(208, 212)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqcms"]
+size = Vector2(227, 258)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6e0h"]
+size = Vector2(656, 615)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfbg0"]
+size = Vector2(717, 428)
 
 [node name="RoomGarden" type="Node2D" unique_id=940703355]
 script = ExtResource("1_ibld7")
@@ -58,23 +69,24 @@ z_index = 1
 position = Vector2(1344, 1024)
 texture = ExtResource("3_81me3")
 
-[node name="BackBush" parent="RoomItems" unique_id=346532964 instance=ExtResource("4_0okdk")]
+[node name="BackBush" type="Area2D" parent="RoomItems" unique_id=346532964 groups=["interactable"]]
 position = Vector2(100, 190)
+script = ExtResource("4_7isbp")
+interactable = false
+objectName = "ZigllsBloom"
 
-[node name="ObjectInteract" parent="RoomItems/BackBush" index="0" unique_id=1854910098]
-position = Vector2(0, 0)
+[node name="ObjectInteract" type="CollisionShape2D" parent="RoomItems/BackBush" unique_id=573147317]
 shape = SubResource("RectangleShape2D_05a4e")
 
-[node name="Sprite2D" parent="RoomItems/BackBush" index="1" unique_id=1783952993]
+[node name="Sprite2D" type="Sprite2D" parent="RoomItems/BackBush" unique_id=1783952993]
 texture = ExtResource("6_05a4e")
 
-[node name="StaticBody2D" parent="RoomItems/BackBush" index="2" unique_id=1731382922]
-visible = true
+[node name="StaticBody2D" type="StaticBody2D" parent="RoomItems/BackBush" unique_id=1731382922]
 
-[node name="Collision" parent="RoomItems/BackBush/StaticBody2D" index="0" unique_id=2126398544]
-visible = true
+[node name="Collision" type="CollisionShape2D" parent="RoomItems/BackBush/StaticBody2D" unique_id=2126398544]
 position = Vector2(-35.5, 378)
 shape = SubResource("RectangleShape2D_jlv4c")
+debug_color = Color(0.7095001, 1.92523e-07, 0.3373963, 0.41960785)
 
 [node name="GardenFrontBush" type="Sprite2D" parent="RoomItems/BackBush" unique_id=1161849128]
 position = Vector2(-1, 308)
@@ -105,8 +117,10 @@ rotation = -1.3089969
 
 [node name="FrontBush" parent="DynamicObjects" unique_id=1715425344 instance=ExtResource("4_0okdk")]
 position = Vector2(630, 814)
+interactable = false
 
 [node name="ObjectInteract" parent="DynamicObjects/FrontBush" index="0" unique_id=1854910098]
+visible = false
 position = Vector2(996.5, 33.5)
 shape = SubResource("RectangleShape2D_yosul")
 
@@ -127,7 +141,7 @@ position = Vector2(559, 472)
 interactable = false
 
 [node name="ObjectInteract" parent="DynamicObjects/MiddleBush" index="0" unique_id=1854910098]
-position = Vector2(698.5, 20)
+position = Vector2(698.5, 19)
 shape = SubResource("RectangleShape2D_4rrfk")
 
 [node name="Sprite2D" parent="DynamicObjects/MiddleBush" index="1" unique_id=1783952993]
@@ -144,9 +158,10 @@ shape = SubResource("RectangleShape2D_0okdk")
 
 [node name="TopBush" parent="DynamicObjects" unique_id=1533422402 instance=ExtResource("4_0okdk")]
 position = Vector2(1153, 151)
+interactable = false
 
 [node name="ObjectInteract" parent="DynamicObjects/TopBush" index="0" unique_id=1854910098]
-position = Vector2(-2.5, -5)
+position = Vector2(-2.5, 0)
 shape = SubResource("RectangleShape2D_sriqb")
 
 [node name="Sprite2D" parent="DynamicObjects/TopBush" index="1" unique_id=1783952993]
@@ -159,8 +174,6 @@ visible = true
 visible = true
 position = Vector2(1, 42)
 shape = SubResource("RectangleShape2D_3to63")
-
-[node name="Interactions" type="Node2D" parent="." unique_id=260219603]
 
 [node name="CameraThings" type="Node2D" parent="." unique_id=1586467062]
 
@@ -188,8 +201,39 @@ shape = SubResource("RectangleShape2D_7isbp")
 [node name="Door_Marker" parent="Door_Area" index="1" unique_id=126591328]
 position = Vector2(-111, -228)
 
-[editable path="RoomItems/BackBush"]
+[node name="Interactions" type="Node2D" parent="." unique_id=1188727006]
+
+[node name="Bin" parent="Interactions" unique_id=1839393794 instance=ExtResource("13_jlv4c")]
+position = Vector2(-6, 685)
+objectName = "Bin"
+
+[node name="ObjectInteract" parent="Interactions/Bin" index="0" unique_id=1854910098]
+position = Vector2(115.5, 120)
+shape = SubResource("RectangleShape2D_jqcms")
+
+[node name="Tree" parent="Interactions" unique_id=126471304 instance=ExtResource("13_jlv4c")]
+position = Vector2(-6, 685)
+objectName = "Tree"
+
+[node name="ObjectInteract" parent="Interactions/Tree" index="0" unique_id=1854910098]
+position = Vector2(2366, -584.5)
+shape = SubResource("RectangleShape2D_t6e0h")
+
+[node name="River" parent="Interactions" unique_id=2071329737 instance=ExtResource("13_jlv4c")]
+position = Vector2(2023, -201)
+objectName = "River"
+
+[node name="ObjectInteract" parent="Interactions/River" index="0" unique_id=1854910098]
+position = Vector2(-1883.5, 23)
+shape = SubResource("RectangleShape2D_nfbg0")
+
+[connection signal="area_entered" from="RoomItems/BackBush" to="RoomItems/BackBush" method="_on_area_entered"]
+[connection signal="area_exited" from="RoomItems/BackBush" to="RoomItems/BackBush" method="_on_area_exited"]
+
 [editable path="DynamicObjects/FrontBush"]
 [editable path="DynamicObjects/MiddleBush"]
 [editable path="DynamicObjects/TopBush"]
 [editable path="Door_Area"]
+[editable path="Interactions/Bin"]
+[editable path="Interactions/Tree"]
+[editable path="Interactions/River"]
