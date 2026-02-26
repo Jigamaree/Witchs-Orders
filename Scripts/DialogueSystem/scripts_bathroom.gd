@@ -2,10 +2,6 @@ extends Node
 
 class_name bathroomConvos
 
-### TODO: 
-# - Mirror; including all possible states
-# - pestle: has read book
-
 static var convos_Dict = {
 	
 	"bandages":{
@@ -20,19 +16,56 @@ static var convos_Dict = {
 		4: { "speaker": "", "dialogue": "You have better things to do than lose time to this.", "end": true },								
 	},
 	
-	#TODO: either full implementation, or just generic
 	"mirror":{
-		1: { "speaker": "", "dialogue": "[Mirror dialogue goes here.]", "end": true },		
-	},	
+		0: { "checkCurrentCorruption": [
+		{ "condition_type": SaveData_CurrentGame.Corruption_Type.NONE, "goto": 10 },
+		{ "condition_type": SaveData_CurrentGame.Corruption_Type.IMP, "goto": 20 },		
+		{ "condition_type": SaveData_CurrentGame.Corruption_Type.COW, "goto": 30 },
+		{ "condition_type": SaveData_CurrentGame.Corruption_Type.PET, "goto": 40 },		
+		{ "condition_type": SaveData_CurrentGame.Corruption_Type.APPRENTICE, "goto": 50 },	
+		{ "condition_type":  SaveData_CurrentGame.Corruption_Type.UNDEFINED, "goto": 60 },				
+		]},
+		
+		#no corruptions
+		10: { "speaker": "", "dialogue": "It's you! You look at yourself in the mirror, all too familiar with the woman staring back. The scars across your toned body tell the story of war, each puckered mark and gash a reminder that your life is not a sure-given thing in this world.", "goto": 11 },
+		11: { "speaker": "", "dialogue": "It is a weapon, one you've trained yourself to rely on, to depend on every bit as the sharp mind behind your eyes.", "goto": 12 },
+		12: { "speaker": "", "dialogue": "And yet... You know the magic of witches, of their capacity to take and twist and change. It might be worth coming back to check on yourself here occasionally, just to make sure you're still you.", "goto": 13 },
+		13: { "speaker": "", "dialogue": "Anything to make sure you don't lose your mind in a place like this.", "end": true },
+		
+		#Imp corruption
+		20: { "speaker": "", "dialogue": "You look over yourself in the mirror - cock out your hip as you do. Damn, you look good! You've always been an attractive woman, with your toned body and tousled auburn hair - but you're appreciating it in yourself all the more right now.", "goto": 21 },
+		21: { "speaker": "", "dialogue": "There's something different about yourself - a flash of gold in the eyes, maybe? A extra hour-shaped kiss to your hips? Whatever it is, it makes you feel all the more cheeky, all the more sure in yourself. ", "goto": 22 },
+		22: { "speaker": "", "dialogue": "That witch won't know what hit her.", "end": true },
+		
+		#cow corruption
+		30: { "speaker": "", "dialogue": "You take a moment to stare at yourself in the mirror... Maybe a few more than you expect. Time has gotten hazy-daisy around the edges, a pleasant fog over your mind that you can't bring yourself to do much more than nominally notice.", "goto": 31 },
+		31: { "speaker": "", "dialogue": "There's a softness to your body that you haven't seen before - a plushness that shows itself in your thighs, in your stomach, and especially in your tits. You hands pass over them absentmindedly; when you brush a nipples and a dull pleasant ache vibrates out from that point? Oh, the low, lazy sound of pleasure you make in return is so pleasurable in itself.", "goto": 32 },
+		32: { "speaker": "", "dialogue": "You're a fighter, a burning arrow seeking its target, burning brilliant bright. Some part of you is shocked at how easy you've become placid and easy. And yet... you could get used to this.", "end": true },
+		
+		#pet corruption
+		40: { "speaker": "", "dialogue": "You glance at yourself in the mirror - double take. Is it just you or do you look... Cute? It's a strange thing to realise, makes you fiddle with the hem of your clothing. You're one of the most brilliant warriors of this land usually, a avatar of death armed with a shining gold sword... And yet right now there's something quiet about your appearance. Sweet.", "goto": 41 },
+		41: { "speaker": "", "dialogue": "Is it the way your eyes glimmer brightly, the way your pupils looks like a slitted cat's? How it looks like you have pointed ears buried in the mess of your hair? Or maybe even the glimpse of tiny fangs in your mouth? It might be any of them, really.", "goto": 42 },
+		42: { "speaker": "", "dialogue": "You wonder if the witch will like what she sees.", "end": true },
+		
+		#apprentice
+		50: { "speaker": "", "dialogue": "Despite everything, its still you. The same auburn hair, the same scar over one eye, the same intense gaze few have been able to handle. ", "goto": 51 },
+		51: { "speaker": "", "dialogue": "There are changes though, striking ones. Your eyes glow a soft purple in the mirror as you watch yourself, a smokey colour that matches the enchanted sheen of the piercings on your nipples. Most striking of all is the Blaschko's lines on your body, now made visible thanks to the newly awakened magic in your veins. You look [i]good[/i] with them on - it's a nice feeling.", "goto": 52 },
+		52: { "speaker": "", "dialogue": "Now - to prove to the witch you truly are meeting her as an equal.", "end": true },
+		
+		# Undefined
+		60: { "speaker": "", "dialogue": "You squint at yourself in the mirror. It's you, sure, but... Something is off. You've heard that can happen sometimes - people looking at their true reflection, or at themselves post amputation finding them unable to quite connect the person in the mirror with the person they are.", "goto": 61 },
+		61: { "speaker": "", "dialogue": "The issue is figuring out what's different about you, though - is it your eyes? Your hair? The way you hold yourself? It gnaws at you like a rat at the foundations, making you avert your gaze.", "goto": 62 },
+		62: { "speaker": "", "dialogue": "One thing's for sure; you aren't the same woman that came in here. You're changed, fundamentally and irreversibly by the magic that's seeped into this place - but exactly the final form of that is truly anybody's guess.", "end": true },			
+	},
 
-	###TODO: Pestle: Plant guide read.	
 	"pestle":{
 		0: {"checkSaveVariable": { "keyToCheck": "plant_guide_read", "wantedValue": "true", "goto_false": 1, "goto_true": 3 }},	
 		#		
 		1: { "speaker": "", "dialogue": "The mixture the mortar and pestle was used on has been left streaked on the worn stone. Some sort of healing tincure, perhaps? You know witches kept their freedoms by posing as Salvekeepers; medicinal folks that could treat pains both simple and complex.", "goto": 2 },
 		2: { "speaker": "", "dialogue": "Before today, you would have called witches crooks, as any good Divine's Chosen would. The fact you're alive and breathing now makes you hesitate.", "end": true },
 		
-		3: { "speaker": "", "dialogue": "...", "end": true },						
+		3: { "speaker": "", "dialogue": "Armed with new knowledge, you're able to look at the remnants left on this pestle with more scrutiny. The blue colour of it - that'd be Dewberry, wouldn't it? The plant apparently has quite the powerful disinfectant effect. The strong cinnamon and citrus scent of it as well seems to be attributed to Dragonclaw - if your wound was caused by a Poison Drake, that was certainly explain its addition.", "goto": 4 },
+		4: { "speaker": "", "dialogue": "How interesting!", "end": true },					
 	},		
 
 	"plantWindow":{

@@ -67,7 +67,9 @@ func inital_conversation_check():
 		if conv[index].has("checkIgnusState"):
 			checkIgnusState()
 		elif conv[index].has("checkSaveConditions"):
-			checkSaveConditions()			
+			checkSaveConditions()	
+		elif conv[index].has("checkCurrentCorruption"):	
+			checkCurrentCorruption()	
 		else:
 			checkValueInSave()
 
@@ -440,5 +442,25 @@ func checkSaveConditions():
 		else:
 			index = condition["goto"]
 
-	print(str(index))
 	set_dialogue()		
+
+func checkCurrentCorruption():
+	var _ci = conv[index]
+	var block = conv[index].checkCurrentCorruption	
+
+	for condition in block:
+		var _conditionType = condition["condition_type"]
+		var currentMainCorruption = SaveManager.getCurrentMainCorruptionType()
+		if _conditionType == currentMainCorruption:
+			index = condition["goto"]
+			break
+		else:
+			index = condition["goto"]
+
+	set_dialogue()			
+	
+	
+
+	
+	
+	

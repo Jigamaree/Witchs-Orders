@@ -28,6 +28,25 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_debug2"):
 		pass
 
+func getCurrentMainCorruptionType():
+#returns the corruption the player is most affected by.
+	if SaveManager.getSaveVariable("apprentice_seed_taken"):
+		return SaveData_CurrentGame.Corruption_Type.APPRENTICE
+	elif SaveManager.getSaveVariable("corruptionPoints_Cow") == 0 and SaveManager.getSaveVariable("corruptionPoints_Imp") == 0 and SaveManager.getSaveVariable("corruptionPoints_Pet") == 0:
+		return SaveData_CurrentGame.Corruption_Type.NONE
+	else:
+		var _cow = SaveManager.getSaveVariable("corruptionPoints_Cow") 
+		var _imp = SaveManager.getSaveVariable("corruptionPoints_Imp")
+		var _pet = SaveManager.getSaveVariable("corruptionPoints_Pet") 	
+		if _cow > _imp and _cow > _pet:
+			return SaveData_CurrentGame.Corruption_Type.COW
+		elif _imp > _cow and _imp > _pet:
+			return SaveData_CurrentGame.Corruption_Type.IMP
+		elif _pet > _cow and _pet > _imp:
+			return SaveData_CurrentGame.Corruption_Type.PET
+		else:
+			return SaveData_CurrentGame.Corruption_Type.UNDEFINED		
+
 func reset_current_run():
 	save_data.currentGameData.reset_current_game_data()
 	NavMan.changed_scene_before = false

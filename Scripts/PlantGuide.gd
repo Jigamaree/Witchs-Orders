@@ -73,12 +73,14 @@ static var Plant_Entries = {
 	4: {
 		"name": "Dew Berry",
 		"text": "A rare plant in which the berries are more useful than the flower itself, dewberry is named for the dark blue fruit the plant bears year round. The slick outside of the plant is a natural lubricant, though produced in too small a quanity to be used on its own.
-		However, the berries when injested do induce a significant slickening effect. All orrifices will start to either create more natural lubrication (spit, slick, etc) or will start to create it in response to the Dewberry's magic. This effect can last for up to 12 days in the most arcane sensitive, leading it to be a popular choice for individuals helping monsters through heats.
+		When used topically Dewberry is an incredibly powerful healing plant; with its slick being produced both to dissuade creatures from landing on its surface as well as to protect from disease, Dewberry has an incredible sanitising effect; the raw berry alone will help dissuade disease from most open wounds, and when mixed into tincures the effect becomes even more pronounced.
+		However, the berries when injested do induce a significant slickening effect. All orifices will start to either create more natural lubrication (spit, slick, etc) or will start to create it in response to the Dewberry's magic. This effect can last for up to 12 days in the most arcane sensitive, leading it to be a popular choice for individuals helping monsters through heats.
 		Eating too many of the berries at once can cause the user to be rendered unable to talk - though for some this is an extremely intended side effect.",
 	},
 	5: {
 		"name": "Dragonclaw",
-		"text": "A flower with a notably conical structure and firery red to yellow colouring, the pollen of it is extremely useful in lubricants and potions. Dragonclaw induces a particularly interesting reaction in the bodies of humaniods, allowing them to stretch out many times their size. This is how the plant go its name; it is said tha an exploring witch was able to accomodate an entire dragon's claw thanks to treating herself with Dragonclaw pollen prior to insertion. 
+		"text": "A flower with a large trumpet shape and firery red to yellow colouring, Dragonclaw is a rather striking addition to any garden. The plant is known in some circles as \"Assassin's Bane\", due to its capaity to completely detox weaker poisons and greatly reduce the mortality rate of deadlier ones; its pleasant citrus-cinnamon scent also makes it a common mundane additive in other potions, in order to drown out more unpleasant ingrendiant scents.
+		The pollen of Dragonclaw is also extremely useful in lubricants and potions. Dragonclaw induces a particularly interesting reaction in the bodies of humaniods, allowing them to stretch out many times their size. This is how the plant go its name; it is said tha an exploring witch was able to accomodate an entire dragon's claw thanks to treating herself with Dragonclaw pollen prior to insertion. 
 		
 		(It is said that the creature's cock also fitted suitably well, but 'Dragonclaw' gained a notably more widespread adoption rate for the plant. )",
 	},

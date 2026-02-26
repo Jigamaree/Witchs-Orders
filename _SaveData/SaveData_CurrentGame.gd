@@ -24,6 +24,15 @@ enum Puzzle_State	 	{
 	INCORRECT=  204,  
 	CORRECT = 222, }
 
+enum Corruption_Type {
+	NONE = 300,
+	COW = 301,
+	IMP = 302,
+	PET = 303,
+	APPRENTICE = 304,
+	UNDEFINED = 305,
+}
+
 var current_save_data_dictionary: Dictionary
 
 func _init() -> void:
@@ -31,7 +40,7 @@ func _init() -> void:
 
 func reset_current_game_data(): 
 	current_save_data_dictionary = default_save_data_dictionary.duplicate(true)
-	
+
 var default_save_data_dictionary: Dictionary = {
 	#tracking stuff
 	"plant_guide_read": false,	
