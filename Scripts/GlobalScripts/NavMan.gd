@@ -15,11 +15,13 @@ var changed_scene_before: bool = false
 var last_scene
 var scene_were_currently_instancing
 
-func change_scenes (_sceneFrom: GlobalVariables.roomsInHouse, _sceneTo: GlobalVariables.roomsInHouse):
+func change_scenes (_sceneFrom, _sceneTo: GlobalVariables.roomsInHouse):
 	var scene_to_load
 	scene_were_currently_instancing = _sceneTo
 	last_scene = _sceneFrom
 	if changed_scene_before == false: changed_scene_before = true
+	
+	SaveManager.setSaveVariable("current_room", _sceneTo)
 	
 	match _sceneTo:
 		GlobalVariables.roomsInHouse.BATHROOM:		scene_to_load = bathroom

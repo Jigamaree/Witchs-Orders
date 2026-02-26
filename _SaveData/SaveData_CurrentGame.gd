@@ -42,6 +42,7 @@ func reset_current_game_data():
 	current_save_data_dictionary = default_save_data_dictionary.duplicate(true)
 
 var default_save_data_dictionary: Dictionary = {
+	"current_room": GlobalVariables.roomsInHouse.SLEEPYROOM,
 	#tracking stuff
 	"plant_guide_read": false,	
 	"started_game": false,

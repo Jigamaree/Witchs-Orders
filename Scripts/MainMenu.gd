@@ -17,8 +17,12 @@ func _ready() -> void:
 	startButton.grab_focus()	
 
 func _on_start_game_pressed() -> void:
-	if SaveManager.getSaveVariable("started_game") == false: SaveManager.setSaveVariable("started_game", true)
-	get_tree().change_scene_to_file("res://Scenes/Room_Bedroom.tscn")
+	if SaveManager.getSaveVariable("started_game") == false: 
+		SaveManager.setSaveVariable("started_game", true)
+		get_tree().change_scene_to_file("res://Scenes/Room_Bedroom.tscn")
+	else:
+		var _cr = SaveManager.getSaveVariable("current_room")
+		NavMan.change_scenes(null, _cr)
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_debug"):
