@@ -62,15 +62,12 @@ static var convos_Dict = {
 		21: { "speaker": "", "dialogue": "That's one order, down.", "end": true },
 		
 		#have the butter
-		30: { "speaker": "", "dialogue": "You enjoy bread, sure - but buttered bread? That's one of those simple life pleasures that one never really outgrows. You sweep over to the side of the kitchen, grabbing the little butter dish. Just a little dab will do - especially since the bread is still hot enough to let the butter melt and seep into the crumb.", "goto": 31 },
-		31: { "speaker": "", "dialogue": "That first taste, though.
-		Oh.
-		[i]Oh.[/i]", "goto": 32 },
-		32: { "speaker": "", "dialogue": "You've joked before that bread is but a vehicle to get butter into your body, but this is something else. Warm, rich, creamy - the taste of the butter coats the inside of your mouth. Somehow you're salivating even more now that you're eating, leaning over the counter as you shove bite into bite into your face.", "goto": 33 },
-		33: { "speaker": "", "dialogue": "You're panting, you're shoving food into your mouth so fast - by the time the pre-sliced bread runs out your mind is a haze of [i]need need need[/i]. A bone deep hunger that's alomst animalistic in nature grips you as you try desperately to sate it, no longer quite aware of where your limbs are.", "goto": 34 },
-		34: { "speaker": "", "dialogue": "Coming back to yourself is an effort of pulling your rag-tag thoughts together; you tongue is sore in a way you've only felt after a night face deep in pussy, your fingers and face greasy in a way that's quickly become  unpleasant.", "goto": 35 },
-		35: { "speaker": "", "dialogue": "Quickly you stand up, rinsing off your face and hands in the sink. You're not sure what sort of supernatural hunger posessed you there, but it's at least left you sated for the moment.
-		...And perhaps craving some more dairy, once you have stomach for it again.", 
+		30: { "speaker": "", "dialogue": "What is bread but a vessel to get butter into your mouth, anyway? You sidestep over to the assortment of spices, picking up the butter tray and bringing it back to the cutting board..", "goto": 31 },
+		31: { "speaker": "", "dialogue": "A generous swipe over the top of the couple of pieces you’ve sliced off and oh. That first taste is heaven. The second, too. The rich, creamy taste leaves you closing your eyes in pleasure, enjoying the sensation.", "goto": 32 },
+		32: { "speaker": "", "dialogue": "You…. May have spaced out a little, after that.", "goto": 33 },
+		33: { "speaker": "", "dialogue": "You were very hungry, sure - more than you expected to be when eating. Still, there’s something a little bit disconcerting about coming to some undetermined amount of time later, still chasing the taste of something rich on your lips. 
+", "goto": 34 },
+		34: { "speaker": "", "dialogue": "At least that’s a chore down, at least.", 
 		"setSaveVariable": ["knight_eaten_item", SaveData_CurrentGame.Eaten_Item.BUTTER], "end": true },
 		
 		#full dining experience - desperate milkings game over

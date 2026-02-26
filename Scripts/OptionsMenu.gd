@@ -59,5 +59,4 @@ func _on_window_type_item_selected(index: int) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func _on_back_button_pressed() -> void:
-	#self.hide()
-	pass 
+	get_tree().change_scene_to_file("res://Scenes/AssetScenes/MainMenu.tscn")

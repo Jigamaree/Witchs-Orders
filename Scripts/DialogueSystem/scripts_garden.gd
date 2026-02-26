@@ -7,15 +7,15 @@ static var Convos_Dict = {
 			0: { "checkSaveConditions": [
 			{ "save_key": "crow_key", "goto": 200 },							#finished crow tree
 			{ "save_key": "cellar_eatenBirdSeed", "goto": 201},					#fucked the route
-			{ "save_key": "garden_putClitRingOnWrong", "goto": 100 },			#player fucked up route
+			{ "save_key": "garden_putClitRingOnWrong", "goto": 1000 },			#player fucked up route
 			{ "save_key": "cellar_takenBirdSeed", "goto": 10 }, 				#bird can be fed - once done, starts clamps/ring bit
 			{ "save_key": "garden_interactedWithCrowTree", "goto": 4 },			#bird is chilling		
 			{ "save_key": "", "goto": 1 },		]}, 							#first found tree
 			#Completed route
-			200: { "speaker": "", "dialogue": "[Has Crow Key]", "end": true },		
+			200: { "speaker": "", "dialogue": "The crow has fluttered back up to the branches of the great tree, nestling in its branches. The key it gave you is a comforting weight in your hand, brimming with magic.", "end": true },		
 			201: { "speaker": "", "dialogue": "The tree is alive with activity - singing birds enjoying the afternoon sun, the rustle of the breeze through the leaves.
 			Corvid activity does not, however, seem to be charting.", "end": true },
-			100: { "speaker": "", "dialogue": "Your fresh nose ring is a strange reminder of your current circumstances. The crow has changed his, however, and is no longer here.", "end": true },								
+			1000: { "speaker": "", "dialogue": "Your fresh nose ring is a strange reminder of your current circumstances. The crow has changed his, however, and is no longer here.", "end": true },								
 		
 			#introduction
 			1: { "speaker": "", "dialogue": "This thing is huge - and yet wears its age well. An immense halo of greenery surrounds the great tree's crown, creating a safe haven for an endless ensemble of birds.", "goto": 2 },
@@ -27,7 +27,7 @@ static var Convos_Dict = {
 			4: { "speaker": "", "dialogue": "You spend some time birdwatching - the silly spats and flurry of activity from the little guys is a nice distraction from your current situation.
 			Occasionally you see that crow still watching, but he disappears once you meet his eyes.", "end": true },
 			
-			10: { "speaker": "", "dialogue": "[Taken bird feed, have option to feed crow]", "choice": {
+			10: { "speaker": "", "dialogue": "The rich canopy of leaves rustles overhead. While most of the residents overhead have no interest in your antics, the eyes of a very curious crow never leave you.", "choice": {
 								"c1": { "choice": "Feed the crow", "goto": 20 },
 								"c2": { "choice": "Blatantly eat the seed in front of it", "goto": 11 },
 						}
@@ -35,38 +35,66 @@ static var Convos_Dict = {
 			11: { "speaker": "", "dialogue": "Looking that black crow fuck right in the eye, you scoop a handful of seed into your mouth. Who's interesting now, buddy?", "goto": 12 },
 			12: { "speaker": "", "dialogue": "To absolutely nobody's surprise, tactics of intimidation and belittlement do not work on crows.", 
 			"setSaveVariable": ["cellar_eatenBirdSeed", true], "goto": 13 }, 
-			13: { "speaker": "", "dialogue": "The crow hops down, watching you with a long, long look. The moment that your mouth starts to feel dry from the gritty, uncooked seeds crowding it through? He futters off, a smudge of black disappearing into the treeline.
-			...You've probably made better decisions in your life.", "goto": 14 }, 
-			14: { "speaker": "", "dialogue": "Looking that black crow fuck right in the eye, you scoop a handful of seed into your mouth. Who's interesting now, buddy?",  "end": true },
+			13: { "speaker": "", "dialogue": "The crow hops down, watching you with a long, long look. The moment that your mouth starts to feel dry from the gritty, uncooked seeds crowding it through? He flutters off, a smudge of black disappearing into the treeline.", "goto": 14 }, 
+			14: { "speaker": "", "dialogue": "...You've probably made better decisions in your life.", "end": true }, 
+						
 			
-			
-			20: { "speaker": "", "dialogue": "[Crow eats seeds]", "goto": 21 },
-			21: { "speaker": "", "dialogue": "[Crow then throws the player a set of rings. Emphasis on it being time sensitive the decision.]", "choice": {
-								"c1": { "choice": "Put the rings on your ears", "goto": 23 },
-								"c2": { "choice": "Put the rings on your nipples", "goto": 30 },
-								"c3": { "choice": "Think about it and come back to it", "goto": 22 },
+			20: { "speaker": "", "dialogue": "With the birdseed in your hand, you watch as the crow creeps forward curiously. Like this you can see there’s a glint of intelligence in its eyes - or is that magic? Whatever it is, the crow is as lured by scattered birdseed as any other - a few quick pecks is all he needs to deem the goods acceptable.", "goto": 22 },
+			22: { "speaker": "", "dialogue": "You thought that'd be the end of it; what you weren’t expecting was the crow to fly back up to the tree, flying back with a couple of shining trinkets clutched in his talons. He drops them at your feet, before pinning you with a long, expectant look.", "goto": 23 },
+			23: { "speaker": "MC", "dialogue": "Alright, alright, i’m going.", "goto": 24 },
+			24: { "speaker": "", "dialogue": "They're surprisingly plain, all things considered - two plain open-end rings made of a rich gold. Any expectation of these rings being regular jewelry, however, is dashed by the purple shimmer that runs over their form.", "goto": 25 },
+			25: { "speaker": "", "dialogue": "Come to think of it, you’ve seen this style of ring before- wait. No. [i]There?[/i]
+					You look to the crow as if he can confirm anything about what you’re doing right now, only to be met with that same serious gaze.", "goto": 26 },
+			26: { "speaker": "", "dialogue": "He may not be able to talk, but he’s clearly waiting on you to make a decision - and quickly.", "choice": {
+								"c1": { "choice": "Put the rings on your ears", "goto": 33 },
+								"c2": { "choice": "Put the rings on your nipples", "goto": 40 },
+								"c3": { "choice": "Think about it and come back to it", "goto": 32 },
 						}
 				},
-			22: { "speaker": "", "dialogue": "You want to think this through - unfortunately, the crow does not agree with your puny human decisions. With a beat of those powerful wings he takes off, quickly disappearing into the treeline.", 
+			32: { "speaker": "", "dialogue": "You want to think this through - unfortunately, the crow does not agree with your puny human decisions. With a beat of those powerful wings he takes off, quickly disappearing into the treeline.", 
 			"setSaveVariable": ["cellar_eatenBirdSeed", true], "end": true }, 
-			23: { "speaker": "", "dialogue": "You make a decision. It's the wrong one. You can try one more time", "choice": {
-								"c2": { "choice": "Put the rings on your nipples", "goto": 30 },
-								"c3": { "choice": "Think about it and come back to it", "goto": 22 },
+			33: { "speaker": "", "dialogue": "You try to thread the rings through your ears, or hook them on somehow - no dice. The bird tilts his head at you, awaiting yyour final decision.", "choice": {
+								"c2": { "choice": "Put the rings on your nipples", "goto": 40 },
+								"c3": { "choice": "Think about it and come back to it", "goto": 32 },
 						}
 				},
-			30: { "speaker": "", "dialogue": "[Sexy nipple ring enchantment scene]", "goto": 31 },
-			31: { "speaker": "", "dialogue": "[Crow offers you one more ring] It naturally goes on your.", "choice": {
-								"c1": { "choice": "Nose", "goto": 32 },
-								"c3": { "choice": "Clit", "goto": 40 },
+			40: { "speaker": "", "dialogue": "Pressing the rings against your nipples is, in all honestly, an impulse - you’re not pierced there. Never have been, either. Still, if you didn’t know any better you would of sworn your hands were being moved by some unseen force, shifted into the right positions until-", "goto": 42 },
+			42: { "speaker": "MC", "dialogue": "Ah!", "goto": 43 },
+			43: { "speaker": "", "dialogue": "Pain flashes through your tits, quick slices of it that makes your hands flinch away. That was expected - what wasn't was the flood of heat after. Pleasure hits you with all the force of a wrecking ball, a wave that rushes through your body and goes straight to your clit.", "goto": 44 },
+			44: { "speaker": "", "dialogue": "You’re not sure when you started groping your chest, fingers raking over the over-sensitive flesh and playing at your nipples. Even when you notice though you can't pull away your hands - you try, only to moan all the louder when you fail to resist within seconds. You're a finely tuned insturment for this arousal that's come out of nowhere, even the smallest brush of your fingertips making you shudder.", "goto": 45 },
+			45: { "speaker": "", "dialogue": "Your celibacy in your duty to the God-King is long forgotten as you chase a pleasure that as inescapable as it is overwhelming. How can you think of it now? In this moment you are in service to no god, no man; just the exquisite pleasure raking your body.", "goto": 46 },
+			46: { "speaker": "", "dialogue": "A caw breaks your concentration.", "goto": 47 },
+			47: { "speaker": "", "dialogue": "In the crow’s mouth he presents one more gift - a single ring, one the shines the same gold-purple as the two piercings now aching on your chest. A final decision presents itself to you.", "choice": {
+							"c1": { "choice": "Nose", "goto": 50 },
+							"c3": { "choice": "Clit", "goto": 99 },
 						}
 				},
-			32: { "speaker": "", "dialogue": "Nose was wrong, cow points up!", 
-			"setSaveVariable": ["corruptionPoints_Cow", 1], "goto": 33 },
-			33: { "speaker": "", "dialogue": "Now all of game knows you fucked up.", 
-			"setSaveVariable": ["garden_putClitRingOnWrong", true], "end": true }, 			 
+				
+			50: { "speaker": "", "dialogue": "You hold the ring up to your nose - this time you expect the pain as it slices through your skin, setting into your body like it has and always will be there. What you don't expect is the pleasure to get [i]worse[/i].", "goto": 51 },
+			51: { "speaker": "", "dialogue": "What is once an exquisite tide now rises to a fever pitch - so much, so much, too much! With a whimper you fall to your knees as your legs give way - with another sound you realise that 'upright' is too complicated a position for you to coordinate right now.", "goto": 52 },
+			52: { "speaker": "", "dialogue": "Ass up, head down is how you settle, not able to keep your own hands off you long enough to stay on all fours. Fingers press under your underwear line, through the sopping mess of your cunt - finally feeling your own fingers where you need them makes you cry out, an orgasm ripping through your body like a lightning strike. You body conulses, your hole fluttring against your fingers as you gush against your hand.", "goto": 53 },
+			53: { "speaker": "", "dialogue": "The pleasure doesn't stop. 
+			Oh god, it doesn't stop.", "goto": 54 },
+			54: { "speaker": "", "dialogue": "You don't know how long you lie there, staring into the middle distance as you play with your body. Every time you feel like this orgasm will surely push you to the point of oversensitivity? Your tits will ache, your fingers will brush against your clit anew, and you fall into the well of pleasure once more.", "goto": 74 },
+			74: { "speaker": "", "dialogue": "You stop thinking. You can't say you miss it - in this place of pleasure where nothing matters except slickness, heat and want? The only thing missing is something holding you down and breeding you full, turning you completely into the mindless animal you've felt yourself become.", "goto": 75 },	
+			75: { "speaker": "", "dialogue": "...", "goto": 55 },						
+			55: { "speaker": "", "dialogue": "At some point your thoughts finally start threading together again. Your thighs are a sticky mess of arousal, fingers wrinkled from so much time spent fucking yourself on them. You can't help the impulse, licking them clean - the taste is creamier than you remember, but you can't find it in yourself to mind.", "goto": 56 },
+			56: { "speaker": "", "dialogue": "Really, you [i]should[/i] be more worried about this - but worrysome thoughts like that now feel... Far away. Subjective. You're frankly too happy, lazy and fucked out to care.", 
+			"setSaveVariable": ["garden_putClitRingOnWrong", true], "goto": 57 },
+			57: { "speaker": "", "dialogue": "The crow is gone as well. That too should worry you too, should feel like you were so close to something more.
+			Frankly, your lazy, mousy mind could not care less about that.", 
+			"setSaveVariable": ["corruptionPoints_Cow", 1],"end": true },
 			
-			40: { "speaker": "", "dialogue": "Clit was right - get a key for your troubles.", 
-			"setSaveVariable": ["crow_key", true], "end": true }, 		
+			99: { "speaker": "", "dialogue": "While you let your hands be shifted where they need to go, it doesn't change the very real human instinct of being gunshy around pain. You know what to expect - at least you think you do, anyway.", "goto": 100 },
+			100: { "speaker": "", "dialogue": "You expect the pain - you don't expect the pleasure to get even [i]better[/i].", "goto": 101 },
+			101: { "speaker": "", "dialogue": "No longer able to keep yourself up, you sink down onto your knees pleasure starts to roll over you in waves. They throb out from your clit and chest, over and over again, leaving you panting.", "goto": 102 },
+			102: { "speaker": "", "dialogue": "You're riding the pleasure before long - pressing the heel of your palm into your cunt, grinding against the skin quickly getting slick with your own need. Over and over, more and more until-", "goto": 104 },
+			104: { "speaker": "", "dialogue": "-You come, crying out as you grind out your release, rocking down onto your hand all through it to drag out the pleasure as long as possible.", "goto": 105 },
+			105: { "speaker": "", "dialogue": "By the time the pleasure alieviates, you've sprawled back onto the grass. Frankly you felt as if you've run a marathon - though the bone deep satisfaction is much more rewarding.", "goto": 106 },
+			106: { "speaker": "", "dialogue": " Absentmindedly one of your fingers lifts up one of the rings now threaded through your nipple. Huh. Not only is it completely healed, but you can see no way to take it out. Magical, indeed.", "goto": 107 },
+			107: { "speaker": "", "dialogue": "With a rush of wings, you realise the crow has fluttered up to where you're recovering. With a pleased look in its eyes, it nudges a small key into your hand, before fluttering off.", 			
+			"setSaveVariable": ["crow_key", true], "end": true }, 
+	
 		},
 		
 	#true end route placement

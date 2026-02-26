@@ -290,6 +290,10 @@ func replace_tags():
 		# The same for the wave effect using default parameters
 	dlg = dlg.replace("%ws", "[wave]")
 	dlg = dlg.replace("%we", "[/wave]")
+	
+	if conv[index].has("inSlantyText"):
+		dlg = "[i]" + dlg + "[/i]"
+		
 	return dlg
 
 var demo_conv2 = {

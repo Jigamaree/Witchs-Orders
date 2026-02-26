@@ -132,5 +132,15 @@ theme_override_colors/icon_pressed_color = Color(0.23137255, 0.23137255, 0.23137
 icon = ExtResource("4_ge3p7")
 flat = true
 
+[node name="TitleLabel" type="Label" parent="." unique_id=1901719781]
+offset_left = 112.0
+offset_top = 167.0
+offset_right = 357.0
+offset_bottom = 209.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Up"
+horizontal_alignment = 2
+
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Forward Button" to="." method="_on_forward_button_pressed"]

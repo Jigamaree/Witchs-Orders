@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dtuw6vmnmss4i" path="res://Scripts/OptionsMenu.gd" id="1_ayvsw"]
 [ext_resource type="Texture2D" uid="uid://cnedufk3xjqmb" path="res://Assets/Dialogue/BookMenu.png" id="2_s3xhb"]
 [ext_resource type="StyleBox" uid="uid://cfg4t3f3c1ai5" path="res://Assets/buttonFocusedStyleBox.tres" id="3_un4xt"]
+[ext_resource type="Theme" uid="uid://u8ldn1u81cy" path="res://Assets/ButtonTheme.tres" id="3_uw46w"]
 [ext_resource type="Texture2D" uid="uid://dcee2tfk4h45f" path="res://Assets/Controls.png" id="4_s3xhb"]
 
 [node name="PauseMenu" type="Control" unique_id=1073303519]
@@ -133,6 +134,7 @@ horizontal_alignment = 1
 
 [node name="WindowType" type="OptionButton" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=150795909]
 layout_mode = 2
+theme = ExtResource("3_uw46w")
 item_count = 2
 popup/item_0/text = "Windowed"
 popup/item_0/id = 0
@@ -151,11 +153,13 @@ horizontal_alignment = 1
 
 [node name="ExportSave" type="Button" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=73537279]
 layout_mode = 2
+theme = ExtResource("3_uw46w")
 theme_override_styles/focus = ExtResource("3_un4xt")
 text = "Export Save Data"
 
 [node name="ExportSave2" type="Button" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=524807687]
 layout_mode = 2
+theme = ExtResource("3_uw46w")
 theme_override_styles/focus = ExtResource("3_un4xt")
 text = "Import Save Data"
 
@@ -171,11 +175,13 @@ horizontal_alignment = 1
 
 [node name="RestartRun" type="Button" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1088424170]
 layout_mode = 2
+theme = ExtResource("3_uw46w")
 theme_override_styles/focus = ExtResource("3_un4xt")
 text = "Restart Current Run"
 
 [node name="DeleteAllData" type="Button" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1906893950]
 layout_mode = 2
+theme = ExtResource("3_uw46w")
 theme_override_styles/focus = ExtResource("3_un4xt")
 text = "Delete All Data"
 
@@ -185,11 +191,13 @@ size_flags_vertical = 3
 
 [node name="BackButton" type="Button" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=871554500]
 layout_mode = 2
+theme = ExtResource("3_uw46w")
 theme_override_styles/focus = ExtResource("3_un4xt")
 text = "Back"
 
 [node name="FadeBack" type="ColorRect" parent="." unique_id=341500037]
 visible = false
+z_index = 1
 layout_mode = 1
 anchors_preset = -1
 offset_left = -82.0

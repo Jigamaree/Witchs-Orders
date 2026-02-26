@@ -14,6 +14,7 @@ func _ready() -> void:
 		startButton.text = "Continue Game"	
 	if SaveManager.endingMenuUnlock():
 		endingsButton.disabled = false	 
+	startButton.grab_focus()	
 
 func _on_start_game_pressed() -> void:
 	if SaveManager.getSaveVariable("started_game") == false: SaveManager.setSaveVariable("started_game", true)
@@ -47,3 +48,7 @@ func spawn_sprite():
 	)
 	
 	add_child(sprite)
+
+
+func _on_options_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/OptionsMenu.tscn")
