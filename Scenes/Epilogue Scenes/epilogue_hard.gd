@@ -22,6 +22,8 @@ func _ready():
 		_on_start_dialogue("TentacleBait")
 	elif SaveManager.getSaveVariable("finalEnding") == SaveData_EndingTracker.EndingEnum.DESPERATE_MILKINGS:
 		_on_start_dialogue("DesperateMilkings")
+	elif SaveManager.getSaveVariable("finalEnding") == SaveData_EndingTracker.EndingEnum.MARKED_HEELED:
+		_on_start_dialogue("MarkedAndHeeled")
 	
 	else:
 		_on_start_dialogue("")	

@@ -54,6 +54,7 @@ var default_save_data_dictionary: Dictionary = {
 	"bedroom_doorLocked": true,
 	"bedroom_testedTheDoor": false,
 	"bedroom_testedTheDoorTwice": false,
+	"bedroom_openedToyChest": false,
 	
 	"bathroom_furnaceFern": false,
 		

@@ -131,57 +131,152 @@ static var sleepyroom_Convos_Dict = {
 
 ### TODO: Writing		
 	"ToyChest": {
-			1: { "speaker": "", "dialogue": "The chest in front of the bed is a heavy thing - made of a solid dark oak, with a plain but striking gold metal edging along its corners. There's a lock on the front of it - on reflex you jingle the lid, just in case it was left open.", "goto": 2 },
+			0: {"checkSaveVariable": { "keyToCheck": "bedroom_openedToyChest", "wantedValue": "true", "goto_false": 1, "goto_true": 66 }},		
+			##intro
+			1: { "speaker": "", "dialogue": "The chest in front of the bed is a heavy thing - made of a solid dark oak, with a plain but striking gold metal edging along its corners. There's a lock on the front of it - on reflex you jingle the lid, just in case it was left open.", 
+			"setSaveVariable": ["bedroom_openedToyChest", true], "goto": 2 },
 			2: { "speaker": "", "dialogue": "Turns out, it was.
 			Suddenly much more curious you nudge open the box - what you're presented with is largely mundane. This seems to be a storage box for winter blankets; considering you're warm enough to be walking around as you are, it's not quite the weather to be dragging out these chunky woolen things.", "goto": 3 },
 			3: { "speaker": "", "dialogue": "The exception, however, are the three dildos lying on top.", "goto": 4 },
 			4: { "speaker": "", "dialogue": "The first is a soft green-to-blue ombre dildo that looks like a vine covered branch. The colour reminds you distinctly of of the dryads she would see while traveling, in those few moments before the braying horses and clanging steel would make them disappear from view. It's the smallest of the bunch, but looks like it would fit comfortably in your hand.", "goto": 5 },
 			5: { "speaker": "", "dialogue": "The second has clearly been sculpted to look like a tongue, with a colour fading from purple at the 'gums', to red, to a vibrant yellow at the end. The base has a snout and (blunt) teeth sculpted onto it - between that and the implied rough texture on the tongue itself, this appears to be modeled on a manticore.", "goto": 6 },
-			6: { "speaker": "", "dialogue": "The final dildo is a thick black toy with heavy ridges. The flared head alone looks intimidating - and that's before you take in the length of the thing. It's the size of your forearm! You'd need to work up to that one if you took it.", "goto": 7 },
-			7: { "speaker": "", "dialogue": "
-			...Not that you [i]should[/i]. These are clearly the witch's personal toys.
-			But the chest was unlocked, and it would be a good way to blow off some steam - what's the worst that could happen, anyway?",  		
+			6: { "speaker": "", "dialogue": "The final dildo is a thick black toy with heavy ridges. The flared head alone looks intimidating - and that's before you take in the length of the thing. It's the size of your forearm! You'd need to work up to that one if you took it - and the little vial of lube next to it you know won't be enough.", "goto": 7 },
+			
+			66: { "speaker": "", "dialogue": "The chest of blankets is just how you left it, the three dildos and little vial of lube resting just inside its mouth as tempting as they were when you first saw them. They'd be so fun to use....", "goto": 7 },
+			
+			7: { "speaker": "", "dialogue": "...Not that you [i]should[/i]. These are clearly the witch's personal toys.
+			But the chest was unlocked, and it would be a good way to blow off some steam given your circumstances - what's the worst that could happen, anyway?",  		
 			"choice": {
-				"c1": {"choice": "First dildo.", "goto": 100 }, 
-				"c2": { "choice": "Second dildo.", "goto": 200 }, 
-				"c3": { "choice": "Third dildo.", "goto": 300 }, 
+				"c1": {"choice": "Dryad's dildo.", "goto": 100 }, 
+				"c2": { "choice": "Manticore dildo.", "goto": 200 }, 
+				"c3": { "choice": "Massive ridged dildo.", "goto": 300 }, 
 				"c4": { "choice": "Step away.", "goto": 999 }, 
 				} 
 			}, 
 
-			100: { "speaker": "", "dialogue": "Pick up the first dildo", 
+			100: { "speaker": "", "dialogue": "You pick up the blue-green dildo, turning it over in your hand.", 
 			"checkSaveVariable": { 
 				"keyToCheck": "imp_dildo_fucked_first", 
 				"wantedValue": "true", 
 				"goto_false": 102, 
 				"goto_true": 101 }},
 					
-			101: { "speaker": "", "dialogue": "You have used this.", "end": true },
-			102: { "speaker": "", "dialogue": "You haven't used this, but now you have", 
-			"setSaveVariable": ["imp_dildo_fucked_first", true], "end": true },
+			101: { "speaker": "", "dialogue": "It's nothing at all to fall back into bed, fucking it back into you with all the ease of your younger self. However the experience is.... hollow. 
+			You need something bigger.", "choice": {
+				"c2": { "choice": "Manticore dildo.", "goto": 200 }, 
+				"c3": { "choice": "Massive ridged dildo.", "goto": 300 }, 
+				"c4": { "choice": "Leave", "goto": 111 }, 
+				} 
+			}, 
+			
+			102: { "speaker": "", "dialogue": "You were right - this dildo [i]is[/i] a nice handful! Your fingers trace along the shaft of it as you take it back to the bed, tracing along the shaft of it in anticipation. Your fingers creep down to your cunt, rubbing easy circles against the quickly sensitising flesh.",  
+			"setSaveVariable": ["imp_dildo_fucked_first", true], "goto": 103 },
+			103: { "speaker": "", "dialogue": "It's just so.... Exciting. It's a curious thing to realise that even with your given situation you can't keep your hands off yourself - was the celibacy oath you took that flimsy? All the beautiful men and women in the world, and your spirit is broken by a dildo and just a little bit of stress.", "goto": 104 },
+			104: { "speaker": "", "dialogue": "...Oh, but it's a [i]good[/i] dildo. You nestle the head of it to your cunt, gasp as you realise it's sliding in with next to no effort at all. Fuck, but this is what you needed. You throw your head back with a little shuddery groan, shifting your hips into the feeling of being finally filled.", "goto": 105 },
+			105: { "speaker": "", "dialogue": "Your hands move on an instinct you've never lost, as if they've been waiting but for a moment to help you come undone again. Slow drags at first to fuck you open, to render the aching walls of your cunt slick, stretched and pliable. A change of angle here and there, dragging the head here and there until- [i]Oh.[/i] You clench with a whimper, that first wave of pleasure sparking up from your cunt.", "goto": 106 },
+			106: { "speaker": "", "dialogue": "You strike it again and again, following the drag of electricity over and over again. Soon enough you're pounding into your body with a fever, chasing the feeling of those sparks clashing into each other, into the pleasure you're chasing rising into a fever pitch that you can't escape. You fuck yourself, over and over and over until-", "goto": 107 },
+			107: { "speaker": "", "dialogue": "-You come, crying out into your palm as the pleasure falls into you, radiating out wave after wave of [i]pleasurepleasurepleasure[/i]. You don't stop fucking yourself all the way through, whimpering as each new strike into your core triggers a whole new wave of contractions. By the time you're finished you're winded, flopping back onto the bed and panting as you recover the scattered thoughts through your mind.", "goto": 108 },
+			108: { "speaker": "", "dialogue": "...But even with the dildo still stretching you full your eyes drift to the chest, down at the end of the bed. You could go for another round, right? And while this one feels nice, you can already feel yourself craving something a bit [b]bigger[/b].", "choice": {
+				"c2": { "choice": "Manticore dildo.", "goto": 200 }, 
+				"c3": { "choice": "Third dildo.", "goto": 300 }, 
+				"c4": { "choice": "Stop now?", "goto": 111 }, 
+				} 
+			}, 
+			111: { "speaker": "", "dialogue": "....But do you [i]really[/i] want to?", 
+			"choice": {
+				"c2": { "choice": "Manticore dildo.", "goto": 200 }, 
+				"c3": { "choice": "Massive ridged dildo.", "goto": 300 }, 
+				"c4": { "choice": "I do, actually.", "goto": 120 }, 
+				} 
+			}, 					
+			 120: { "speaker": "", "dialogue": "No, you do actually want to stop now. You quickly rinse off the dildo in the sink, before placing it back with its bretheran.
+			Still, the temptation remains...", "end": true },
 		
-			200: { "speaker": "", "dialogue": "Pick up the second dildo", 
-			"checkSaveVariable": { 
-				"keyToCheck": "imp_dildo_fucked_second", 
-				"wantedValue": "true", 
-				"goto_false": 202, 
-				"goto_true": 201 }},
-				
-			201: { "speaker": "", "dialogue": "You have used this.", "end": true },					
-			202: { "speaker": "", "dialogue": "You haven't used this, but now you have", 
-			"setSaveVariable": ["imp_dildo_fucked_second", true], "end": true },
+			200: { "speaker": "", "dialogue": "You pick up the larger manticore dildo, turning it over in your hand. While the broad tongue looks a little challenging, you know you can take it. Just have to take it slow and warm up, right? This time you do take the lube with you, moving back to the bed with it in one hand and the dildo in the other.", "goto": 201 },
+			201: { "speaker": "", "dialogue": "The illicit excitement you have to fuck yourself in this moment makes stretching yourself open feel all the better; you bite your lip as you work in one finger, two, three. That isn't enough to satisfy you though - not as you look at the dildo lying on the sheets beside you. Just the idea of that thing inside you makes your fingers clench in need; you didn't realise how much you craved the stretch until now.", "goto": 202 },
+			202: { "speaker": "", "dialogue": "Divine help you - you've missed sex, sure. But there's a particular sort of pleasure that comes with self pleasure that you've missed just as much - and your body is all too eager to help you catch up on lost time.", "goto": 203 },
+			203: { "speaker": "", "dialogue": "This dildo you know you'll actually need the lube - you run it over the broad form until it feels nice and slick in your hands. You're thankful you did, too - you bite your lip as the broad tip of the 'tongue' presses up against the flutter of your hole. Already you're imagining it inside you, the stretch of it against your walls, the feeling of that broad, flat surface dragging against your G-spot.", "goto": 204 },
+			204: { "speaker": "", "dialogue": "It doesn't take all that much pressure to get the first part inside - from there you're insatiable, rocking it into you over and over again. Deeper and deeper, grunting as you feel it stroke deeper and deeper. The weight, the width, the slickness of all is addictive in a way you don't have words for.", "goto": 205 },
+			205: { "speaker": "", "dialogue": "But do you have to have words for it? You're not sure you do. You just have to rock this thing deeper and deeper inside of you, fucking yourself in broader and broader strokes until you feel the moulded nose kiss up against your cunt. Being able to fit the broad length of it inside you though doesn't slow you down though - if anything? It only drives you want up even higher.", "goto": 206 },
+			206: { "speaker": "", "dialogue": "Thrust after thrust, the rough surface of the moulded tongue dragging compounding shocks out of the sensitive walls clenching down around it. It's too easy to lose yourself to this gorgeous pleasure, to the thrill of fucking yourself in a way you shouldn't be. And oh - the thought of being a display of pleasure like that? That's what finally tips you over the edge.", "goto": 207 },
+			207: { "speaker": "", "dialogue": "Orgasm rips through you mercilessly; your thighs clenching hard around your hands as your rock against the base of the dildo, chasing each clench, each pulse of pleasure as it breaks over you. It stretches on exquisitely - past the point where usually it'd stop, past the point where usually you'd pull away your hands. You hands continue to move, your hips continue to pump until you collapse back, boneless and breathless.", "goto": 208 },
+			208: { "speaker": "", "dialogue": "...And yet, it's not enough. In your afterglow you clench around the toy and it feels just a bit too small, not quite satisfying enough. Your eyes drift back to the toybox.", "goto": 209 },
+			
+			209: { "speaker": "Witch_hide", "dialogue": "%wsYou know what will satisfy you, don't you?%we", 
+			"completelyCentered": true, "choice": {
+				"c1": { "choice": "That huge black dildo", "goto": 666 },
+				"c2": { "choice": "The largest dildo", "goto": 666 }, 
+				"c3": { "choice": "That thick, ridged dildo.", "goto": 666 }, 
+				"c4": { "choice": "Leave", "goto": 222 }, 
+				} 
+			},
 
-			300: { "speaker": "", "dialogue": "Pick up the third dildo.", 
+			222: { "speaker": "Witch_hide", "dialogue": "%wsWe both know you don't mean that, do you?%we", "completelyCentered": true, "choice": {
+				"c1": { "choice": "The last dildo", "goto": 666 },
+				"c2": { "choice": "Take the last dildo", "goto": 666 }, 
+				"c3": { "choice": "You need the last dildo", "goto": 666 }, 
+				"c4": { "choice": "You do want to leave, you swear!", "goto": 223 }, 
+				} 
+			},
+
+			223: { "speaker": "Witch_hide", "dialogue": "%wsOh, you silly, stubborn thing.%we", "completelyCentered": true, "goto": 224 },
+			224: { "speaker": "Witch_hide", "dialogue": "%wsDo you think you can lie about your needs, fucked full as you are?%we", "completelyCentered": true, "goto": 225 },
+			225: { "speaker": "Witch_hide", "dialogue": "%wsYou know you need it. Give in.%we", "completelyCentered": true, "choice": {
+				"c1": { "choice": "Get the dildo", "goto": 666 },
+				"c2": { "choice": "Get the dildo", "goto": 666 },
+				"c3": { "choice": "Get the dildo", "goto": 666 },
+				"c4": { "choice": "Resist", "goto": 226 }, 
+				} 
+			},
+			
+			226: { "speaker": "Witch_hide", "dialogue": "%wsYou don't want to.%we", "completelyCentered": true, "goto": 227 },
+			227: { "speaker": "Witch_hide", "dialogue": "%wsFuck yourself for me, toy.%we",  "completelyCentered": true, "goto": 228 },
+			228: { "speaker": "Witch_hide", "dialogue": "%wsYou cannot deny yourself forever.%we",   "completelyCentered": true,
+			"choice": {
+				"c1": { "choice": "Get the dildo", "goto": 666 },
+				"c2": { "choice": "Get the dildo", "goto": 666 },
+				"c3": { "choice": "Get the dildo", "goto": 666 },
+				"c4": { "choice": "Resist", "goto": 229 }, 
+				} 
+			},
+				
+			229: { "speaker": "", "dialogue": "You hold out just a bit longer... But you feel your hands shake, your eyes dart to the chest. You need it.
+			It's only a matter of time before you give in.", "choice": {
+				"c1": { "choice": "Get the dildo", "goto": 666 },
+				"c2": { "choice": "Get the dildo", "goto": 666 },
+				"c3": { "choice": "Get the dildo", "goto": 666 },
+				"c4": { "choice": "Resist", "goto": 229 }, 
+				} 
+			},
+
+			300: { "speaker": "", "dialogue": "You pick up the third cock, holding it in your hands. The weight of it is indescribable - intimidating, were you not spurred on by both arousal and no small amount of curiousity.", 
 			"checkSaveVariable": { 
 				"keyToCheck": "stretched", 
 				"wantedValue": "true", 
 				"goto_false": 301, 
-				"goto_true": 302 }},
-			301: { "speaker": "", "dialogue": "You're not stretched enough to use this.", "end": true },					
-			302: { "speaker": "", "dialogue": "You fuck yourself with it, nice.", 
-			"setSaveVariable": ["imp_dildo_fucked_third", true], "end": true },
+				"goto_true": 310 }},
+			301: { "speaker": "", "dialogue": "However, even with a more than generous spurt of lube and a long, intensive fingering session, you can't quite open yourself up wide enough to take the cock.", "goto": 302 },
+			302: { "speaker": "", "dialogue": "If you really want to commit to this level of degeneracy, you suspect you're going to have to fuck yourself open with something else, first...", "choice": {
+				"c1": {"choice": "Dryad's dildo.", "goto": 100 }, 
+				"c2": { "choice": "Manticore dildo.", "goto": 200 }, 
+				"c4": { "choice": "Come back later.", "goto": 999 }, 
+				} 
+			}, 
+											
+			310: { "speaker": "", "dialogue": "Divine help you - you know you should have resisted. But it just feels so [i]good[/i] to finally indulge in pleasure like this again. You feel greedy, high on it - an addict with their soberity broken, seeing just how far they can fall.", "goto": 668 },
 			
-			999: { "speaker": "", "dialogue": "You step away.", "end": true },						
+			666: { "speaker": "", "dialogue": "It feels like you're drunk, high on the pleasures of your body and the way it stretches and takes cock. Even as you stumble to the chest to retrieve the last dildo, you can't keep your hands off yourself. Fingers circling at your entrance, fucking into the slick gaping hole of your cunt. Divine help you, you're so [i]empty[/i].", "goto": 667 },
+			667: { "speaker": "", "dialogue": "One of the last rational thoughts you have is that your God-King cannot help you now.", "goto": 668 },
+			
+			
+			668: { "speaker": "", "dialogue": "You can't get this into you in just any old position; to even begin pushing this monster into your guts you know you need to ride it. Like a woman possessed, you slide on the floor, slicking the cock with all the lube you can manage. Dizzily, you realise that on your knees this thing reaches to your belly button. You know, logically, that you won't be able to fit that inside you - but it's not logic ruling your brain right now. No - it's something far more depraved than that.", "goto": 669 },
+			669: { "speaker": "", "dialogue": "Just pressing the head against your cunt is enough to make you whimper - and even fucked out as you are it still takes no small amount of rocking to get your hole to relent, to open to the all-consuming force of this absolute monster of a cock against your hole. And when it starts pressing through? You can't help but whimper as you feel the flare of the head rock against each new inch.", "goto": 670 },
+			670: { "speaker": "", "dialogue": "It's so much. It's almost too much - but you can't move yourself away, can't bring yourself to do anything more than rock yourself down over and over again to force yourself open irrevocably. Inch after addictive inch - you can't keep your hands off your clit either, when it's this good. Not to mention the more you touch yourself, the more slick you become, the more turned on you become.", "goto": 671 },
+			671: { "speaker": "", "dialogue": "It's been a long time since you've hit your cervix, fucking something or somebody - the natural limit to these sort of excursions.... You whimper as you realise that despite the size of this cock, despite the physical impossibility of it all that this dildo is only punching deeper and deeper. ", "goto": 672 },
+			672: { "speaker": "", "dialogue": "It presses through. You gasp out as the massive cock pierces you through, deeper than anything before it. 
+			...And suddenly you realise you're not alone.", "playEnding": SaveData_EndingTracker.EndingEnum.MARKED_HEELED }, 			
+		
+			999: { "speaker": "", "dialogue": "You step away - that is probably for the best.", "end": true },						
 		}, 			
 	
 	"WindowFire": {
@@ -214,30 +309,33 @@ static var sleepyroom_Convos_Dict = {
 		11: { "speaker": "", "dialogue": "This witch may be playing games with you - but there's no reason to lose your cool.", "end": true },		
 		12: { "speaker": "", "dialogue": "You've trained for this exact moment. Steadying yourself, you kick the door open.", "fadeToBlack":true, "playEnding": "Captured" },											
 	},
-	
-	#TODO: STOLEN CLOTHES			
+				
 	"ChestOfDrawers":{
 		0: {"checkSaveVariable": { "keyToCheck": "knight_clothed", "wantedValue": "true", "goto_false": 100, "goto_true": 1 }},
 		# knight is clothed		
-		1: { "speaker": "", "dialogue": "The drawers are filled with clothes.", 
+		1: { "speaker": "", "dialogue": "A chest of drawers is a fine place to look for clothes, and these drawers are filled with a fantastic array of swirling robes and pants.", 		
 		"checkSaveVariable": 
 			{ "keyToCheck": "knight_clothing", 
 			"wantedValue": 5, 
-			"goto_false": 2, 
-			"goto_true": 5 } },
+			"goto_false": 20, 
+			"goto_true": 50 } },
 			
-		5: { "speaker": "", "dialogue": "Of course, you already knew that from what you're wearing right now. You don't need to put on any more clothes.", "end": true },	
+		50: { "speaker": "", "dialogue": "Of course you already knew that, considering what you're wearing right now. 
+		You can't get even [i]more[/i] dressed than this!", "end": true },	
 			
-		2: { "speaker": "", "dialogue": "They don't look to be your size, but you could probably put these on now, though", 
-			"choice": {
-				"c1": {"choice": "Change your clothes.", "goto": 4 }, 
-				"c2": { "choice": "Leave these be.", "goto": 3 }, 
+		20: { "speaker": "", "dialogue": "...Hey wait a second. Where the fuck did these come from?!", "goto": 21 },
+		21: { "speaker": "", "dialogue": "Your eyes don't decieve you - these drawers are now completely filled with clothing! Come to thinking of it though, these clothes clearly don't look like they're for you - they're made for somebody a bit taller, a bit slimmer. If they were hidden from you before you probably shouldn't touch them now.... But it [i]would[/i] be actual clothing for you to wear, instead of this.", "choice": {
+				"c1": {"choice": "Change your clothes.", "goto": 40 }, 
+				"c2": { "choice": "Leave these be.", "goto": 30 }, 
 				} 
 			},
 		# leave with no concerquence	
-		3: { "speaker": "", "dialogue": "This was probably hidden from you for a reason. You leave it alone.", "end": true },
+		30: { "speaker": "", "dialogue": "... Actually, no. This was probably hidden from you for a reason. You leave the clothes alone.", "end": true },
+		
 		#imp +1, stolen clothes
-		4: { "speaker": "", "dialogue": "You find something in your size. Much better.", 
+		40: { "speaker": "", "dialogue": "You rummage through the drawers, with a pleased little smile tickling your face. She's hiding the good clothes from you? Well, maybe she should of hidden these better!", "goto": 41 },
+		41: { "speaker": "", "dialogue": "The robe you eventually settle on doesn't come together all the way in the front, but does give you a bit more decency than your previous excuse of an outfit. You smooth down the silk, enjoying the feeling of it against your hands.", "goto": 42 },
+		42: { "speaker": "", "dialogue": "Now that you're dressed [i]decently[/i] you can think about your next move - and maybe if you see the witch, give her a piece of your mind about these Divine-damned wardrobe options.",
 			"setSaveVariable": ["knight_clothing", SaveData_CurrentGame.Clothing.STOLEN_ROBES], "end": true },
 		
 		# knight isnt clothed
