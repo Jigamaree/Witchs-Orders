@@ -32,6 +32,18 @@ static var convos_Dict = {
 		},
 		
 	"FrontDoor": {
+		#if any keys are achieved, no more leaving
+		0: { "checkSaveConditions": [
+		{ "save_key": "realise_shit_is_fucked", "goto": 200 },			
+		{ "save_key": "crow_key", "goto": 100 },
+		{ "save_key": "fire_key", "goto": 100 },
+		{ "save_key": "plant_key", "goto": 100 },	
+		{ "save_key": "", "goto": 5 },		]},
+
+		200: { "speaker": "", "dialogue": "If you leave now? There is no way you're going to get far on your own without being picked up by the Saevii forces. Hell, you can imagine just how pleased they'd be to have a Divine's Chosen in their clutches.
+		No. You're staying here for now.", "end": true },		
+		100: { "speaker": "", "dialogue": "Where once you would have been raring to get out this door, now you hesitate. There's something more to this place, something hidden in the very bones of it all. Those questions aren't getting answered out there.", "end": true },		
+		
 		1: { "speaker": "", "dialogue": "Freedom, at your fingertips - you try the door and the handle works freely. There's nothing between you and getting the hell out of this place... And yet, the thought gives you pause.", "choice": {
 			"c1": {"choice": "Not just yet", "goto": 2 }, 
 			"c2": { "choice": "Get out of here!", "goto": 3 }, 
