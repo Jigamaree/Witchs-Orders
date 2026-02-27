@@ -138,6 +138,7 @@ func set_dialogue():
 	fade_in_or_out()
 	set_text_alignment()
 	specialActions()
+	dialogue.scroll_to_line(0)
 		
 	# remove indentations
 	dlg = dlg.replace("\t", "")
@@ -258,6 +259,8 @@ func specialActions():
 	if conv[index].has("specialAction"):
 		if conv[index].get("specialAction", null) == "drag":
 			GlobalVariables.emit_signal("dragPlayerForward")
+		if conv[index].get("specialAction", null) == "push":
+			GlobalVariables.emit_signal("pushPlayer")			
 		if conv[index].get("specialAction", null) == "singleTentacle":
 			GlobalVariables.emit_signal("showSingleTentacle")
 	

@@ -128,8 +128,7 @@ static var sleepyroom_Convos_Dict = {
 		"setSaveVariable": ["sword_interracted", true], "end": true },
 		30: { "speaker": "", "dialogue": "The pieces of your most faithful companion lay shattered. What is a knight without her sword? The hollow part of your chest can't find an answer.", "end": true },
 		},
-
-### TODO: Writing		
+	
 	"ToyChest": {
 			0: {"checkSaveVariable": { "keyToCheck": "bedroom_openedToyChest", "wantedValue": "true", "goto_false": 1, "goto_true": 66 }},		
 			##intro

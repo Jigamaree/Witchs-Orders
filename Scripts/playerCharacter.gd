@@ -23,6 +23,7 @@ func _ready() -> void:
 	GlobalVariables.startUpwardYMovement.connect(_start_moving_up_again)
 	GlobalVariables.stopUpwardYMovement.connect(_dont_move_up)
 	GlobalVariables.dragPlayerForward.connect(_on_drag_player)
+	GlobalVariables.pushPlayer.connect(_on_push_player)
 
 func _physics_process(delta: float) -> void:
 	if isPaused == false:
@@ -90,4 +91,15 @@ func _on_drag_player():
 		print(str(endPoint))
 	var tween = create_tween()
 	tween.tween_property(self, "global_position", endPoint, 0.2)		
+	await tween.finished
+
+func _on_push_player():
+	var collision = $playerCollisionShape2D
+	collision.disabled = true
+	var endPoint: Vector2 = Vector2(0,0)
+	for marker: Marker2D in get_tree().get_nodes_in_group("fallback"):
+		endPoint = marker.global_position	
+		print(str(endPoint))
+	var tween = create_tween()
+	tween.tween_property(self, "global_position", endPoint, 1)		
 	await tween.finished

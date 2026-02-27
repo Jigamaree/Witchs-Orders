@@ -10,6 +10,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8h1p"]
 size = Vector2(709, 313)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmkas"]
+size = Vector2(1417, 56)
+
 [node name="RoomThePit" type="Node2D" unique_id=1548855678]
 script = ExtResource("1_5cf0v")
 
@@ -19,7 +22,7 @@ offset_bottom = 1500.0
 texture = ExtResource("2_87nvn")
 
 [node name="fallbackMarker" type="Marker2D" parent="." unique_id=1393730870 groups=["fallback"]]
-position = Vector2(878, 1261)
+position = Vector2(865, 979)
 
 [node name="CameraThings" type="Node2D" parent="." unique_id=830525890]
 
@@ -31,13 +34,6 @@ position = Vector2(964, 555)
 
 [node name="CameraMarkerLower" type="Marker2D" parent="CameraThings" unique_id=373177944]
 position = Vector2(958, 964)
-
-[node name="Node2D" type="Node2D" parent="." unique_id=1646443899]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Node2D" unique_id=2068518300]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/StaticBody2D" unique_id=2140624329]
-polygon = PackedVector2Array(870, 524, 747, 552, 662, 593, 608, 652, 460, 708, 1456, 709, 1299, 644, 1246, 597, 1161, 552, 1051, 529, 953, 522)
 
 [node name="Doors" type="Node2D" parent="." unique_id=122717315]
 
@@ -87,6 +83,13 @@ texture = ExtResource("6_o8h1p")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=315675369 groups=["dragPoint"]]
 position = Vector2(828, 535)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=655332546]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1317494879]
+position = Vector2(938, 666)
+shape = SubResource("RectangleShape2D_cmkas")
+one_way_collision_margin = 0.0
 
 [editable path="Doors/Door_Area"]
 [editable path="Doors/Door_Area2"]
