@@ -82,7 +82,6 @@ static var convos_Dict = {
 		2: { "speaker": "none", "dialogue": "Given the state of yourself, you're pretty sure it's your own.", "end": true }		
 	},				
 
-	#furnancefern 
 	"VanityRight":{
 		0: {"checkSaveVariable": { "keyToCheck": "plant_guide_read", "wantedValue": "true", "goto_false": 1, "goto_true": 20 }},	
 		# havent read book

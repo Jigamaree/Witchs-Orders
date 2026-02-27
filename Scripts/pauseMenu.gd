@@ -4,7 +4,6 @@ extends CanvasLayer
 @onready var saveButton: Button =	 	$LeftPage/MarginContainer/HBoxContainer/VBoxContainer/SaveButton
 @onready var optionsButton: Button = 	$LeftPage/MarginContainer/HBoxContainer/VBoxContainer/OptionsButton
 @onready var mainMenuButton: Button = 	$LeftPage/MarginContainer/HBoxContainer/VBoxContainer/MainMenuButton
-@onready var quitButton: Button = 		$LeftPage/MarginContainer/HBoxContainer/VBoxContainer/QuitButton
 
 @onready var feedBox: 		CheckBox = $RightPage/MarginContainer/HBoxContainer/RightVBox/FeedYourself/CheckBox
 @onready var ignusBox: 		CheckBox = $RightPage/MarginContainer/HBoxContainer/RightVBox/FeedIgnus/CheckBox 

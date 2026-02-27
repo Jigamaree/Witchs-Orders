@@ -116,8 +116,7 @@ static var sleepyroom_Convos_Dict = {
 		2: { "speaker": "", "dialogue": "You pour and throw back probably one of the most satisfying glasses of water in your entire life. It's so satisfying in fact you finish the entire jug. Even if you don't know your way about your current circumstances, at least that's one less problem to deal with.", "end": true },		
 		3: { "speaker": "", "dialogue": "The sidetable is a steady wooden sort, plain in design but very functional. It's also been barely used - there's nothing but a few dust bunnies tucked into the corners of the drawers.", "end": true },		
 		}, 
-		
-#sword_interracted		
+			
 	"Sword": {
 		0: {"checkSaveVariable": { "keyToCheck": "sword_interracted", "wantedValue": "true", "goto_false": 1, "goto_true": 30 }},		 	
 		1: { "speaker": "MC", "dialogue": "Valiance!", "goto": 2 },
@@ -132,8 +131,16 @@ static var sleepyroom_Convos_Dict = {
 
 ### TODO: Writing		
 	"ToyChest": {
-			1: { "speaker": "", "dialogue": "Dialogue start", "goto": 2 },
-			2: { "speaker": "", "dialogue": "This is where the choice is made", 		
+			1: { "speaker": "", "dialogue": "The chest in front of the bed is a heavy thing - made of a solid dark oak, with a plain but striking gold metal edging along its corners. There's a lock on the front of it - on reflex you jingle the lid, just in case it was left open.", "goto": 2 },
+			2: { "speaker": "", "dialogue": "Turns out, it was.
+			Suddenly much more curious you nudge open the box - what you're presented with is largely mundane. This seems to be a storage box for winter blankets; considering you're warm enough to be walking around as you are, it's not quite the weather to be dragging out these chunky woolen things.", "goto": 3 },
+			3: { "speaker": "", "dialogue": "The exception, however, are the three dildos lying on top.", "goto": 4 },
+			4: { "speaker": "", "dialogue": "The first is a soft green-to-blue ombre dildo that looks like a vine covered branch. The colour reminds you distinctly of of the dryads she would see while traveling, in those few moments before the braying horses and clanging steel would make them disappear from view. It's the smallest of the bunch, but looks like it would fit comfortably in your hand.", "goto": 5 },
+			5: { "speaker": "", "dialogue": "The second has clearly been sculpted to look like a tongue, with a colour fading from purple at the 'gums', to red, to a vibrant yellow at the end. The base has a snout and (blunt) teeth sculpted onto it - between that and the implied rough texture on the tongue itself, this appears to be modeled on a manticore.", "goto": 6 },
+			6: { "speaker": "", "dialogue": "The final dildo is a thick black toy with heavy ridges. The flared head alone looks intimidating - and that's before you take in the length of the thing. It's the size of your forearm! You'd need to work up to that one if you took it.", "goto": 7 },
+			7: { "speaker": "", "dialogue": "
+			...Not that you [i]should[/i]. These are clearly the witch's personal toys.
+			But the chest was unlocked, and it would be a good way to blow off some steam - what's the worst that could happen, anyway?",  		
 			"choice": {
 				"c1": {"choice": "First dildo.", "goto": 100 }, 
 				"c2": { "choice": "Second dildo.", "goto": 200 }, 
@@ -207,8 +214,8 @@ static var sleepyroom_Convos_Dict = {
 		11: { "speaker": "", "dialogue": "This witch may be playing games with you - but there's no reason to lose your cool.", "end": true },		
 		12: { "speaker": "", "dialogue": "You've trained for this exact moment. Steadying yourself, you kick the door open.", "fadeToBlack":true, "playEnding": "Captured" },											
 	},
-
-### TODO: Writing				
+	
+	#TODO: STOLEN CLOTHES			
 	"ChestOfDrawers":{
 		0: {"checkSaveVariable": { "keyToCheck": "knight_clothed", "wantedValue": "true", "goto_false": 100, "goto_true": 1 }},
 		# knight is clothed		
@@ -304,7 +311,9 @@ static var sleepyroom_Convos_Dict = {
 			"setSaveVariable": ["knight_clothing", SaveData_CurrentGame.Clothing.SLUTTY_OUTFIT], "end": true },		
 	
 		999: { "speaker": "", "dialogue": "You step away. You're not sure any of this is worth putting on.", "end": true },						
-		}					
-}
+		},					
 
-# 		1: { "speaker": "none", "dialogue": "You find some clothes! Wow!", "backgroundImage": true, "setSaveVariable": ["bedroom_doorLocked", false], "end": true },
+	"ishouldreadthenote": {
+		1: { "speaker": "MC", "dialogue": "I should read that note.", "end": true } ,	
+		},
+}

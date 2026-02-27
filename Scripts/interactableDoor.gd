@@ -29,6 +29,9 @@ func interact() -> void:
 	if isLocked == true and currentRoom == GlobalVariables.roomsInHouse.SLEEPYROOM and roomDestination == GlobalVariables.roomsInHouse.LIVING_ROOM:	
 		GlobalVariables.pauseRegularGameplay.emit()		
 		GlobalVariables.startDialogue.emit("lockedDoor")
+	elif !SaveManager.getSaveVariable("bedroom_noteRead") and currentRoom == GlobalVariables.roomsInHouse.SLEEPYROOM and roomDestination == GlobalVariables.roomsInHouse.LIVING_ROOM:	
+		GlobalVariables.pauseRegularGameplay.emit()		
+		GlobalVariables.startDialogue.emit("ishouldreadthenote")
 	elif checkForFood == true and SaveManager.getSaveVariable("thePit_warned") == false:
 		GlobalVariables.pauseRegularGameplay.emit()		
 		GlobalVariables.startDialogue.emit("noTentacleFood")

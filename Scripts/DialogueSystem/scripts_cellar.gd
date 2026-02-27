@@ -40,7 +40,6 @@ static var convos_Dict = {
 		2: { "speaker": "", "dialogue": "You want to blame this on the witch being disorganised - but witches are known for their capacity to hide amongst the commonfolk. If there was food to be had, she would have just as much capacity to get it as any other civilian... The fact there's nothing here worries you.", "end": true },
 		},
 	
-	#TODO: decide if this increases pet or imp
 	"MeatHook": {
 			0: { "checkSaveConditions": [
 			{ "save_key": "cellar_haveIgnusMeat", "goto": 1 },
@@ -64,8 +63,8 @@ static var convos_Dict = {
 			10: { "speaker": "MC", "dialogue": "You know what?", "goto": 11 },
 			11: { "speaker": "MC", "dialogue": "Fuck it.", "goto": 12 },
 			12: { "speaker": "", "dialogue": "You've been knocked around so hard your memory's been scrambled, got picked up by a witch instead of your own squadron, and now need to solve little puzzles like a circus monkey? 			
-			It's [i]you[/i] that deserves the damn meat.", "goto": 13 },
-			13: { "speaker": "", "dialogue": "Hunkering down in the closet, you tear into it caveman style, making a pleased sound at the taste on your tongue. You could probably have combined this with... Basically anything else in the house to make a more respectable meal out of it - but frankly? You're hungry, and this feels like a damn win.", 
+			You deserve a treat, damnit!", "goto": 13 },
+			13: { "speaker": "", "dialogue": "Hunkering down in the closet, you tear into it caveman style, making a pleased sound at the taste on your tongue. You could probably have combined this with... Basically anything else in the house to make a more respectable meal out of it - but frankly? You're hungry, and if this is petfood? You can be a damn pet for a second.", 
 			"setSaveVariable": ["knight_eaten_item", SaveData_CurrentGame.Eaten_Item.DOGFOOD], "end": true},			
 	
 			998: { "speaker": "", "dialogue": "...But you've already eaten. That's probably saved you from a bad decision, in hindsight.", "goto": 2 },
@@ -73,7 +72,6 @@ static var convos_Dict = {
 				
 		},####
 	
-	### TODO: figure out how to filter by X points	
 	"Milk": {
 			0: {
 				"checkSaveVariable": { "keyToCheck": "knight_fed", "wantedValue": "true", "goto_false": 2, "goto_true": 1 }},
@@ -95,9 +93,9 @@ static var convos_Dict = {
 			6: { "speaker": "", "dialogue": "It's like you can't control your hands - you [i]need[/i] more of this milk, hungering for it in a way that you can't put words to. It's not a question of whether you should have another glass, it's how fast you can get the next mouthful in. By the third you've foregone the glass entirely, holding the jug to your lips and desperately swallowing back the creamy liquid.", "goto": 7 },
 			7: { "speaker": "", "dialogue": "Some detached part of you think that this is the same enthusiasm you use to swallow cock, back before you pledge yourself to celibacy as a Divine's Chosen. Any elaboration on that thought remains unrealised, though - that would require you to be engaging in any form of thinking.
 			No, you have something much more important to lose yourself in.", "goto": 8 },
-			##TODO: Figure out how to check for X amount of points for a certain ending path
 			8: { "speaker": "", "dialogue": "Coming back to yourself is like awakening to a crime scene - your face and chest sticky with spilt-over milk, the creaminess of your indulgence still sitting pleasantly on your tongue. You're not sure when you ended up sprawled on the ground, but it makes you even more aware of the heat to your skin and the pleasant ache between your thighs.", "goto": 9 },
-			9: { "speaker": "", "dialogue": "An ache you seem to be indulging without realising - your fingers are curling in a steady, easy rhythm against your clit, coinciding with the waves of pleasure you had just put down to a good meal. You know, realistically, you should stop right now - instead it takes you minutes to drag your fingers away from where it feels so good to curl your fingers in.", "goto": 10 },
+			9: { "speaker": "", "dialogue": "An ache you seem to be indulging without realising - your fingers are curling in a steady, easy rhythm against your clit, coinciding with the waves of pleasure you had just put down to a good meal. You know, realistically, you should stop right now - instead it takes you minutes to drag your fingers away from where it feels so good to curl your fingers in.", 
+			"setSaveVariable": ["knight_eaten_item", SaveData_CurrentGame.Eaten_Item.MILK], "goto": 10 },
 			10: { "speaker": "", "dialogue": "Shaking your head, you bring your focus back to the present moment. You're fed. That's good - that's [i]progress[/i]. One less thing on your metaphorical plate - even if it doesn't quite feel like all your mind's come back from the experience.",  
 			"setSaveVariable": ["knight_eaten_item", SaveData_CurrentGame.Eaten_Item.MILK], "end": true},						
 		},

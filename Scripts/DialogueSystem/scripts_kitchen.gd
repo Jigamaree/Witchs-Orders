@@ -65,8 +65,7 @@ static var convos_Dict = {
 		30: { "speaker": "", "dialogue": "What is bread but a vessel to get butter into your mouth, anyway? You sidestep over to the assortment of spices, picking up the butter tray and bringing it back to the cutting board..", "goto": 31 },
 		31: { "speaker": "", "dialogue": "A generous swipe over the top of the couple of pieces you’ve sliced off and oh. That first taste is heaven. The second, too. The rich, creamy taste leaves you closing your eyes in pleasure, enjoying the sensation.", "goto": 32 },
 		32: { "speaker": "", "dialogue": "You…. May have spaced out a little, after that.", "goto": 33 },
-		33: { "speaker": "", "dialogue": "You were very hungry, sure - more than you expected to be when eating. Still, there’s something a little bit disconcerting about coming to some undetermined amount of time later, still chasing the taste of something rich on your lips. 
-", "goto": 34 },
+		33: { "speaker": "", "dialogue": "You were very hungry, sure - more than you expected to be when eating. Still, there’s something a little bit disconcerting about coming to some undetermined amount of time later, still chasing the taste of something rich on your lips.", "goto": 34 },
 		34: { "speaker": "", "dialogue": "At least that’s a chore down, at least.", 
 		"setSaveVariable": ["knight_eaten_item", SaveData_CurrentGame.Eaten_Item.BUTTER], "end": true },
 		

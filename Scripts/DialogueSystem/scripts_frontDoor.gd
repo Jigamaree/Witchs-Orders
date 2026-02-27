@@ -66,7 +66,8 @@ static var convos_Dict = {
 			# have 	
 			100: { "speaker": "", "dialogue": "The fallen Capital outside is a harsh reminder of your current circumstances. No city to protect, no Divine to serve, your years of service now null and void. A part of you aches to rush out and find somebody, anybody else who knows - but you steady that impulse for now.", "end": true },
 		},
-			
+
+#name Vivienne			
 	"NoticeBoard": {
 		1: { "speaker": "none", "dialogue": "A large noticeboard has been hung on the wall here - an ecclectic collection of pin colours keeps them all in place", "choice": {	
 						"c1": { "choice": "Handwritten letter", "goto": 100 },

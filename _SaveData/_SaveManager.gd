@@ -24,6 +24,18 @@ func save_game():
 	ResourceSaver.save(save_data, SAVE_PATH)
 	print("Game saved.")
 
+func export_save(path: String):
+	var err = ResourceSaver.save(save_data, path)
+	if err == OK:
+		print("Save exported.")
+
+func import_save(path: String):
+	var loaded = ResourceLoader.load(path)
+	if loaded:
+		save_data = loaded
+		ResourceSaver.save(save_data, SAVE_PATH) # overwrite internal save
+		print("Save imported.")
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_debug2"):
 		pass
@@ -125,6 +137,7 @@ func setSaveVariable(variableName: String, variableValue):
 		setSaveVariable("cellar_eatenBirdSeed", true)
 	if variableName == "knight_eaten_item" and variableValue == SaveData_CurrentGame.Eaten_Item.DOGFOOD:
 		setSaveVariable("cellar_eatenIgnusMeat", true)	
+		increasePoints("corruptionPoints_Pet", 1)
 			
 	if variableName == "read_notice" or variableName == "looked_out_front_windows":
 		setSaveVariable("realise_shit_is_fucked", true)

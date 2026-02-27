@@ -97,7 +97,7 @@ static var Convos_Dict = {
 	
 		},
 		
-	#true end route placement
+	#write the final transformation
 	"River": {
 				0: { "checkSaveVariable": { "keyToCheck": "frontdoor_diagram", "wantedValue": "true", "goto_false": 1, "goto_true": 10 }},
 				#haven't checked diagram

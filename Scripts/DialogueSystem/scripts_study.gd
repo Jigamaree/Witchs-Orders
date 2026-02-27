@@ -22,8 +22,7 @@ static var Convos_Dict = {
 				21: { "speaker": "Witch_hide", "dialogue": "[i]You can now access the plant guide via the pause menu[/i].", "completelyCentered": true, "end": true },
 				100: { "speaker": "", "dialogue": "There's nothing left for you, here.", "end": true },				
 		},	
-	
-	#complex
+
 	"Cauldron": {
 			0: { "checkSaveConditions": [
 			{ "save_key": "cauldron_finished_bool", "goto": 1 },
