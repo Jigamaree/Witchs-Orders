@@ -13,6 +13,7 @@ signal showSingleTentacle()
 signal preloadConversation()
 signal preloadPotionMenu()
 signal pauseGame()
+signal plantBloom()
 
 enum interactableType {
 	OBJECT,

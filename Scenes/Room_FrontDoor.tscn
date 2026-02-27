@@ -33,14 +33,14 @@ texture = ExtResource("2_jkaey")
 
 [node name="Sprites" type="Node2D" parent="." unique_id=192779425]
 
+[node name="FrontDoorPlant(dead)" type="Sprite2D" parent="Sprites" unique_id=648451002]
+position = Vector2(740, 364)
+texture = ExtResource("4_m0voj")
+
 [node name="FrontDoorPlant(alive)" type="Sprite2D" parent="Sprites" unique_id=852671337]
 visible = false
 position = Vector2(961, 203)
 texture = ExtResource("3_c6ueq")
-
-[node name="FrontDoorPlant(dead)" type="Sprite2D" parent="Sprites" unique_id=648451002]
-position = Vector2(740, 364)
-texture = ExtResource("4_m0voj")
 
 [node name="RoomBoundary" type="StaticBody2D" parent="." unique_id=1165903164]
 

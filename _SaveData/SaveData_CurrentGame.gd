@@ -70,6 +70,7 @@ var default_save_data_dictionary: Dictionary = {
 	
 	#frontDoor
 	"frontdoor_interactedwithdeadplant": false,
+	"frontdoor_cantgetkey": false,
 	"frontdoor_diagram": false,
 	
 	#cellar

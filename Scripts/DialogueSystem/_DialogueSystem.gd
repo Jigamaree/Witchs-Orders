@@ -263,6 +263,8 @@ func specialActions():
 			GlobalVariables.emit_signal("pushPlayer")			
 		if conv[index].get("specialAction", null) == "singleTentacle":
 			GlobalVariables.emit_signal("showSingleTentacle")
+		if conv[index].get("specialAction", null) == "bloom":	
+			GlobalVariables.emit_signal("plantBloom")
 	
 var rate_norm = 0.03
 var rate_comma = 0.12
