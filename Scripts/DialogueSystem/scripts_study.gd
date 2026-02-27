@@ -7,6 +7,7 @@ static var Convos_Dict = {
 				1: { "speaker": "", "dialogue": "Both of the armchairs in the other room look brand new compared to this one; the leather so well worn its gone supple all through. A crochet blanket in various shades of green is strewn over the back of the chair, looking not unlike a large patch of moss.", "goto": 2 },
 				2: { "speaker": "", "dialogue": "Between that and the well loved pillow settled in the groove of the armchair cushion, you have the sneaking suspition that this armchair functions as a bed just as much as a chair. If not more, you muse, looking at the way some of the blankets edges are unraveling.", "end": true },
 		},	
+	
 	"PlantGuide": {
 			0: {"checkSaveVariable": { "keyToCheck": "plant_guide_read", "wantedValue": "true", "goto_false": 1, "goto_true": 100 }},		
 				1: { "speaker": "", "dialogue": "A book sits on the table next to the armchair - its cover is well worn, the pages seemingly thumbed through a uncountable number of times. The title briefly displays as %ssA Guide to the Edible and Inedible%se - but as you read it over again, you notice it already starting to shimmer before your eyes. It presents its new title to you.", "goto": 2 },
@@ -141,7 +142,10 @@ static var Convos_Dict = {
 		},	
 	
 	"MiddleRoomShelf": {
-				1: { "speaker": "", "dialogue": "Middle of the room shelf dialogue goes here", "end": true }
+				1: { "speaker": "", "dialogue": "There's plenty of storage for the bits and pieces the witch needs in this room - this shelfing unit, however, seems to make up the bulk of the witch's accessible working ingredients. The shelf gives off an air not unlike an extended and deranged spice drawer; there truly is a little container for everything.", "goto": 2 },
+				2: { "speaker": "", "dialogue": "...You glance to the cauldron. This is probably where the ingredients for that are going to come from, huh? Best to get familiar with it, you suppose.", "goto": 3 },
+				3: { "speaker": "", "dialogue": "Before you leave you space a glance towards the bones perched on top of the cabinet. If you hadn't already been poking around the witch's house as much as you had, you might have interpreted these as a threat. Now? You see the care the humanoid skull has been cared for with; free of dust, polished and clean. As for the canine skull it's in impeccable condition, no fractures to speak and all teeth and other little bones accounted for.", "goto": 4 },
+				4: { "speaker": "", "dialogue": "This is a woman that cares for things even in death - for a woman who can cull far easier than she can heal, who has seen how power over life can make somebody monsterous? There's a strange comfort in knowing that there's a person that walk with this sort of peace alongside those who are no longer here.", "end": true },
 		},	
 	
 	"Ladder": {
@@ -150,7 +154,12 @@ static var Convos_Dict = {
 		},
 			
 	"FrontTableLeft": {
-				1: { "speaker": "", "dialogue": "Table with random shit dialogue goes here", "end": true }
+			1: { "speaker": "", "dialogue": "This table seems to be the heart of the witch's crafting. Active crafting, too; a small magical burner seems to have been left alight on this table. Some reagent either too small or too urgent to wait for cauldron's pace bubbles away on top; you can't tell the ingrediants, but the punchy liquorice scent is putting you off investigating that too closely. ", "goto": 2 },
+			2: { "speaker": "", "dialogue": "A variety of half empty bottles and potions litter the back wall. Some sport names you recognise from your mother's kitchen growing up - eye of newt (mustard seed), poor man's treacle (garlic), semen of the Old Gods (dill)...", "goto": 3 },
+			3: { "speaker": "", "dialogue": "Others are less familiar to you, but speak to the witch's proclivities. A iridescent purple gas trapped in one jar is labeled as Succubus Breath - a thinner clear liquid in another is labeled as Vampire Venom. One jar is filled to the brim with black fur, and seems to follow your movements; you're not sure why Werewolf Undercoat is acting as much, and you're not sure you want to find out.", "goto": 4 },
+			4: { "speaker": "", "dialogue": "Several vials contain the spend of various creatures: semen of minotaur, hellhound, gorgon, hydra and more litter the back half of the desk, some used much more than others. There's even several for dragons, even sorted into the different coloured wyverns they came from.","goto": 5 },
+			5: { "speaker": "", "dialogue": "A rune on the top of each vial is clearly keeping these things fresh enough for use - you wonder what they're used for. Hell, you wonder how the witch collects these samples.", "goto": 6 },
+			6: { "speaker": "", "dialogue": "...The rush of inappropriate thoughts [i]that[/i] brings up is enough to get you to move on.", "end": true },
 		},	
 		
 	"FrontTableRight": {
