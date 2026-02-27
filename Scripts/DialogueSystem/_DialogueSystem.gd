@@ -157,7 +157,7 @@ func set_dialogue():
 		talk_blip = pitch_dict[npc_name.text]
 	#otherwise have a fallback!
 	else: 
-		talk_blip = load("res://Audio/ignusVoice.wav")
+		talk_blip = load("res://Audio/voice2.wav")
 	audio_player.stream = talk_blip
 	
 	#THE typewriter effect
@@ -203,14 +203,24 @@ func set_portrait():
 	#deal with portrait
 	var emote = ""
 		
-	if conv[index].has("emote") and conv[index].speaker == "MC" or conv[index].speaker == "Alessia":
-		match conv[index].emote:
-			"exasperated": 	portTextRect.texture = pc_expression_dict["exasperated"]
-			"eep": 			portTextRect.texture = pc_expression_dict["eep"]
-			"happy":		portTextRect.texture = pc_expression_dict["happy"]
-			"sad":			portTextRect.texture = pc_expression_dict["sad"]
-			"angry":			portTextRect.texture = pc_expression_dict["angry"]
-	else: portTextRect.texture = pc_expression_dict["default"]
+	if conv[index].speaker == "MC" or conv[index].speaker == "Alessia":
+		portTextRect.texture = pc_expression_dict["default"]
+		if conv[index].has("emote"):	
+			match conv[index].emote:
+				"exasperated": 	portTextRect.texture = pc_expression_dict["exasperated"]
+				"eep": 			portTextRect.texture = pc_expression_dict["eep"]
+				"happy":		portTextRect.texture = pc_expression_dict["happy"]
+				"sad":			portTextRect.texture = pc_expression_dict["sad"]
+				"angry":			portTextRect.texture = pc_expression_dict["angry"]
+				
+	elif conv[index].speaker == "Ignus":
+		if conv[index].has("emote"):	
+			match conv[index].emote:
+				"pleased": 	portTextRect.texture = load("res://Assets/Dialogue/PC Dialogue Faces/Ignus_Interested.png")
+				"headtilt": portTextRect.texture = load("res://Assets/Dialogue/PC Dialogue Faces/Ignus_Headtilt.png")
+				"serious":	portTextRect.texture = load("res://Assets/Dialogue/PC Dialogue Faces/Ignus_Serious.png")
+		else: 	portTextRect.texture = load("res://Assets/Dialogue/PC Dialogue Faces/Ignus_Default.png")
+
 
 func check_for_background_or_full_image():
 	# background image - image that appears over a dark background, like key items
@@ -390,6 +400,9 @@ func advance_line():
 		elif conv[index].has("playEnding"):
 			SaveManager.setSaveVariable("finalEnding", conv[index].get("playEnding", null))
 			get_tree().change_scene_to_file("res://Scenes/Epilogue Scenes/Epilogue_Hard.tscn")
+			
+		elif conv[index].has("goToWitchEpilogue"):
+			pass
 			
 		elif conv[index].has("END_OF_GAME"):	
 			SaveManager.setSaveVariable(conv[index].get("END_OF_GAME", true), true)

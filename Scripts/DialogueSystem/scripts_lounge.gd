@@ -19,15 +19,33 @@ static var convos_Dict = {
 	"leftArmchair": {
 			1: { "speaker": "", "dialogue": "While this looks just like the other armchair, there's a firmness to the stuffing and crispness to the leather that makes it feel unusued. Guess the witch has a favorite chair.", "end": true },
 		}, 
-	
-	## TODO: WRITING			
+			
 	"CoffeeTable": {
 		0: {"checkSaveVariable": { "keyToCheck": "armour_interracted", "wantedValue": "true", "goto_false": 1, "goto_true": 100 }},		
-		1: { "speaker": "", "dialogue": "You have not interacted with the armour yet.", 
-		"setSaveVariable": ["armour_interracted", true], "end": true },
-		100: { "speaker": "", "dialogue": "This has been seen.", "end": true},		
-		}, 
-					
+			1: { "speaker": "", "dialogue": "No - that can't be right.", "goto": 2 },
+			2: { "speaker": "", "dialogue": "You sit down on the armchair beside the table, eyes wide as you look over the state of the armour that's been carefully heaped up on the coffee table. Your first kneejerk is to discount all this as Not Yours - as some test of faith from the Divine, or a cruel manipulation from the witch that's brought you here.", "goto": 3 },
+			3: { "speaker": "", "dialogue": "You can't deny it though. This [i]is[/i] your armour - you can see the minute dents and scrapes that no amount of upkeep had been able to buffer up - the cross over the heart, the ding at the collarbone, the wonky links of chainmail at the side of the tunic. There's too many details that you know off by heart for this to be some simple forgery, especially made in the little amount of time you've been passed out.", "goto": 4 },
+			4: { "speaker": "", "dialogue": "Which means you have to come to terms with the fact there's now a huge chunk taken out of the wing of your helmet - and even worse than that, the huge gaping gash that's melted through the sternum of your chest plate.
+			Fucking- Divine save you, you should be [i]dead[/i] with that sort of injury!", "goto": 5 },
+			5: { "speaker": "", "dialogue": "You realise with a start that... Well, actually you should be. Your memory comes back to you, making you clench your head and wince.
+			Poison drakes. Terrible creatures of myth, the result of corrupting a dragon hatchling with magic so thoroughly that its mind melts along with its fire breath sac. They were supposed to be impossible to create - no people would have the magical prowess to trap and break the mind of a dragon, nor the lack of ethics to turn such an intelligent creature into their slave.", "goto": 6 },
+			6: { "speaker": "", "dialogue": "The Saevii, turns out, were both.", "goto": 7 },
+			7: { "speaker": "", "dialogue": "You'd been set upon by one of them - an older one, if the peeling skin around its poison scarred mouth was any indication. You'd tried to fight it, tried to chase it back. Usually blessed steel would be no match for a dragon - but this one was haunted by something unholy.", "goto": 8 },
+			8: { "speaker": "", "dialogue": "It had broken your sword - bitten into you like a chew toy and pierced you through with its fatal poison. Left you for dust in the chaos of the battlefield, to bleed out between kin and foe alike. You'd made your peace, said your quiet goodbyes. You'd prayed to the God-King for a good journey home, to join your brethren in the Eternal Army in the great beyond.", "goto": 9 },
+			9: { "speaker": "", "dialogue": "...And then the witch had found you, and wrenched you from the jaws of death. 
+			Gently you place the armour back, your stomach churning.", "checkSaveVariable": { "keyToCheck": "realise_shit_is_fucked", "wantedValue": "true", 
+			"goto_false": 10, 
+			"goto_true": 11 } },
+			10: { "speaker": "", "dialogue": "You don't know if you trust anything in this house - but you need to find out what happened after the Battle of Daybreak. A part of you wants to believe that if things got so dire that you were all but felled that the God-king had swept in soon after, cleansing the battlefield in a wave of shining light like the scripture's you'd heard.
+			...The fact that you are here of all places makes you think that might not be the case.", 
+			"setSaveVariable": ["armour_interracted", true], "end": true },
+			11: { "speaker": "", "dialogue": "Not only had the Saevii won, but they'd won [i]easily[/i]. Truly for the first time you realise that there's no longer a place for you in this world.
+			You try not to dwell on that, and fail miserably.", 
+			"setSaveVariable": ["armour_interracted", true], "end": true },
+			
+			100: { "speaker": "", "dialogue": "Your broken and battered armour sits on the table, an uncomfortable reminder of your defeat. ", "end": true},	
+			}, 
+				
 	"WateringCanTable": {
 		0: {"checkSaveVariable": { "keyToCheck": "lounge_takenWateringCan", "wantedValue": "true", "goto_false": 2, "goto_true": 1 }},		
 		#taken watering can

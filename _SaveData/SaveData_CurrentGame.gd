@@ -67,6 +67,8 @@ var default_save_data_dictionary: Dictionary = {
 	"lounge_enteredFirstTime": false,
 	"lounge_takenWateringCan": false,
 	"lounge_fireplaceLit": false,
+	"lounge_firstIgnusInteractionDone": false,
+	"lounge_knowIgnusTalks": false,
 	
 	#frontDoor
 	"frontdoor_interactedwithdeadplant": false,
