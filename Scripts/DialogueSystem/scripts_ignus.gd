@@ -120,6 +120,29 @@ static var convos_Dict = {
 			666: { "speaker": "", "dialogue": "[Present to the hellhound; he claims you]", "playEnding": SaveData_EndingTracker.EndingEnum.IGNUS_BITCH },				
 			888: { "speaker": "", "dialogue": "[Poked the bear; Ignus fucks and claims you in return]", "playEnding": SaveData_EndingTracker.EndingEnum.IGNUS_BITCH },
 			
+			#read potion poem
+			900: { "speaker": "", "dialogue": "The hellhound considers your request - it seems for a moment he's going to give you shit, but surprisingly seems to choose otherwise.", "goto": 901 },
+			901: { "speaker": "Ignus", "dialogue": "The poem isn't one to one with position. The first line of the poem gives you two positions, for example, while the second line of the poem is disregardable nonsense.", 
+						"choice": {
+								"c1": { "choice": "Thank Ignus for the help", "goto": 999 },
+								"c2": { "choice": "Another hint?", "goto": 902 },
+						}
+				},			
+			902: { "speaker": "Ignus", "dialogue": "The Lady is a woman of tantaric magic - for her, the start of things is about a kiss as much as it is a literal beginning. The end - well, I hope you know what a tantaric end is.",                        
+			"choice": {
+							"c1": { "choice": "Thank Ignus for the help", "goto": 999 },
+							"c2": { "choice": "Another hint?", "goto": 903 },
+						}
+				},	
+			903: { "speaker": "Ignus", "dialogue": "Angels are so sweet, aren't they? It would be a shame if, should one appear, some terrible demon corrupted them right afterwards. Why be next to the lovers when it could be next to the angel, instead?", 		
+			"choice": {
+							"c1": { "choice": "Thank Ignus for the help", "goto": 999 },
+							"c2": { "choice": "Another hint?", "goto": 904 },
+						}
+				},	
+			904: { "speaker": "Ignus", "dialogue": "Dance of the Fervored [b]One[/b] is in position four.", "goto": 905 },
+			905: { "speaker": "", "dialogue": "Ignus settles down after that. It seems as if that's your final hint.", "end": true },
+			
 			999: { "speaker": "", "dialogue": "You leave the hellhound to his nap.", "end": true },							
 		}, ####
 		

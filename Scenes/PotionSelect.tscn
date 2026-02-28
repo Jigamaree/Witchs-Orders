@@ -151,6 +151,68 @@ grow_vertical = 2
 texture = ExtResource("3_66d30")
 expand_mode = 1
 
+[node name="TextBox2" type="ColorRect" parent="." unique_id=391388818]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 628.0
+offset_top = -986.0
+offset_right = 909.0
+offset_bottom = -260.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="TextBox2" unique_id=973503356]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Dialogue" type="RichTextLabel" parent="TextBox2/MarginContainer" unique_id=1872499181]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 25
+theme_override_font_sizes/mono_font_size = 30
+bbcode_enabled = true
+text = "[i]Start with one's end, and end with love's start.
+The location of these will come from the heart
+Corruption will claim the sweetest release
+The devil will bring the lovers no peace
+To build up your spend you must hold on.
+Until your might can be gazed upon
+Bring it down from ten to one,
+And finally the job is done"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextBox2" unique_id=1674669609]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.5
+offset_top = -18.0
+offset_right = 24.5
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5707964
+texture = ExtResource("3_66d30")
+expand_mode = 5
+
 [connection signal="pressed" from="Control/Control/AngelsClimax" to="." method="_on_angels_climax_pressed"]
 [connection signal="pressed" from="Control/Control/SuccubusHeat" to="." method="_on_succubus_heat_pressed"]
 [connection signal="pressed" from="Control/Control/KnockerGawker" to="." method="_on_knocker_gawker_pressed"]

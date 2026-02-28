@@ -169,7 +169,7 @@ static var sleepyroom_Convos_Dict = {
 			}, 
 			
 			102: { "speaker": "", "dialogue": "You were right - this dildo [i]is[/i] a nice handful! Your fingers trace along the shaft of it as you take it back to the bed, tracing along the shaft of it in anticipation. Your fingers creep down to your cunt, rubbing easy circles against the quickly sensitising flesh.",  
-			"setSaveVariable": ["imp_dildo_fucked_first", true], "goto": 103 },
+			"setSaveVariable": ["_imp_dildo_fucked_first", true], "goto": 103 },
 			103: { "speaker": "", "dialogue": "It's just so.... Exciting. It's a curious thing to realise that even with your given situation you can't keep your hands off yourself - was the celibacy oath you took that flimsy? All the beautiful men and women in the world, and your spirit is broken by a dildo and just a little bit of stress.", "goto": 104 },
 			104: { "speaker": "", "dialogue": "...Oh, but it's a [i]good[/i] dildo. You nestle the head of it to your cunt, gasp as you realise it's sliding in with next to no effort at all. Fuck, but this is what you needed. You throw your head back with a little shuddery groan, shifting your hips into the feeling of being finally filled.", "goto": 105 },
 			105: { "speaker": "", "dialogue": "Your hands move on an instinct you've never lost, as if they've been waiting but for a moment to help you come undone again. Slow drags at first to fuck you open, to render the aching walls of your cunt slick, stretched and pliable. A change of angle here and there, dragging the head here and there until- [i]Oh.[/i] You clench with a whimper, that first wave of pleasure sparking up from your cunt.", "goto": 106 },
@@ -279,12 +279,12 @@ static var sleepyroom_Convos_Dict = {
 		}, 			
 	
 	"WindowFire": {
-		1: { "speaker": "", "dialogue": "This is one of two stained glass windows in the room - this one appears to depict a swirling flame being nursed to life, something bright burning at its core.", "goto": 2 },
+		1: { "speaker": "", "dialogue": "This is one of two stained glass windows in the room - this one appears to depict a swirling flame being nursed to life, something bright burning at its core. Surely there's a place for a fire in this house...", "goto": 2 },
 		2: { "speaker": "none", "dialogue": "The glass work is beautiful - and you can tell at just a glace will be too difficult to smash through, were you to try and escape out it.", "end": true },
 		}, 
 		
 	"WindowCrow": {
-		1: { "speaker": "none", "dialogue": "One of two stained glass windows in the room, this one depicts a crow nestled among branches. A sly look in its eye glints the same as a key grasped between its talons.", "goto": 2 },
+		1: { "speaker": "none", "dialogue": "One of two stained glass windows in the room, this one depicts a crow nestled among branches. A sly look in its eye glints the same as a key grasped between its talons. Where would a crow live...", "goto": 2 },
 		2: { "speaker": "none", "dialogue": "You know the textured glass and heavy lead edging will be too difficult to break.", "end": true } ,		
 		},
 		

@@ -126,7 +126,7 @@ static var convos_Dict = {
 		#letter from beewoman	
 		#WITCH'S NAME HERE	
 		100: { 
-			"speaker": "", "dialogue": "The letter appears to be from a 'Jullibee Busyworth', addressing 'my dearest Vivienne'. In extravagant cursive, Jullibee details her thanks for the hellhound shed and Plushdrop blooms Titania has supplied, promising some un-enchanted honey and fabrics - the former to eat, the later to use on the injured, given the influx of them.", "setSaveVariable": ["learned_witchs_name", true], "goto": 101 },#
+			"speaker": "", "dialogue": "The letter appears to be from a 'Jullibee Busyworth', addressing 'my dearest Vivienne'. In extravagant cursive, Jullibee details her thanks for the hellhound shed and Plushdrop blooms Vivienne has supplied, promising some un-enchanted honey and fabrics - the former to eat, the later to use on the injured, given the influx of them.", "setSaveVariable": ["learned_witchs_name", true], "goto": 101 },#
 		101: { 
 			"speaker": "", "dialogue": "The letter makes it sound like the trade routes were so deeply affected that [i]nothing[/i] could get into the country - but you'd been told that wasn't the case, multiple times. Why would the Divine lie?", "goto": 1 },
 	

@@ -83,7 +83,7 @@ static var Convos_Dict = {
 			"setSaveVariable": ["garden_putClitRingOnWrong", true], "goto": 57 },
 			57: { "speaker": "", "dialogue": "The crow is gone as well. That too should worry you too, should feel like you were so close to something more.
 			Frankly, your lazy, mousy mind could not care less about that.", 
-			"setSaveVariable": ["corruptionPoints_Cow", 1],"end": true },
+			"setSaveVariable": ["corruptionPoints_Cow_", 1],"end": true },
 			
 			99: { "speaker": "", "dialogue": "While you let your hands be shifted where they need to go, it doesn't change the very real human instinct of being gunshy around pain. You know what to expect - at least you think you do, anyway.", "goto": 100 },
 			100: { "speaker": "", "dialogue": "You expect the pain - you don't expect the pleasure to get even [i]better[/i].", "goto": 101 },
@@ -150,7 +150,7 @@ static var Convos_Dict = {
 				},
 				4: { "speaker": "", "dialogue": "Eurgh.", "end": true },	
 				
-				5: { "speaker": "", "dialogue": "Whatever you're feeding clearly doesn't value quality of flavor. Still, an instruction is an instruction - you grab the bucket and scoop it in, hauling out a load of questionably smelling 'food'.", "goto": 6 },
+				5: { "speaker": "", "dialogue": "Whatever you're feeding clearly doesn't value quality of flavor. Still, an instruction is an instruction - you grab the bucket and scoop it in, hauling out a load of questionably smelling 'food'.", "setSaveVariable": ["garden_hasTentacleFood", true], "goto": 6 },
 				6: { "speaker": "MC", "dialogue": "I'm not hauling this around any longer than I need to.", "end": true },							
 		},
 }

@@ -18,9 +18,10 @@ static var Convos_Dict = {
 						}
 				},
 				10: { "speaker": "", "dialogue": "As useful as it seems to be, taking this book still feels sort of sacrilegious. You leave it for now.", "end": true },
-				20: { "speaker": "", "dialogue": "You pick up the book, flicking through it before tucking it under your arm. Oh, you can already tell this is going to open up a [i]wealth[/i] of opportunities.", 
+				20: { "speaker": "", "dialogue": "You pick up the book, flicking through it before tucking it under your arm. Oh, you can already tell this is going to open up a [i]wealth[/i] of opportunities - what can you now learn about the plants around you with this under your wing?", 
 				"setSaveVariable": ["plant_guide_read", true], "goto": 21 },
-				21: { "speaker": "Witch_hide", "dialogue": "[i]You can now access the plant guide via the pause menu[/i].", "completelyCentered": true, "end": true },
+				21: { "speaker": "Witch_hide", "dialogue": "[i]You can now access the plant guide via the pause menu. 
+				Additional and refreshed dialogue options have now opened up across all areas.[/i].", "completelyCentered": true, "end": true },
 				100: { "speaker": "", "dialogue": "There's nothing left for you, here.", "end": true },				
 		},	
 
@@ -36,7 +37,7 @@ static var Convos_Dict = {
 			1: { "speaker": "", "dialogue": "You stand and stare at the bubbling cauldron.", 
 			"checkSaveVariable": { "keyToCheck": "study_cauldron_succeeded", "wantedValue": "true", "goto_false": 2, "goto_true": 3 }},	
 			2: { "speaker": "", "dialogue": "The dark, gurgling muck in the cauldron stares back. 
-			Divine help you - why did you think you could do this in the first place? You might as well go wait for the witch now...", "end": true },
+			Divine help you - why did you think you could do this in the first place? [b]There's no fixing this[/b]; you might as well wait for the witch right now...", "end": true },
 			3: { "speaker": "", "dialogue": "The liquid has turned a vibrant pink, the magic circle under your feet glowing approvingly. You heave a sigh of relief - there's a part of you that's worried that it's going to suddenly implode the moment you stop looking at it.", "goto": 4 },
 			4: {"speaker": "", "dialogue": "You're more proud you managed this than you expected.", "end": true },
 			
@@ -179,11 +180,12 @@ static var Convos_Dict = {
 						The location of these will come from the heart
 						Corruption will claim the sweetest release
 						The devil will bring the lovers no peace%we", "completelyCentered": true, "goto": 102 },
-				102: { "speaker": "Witch_hide", "dialogue": "%wsTo build up spend you must hold on.
+				102: { "speaker": "Witch_hide", "dialogue": "%wsTo build up one's spend you must hold on.
 						Until your might can be gazed upon
 						Bring it down from ten to one,
 						And finally the job is done%we", "completelyCentered": true, "goto": 103 },
-				103: { "speaker": "MC", "emote": "exasperated", "dialogue": "...Of course this wasn't going to be easy.", "goto": 1 },
+	
+				103: { "speaker": "MC", "emote": "exasperated", "dialogue": "...Of course this wasn't going to be easy.", "setSaveVariable": ["study_readPotionPoem", true], "goto": 1 },
 		
 				200: { "speaker": "", "backgroundImage": "bottles", "dialogue": "Six bottle are placed in front of you, each sloshing with a different liquid. You read them off; back to front, left to right.", "goto": 201 },
 				201: { "speaker": "Witch_hide", "dialogue": 
@@ -194,7 +196,7 @@ static var Convos_Dict = {
 				202: { "speaker": "Witch_hide", "dialogue": 
 					"%wsStud X
 					For gaining the shaft, balls, and come of a monster.
-					(Improvement on the Stud W formula. )%we", 
+					(Improvement on the Stud IX formula. )%we", 
 				"completelyCentered": true, "keepImage": true, "goto": 203 },
 				203: { "speaker": "Witch_hide", "dialogue": 
 					"%wsLover's Kiss
@@ -203,11 +205,11 @@ static var Convos_Dict = {
 				"completelyCentered": true, "keepImage": true, "goto": 204 },
 				204: { "speaker": "Witch_hide", "dialogue": 
 					"%wsKnocker Gawker
-					For a pair of tits that'll make anybody stare.%we", 
+					For just a pair of fat, honkin' tits%we", 
 				"completelyCentered": true, "keepImage": true, "goto": 205 },
 				205: { "speaker": "Witch_hide", "dialogue": 
 					"%wsAngel's Climax
-					Sensation light as a feather triggering an orgasm that'll take you and keep you in cloud nine%we", 
+					Sensation light as a feather to take you to cloud nine%we", 
 				"completelyCentered": true, "keepImage": true, "goto": 206 },
 				206: { "speaker": "Witch_hide", "dialogue": 
 					"%wsDance of the Fervored One

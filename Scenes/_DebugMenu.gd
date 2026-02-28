@@ -91,6 +91,7 @@ func _ready() -> void:
 		
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_debug") or Input.is_action_just_pressed("ui_pause"):
+		self.hide()
 		remove_debug_menu()
 
 func remove_debug_menu() -> void:

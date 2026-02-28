@@ -69,7 +69,6 @@ text = "Unpause"
 [node name="SaveButton" type="Button" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=313653153]
 layout_mode = 2
 theme_override_styles/focus = ExtResource("3_5w4ur")
-disabled = true
 text = "Save"
 
 [node name="OptionsButton" type="Button" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=871554500]
@@ -222,6 +221,7 @@ theme_override_font_sizes/font_size = 25
 text = "Plant Guide"
 
 [connection signal="pressed" from="LeftPage/MarginContainer/HBoxContainer/VBoxContainer/UnpauseButton" to="." method="_on_unpause_button_pressed"]
+[connection signal="pressed" from="LeftPage/MarginContainer/HBoxContainer/VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="LeftPage/MarginContainer/HBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="LeftPage/MarginContainer/HBoxContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="Forward Button" to="." method="_on_forward_button_pressed"]

@@ -69,7 +69,7 @@ static var convos_Dict = {
 	},		
 
 	"plantWindow":{
-		1: { "speaker": "none", "dialogue": "This stained glass window matches the two in the bedroom. It displays a seedling, freshly renewed from the rain falling from above.", "goto": 2 },
+		1: { "speaker": "none", "dialogue": "This stained glass window matches the two in the bedroom. It displays a seedling, freshly renewed from the rain falling from above. You wonder how you can water a plant here...", "goto": 2 },
 		2: { "speaker": "none", "dialogue": "The craftsmanship is inpeccable - and not worth the time to break.", "end": true } 
 		},
 	

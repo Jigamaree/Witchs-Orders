@@ -27,15 +27,18 @@ func _on_back_button_pressed() -> void:
 
 func refreshPages():
 	titleLeft.text = Plant_Entries[currPageLeft]["name"]
-	textLeft.text = Plant_Entries[currPageLeft]["text"]
+	textLeft.text = removeIndentation(Plant_Entries[currPageLeft]["text"])
 	if Plant_Entries.has(currPageLeft+1):
 		titleRight.text = Plant_Entries[currPageLeft+1]["name"]	
-		textRight.text = Plant_Entries[currPageLeft+1]["text"]	
+		textRight.text = removeIndentation(Plant_Entries[currPageLeft+1]["text"])	
 	else:
 		titleRight.text = ""
 		textRight.text = ""
 	textLeft.scroll_to_line(0)	
 	textRight.scroll_to_line(0)					
+
+func removeIndentation(text: String) -> String:
+	return text.replace("\t", "")
 
 func _on_forward_button_pressed() -> void:
 	print(str(currPageLeft))
@@ -61,7 +64,9 @@ static var Plant_Entries = {
 		"name": "Buttermilk Ginger",
 		"text": "[i]Zingiber zerumbet[/i]
 
-		A member of the ginger family, Buttermilk Ginger boasts leafy fronds that can grow up to 1.5 meters. While the stalks, leaves and rhizomes are edible cooked, the blooms are why Buttermilk Ginger is sought after. The flower heads are scaled in appearance, initially green in colour but darkening to a vibrant pink. The mature blooms are prized for the sweet, aromatic liquid they contain. While used occasionally as a moisturizer in low quantities, the nectar is most well known as use as a personal lubricant, with both sensitivity and stamina enhancing properties. It is a particular favorite of those who are afflicted by heats, as the lubricant will remain slick for up to 12 hours, if exposed to semi-constant friction.
+		A member of the ginger family, Buttermilk Ginger boasts leafy fronds that can grow up to 1.5 meters. While the stalks, leaves and rhizomes are edible cooked, the blooms are why Buttermilk Ginger is sought after. The flower heads are scaled in appearance, initially green in colour but darkening to a vibrant pink. The mature blooms are prized for the sweet, aromatic liquid they contain. 
+		
+		While used occasionally as a moisturizer in low quantities, the nectar is most well known as use as a personal lubricant, with both sensitivity and stamina enhancing properties. It is a particular favorite of those who are afflicted by heats, as the lubricant will remain slick for up to 12 hours, if exposed to semi-constant friction.
 
 		Buttermilk Ginger is notoriously difficult to propagate, leading to an intense secondary market. Even diluted Buttermilk sap can go for hundreds of gold in some aristocratic circles.",
 	},
@@ -75,14 +80,17 @@ static var Plant_Entries = {
 	4: {
 		"name": "Dew Berry",
 		"text": "A rare plant in which the berries are more useful than the flower itself, dewberry is named for the dark blue fruit the plant bears year round. The slick outside of the plant is a natural lubricant, though produced in too small a quanity to be used on its own.
+		
 		When used topically Dewberry is an incredibly powerful healing plant; with its slick being produced both to dissuade creatures from landing on its surface as well as to protect from disease, Dewberry has an incredible sanitising effect; the raw berry alone will help dissuade disease from most open wounds, and when mixed into tincures the effect becomes even more pronounced.
+		
 		However, the berries when injested do induce a significant slickening effect. All orifices will start to either create more natural lubrication (spit, slick, etc) or will start to create it in response to the Dewberry's magic. This effect can last for up to 12 days in the most arcane sensitive, leading it to be a popular choice for individuals helping monsters through heats.
 		Eating too many of the berries at once can cause the user to be rendered unable to talk - though for some this is an extremely intended side effect.",
 	},
 	5: {
 		"name": "Dragonclaw",
 		"text": "A flower with a large trumpet shape and firery red to yellow colouring, Dragonclaw is a rather striking addition to any garden. The plant is known in some circles as \"Assassin's Bane\", due to its capaity to completely detox weaker poisons and greatly reduce the mortality rate of deadlier ones; its pleasant citrus-cinnamon scent also makes it a common mundane additive in other potions, in order to drown out more unpleasant ingrendiant scents.
-		The pollen of Dragonclaw is also extremely useful in lubricants and potions. Dragonclaw induces a particularly interesting reaction in the bodies of humaniods, allowing them to stretch out many times their size. This is how the plant go its name; it is said tha an exploring witch was able to accomodate an entire dragon's claw thanks to treating herself with Dragonclaw pollen prior to insertion. 
+		
+		The pollen of Dragonclaw is also extremely useful in lubricants and potions. Dragonclaw induces a particularly interesting reaction in the bodies of humaniods, allowing them to stretch out many times their size. It is said that an exploring witch was able to accomodate an entire dragon's claw, thanks to treating herself with Dragonclaw pollen prior to insertion. 
 		
 		(It is said that the creature's cock also fitted suitably well, but 'Dragonclaw' gained a notably more widespread adoption rate for the plant. )",
 	},
@@ -98,7 +106,9 @@ static var Plant_Entries = {
 
 		A stunning member of the Dahlia family, the Dusk Dalia can be identified by its bladed leaves and soft purple petals. It was once said that the plant would only be seen blooming at dusk - this was a tale spread by salesmen in times past to artificially inflate the price of the blossom to sell onto noblemen and royalty alike, garnering it the nickname 'Fool's Gemrose'. Ironically, the Dusk Dahlia is an incredibly easy plant to cultivate, especially in more temperate outdoor gardens.
 
-		One particularly unique feature of the Dusk Dahlia bloom is it's bruising. Much like [i]Psilocybe[/i] mushrooms, when exposed to pressure the Dusk Dahlia will stain to a bright blue, speaking to the flower's psychoactive properties. However, the nature of these properties vary wildly with and without processing. Without processing the user will descend into a unresponsive stupor; individuals in this state are highly prone to suggestion, though require other manipulation to do much more than stare into the middle distance. With processing, however, the flower becomes a powerful tool in the witch's arsenal, allowing for once to perceive not only the presence of magic in the air, but the movement and intensity of such magic. ",
+		One particularly unique feature of the Dusk Dahlia bloom is it's bruising. Much like [i]Psilocybe[/i] mushrooms, when exposed to pressure the Dusk Dahlia will stain to a bright blue, speaking to the flower's psychoactive properties. However, the nature of these properties vary wildly with and without processing. Without processing the user will descend into a unresponsive stupor; individuals in this state are highly prone to suggestion, though require other manipulation to do much more than stare into the middle distance. 
+		
+		With processing, however, the flower becomes a powerful tool in the witch's arsenal, allowing for once to perceive not only the presence of magic in the air, but the movement, flow, and intensity of such magic. ",
 	},
 	8: {
 		"name": "Furnace Fern",

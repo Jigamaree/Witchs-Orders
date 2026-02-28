@@ -401,28 +401,20 @@ func manage_choices():
 		if SaveManager.getSaveVariable("lounge_ignusWouldFuck"):
 			create_button("Ask why he can't get his own food", 500)					
 		else:
-			create_button("Ask where you can find his food", 700)	
+			create_button("Ask where you can find his food", 700)
+		if SaveManager.getSaveVariable("study_readPotionPoem"):
+			create_button("Ask for help with potion puzzle", 900)	
 		if !SaveManager.getSaveVariable("ignus_fucked_ate_out") and SaveManager.getSaveVariable("lounge_ignusWouldFuck"):			
 			create_button("Let the dog eat out", 800)					
 		if SaveManager.getSaveVariable("ignus_fucked_ate_out"):
 			create_button("Present for him", 666)								 				
 		create_button("Leave", 999)
 
-	# Wait a frame to allow layout to recalc
-	await get_tree().process_frame
-	print("Size:", choice_box.size)
-	print("Min Size:", choice_box.get_combined_minimum_size())
-	print("Global Pos:", choice_box.global_position)
-
 var ignusButtonChoices = {
 	"pet": ["Pet him", 100],
 	"trapped": ["Ask if he's trapped here", 200],
 	"whytho": ["Ask why the witch brought you here", 300],
 	"injured": ["Ask if you're the first injured person the witch has brought here", 400],
-	#"foodLocation": ["Ask where you can find his food", 700],
-	#"whyCantYou": ["", 500],
-	#"present": ["Present for him", 666],
-	#"leave": ["Leave", 999],
 }
 
 func create_button(text: String, goto_id: int):
@@ -500,7 +492,7 @@ func advance_line():
 			get_tree().change_scene_to_file("res://Scenes/Epilogue Scenes/Epilogue_Hard.tscn")
 			
 		elif conv[index].has("goToWitchEpilogue"):
-			pass
+			get_tree().change_scene_to_file("res://Scenes/Epilogue Scenes/Epilogue_Witch.tscn")
 			
 		elif conv[index].has("END_OF_GAME"):	
 			SaveManager.setSaveVariable(conv[index].get("END_OF_GAME", true), true)

@@ -6,25 +6,34 @@ class_name EpilogueWitch
 @onready var debug_menu: PackedScene = preload("res://Scenes/DebugMenu.tscn")
 var dialogue_instance: DialogueSystem
 var canOpenDebug
-var dialogueDictionary = hardEndings.endingsDict
+var dialogueDictionary = witchEndings.endingsDict
+
+var waitingConvo = ""
+var isWaitingConvo = false
 
 func _ready():
 	# Spawn player
 	GlobalVariables.startDialogue.connect(_on_start_dialogue)
+	GlobalVariables.preloadConversation.connect(_line_up_convo)		
+	calculate_what_ending()	
 	
-	if SaveManager.getSaveVariable("finalEnding") == SaveData_EndingTracker.EndingEnum.CAPTURED: 
-		_on_start_dialogue("Captured")	
-	elif SaveManager.getSaveVariable("finalEnding") == SaveData_EndingTracker.EndingEnum.TENTACLE_BAIT:
-		_on_start_dialogue("TentacleBait")
-	elif SaveManager.getSaveVariable("finalEnding") == SaveData_EndingTracker.EndingEnum.DESPERATE_MILKINGS:
-		_on_start_dialogue("DesperateMilkings")
-	elif SaveManager.getSaveVariable("finalEnding") == SaveData_EndingTracker.EndingEnum.MARKED_HEELED:
-		_on_start_dialogue("MarkedAndHeeled")
-	elif SaveManager.getSaveVariable("finalEnding") == SaveData_EndingTracker.EndingEnum.IGNUS_BITCH: 
-		_on_start_dialogue("IgnusBitch")		
+func calculate_what_ending():
+	#first check for true bimbo ending
+	if !SaveManager.getSaveVariable("knight_fed") and !SaveManager.getSaveVariable("ignus_fed") and !SaveManager.getSaveVariable("pit_fed") and !SaveManager.getSaveVariable("potions_sorted_bool") and !SaveManager.getSaveVariable("cauldron_finished_bool"):
+		_on_start_dialogue("true_bimbo_ending")
+	#then check if either of the puzzles were fucked up for the bimbo ending	
+	elif SaveManager.getSaveVariable("potion_state") == SaveData_CurrentGame.Puzzle_State.INCORRECT or SaveManager.getSaveVariable("study_cauldron_succeeded") == false:
+		_on_start_dialogue("BetterNotToThink")
 	
-	else:
-		_on_start_dialogue("")	
+	
+func _process(delta: float) -> void:
+	if isWaitingConvo:
+		GlobalVariables.startDialogue.emit(waitingConvo)	
+		isWaitingConvo = false
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_debug"):
+		print(str(isWaitingConvo))
 
 func _on_start_dialogue(objectName: String):
 	if dialogue_instance:
@@ -48,3 +57,7 @@ func get_dialogue_entry(objectName: String):
 		return
 	var v = dialogueDictionary[objectName]	
 	dialogue_instance.conv = v
+
+func _line_up_convo(convo_entry: String):
+	isWaitingConvo = true
+	waitingConvo = convo_entry	

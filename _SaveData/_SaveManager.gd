@@ -1,17 +1,17 @@
 extends Node
 
 var save_data: Save_Data
-const SAVE_PATH = "user://Witches_Orders_Savedata.tres"
+const SAVE_PATH = "user://Witches_Orders_Savedata_2.tres"
 
 func _ready():
 	load_or_create()
 
 func load_or_create():
-	##UNCOMMENT WHEN I WANNA ACTUALLY SAVE STUFF
-	#if ResourceLoader.exists(SAVE_PATH):
-		#save_data = ResourceLoader.load(SAVE_PATH)
-		#print("Save loaded.")
-	#else:
+	if ResourceLoader.exists(SAVE_PATH):
+		save_data = ResourceLoader.load(SAVE_PATH)
+		
+		print("Save loaded.")
+	else:
 		save_data = Save_Data.new()
 		save_data.currentGameData = SaveData_CurrentGame.new()
 		save_data.multiRunSaveData = SaveData_EndingTracker.new()		
@@ -27,7 +27,7 @@ func save_game():
 func export_save(path: String):
 	var err = ResourceSaver.save(save_data, path)
 	if err == OK:
-		print("Save exported.")
+		print("Save exported.")	
 
 func import_save(path: String):
 	var loaded = ResourceLoader.load(path)
@@ -40,16 +40,22 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_debug2"):
 		pass
 
+func getPotionSort():
+	if SaveManager.getSaveVariable("potion_state") == SaveData_CurrentGame.Puzzle_State.INCORRECT:
+		return false
+	elif  SaveManager.getSaveVariable("potion_state") == SaveData_CurrentGame.Puzzle_State.CORRECT:
+		return true
+
 func getCurrentMainCorruptionType():
 #returns the corruption the player is most affected by.
 	if SaveManager.getSaveVariable("apprentice_seed_taken"):
 		return SaveData_CurrentGame.Corruption_Type.APPRENTICE
-	elif SaveManager.getSaveVariable("corruptionPoints_Cow") == 0 and SaveManager.getSaveVariable("corruptionPoints_Imp") == 0 and SaveManager.getSaveVariable("corruptionPoints_Pet") == 0:
+	elif SaveManager.getSaveVariable("corruptionPoints_Cow_") == 0 and SaveManager.getSaveVariable("corruptionPoints_Imp_") == 0 and SaveManager.getSaveVariable("corruptionPoints_Pet_") == 0:
 		return SaveData_CurrentGame.Corruption_Type.NONE
 	else:
-		var _cow = SaveManager.getSaveVariable("corruptionPoints_Cow") 
-		var _imp = SaveManager.getSaveVariable("corruptionPoints_Imp")
-		var _pet = SaveManager.getSaveVariable("corruptionPoints_Pet") 	
+		var _cow = SaveManager.getSaveVariable("corruptionPoints_Cow_") 
+		var _imp = SaveManager.getSaveVariable("corruptionPoints_Imp_")
+		var _pet = SaveManager.getSaveVariable("corruptionPoints_Pet_") 	
 		if _cow > _imp and _cow > _pet:
 			return SaveData_CurrentGame.Corruption_Type.COW
 		elif _imp > _cow and _imp > _pet:
@@ -132,7 +138,7 @@ func setSaveVariable(variableName: String, variableValue):
 	if variableName == "knight_eaten_item":
 		setSaveVariable("knight_fed", true)
 	if variableName == "knight_eaten_item" and (variableValue == SaveData_CurrentGame.Eaten_Item.CHEESE or variableValue == SaveData_CurrentGame.Eaten_Item.MILK or variableValue == SaveData_CurrentGame.Eaten_Item.BUTTER):
-		increasePoints("corruptionPoints_Cow", 1)
+		increasePoints("corruptionPoints_Cow_", 1)
 	if variableName == "knight_eaten_item" and variableValue == SaveData_CurrentGame.Eaten_Item.BIRDSEED:
 		setSaveVariable("cellar_eatenBirdSeed", true)
 	if variableName == "knight_eaten_item" and variableValue == SaveData_CurrentGame.Eaten_Item.DOGFOOD:
@@ -148,40 +154,40 @@ func setSaveVariable(variableName: String, variableValue):
 	if variableName == "ignus_fucked_ate_out":
 		setSaveVariable ("ignus_fed", true)
 	
-	if variableName != "corruptionPoints_Imp" and variableName != "corruptionPoints_Pet" and variableName != "corruptionPoints_Cow":
+	if variableName != "corruptionPoints_Imp_" and variableName != "corruptionPoints_Pet_" and variableName != "corruptionPoints_Cow_":
 		checkForEndingIncreases(variableName, variableValue)
 	
 	save_game()
 
 #checks to see if any variables are associated with a specific ending, and increases their counter.
 func checkForEndingIncreases(variableName: String, variableValue):
-	var impPoints = save_data.currentGameData.current_save_data_dictionary["corruptionPoints_Imp"]
-	var petPoints = save_data.currentGameData.current_save_data_dictionary["corruptionPoints_Pet"]
-	var cowPoints = save_data.currentGameData.current_save_data_dictionary["corruptionPoints_Cow"]		
+	var impPoints = save_data.currentGameData.current_save_data_dictionary["corruptionPoints_Imp_"]
+	var petPoints = save_data.currentGameData.current_save_data_dictionary["corruptionPoints_Pet_"]
+	var cowPoints = save_data.currentGameData.current_save_data_dictionary["corruptionPoints_Cow_"]		
 	
 	var _vN = variableName.to_lower()
 	
-	if _vN.contains("imp") and _vN != "corruptionpoints_imp":	
-		setSaveVariable("corruptionPoints_Imp", impPoints + 1)
+	if _vN.contains("_imp_") and _vN != "corruptionpoints_imp_":	
+		setSaveVariable("corruptionPoints_Imp_", impPoints + 1)
 
-	if _vN.contains("pet") and _vN != "corruptionpoints_pet": 
-		setSaveVariable("corruptionPoints_Pet", petPoints + 1)
+	if _vN.contains("_pet_") and _vN != "corruptionpoints_pet_": 
+		setSaveVariable("corruptionPoints_Pet_", petPoints + 1)
 
-	if _vN.contains("cow") and _vN != "corruptionpoints_cow": 
-		setSaveVariable("corruptionPoints_Cow", cowPoints + 1)		
+	if _vN.contains("_cow_") and _vN != "corruptionpoints_cow_": 
+		setSaveVariable("corruptionPoints_Cow_", cowPoints + 1)		
 	
 	if variableValue is SaveData_CurrentGame.Clothing:
 		if variableValue == SaveData_CurrentGame.Clothing.STOLEN_ROBES or variableValue == SaveData_CurrentGame.Clothing.SLUTTY_OUTFIT: 
-			setSaveVariable("corruptionPoints_Imp", impPoints + 1)
+			setSaveVariable("corruptionPoints_Imp_", impPoints + 1)
 		elif variableValue == SaveData_CurrentGame.Clothing.BUTTPLUG:
-			setSaveVariable("corruptionPoints_Pet", petPoints + 1)
+			setSaveVariable("corruptionPoints_Pet_", petPoints + 1)
 		elif variableValue == SaveData_CurrentGame.Clothing.COW_BIKINI:
-			setSaveVariable("corruptionPoints_Cow", cowPoints + 1)
+			setSaveVariable("corruptionPoints_Cow_", cowPoints + 1)
 
 func increasePoints(variableName, variableValue):
-	var impPoints = save_data.currentGameData.current_save_data_dictionary["corruptionPoints_Imp"]
-	var petPoints = save_data.currentGameData.current_save_data_dictionary["corruptionPoints_Pet"]
-	var cowPoints = save_data.currentGameData.current_save_data_dictionary["corruptionPoints_Cow"]
+	var impPoints = save_data.currentGameData.current_save_data_dictionary["corruptionPoints_Imp_"]
+	var petPoints = save_data.currentGameData.current_save_data_dictionary["corruptionPoints_Pet_"]
+	var cowPoints = save_data.currentGameData.current_save_data_dictionary["corruptionPoints_Cow_"]
 	var _vN = variableName.to_lower()
 	
 	if _vN.contains("_cow"):

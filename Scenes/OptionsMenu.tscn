@@ -95,6 +95,21 @@ theme_override_font_sizes/font_size = 60
 text = "Options"
 horizontal_alignment = 1
 
+[node name="CenterContainer" type="CenterContainer" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=470368855]
+layout_mode = 2
+
+[node name="Skip" type="CheckBox" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer/CenterContainer" unique_id=2112903708]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.5921569, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0.5019608)
+text = "Skip prologue? 
+(Not reccomended for first playthrough)"
+alignment = 1
+
 [node name="MasterLabel" type="Label" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1295471355]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -103,30 +118,38 @@ horizontal_alignment = 1
 
 [node name="MasterSlider" type="HSlider" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1454250653]
 layout_mode = 2
+theme = ExtResource("3_uw46w")
+max_value = 1.0
+step = 0.1
+value = 1.0
 
 [node name="MusicLabel" type="Label" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1392751576]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Music Volume"
 horizontal_alignment = 1
 
 [node name="MusicSlider" type="HSlider" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1903801137]
+visible = false
 layout_mode = 2
 
 [node name="SFXLabel" type="Label" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2060576206]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Sound FX Volume"
 horizontal_alignment = 1
 
 [node name="SFXSlider" type="HSlider" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1694790786]
+visible = false
 layout_mode = 2
 
 [node name="Control" type="Control" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=845228870]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SaveData2" type="Label" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=979398486]
+[node name="WindowTypeTitle" type="Label" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=979398486]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Window Type"
@@ -155,13 +178,15 @@ horizontal_alignment = 1
 layout_mode = 2
 theme = ExtResource("3_uw46w")
 theme_override_styles/focus = ExtResource("3_un4xt")
-text = "Export Save Data"
+disabled = true
+text = "Export Save Data (not yet implemented)"
 
 [node name="ImportSave" type="Button" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=524807687]
 layout_mode = 2
 theme = ExtResource("3_uw46w")
 theme_override_styles/focus = ExtResource("3_un4xt")
-text = "Import Save Data"
+disabled = true
+text = "Import Save Data (not yet implemented)"
 
 [node name="Control4" type="Control" parent="LeftPage/MarginContainer/HBoxContainer/VBoxContainer" unique_id=855194140]
 layout_mode = 2
@@ -218,6 +243,16 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.43137255, 1, 1, 0)
 
+[node name="TextureRect" type="TextureRect" parent="RightPage" unique_id=571179507]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 105.0
+offset_right = 643.0
+offset_bottom = 819.0
+texture = ExtResource("4_s3xhb")
+expand_mode = 4
+stretch_mode = 5
+
 [node name="MarginContainer" type="MarginContainer" parent="RightPage" unique_id=140672403]
 layout_mode = 1
 anchors_preset = 15
@@ -240,12 +275,6 @@ theme_override_font_sizes/font_size = 60
 text = "Controls"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="RightPage/MarginContainer/VBoxContainer" unique_id=571179507]
-layout_mode = 2
-texture = ExtResource("4_s3xhb")
-expand_mode = 4
-stretch_mode = 5
-
 [node name="Control" type="Control" parent="RightPage" unique_id=261430736]
 anchors_preset = 0
 offset_right = 40.0
@@ -253,54 +282,56 @@ offset_bottom = 40.0
 
 [node name="TitleLabel" type="Label" parent="RightPage/Control" unique_id=506810613]
 layout_mode = 0
-offset_left = 87.0
-offset_top = 175.0
-offset_right = 332.0
-offset_bottom = 217.0
+offset_left = 135.0
+offset_top = 149.0
+offset_right = 380.0
+offset_bottom = 191.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-text = "Up"
+text = "Up/Scroll Text"
 horizontal_alignment = 2
 
 [node name="TitleLabel2" type="Label" parent="RightPage/Control" unique_id=854405010]
 layout_mode = 0
-offset_left = 96.0
-offset_top = 243.0
-offset_right = 341.0
-offset_bottom = 285.0
+offset_left = 140.0
+offset_top = 236.0
+offset_right = 385.0
+offset_bottom = 278.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-text = "Down"
+text = "Down/Scroll Text"
 horizontal_alignment = 2
 
 [node name="TitleLabel3" type="Label" parent="RightPage/Control" unique_id=1948747476]
 layout_mode = 0
-offset_left = 93.0
-offset_top = 309.0
-offset_right = 338.0
-offset_bottom = 351.0
+offset_left = 14.0
+offset_top = 318.0
+offset_right = 413.0
+offset_bottom = 405.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-text = "Left"
+text = "Left/Reactivate Textbox Scroll"
 horizontal_alignment = 2
+autowrap_mode = 3
 
 [node name="TitleLabel4" type="Label" parent="RightPage/Control" unique_id=1535831562]
 layout_mode = 0
-offset_left = 96.0
-offset_top = 377.0
-offset_right = 341.0
-offset_bottom = 419.0
+offset_left = 6.0
+offset_top = 408.0
+offset_right = 425.0
+offset_bottom = 495.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-text = "Right"
+text = "Right/Activate Keyboard Dialogue Button Select"
 horizontal_alignment = 2
+autowrap_mode = 3
 
 [node name="TitleLabel5" type="Label" parent="RightPage/Control" unique_id=923192208]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 493.0
-offset_right = 357.0
-offset_bottom = 535.0
+offset_left = 134.0
+offset_top = 574.0
+offset_right = 379.0
+offset_bottom = 616.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Interact"
@@ -308,10 +339,10 @@ horizontal_alignment = 2
 
 [node name="TitleLabel6" type="Label" parent="RightPage/Control" unique_id=1126665958]
 layout_mode = 0
-offset_left = 110.0
-offset_top = 593.0
-offset_right = 355.0
-offset_bottom = 680.0
+offset_left = 150.0
+offset_top = 718.0
+offset_right = 395.0
+offset_bottom = 805.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Pause/In-Game Item Access"
@@ -322,6 +353,7 @@ autowrap_mode = 3
 [connection signal="confirmed" from="RestartConfirmDialogue" to="." method="_on_restart_confirm_dialogue_confirmed"]
 [connection signal="canceled" from="DeleteAllConfirmDialogue" to="." method="_close_confirm_stuff"]
 [connection signal="confirmed" from="DeleteAllConfirmDialogue" to="." method="_on_delete_all_confirm_dialogue_confirmed"]
+[connection signal="pressed" from="LeftPage/MarginContainer/HBoxContainer/VBoxContainer/CenterContainer/Skip" to="." method="_on_skip_pressed"]
 [connection signal="value_changed" from="LeftPage/MarginContainer/HBoxContainer/VBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="LeftPage/MarginContainer/HBoxContainer/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="LeftPage/MarginContainer/HBoxContainer/VBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]

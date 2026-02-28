@@ -33,13 +33,16 @@ enum Corruption_Type {
 	UNDEFINED = 305,
 }
 
-var current_save_data_dictionary: Dictionary
+@export var current_save_data_dictionary: Dictionary
 
 func _init() -> void:
 	current_save_data_dictionary = default_save_data_dictionary.duplicate(true)
 
 func reset_current_game_data(): 
 	current_save_data_dictionary = default_save_data_dictionary.duplicate(true)
+
+func getCurrentSaveData():
+	return current_save_data_dictionary
 
 var default_save_data_dictionary: Dictionary = {
 	"current_room": GlobalVariables.roomsInHouse.SLEEPYROOM,
@@ -90,10 +93,12 @@ var default_save_data_dictionary: Dictionary = {
 	"garden_hasTentacleFood": false,
 
 	#study
+	"study_readPotionPoem": false,
 	"study_putting_ingred_1_in": false,
 	"study_putting_ingred_2_in": false,
 	"study_putting_ingred_3_in": false,		
-	"study_cauldron_succeeded": false,		
+	"study_cauldron_succeeded": false,	
+		
 	"study_cauldron_state":  Puzzle_State.NOT_FINISHED,   
 
 	#immediate player-state data	
@@ -129,12 +134,12 @@ var default_save_data_dictionary: Dictionary = {
 	"apprentice_seed_taken": false,  #"pendant got"
 
 	### other ending measures
-	"imp_dildo_fucked_first": false,
-	"imp_dildo_fucked_second": false,
-	"imp_dildo_fucked_third": false,	
-	"corruptionPoints_Cow": 0,
-	"corruptionPoints_Imp": 0,
-	"corruptionPoints_Pet": 0,	
+	"_imp_dildo_fucked_first": false,
+	"_imp_dildo_fucked_second": false,
+	"_imp_dildo_fucked_third": false,	
+	"corruptionPoints_Cow_": 0,
+	"corruptionPoints_Imp_": 0,
+	"corruptionPoints_Pet_": 0,	
 	
 	"finalEnding": null	
 }

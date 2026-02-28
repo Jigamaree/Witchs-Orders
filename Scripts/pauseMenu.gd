@@ -53,3 +53,9 @@ func _on_forward_button_pressed() -> void:
 		var potion_select = preload("res://Scenes/PlantGuide.tscn").instantiate()
 		potion_select.layer = 10
 		add_child(potion_select)
+
+
+func _on_save_button_pressed() -> void:
+	saveButton.text = "Saved successfully!"
+	saveButton.disabled = true
+	saveButton.add_theme_color_override("font_disabled_color", Color(0.0, 0.714, 0.0, 1.0))

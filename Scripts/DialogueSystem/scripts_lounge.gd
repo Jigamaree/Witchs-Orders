@@ -20,7 +20,7 @@ static var convos_Dict = {
 				}
 		},
 		2: { "speaker": "", "dialogue": "You continue to look around.", "end": true },
-		66: { "speaker": "", "dialogue": "Time to wait for the witch. (Jigs will tell you what ending you get)", "end": true },	
+		66: { "speaker": "", "dialogue": "Time to wait for the witch.", "goToWitchEpilogue": true },	
 		},	
 					
 	"leftArmchair": {
@@ -60,12 +60,12 @@ static var convos_Dict = {
 		#have not taken watering can
 		2: { "speaker": "", "dialogue": "A table with a watering can on it.", 			
 			"checkSaveVariable": { 
-				"keyToCheck": "frontdoor_interactedwithdeadplant", 
+				"keyToCheck": "plant_guide_read", 
 				"wantedValue": "true", 
 				"goto_false": 10, 
 				"goto_true": 20 }},
 				
-		10: { "speaker": "", "dialogue": "Thats how she waters the plants.", "end": true },				
+		10: { "speaker": "", "dialogue": "That's how she waters the plants - truly, stunning technology at play here.", "end": true },				
 		20: { "speaker": "", "dialogue": "There's probably a way you can use that...", 
 		"choice": {"c1": {"choice": "Take the watering can", "goto": 22 }, "c2": { "choice": "Leave it.", "goto": 21 } } },
 		

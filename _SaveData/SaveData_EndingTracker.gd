@@ -2,7 +2,7 @@ extends Resource
 
 class_name SaveData_EndingTracker
 
-var tracked_ending_data_dictionary: Dictionary
+@export var tracked_ending_data_dictionary: Dictionary
 
 enum EndingEnum 			{
 	CAPTURED = 1001, 
@@ -23,7 +23,11 @@ func _init() -> void:
 
 func reset_endings_data(): tracked_ending_data_dictionary = default_ending_data_dictionary.duplicate(true)
 
+func get_current_ending_data(): return tracked_ending_data_dictionary
+
 var default_ending_data_dictionary: Dictionary = {
+	"skipPrologue": 				false,
+	
 	# Special Endings: Triggered when at least 1 key has been aquirred
 	"specialEnding_trueEnd": 		false,	# True End - Apprentice
 	"specialEnding_failed": 		false,	# Bimbo End - failed apprentice

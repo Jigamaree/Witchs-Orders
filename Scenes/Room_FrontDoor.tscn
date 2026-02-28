@@ -11,16 +11,19 @@
 size = Vector2(243, 239)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2lown"]
-size = Vector2(154.5, 370)
+size = Vector2(107, 370)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m0voj"]
 size = Vector2(200, 333)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofcc1"]
-size = Vector2(179, 334)
+size = Vector2(159, 334)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vtv2"]
-size = Vector2(206, 345)
+size = Vector2(202, 345)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0mlg8"]
+size = Vector2(210, 347)
 
 [node name="RoomFrontDoor" type="Node2D" unique_id=940703355]
 script = ExtResource("1_m0voj")
@@ -71,7 +74,7 @@ position = Vector2(656, 328)
 objectName = "DeadPlant"
 
 [node name="ObjectInteract" parent="Interactables/DeadPlant" index="0" unique_id=1854910098]
-position = Vector2(75.75, -21)
+position = Vector2(74.5, -21)
 shape = SubResource("RectangleShape2D_2lown")
 
 [node name="FrontDoor" parent="Interactables" unique_id=1448623407 instance=ExtResource("6_m0voj")]
@@ -87,7 +90,7 @@ position = Vector2(1105, 124)
 objectName = "NoticeBoard"
 
 [node name="ObjectInteract" parent="Interactables/NoticeBoard" index="0" unique_id=1854910098]
-position = Vector2(62.5, 171)
+position = Vector2(72.5, 171)
 shape = SubResource("RectangleShape2D_ofcc1")
 
 [node name="WindowRight" parent="Interactables" unique_id=1629649579 instance=ExtResource("6_m0voj")]
@@ -95,7 +98,7 @@ position = Vector2(460, 131)
 objectName = "Window"
 
 [node name="ObjectInteract" parent="Interactables/WindowRight" index="0" unique_id=1854910098]
-position = Vector2(917, 163)
+position = Vector2(955, 163)
 shape = SubResource("RectangleShape2D_8vtv2")
 
 [node name="WindowLeft" parent="Interactables" unique_id=1261110827 instance=ExtResource("6_m0voj")]
@@ -103,8 +106,8 @@ position = Vector2(460, 131)
 objectName = "Window"
 
 [node name="ObjectInteract" parent="Interactables/WindowLeft" index="0" unique_id=1854910098]
-position = Vector2(82, 159.5)
-shape = SubResource("RectangleShape2D_8vtv2")
+position = Vector2(47, 154.5)
+shape = SubResource("RectangleShape2D_0mlg8")
 
 [editable path="Door_Area"]
 [editable path="Interactables/DeadPlant"]

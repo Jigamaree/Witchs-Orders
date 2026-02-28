@@ -95,7 +95,8 @@ static var thePit_Convos_Dict = {
 				303: { "speaker": "", "dialogue": "And as that smell intensifies the well [i]blooms[/i] open. Tentacle after tentacle unfurls from the dark, curling into the air like some sort of exotic coral. They swirls and coil in the air, an endless cycling pattern. It's... Almost beautiful?","specialAction": "singleTentacle", "goto": 304 },
 				304: { "speaker": "", "dialogue": "Despite its clear size and strength advantage - a baffling thing to say as a [i]Divine's Chosen[/i] - it seems to be in no rush to overpower you.
 				You daresay it might even be trying to impress you. 
-				Huh.", "end": true },
+				Huh.",
+				"setSaveVariable": ["pit_fed", true], "end": true },
 				
 				#FUCK! THAT! SQUID!
 				400: { "speaker": "", "dialogue": "You bite your lip, looking between the bucket in your hand, yourself and the pit in front of you. Are you really considering this, stepping into a massive tentacle pit? You have no guarantee this this isn't going to hurt you or kill you. Hell, it might even eat you! Any sane person would turn around and bolt right the fuck now.", "goto": 401 },
@@ -153,10 +154,8 @@ static var thePit_Convos_Dict = {
 				14: { "speaker": "MC", "dialogue": "Yeah. Yeah I'm back. I'm okay.", "goto": 15 },
 				15: { "speaker": "MC", "dialogue": "...Thanks.", "goto": 16 },
 				16: { "speaker": "", "dialogue": "That seems to be a satisfactory enough answer for it. Tentacles winding around you once more, it winches you up and out of the hole, dropping you right next to your clothes. You're able to dress yourself easily, getting yourself presentable once more.", "specialAction": "push", "fadeIntoScene": true, "goto": 17 },
-				17: { "speaker": "", "dialogue": "...And yet, you're aware of the monster still watching you, still tracking your every movements. If before it was treating you as a lover, now you're aware of how it acts like a creature all unto it's own. You have the sense that if it were to take you again, it'd never let you go.", "goto": 18 },
-				18: { "speaker": "", "dialogue": "You can't say you're not tempted - but. For now at least the pit is [i]fully[/i] tended to; a job, checked well and truly off the list.", "end": true },
-				##TODO: Add "pit: fucked"
-				##also make leaving the room not possible
+				17: { "speaker": "", "dialogue": "...And yet, you're aware of the monster still watching you, still tracking your every movements. If before it was treating you as a lover, now you're aware of how it acts like a creature all unto it's own. You have the sense that if it were to take you again, it'd never let you go.", "setSaveVariable": ["pit_fed", true], "goto": 18 },
+				18: { "speaker": "", "dialogue": "You can't say you're not tempted - but. For now at least the pit is [i]fully[/i] tended to; a job, checked well and truly off the list.", "setSaveVariable": ["pit_fucked", true], "end": true },
 				
 		},			
 }

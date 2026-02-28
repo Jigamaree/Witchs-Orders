@@ -19,6 +19,9 @@ size = Vector2(254, 326)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dg73g"]
 size = Vector2(236, 119)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ndy5"]
+size = Vector2(134, 371)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qvee6"]
 size = Vector2(136, 163)
 
@@ -117,8 +120,8 @@ position = Vector2(1209, 149)
 objectName = "SidetableLeft"
 
 [node name="ObjectInteract" parent="Interactions/SidetableLeft" index="0" unique_id=1854910098]
-position = Vector2(-550, 144)
-shape = SubResource("RectangleShape2D_qvee6")
+position = Vector2(-545, 41.5)
+shape = SubResource("RectangleShape2D_5ndy5")
 
 [node name="SidetableRight" parent="Interactions" unique_id=314117672 instance=ExtResource("3_t7h02")]
 position = Vector2(1209, 149)
