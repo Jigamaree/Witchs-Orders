@@ -37,16 +37,16 @@ static var thePit_Convos_Dict = {
 	#Can either toss the food - completes "tend to pit" and allows player to engage later (exit EnteringRoom)
 	#OR wait it out, and engage
 	"enteringRoom": {
-				0: { "checkSaveVariable": { "keyToCheck": "garden_hasTentacleFood", "wantedValue": "true", "goto_false": 100, "goto_true": 100 }},
+				0: { "checkSaveVariable": { "keyToCheck": "garden_hasTentacleFood", "wantedValue": "true", "goto_false": 1, "goto_true": 100 }},
 				#does not have food
-				1: { "speaker": "none", "dialogue": "The room is lit by a single flickering blue torch - while dim, it brings your attention to the massive pit in the ground.", "goto": 40 },
+				1: { "speaker": "none", "dialogue": "The room is lit by a single flickering blue torch - while dim, it brings your attention to the massive pit in the ground.", "goto": 2 },
 				2: { "speaker": "", "dialogue": "Its [i]huge[/i]. You'd think it access to some sort of ancient sewage system, like you've heard adventurers finding in antiquity ruins, but this looks more tended to than that. Scrubbed stone, free of lichen or crumbling rock makes up the floor, with solid brick overhead.", "goto": 3 },
 				3: { "speaker": "", "dialogue": "The only true blemishes in the room are a slickness to the edge of the pit, something that only catches your attention because of the flickering light. You realise that isn't some failed attempt of cleaning - it's beause of what's inside the hole itself.", "goto": 4 },
-				4: { "speaker": "", "dialogue": "You can barely make it out, even from where you're standing at the door - something undulating in the dark, the picture of unrest- No. Somethings, [i]plural[/i]. There's an impossible amount of movement from an impossible amount of limbs, all barely visible to the eye.",  "goto": 5 },
+				4: { "speaker": "", "dialogue": "You can barely make it out, even from where you're standing at the door - something undulating in the dark, the picture of unrest- No. Somethings, [i]plural[/i]. There's an impossible amount of movement from an impossible amount of limbs, all barely visible to the eye.", "specialAction": "singleTentacle", "goto": 5 },
 				5: { "speaker": "", "dialogue": "That sweet scent on the air is only growing stronger by the second - turning slightly sour as you hover in place.", "goto": 6 },				
 				6: { "speaker": "MC", "dialogue": "Fuck.", "goto": 7 },
 				7: { "speaker": "", "dialogue": "This isnt just a pit.", "goto": 30 },
-				30: { "speaker": "", "dialogue": "This is a nest - and you're shown up empty handed.", 
+				30: { "speaker": "", "dialogue": "This is a nest - and you're shown up empty handed.", "specialAction": "singleTentacle", 
 				"choice": {
 								"c1": { "choice": "RUN", "goto": 40 },
 								"c2": { "choice": "RUN", "goto": 40 },
@@ -59,6 +59,14 @@ static var thePit_Convos_Dict = {
 								"c9": { "choice": "RUN", "goto": 40 },
 								"c10": { "choice": "RUN", "goto": 40 },
 								"c11": { "choice": "RUN", "goto": 40 },
+								"c12": { "choice": "RUN", "goto": 40 },
+								"c13": { "choice": "RUN", "goto": 40 },
+								"c14": { "choice": "RUN", "goto": 40 },
+								"c15": { "choice": "RUN", "goto": 40 },
+								"c16": { "choice": "RUN", "goto": 40 },
+								"c17": { "choice": "RUN", "goto": 40 },
+								"c18": { "choice": "RUN", "goto": 40 },
+								"c19": { "choice": "RUN", "goto": 40 },
 						}
 				},
 				40: { "speaker": "", "dialogue": "But it's too late.", "specialAction": "drag", "fadeToBlack": true, "playEnding": SaveData_EndingTracker.EndingEnum.TENTACLE_BAIT },
@@ -147,5 +155,8 @@ static var thePit_Convos_Dict = {
 				16: { "speaker": "", "dialogue": "That seems to be a satisfactory enough answer for it. Tentacles winding around you once more, it winches you up and out of the hole, dropping you right next to your clothes. You're able to dress yourself easily, getting yourself presentable once more.", "specialAction": "push", "fadeIntoScene": true, "goto": 17 },
 				17: { "speaker": "", "dialogue": "...And yet, you're aware of the monster still watching you, still tracking your every movements. If before it was treating you as a lover, now you're aware of how it acts like a creature all unto it's own. You have the sense that if it were to take you again, it'd never let you go.", "goto": 18 },
 				18: { "speaker": "", "dialogue": "You can't say you're not tempted - but. For now at least the pit is [i]fully[/i] tended to; a job, checked well and truly off the list.", "end": true },
+				##TODO: Add "pit: fucked"
+				##also make leaving the room not possible
+				
 		},			
 }

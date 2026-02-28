@@ -85,7 +85,7 @@ static var convos_Dict = {
 							"c2": { "choice": "Have a glass of milk", "goto": 4 },
 					}
 			},
-			#do not the cheese
+			3: { "speaker": "", "dialogue": "There'll be other options, you're sure.", "end": true },			
 			4: { "speaker": "", "dialogue": "Taking the conveniently placed cup, you pour yourself a serve of milk. Having something so farm-fresh is a novelty to you; years of travelling on the road has practically re-wired your palette for rations and the occasional tavern stew and ale combo.", "goto": 5 },
 			5: { "speaker": "", "dialogue": "Yet as the milk touches your lips, it's as if all the years you've not indulged in fresh dairy come barreling back.
 			

@@ -13,8 +13,15 @@ static var convos_Dict = {
 	
 	## TODO: wait for witch here		
 	"rightArmchair": {
-		1: { "speaker": "", "dialogue": "Right armchair dialogue goes here.", "end": true},
-		}, 
+		1: { "speaker": "", "dialogue": "This appears to be where the witch would like you to wait for her when you're done. Would you like to?", 
+		"choice": {
+					"c1": { "choice": "Not just yet", "goto": 2 },
+					"c2": { "choice": "Yes", "goto": 66 },
+				}
+		},
+		2: { "speaker": "", "dialogue": "You continue to look around.", "end": true },
+		66: { "speaker": "", "dialogue": "Time to wait for the witch. (Jigs will tell you what ending you get)", "end": true },	
+		},	
 					
 	"leftArmchair": {
 			1: { "speaker": "", "dialogue": "While this looks just like the other armchair, there's a firmness to the stuffing and crispness to the leather that makes it feel unusued. Guess the witch has a favorite chair.", "end": true },
@@ -103,7 +110,7 @@ static var convos_Dict = {
 		0: { "checkSaveConditions": [
 		{ "save_key": "fire_key", "goto": 2 },
 		{ "save_key": "lounge_fireplaceLit", "goto": 30 },
-		{ "save_key": "bathroom_furnaceFern", "goto": 60 },
+		{ "save_key": "bathroom_furnaceFern", "goto": 600 },
 		{ "save_key": "", "goto": 5 },		]},
 	
 		2: { "speaker": "", "dialogue": "The fire flickers quietly in the hearth, relieved of its treasure. It's a moment of quiet in this strange place.", "end": true },	
@@ -145,10 +152,37 @@ static var convos_Dict = {
 		37: { "speaker": "", "dialogue": "You quickly pull back the wateirng can; thankfully the fire spring back to life and the key retakes its form. Damn, makes sense the thing's enchanted with some sort of magic - but if you can't put out the fire to grab it, nor find any tools for the job, how on earth are you supposed to do this?", "end": true },			
 		
 		#ask ignus
-		40: { "speaker": "", "dialogue": "Ask Ignus", "end": true },
+		40: { "speaker": "", "dialogue": "Ask Ignus", 
+		"checkSaveConditions": [
+		{ "save_key": "ignus_fucked_ate_out", "goto": 40 },
+		{ "save_key": "ignus_fed", "goto": 45 },
+		{ "save_key": "", "goto": 41 },		]},
+
+		41: { "speaker": "", "dialogue": "Ignus just gives you a long look.", "goto": 42 },
+		42: { "speaker": "Ignus", "dialogue": "You expect me to do that on an empty stomach?", "goto": 43 },
+		43: { "speaker": "", "dialogue": "Seems like he'll be no use unless you tend to his needs.", "end": true },
 			
-		60: { "speaker": "", "dialogue": "The hearth is cold and empty - and the furnace fern is burning a (metaphorical) hole in your pocket.", "end": true },	
+		45: { "speaker": "", "dialogue": "His eyes rest easy on you, the red low and lidded. You're a solider; you're used to being the hunter, the victor, the one that can stand her ground. In this moment, you are the rabbit with the hound breathing down your neck.", "goto": 46 },
+		46: { "speaker": "Ignus", "emote": "pleased", "dialogue": "I could... But I require some dessert, first.", "goto": 47 },
+		47: { "speaker": "", "dialogue": "He stares at you like the cat that's got the cream.", 		
+		"choice": 
+			{"c1": {"choice": "Absolutely not", "goto": 48 }, 
+			"c2": { "choice": "Serve Ignus his dessert - you", "goto": 50 }, 
+			} 
+		},			
+		48: { "speaker": "Ignus", "dialogue": "Suit yourself, pup", "goto": 49 },
+		49: { "speaker": "", "dialogue": "The hellhound settles back down, leaving you to think over your choices.", "end": true },
+		
+		50:	{ "speaker": "Ignus", "dialogue": "Excellent.", "preloadConversation": "IgnusEatOut", "end": true },
+			
+		###need to light the fire.	
+		600: { "speaker": "", "dialogue": "The hearth is cold and empty - and the furnace fern is burning a (metaphorical) hole in your pocket.", "end": true },	
 	},		
+			
+	"IgnusEatOut": {
+		1: { "speaker": "", "dialogue": "[You stumble off, satisfied.]",
+		"setSaveVariable": ["ignus_fucked_ate_out", true], "end": true}, 
+	},			
 					
 	"Dishes": {
 		1: { "speaker": "", "dialogue": "Some dishes with a few crumbs left on it. There's nothing for you to eat here, even if you were okay with somebody else's leftovers.", "end": true},

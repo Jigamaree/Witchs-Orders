@@ -184,11 +184,11 @@ func increasePoints(variableName, variableValue):
 	var cowPoints = save_data.currentGameData.current_save_data_dictionary["corruptionPoints_Cow"]
 	var _vN = variableName.to_lower()
 	
-	if _vN.contains("cow"):
+	if _vN.contains("_cow"):
 		save_data.currentGameData.current_save_data_dictionary[variableName] = 	(cowPoints + 1)	
-	if _vN.contains("imp"):
+	if _vN.contains("_imp"):
 		save_data.currentGameData.current_save_data_dictionary[variableName] = 	(impPoints + 1)	
-	if _vN.contains("pet"):		
+	if _vN.contains("_pet"):		
 		save_data.currentGameData.current_save_data_dictionary[variableName] = 	(petPoints + 1)	
 	
 func getSaveVariable(variableName: String):
@@ -199,3 +199,17 @@ func getSaveVariable(variableName: String):
 	elif variableName in save_data.multiRunSaveData.tracked_ending_data_dictionary:		
 		return save_data.multiRunSaveData.tracked_ending_data_dictionary[variableName]
 	else: push_error(Error.ERR_DOES_NOT_EXIST)
+
+
+func checkForFinalEndingWithWitch():
+	#first check if the player did literally ANY chores. if not, bimbo ending with a *
+	if SaveManager.getSaveVariable("ignus_fed"):
+		pass
+	#check if they completed all the chores - if not bimbo ending
+		pass
+	#check if they successfully completed the two puzzles - if not, bimbo ending
+	
+	#if all chores are completed...
+	#check for at least one key. if its avaliable, give the option of the apprentice route.
+	#if not, check which endinng out of pet/imp/cow is most likely
+	#if none comes out on top, the witch will offer which 

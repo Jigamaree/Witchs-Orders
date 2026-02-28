@@ -158,10 +158,15 @@ position = Vector2(1732, 982)
 sprite_frames = SubResource("SpriteFrames_i15c5")
 frame_progress = 0.32761258
 
-[node name="ChoiceBox" type="VBoxContainer" parent="Control" unique_id=990140104]
+[node name="VScrollBar" type="VScrollBar" parent="Control" unique_id=117183774]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="ChoiceBox" type="VBoxContainer" parent="Control/VScrollBar" unique_id=990140104]
 layout_mode = 0
 offset_left = 1687.0
-offset_top = 544.0
+offset_top = 288.0
 offset_right = 1902.0
 offset_bottom = 1039.0
 alignment = 2

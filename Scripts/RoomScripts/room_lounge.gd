@@ -25,7 +25,8 @@ func _post_dialogue_check():
 	if SaveManager.getSaveVariable("lounge_takenWateringCan") == true:
 		wateringCan.visible = false
 
-func _process(_delta: float) -> void:		
+func _process(_delta: float) -> void:
+	super._process(_delta)		
 	var target_y = player.global_position.y
 
 	target_y = clamp(
@@ -44,7 +45,6 @@ func _on_start_dialogue(objectName: String):
 	if objectName == "Ignus":
 		dialogueDictionary = ignusConvoDict
 		objectName = ""
-		print("Special dialogue")
 	else: dialogueDictionary = loungeConvosDictionary	
 			
 	if 	!dialogueDictionary.has(objectName):

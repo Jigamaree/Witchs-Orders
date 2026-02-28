@@ -33,7 +33,9 @@ func refreshPages():
 		textRight.text = Plant_Entries[currPageLeft+1]["text"]	
 	else:
 		titleRight.text = ""
-		textRight.text = ""					
+		textRight.text = ""
+	textLeft.scroll_to_line(0)	
+	textRight.scroll_to_line(0)					
 
 func _on_forward_button_pressed() -> void:
 	print(str(currPageLeft))

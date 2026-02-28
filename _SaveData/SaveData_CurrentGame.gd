@@ -3,12 +3,12 @@ extends Resource
 class_name SaveData_CurrentGame
 
 enum Clothing 			{
-	NAKED = 0, 
-	BUTTPLUG = 1, 
-	COW_BIKINI = 2, 
-	SLUTTY_OUTFIT = 3, 
-	POET_SHIRT = 4, 
-	STOLEN_ROBES = 5}
+	NAKED = 10, 
+	BUTTPLUG = 11, 
+	COW_BIKINI = 12, 
+	SLUTTY_OUTFIT = 13, 
+	POET_SHIRT = 14, 
+	STOLEN_ROBES = 15}
 	
 enum Eaten_Item 		{
 	NOTHING = 100, 
@@ -69,6 +69,8 @@ var default_save_data_dictionary: Dictionary = {
 	"lounge_fireplaceLit": false,
 	"lounge_firstIgnusInteractionDone": false,
 	"lounge_knowIgnusTalks": false,
+	"lounge_petIgnusOnce": false,
+	"lounge_ignusWouldFuck": false,
 	
 	#frontDoor
 	"frontdoor_interactedwithdeadplant": false,

@@ -7,6 +7,7 @@ var text_finished = true # Used to show a continue button or key press prompt
 var inital_input_blocked = true
 var last_was_background = false
 
+
 @export var conv = {} # This will have different conversations loaded into it when dialogue starts
 var index = 1 # Used to track the current line of dialogue within the conversation
 # Each line sets the index to a specific number, then the dialogue function displays the right line
@@ -41,7 +42,9 @@ var pc_expression_dict = {
 @onready var name_rect: ColorRect = $Control/NPCBox		# The box that contains the character's name
 @onready var npc_name: Label = $Control/NPCBox/NPCName # The name of the NPC speaking the current line
 @onready var continue_arrow: AnimatedSprite2D = $Control/ContinueArrowSprite # How you advance lines (can be a keypress instead)
-@onready var choice_box: VBoxContainer = $Control/ChoiceBox # Where the buttons for choices go when needed
+@onready var choice_box: VBoxContainer = $Control/VScrollBar/ChoiceBox # Where the buttons for choices go when needed
+@onready var choice_box_y_pos = choice_box.global_position.y
+@onready var choice_box_x_pos = choice_box.global_position.x
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var portrait_box: ColorRect = $Control/PortraitBox
 @onready var portrait_text: TextureRect = $Control/PortraitBox/PortTextureRect
@@ -82,8 +85,10 @@ func _process(delta: float) -> void:
 		advance_line()
 
 	# Show continue button after typewriter effect (this could also be an arrow prompt or such)
-	if conv[index].has("choice"): continue_arrow.hide()
-	else: continue_arrow.visible = text_finished
+	if conv[index].has("choice") or conv[index].has("IgnusChoice"): 
+		continue_arrow.hide()
+	else: 
+		continue_arrow.visible = text_finished
 
 	if continue_arrow.visible: 
 		continue_arrow.play("default")
@@ -312,33 +317,126 @@ func replace_tags():
 		dlg = "[i]" + dlg + "[/i]"
 		
 	return dlg
-
-var demo_conv2 = {
-		1: { "speaker": "A Friend", "dialogue": "Then, [wave]instead[/wave] of a line of [color=#9aa57c]dialogue[/color] looking like [shake rate=6.0 level=6 connected=1]this[/shake]...", "goto": 2 },
-		2: { "speaker": "A Friend", "dialogue": "It %wswould%we look like %ssthis%se instead, which is much %hsquicker%he to write!", "end": true } }
+	
+#func manage_choices():
+	#if conv[index].has("choice") or conv[index].has("IgnusChoice"):
+		#choice_box.global_position.y = choice_box_y_pos
+		#choice_box.global_position.x = choice_box_x_pos
+		#for n in choice_box.get_children():
+			##choice_box.remove_child(n)
+			#n.queue_free()
+		#choice_box.show()
+		#
+	#if conv[index].has("choice"):		
+		#for c in conv[index].choice:
+			#choice_box.show()
+			#var btn = Button.new()
+			#var theme: Theme = preload("res://Assets/ButtonTheme.tres")
+			#btn.theme = theme
+			#btn.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			## Set the button's text to the player's choice dialogue
+			#btn.text = conv[index].choice[c].choice
+			## Connect the button's pressed signal to the make_choice function and pass the number of the line it leads to
+			#btn.pressed.connect(make_choice.bind(conv[index].choice[c].goto))
+			## Add the button to the container
+			#choice_box.add_child(btn)
+			#choice_box.show()
+#
+	#elif conv[index].has("IgnusChoice"):
+		##
+		#var i = 1
+		#for key in ignusButtonChoices:
+			#i = i +1
+			#var choice = ignusButtonChoices[key]
+			#var text = choice[0]
+			#var goto_id = choice[1]
+			#var btn = Button.new()
+			#var theme: Theme = preload("res://Assets/ButtonTheme.tres")
+			#btn.theme = theme
+			#btn.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			#btn.text = text
+			#btn.pressed.connect(make_choice.bind(goto_id))
+			#choice_box.add_child(btn)
+			#
+		#if SaveManager.getSaveVariable("lounge_ignusWouldFuck"):
+			#create_button("Let the dog eat out", 800, i)
+		#else:
+			#create_button("Ask where you can find his food", 700, i)
+			#
+		#create_button("Leave", 999, i)		
+	#if conv[index].has("choice") or conv[index].has("IgnusChoice"):			
+		#await get_tree().process_frame
+		#print("Size:", choice_box.size)
+		#print("Min Size:", choice_box.get_combined_minimum_size())
+		#print("Global Pos:", choice_box.global_position)
 
 func manage_choices():
-	if conv[index].has("choice"):
+	if conv[index].has("choice") or conv[index].has("IgnusChoice"):
 		for n in choice_box.get_children():
-			choice_box.remove_child(n)
 			n.queue_free()
-			
 		choice_box.show()
+		
+	if conv[index].has("choice"):		
 		for c in conv[index].choice:
-			# Make a new button
 			var btn = Button.new()
 			var theme: Theme = preload("res://Assets/ButtonTheme.tres")
 			btn.theme = theme
 			btn.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-			# Set the button's text to the player's choice dialogue
 			btn.text = conv[index].choice[c].choice
-			# Connect the button's pressed signal to the make_choice function and pass the number of the line it leads to
 			btn.pressed.connect(make_choice.bind(conv[index].choice[c].goto))
-			# Add the button to the container
+			btn.custom_minimum_size = Vector2(0, 40)
 			choice_box.add_child(btn)
 
+	elif conv[index].has("IgnusChoice"):
+		for key in ignusButtonChoices:
+			var choice = ignusButtonChoices[key]
+			var btn = Button.new()
+			var theme: Theme = preload("res://Assets/ButtonTheme.tres")
+			btn.theme = theme
+			btn.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			btn.text = choice[0]
+			btn.pressed.connect(make_choice.bind(choice[1]))
+			btn.custom_minimum_size = Vector2(0, 40)
+			choice_box.add_child(btn)	
+		if SaveManager.getSaveVariable("lounge_ignusWouldFuck"):
+			create_button("Ask why he can't get his own food", 500)					
+		else:
+			create_button("Ask where you can find his food", 700)	
+		if !SaveManager.getSaveVariable("ignus_fucked_ate_out") and SaveManager.getSaveVariable("lounge_ignusWouldFuck"):			
+			create_button("Let the dog eat out", 800)					
+		if SaveManager.getSaveVariable("ignus_fucked_ate_out"):
+			create_button("Present for him", 666)								 				
+		create_button("Leave", 999)
 
-			
+	# Wait a frame to allow layout to recalc
+	await get_tree().process_frame
+	print("Size:", choice_box.size)
+	print("Min Size:", choice_box.get_combined_minimum_size())
+	print("Global Pos:", choice_box.global_position)
+
+var ignusButtonChoices = {
+	"pet": ["Pet him", 100],
+	"trapped": ["Ask if he's trapped here", 200],
+	"whytho": ["Ask why the witch brought you here", 300],
+	"injured": ["Ask if you're the first injured person the witch has brought here", 400],
+	#"foodLocation": ["Ask where you can find his food", 700],
+	#"whyCantYou": ["", 500],
+	#"present": ["Present for him", 666],
+	#"leave": ["Leave", 999],
+}
+
+func create_button(text: String, goto_id: int):
+	var btn = Button.new()
+	var theme: Theme = preload("res://Assets/ButtonTheme.tres")
+	btn.theme = theme
+	btn.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	
+	# Set the button's text to the player's choice dialogue
+	btn.text = text
+	btn.pressed.connect(make_choice.bind(goto_id))
+	# Add the button to the container
+	choice_box.add_child(btn)
+				
 func make_choice(goto):
 	index = goto
 	choice_box.hide()
