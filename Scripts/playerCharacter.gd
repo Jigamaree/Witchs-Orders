@@ -92,6 +92,7 @@ func _on_drag_player():
 	var tween = create_tween()
 	tween.tween_property(self, "global_position", endPoint, 0.2)		
 	await tween.finished
+	collision.disabled = false	
 
 func _on_push_player():
 	var collision = $playerCollisionShape2D
@@ -103,3 +104,4 @@ func _on_push_player():
 	var tween = create_tween()
 	tween.tween_property(self, "global_position", endPoint, 1)		
 	await tween.finished
+	collision.disabled = false		

@@ -152,9 +152,9 @@ static var convos_Dict = {
 		37: { "speaker": "", "dialogue": "You quickly pull back the wateirng can; thankfully the fire spring back to life and the key retakes its form. Damn, makes sense the thing's enchanted with some sort of magic - but if you can't put out the fire to grab it, nor find any tools for the job, how on earth are you supposed to do this?", "end": true },			
 		
 		#ask ignus
-		40: { "speaker": "", "dialogue": "Ask Ignus", 
+		40: { "speaker": "MC", "dialogue": "Would you mind getting this out, Ignus?", 
 		"checkSaveConditions": [
-		{ "save_key": "ignus_fucked_ate_out", "goto": 40 },
+		{ "save_key": "ignus_fucked_ate_out", "goto": 60 },
 		{ "save_key": "ignus_fed", "goto": 45 },
 		{ "save_key": "", "goto": 41 },		]},
 
@@ -174,9 +174,27 @@ static var convos_Dict = {
 		49: { "speaker": "", "dialogue": "The hellhound settles back down, leaving you to think over your choices.", "end": true },
 		
 		50:	{ "speaker": "Ignus", "dialogue": "Excellent.", "preloadConversation": "IgnusEatOut", "end": true },
+		
+		60: { "speaker": "", "dialogue": "The hellhound gives you a long, heated look - for a moment you wonder if the monster is going to demand more of you. Your mouth on his cock. Your tits - maybe even your cunt, stretched and broken for him completely... It's not a terrible thought, really.", "goto": 61 },
+		61: { "speaker": "Ignus", "dialogue": "Sure.", "goto": 62 },
+		62: { "speaker": "", "dialogue": "You watch as he gets up and walks to the fireplace, grabbing the item with his mouth before dropping it back into your hand. Despite the fact it's been sitting in the heart of the flames, it's only pleasantly warm for the touch.", "goto": 63 },
+		63: { "speaker": "MC", "dialogue": "Thanks, Ignus.", "goto": 64 },
+		64: { "speaker": "Ignus", "dialogue": "Took you long enough.", "goto": 65 },
+		65: { "speaker": "", "dialogue": "Despite the rough words, the monster sounds... Fond.", 
+		"setSaveVariable": ["fire_key", true], "end": true },			
 			
 		###need to light the fire.	
-		600: { "speaker": "", "dialogue": "The hearth is cold and empty - and the furnace fern is burning a (metaphorical) hole in your pocket.", "end": true },	
+		600: { "speaker": "", "dialogue": "The hearth is cold and empty - and the furnace fern is burning a (metaphorical) hole in your pocket.",		
+		"choice": 
+			{"c1": {"choice": "Leave", "goto": 601 }, 
+			"c2": { "choice": "Light the fireplace", "goto": 610 }, 
+			} 
+		},
+		601: { "speaker": "", "dialogue": "You continue to look around the house.", "end": true },	
+		
+		610: { "speaker": "", "dialogue": "You take some time to load in some firewood from the side of the room. After a few moments of stacking, you look to the little frond in your hand. Will this thing really catch alight? Really?", "goto": 611 },
+		611: { "speaker": "", "dialogue": "Thankfully nature works on her own rules, not your apprehensions. The moment you wiggle your fingers together the Furnace Fern lights up like a magic trick. Throwing it in easily catches the stacked firewood alight... And makes you all too aware of a shape glowing within.", 		
+		"setSaveVariable": ["lounge_fireplaceLit", true], "end": true },			
 	},		
 			
 	"IgnusEatOut": {

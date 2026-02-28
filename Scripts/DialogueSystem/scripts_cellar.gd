@@ -139,6 +139,9 @@ static var convos_Dict = {
 		101: { "speaker": "", "dialogue": "By the time the bag is empty you're somehow both unpleasantly full and unsatiated. 
 		One order off the list - but at what cost?", 
 		"setSaveVariable": ["knight_eaten_item", SaveData_CurrentGame.Eaten_Item.BIRDSEED], "end": true},
+		
+		200: { "speaker": "", "dialogue": "You dip your hand into the small bag, retrieving a handful of seed. There's only one place around here you've seen a bird...", 
+		"setSaveVariable": ["cellar_takenBirdSeed", true], "end": true},		
 				
 		998: { "speaker": "", "dialogue": "...No, no you're not. You've already eaten - you don't need to subject yourself to this.", "end": true },		
 		999: { "speaker": "", "dialogue": "You leave the small sack of seed alone.", "end": true },

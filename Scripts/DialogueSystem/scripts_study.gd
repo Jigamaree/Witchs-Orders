@@ -28,9 +28,9 @@ static var Convos_Dict = {
 	"Cauldron": {
 			0: { "checkSaveConditions": [
 			{ "save_key": "cauldron_finished_bool", "goto": 1 },
-			{ "save_key": "study_putting_ingred_1_in", "goto": 10 },
-			{ "save_key": "study_putting_ingred_2_in", "goto": 30 },
-			{ "save_key": "study_putting_ingred_3_in", "goto": 50 },			
+			{ "save_key": "study_putting_ingred_3_in", "goto": 50 },
+			{ "save_key": "study_putting_ingred_2_in", "goto": 30 },							
+			{ "save_key": "study_putting_ingred_1_in", "goto": 10 },		
 			{ "save_key": "", "goto": 5 },		]},
 			
 			#finished the caudron
