@@ -18,13 +18,37 @@ func _ready():
 	calculate_what_ending()	
 	
 func calculate_what_ending():
+	#can check for true ending first, since that has its own check:
+	if SaveManager.getSaveVariable("apprentice_seed_taken"):	
+		_on_start_dialogue("TrueEnd")
+		return
+			
 	#first check for true bimbo ending
 	if !SaveManager.getSaveVariable("knight_fed") and !SaveManager.getSaveVariable("ignus_fed") and !SaveManager.getSaveVariable("pit_fed") and !SaveManager.getSaveVariable("potions_sorted_bool") and !SaveManager.getSaveVariable("cauldron_finished_bool"):
 		_on_start_dialogue("true_bimbo_ending")
+		return
 	#then check if either of the puzzles were fucked up for the bimbo ending	
-	elif SaveManager.getSaveVariable("potion_state") == SaveData_CurrentGame.Puzzle_State.INCORRECT or SaveManager.getSaveVariable("study_cauldron_succeeded") == false:
+	elif SaveManager.getSaveVariable("potions_correct") == false or SaveManager.getSaveVariable("study_cauldron_succeeded") == false:
 		_on_start_dialogue("BetterNotToThink")
+		return
+	#also check if they COMPLETED the other tasks:
+	if !SaveManager.getSaveVariable("knight_fed") and !SaveManager.getSaveVariable("ignus_fed") and !SaveManager.getSaveVariable("pit_fed"):	
+		_on_start_dialogue("BetterNotToThink")
+		return
 	
+	#otherwise we calculate what ending type we use here - imp, cow, pet or player's choice
+	var ending = SaveManager.getCurrentMainCorruptionType()
+	if ending == SaveData_CurrentGame.Corruption_Type.NONE or ending == SaveData_CurrentGame.Corruption_Type.UNDEFINED:
+		SaveManager.setSaveVariable("finalEnding", "choose")
+	elif ending == SaveData_CurrentGame.Corruption_Type.COW:
+		SaveManager.setSaveVariable("finalEnding", "cow")
+	elif ending == SaveData_CurrentGame.Corruption_Type.IMP:
+		SaveManager.setSaveVariable("finalEnding", "imp")
+	elif ending == SaveData_CurrentGame.Corruption_Type.PET:
+		SaveManager.setSaveVariable("finalEnding", "pet")	
+	
+	print(SaveManager.getSaveVariable("finalEnding"))	
+	_on_start_dialogue("default_ending_setup")
 	
 func _process(delta: float) -> void:
 	if isWaitingConvo:

@@ -22,7 +22,8 @@ var pitch_dict = {
 	"Ignus": 		preload("res://Audio/ignusVoice.wav"),
 	"Saevii": 		preload("res://Audio/Saevii.wav"),
 	"Witch": 		preload("res://Audio/Witch.wav"),
-	"Witch_hide": 	preload("res://Audio/Witch.wav"),	
+	"Witch_hide": 	preload("res://Audio/Witch.wav"),
+	"Vivienne": 	preload("res://Audio/Witch.wav"),		
 }
 
 # Image setup
@@ -225,7 +226,15 @@ func set_portrait():
 				"headtilt": portTextRect.texture = load("res://Assets/Dialogue/PC Dialogue Faces/Ignus_Headtilt.png")
 				"serious":	portTextRect.texture = load("res://Assets/Dialogue/PC Dialogue Faces/Ignus_Serious.png")
 		else: 	portTextRect.texture = load("res://Assets/Dialogue/PC Dialogue Faces/Ignus_Default.png")
-
+	
+	elif conv[index].speaker == "Witch" or conv[index].speaker == "The Witch" or conv[index].speaker == "Mistress" or conv[index].speaker == "Vivienne":
+		if conv[index].has("emote"):	
+			match conv[index].emote:
+				"amused": 	load("res://Assets/Dialogue/PC Dialogue Faces/Witch_Amused.png")
+				"question": load("res://Assets/Dialogue/PC Dialogue Faces/Witch_Question.png")
+				"sad": 		load("res://Assets/Dialogue/PC Dialogue Faces/Witch_Sad.png")
+				"sus": 		load("res://Assets/Dialogue/PC Dialogue Faces/Witch_Sus.png")
+		else: portTextRect.texture = load("res://Assets/Dialogue/PC Dialogue Faces/Witch_Neutral.png")
 
 func check_for_background_or_full_image():
 	# background image - image that appears over a dark background, like key items

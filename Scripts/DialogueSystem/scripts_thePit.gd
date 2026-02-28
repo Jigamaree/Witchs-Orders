@@ -4,7 +4,7 @@ class_name thePitConvos
 
 static var thePit_Convos_Dict = {
 	"topOfStairs": {
-				1: { "speaker": "", "dialogue": "The door creaks open, letting you gaze into the staircase beyond. You have to take a moment just to witness it - to realise you're staring at a set of stairs that is a straight march into the black.", 
+				1: { "speaker": "", "dialogue": "The door creaks open, letting you gaze into the staircase beyond. You have to take a moment just to witness it - to realise you're staring at a set of stairs that is a straight march into the black. This is definitely no set of cellar stairs - this is leading you much, [b]much[/b] deeper than that.", 
 				"checkSaveVariable": { "keyToCheck": "garden_hasTentacleFood", "wantedValue": "true", "goto_false": 2, "goto_true": 3 }},
 				#does not have tentacle food
 				2: { "speaker": "", "dialogue": "It's [i]eerie[/i]. The sound of your breath is too loud in your ears, standing here, each small shift echoing down the way. With nothing responding back it makes it feel like you're the only person around for miles.

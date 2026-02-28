@@ -15,11 +15,11 @@ static var convos_Dict = {
 						"c3": { "choice": "Say hello", "goto": 40 },						
 						}
 				},
-			10: { "speaker": "", "dialogue": "You swiftly move away from the large hellhound before you can piss the beast off. You have no interest in you, yourself, becoming Ignus' dogfood.", "goto": 4 },	
+			10: { "speaker": "", "dialogue": "You swiftly move away from the large hellhound before you can piss the beast off. You have no interest in you, yourself, becoming Ignus' dinner.", "goto": 4 },	
 
 			20: { "speaker": "MC", "dialogue": "Nice dog. Niiiiice dog. I don't want to hurt you!", "goto": 21 },
 			21: { "speaker": "Ignus", "dialogue": "There's no need to be demeaning, you know.", "goto": 22 },
-			22: { "speaker": "MC", "dialogue": "...Oh.", "end": true },		
+			22: { "speaker": "MC", "dialogue": "...Oh.", "goto": 43 },		
 			
 			40: { "speaker": "", "dialogue": "The hellhound gives you a wolfish grin.", "goto": 41 },
 			41: { "speaker": "Ignus", "dialogue": "Greetings.", 

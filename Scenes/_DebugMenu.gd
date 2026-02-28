@@ -98,3 +98,12 @@ func remove_debug_menu() -> void:
 	GlobalVariables.emit_signal("quickCountdown")
 	get_tree().paused = false
 	queue_free()
+
+
+func _on_true_endings_pressed() -> void:
+	SaveManager.setSaveVariable("study_cauldron_succeeded", true)
+	SaveManager.setSaveVariable("potions_correct", true)
+	SaveManager.setSaveVariable("knight_fed", true)
+	SaveManager.setSaveVariable("ignus_fed", true)
+	SaveManager.setSaveVariable("pit_fucked", true)		
+	

@@ -159,7 +159,7 @@ static var convos_Dict = {
 		400: { "speaker": "", "dialogue": "It appears to be a shopping list; pinned in a covenient location to grab and go. While the most current one is missing, you can still read the last one from where the pen indented the paper behind.", "goto": 401 },
 		401: { "speaker": "Witch_hide", "dialogue": "Check in with hunters - are animals still being culled?
 				Eggs, milk (prepare for excess), sugar.
-				Check Dalla made it out.
+				Check Sylra made it out.
 				Robe (for Alessia).", "completelyCentered": true, "goto": 402 },
 		402: { "speaker": "MC", "dialogue": "...How does she know my name?", "goto": 1 },		
 				
@@ -173,7 +173,8 @@ static var convos_Dict = {
 		
 		#frontdoor_diagram
 		600: { 
-			"speaker": "", "dialogue": "The drawing shows a small box, tucked into a hollow over a cliff.", 
+			"speaker": "", "dialogue": "The drawing shows a small box, tucked into a hollow over a cliff.
+			It's strange to see it up here among the other, seemingly more important, notes. This has to be on the property, right?", 
 			"setSaveVariable": ["frontdoor_diagram", true], "goto": 1 },		
 		
 		#leave				

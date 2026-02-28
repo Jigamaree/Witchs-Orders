@@ -58,3 +58,20 @@ alignment = 1
 [node name="EndingsVBox" type="VBoxContainer" parent="CenterContainer/ColorRect/ColorRect/HBoxContainer" unique_id=355102093]
 layout_mode = 2
 alignment = 1
+
+[node name="True Endings" type="Button" parent="." unique_id=971853837]
+offset_left = 1447.0
+offset_top = 71.0
+offset_right = 1648.0
+offset_bottom = 102.0
+text = "Set Ending States to True"
+
+[node name="Mostly True Endings" type="Button" parent="." unique_id=1224411788]
+visible = false
+offset_left = 1447.0
+offset_top = 71.0
+offset_right = 1648.0
+offset_bottom = 102.0
+text = "Set Ending States to True"
+
+[connection signal="pressed" from="True Endings" to="." method="_on_true_endings_pressed"]

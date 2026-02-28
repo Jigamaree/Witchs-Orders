@@ -67,9 +67,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -488.0
+offset_left = -540.0
 offset_top = -280.0
-offset_right = 712.0
+offset_right = 660.0
 offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -119,10 +119,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -470.0
-offset_top = 177.0
-offset_right = -220.0
-offset_bottom = 237.0
+offset_left = -540.0
+offset_top = 160.0
+offset_right = -290.0
+offset_bottom = 220.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -165,18 +165,18 @@ offset_bottom = 8.0
 
 [node name="ChoiceBox" type="VBoxContainer" parent="Control/VScrollBar" unique_id=990140104]
 layout_mode = 0
-offset_left = 1687.0
-offset_top = 288.0
-offset_right = 1902.0
-offset_bottom = 1039.0
+offset_left = 1658.0
+offset_top = 319.0
+offset_right = 1885.0
+offset_bottom = 1070.0
 alignment = 2
 
 [node name="PortraitBox" type="ColorRect" parent="Control" unique_id=1571534205]
 layout_mode = 0
-offset_left = 180.0
-offset_top = 795.0
-offset_right = 430.0
-offset_bottom = 1045.0
+offset_left = 120.0
+offset_top = 800.0
+offset_right = 370.0
+offset_bottom = 1050.0
 
 [node name="PortTextureRect" type="TextureRect" parent="Control/PortraitBox" unique_id=1473813079]
 layout_mode = 1

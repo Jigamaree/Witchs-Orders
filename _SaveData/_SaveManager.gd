@@ -101,13 +101,13 @@ func setSaveVariable(variableName: String, variableValue):
 	else: push_error(Error.ERR_DOES_NOT_EXIST)
 	
 	## then we check if we need to set any related values
-	
-	#"crow_key": false, 
-	#"fire_key": false, 
-	#"plant_key": false, 
-	#"all_three_keys": false,	
-	
+
+	if getSaveVariable("study_cauldron_succeeded") and getSaveVariable("potions_correct") and getSaveVariable("knight_fed") and getSaveVariable("ignus_fed") and getSaveVariable("pit_fucked") and !getSaveVariable("ending_all_jobs_properly_done"):
+		#setSaveVariable("ending_all_jobs_properly_done", true)		
+		save_data.currentGameData.current_save_data_dictionary["ending_all_jobs_properly_done"] = 	(true)			
+		
 	if variableName == "crow_key" or variableName == "fire_key" or variableName == "plant_key":
+		setSaveVariable("can_attempt_failed_true_route", true)
 		if getSaveVariable("crow_key") and getSaveVariable("fire_key") and getSaveVariable("plant_key"):
 			print("all three!")
 			setSaveVariable("all_three_keys", true)
@@ -119,6 +119,11 @@ func setSaveVariable(variableName: String, variableValue):
 		setSaveVariable("cauldron_finished_bool", true)
 		setSaveVariable("study_cauldron_succeeded", true)	
 	
+	if variableName == "potion_state" and variableValue == SaveData_CurrentGame.Puzzle_State.CORRECT:
+		setSaveVariable("potions_correct", true)
+	if variableName == "potion_state" and variableValue == SaveData_CurrentGame.Puzzle_State.INCORRECT:	
+		setSaveVariable("potions_correct", false)
+		
 	if variableName == "pit_fucked":
 		setSaveVariable("pit_fed", true)
 	
@@ -190,11 +195,11 @@ func increasePoints(variableName, variableValue):
 	var cowPoints = save_data.currentGameData.current_save_data_dictionary["corruptionPoints_Cow_"]
 	var _vN = variableName.to_lower()
 	
-	if _vN.contains("_cow"):
+	if _vN.contains("_cow_"):
 		save_data.currentGameData.current_save_data_dictionary[variableName] = 	(cowPoints + 1)	
-	if _vN.contains("_imp"):
+	if _vN.contains("_imp_"):
 		save_data.currentGameData.current_save_data_dictionary[variableName] = 	(impPoints + 1)	
-	if _vN.contains("_pet"):		
+	if _vN.contains("_pet_"):		
 		save_data.currentGameData.current_save_data_dictionary[variableName] = 	(petPoints + 1)	
 	
 func getSaveVariable(variableName: String):

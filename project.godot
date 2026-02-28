@@ -11,9 +11,12 @@ config_version=5
 [application]
 
 config/name="Witch's Orders"
-run/main_scene="uid://828q7e0vina0"
+run/main_scene="uid://br4w8eibnxvob"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+boot_splash/bg_color=Color(0.42129144, 0.55896163, 0.8997635, 1)
+boot_splash/image="uid://b4ue7u51usjnr"
 config/icon="uid://bjfjm5k14gpqh"
+boot_splash/minimum_display_time=3000
 
 [autoload]
 
@@ -25,10 +28,9 @@ SaveManager="*uid://cyvjw56m4mali"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/initial_position_type=3
+window/size/initial_position_type=0
 window/size/initial_screen=1
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 mouse_cursor/custom_image="uid://ctnhxf05srx2o"
 
 [editor]

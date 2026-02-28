@@ -118,6 +118,7 @@ static var Convos_Dict = {
 				13: { "speaker": "", "dialogue": "You pull up a small box, its edges shining in the afternoon light. Along its face sits three keyholes. 
 				What a curiousity.", 
 				"checkSaveConditions": [
+					{ "save_key": "apprentice_seed_taken", "goto": 999 },					
 					{ "save_key": "all_three_keys", "goto": 100 },
 					{ "save_key": "crow_key", "goto": 20 },
 					{ "save_key": "fire_key", "goto": 20 },
@@ -132,8 +133,26 @@ static var Convos_Dict = {
 				30: { "speaker": "", "dialogue": "You jiggle it and turn the box every which way, but the answer is clear as day - you're not getting into this unless you have the keys. Figuring out where to find [i]those[/i] is a whole other question though.", "end": true },
 									
 				#apprentice_seed_taken	
-				100: { "speaker": "", "dialogue": "Insert transformation here.", 
-				"setSaveVariable": ["apprentice_seed_taken", true], "end": true },	
+				100: { "speaker": "", "dialogue": "Each of the three keys slides into its respective lock with ease - the weight of what you're holding in your hands feels greater, now you've gone through all this effort to acquire the keys.", 
+				"checkSaveVariable": { "keyToCheck": "ending_all_jobs_properly_done", 
+				"wantedValue": "true", 
+				"goto_false": 101, 
+				"goto_true": 110 }},
+				101: { "speaker": "", "dialogue": "But as you try and open the box, you feel it shudder and jam in your hands. No amount of tugging or nudging of the box's exterior will get it to nudge - it's as if it's resisting your advancements!", "goto": 102 },
+				102: { "speaker": "", "dialogue": "You rack your mind, trying to think of what possibly could be getting this thing to react like this - wait.", "goto": 103 },
+				103: { "speaker": "MC", "dialogue": "Do you really care about my chores as well? Really?", "goto": 104 },
+				104: { "speaker": "", "dialogue": "Just your luck. ", "end": true },
+				
+				110: { "speaker": "", "dialogue": "The box opens smoothly; as it does you watch as immediately a large whirl of magic escapes outwards. For a moment you wonder if you've let something terrible escape - or just whatever this is escape at all. All that effort to just have whatever this is get away from you?", "goto": 111 },
+				111: { "speaker": "", "dialogue": "Thankfully, you need not of worried. The magic seems to still, hover in the air like morning fog. There's a presence to it - it feels like it's assessing you. It probably is.", "goto": 112 },
+				112: { "speaker": "", "dialogue": "Suddenly it's surging into you - the sensation makes you shudder, cry and bow out. Your body sings with a newfound tuning; somewhere between the piercings strung through your body and your aching cunt you are turned into a live wire once more. This time, however, you are able to ride the current; the magic that was fucked into you now swelling, growing, making your body convulse with a pleasure that is both too much and [i]exactly[/i] what you need.", "goto": 113 },
+				113: { "speaker": "", "dialogue": "You find yourself bucking against the air before you can stop yourself, chasing as much of this stimulation as you can get - its everything you needed, everything you wanted. Gods above, how did you survive without this for so long? You are a being of sex, plain and simple - and you were foolish to ever deny yourself otherwise.", "goto": 114 },
+				114: { "speaker": "", "dialogue": "Never again.", "goto": 115 },
+				115: { "speaker": "", "dialogue": "This time when you come it's not just a release - no, it's something more, something all encompassing. When the shocks run over your body, they burn like fire paper - but you're somehow left as [b]more[/b] than what you once were, not less. ", "goto": 116 },
+				116: { "speaker": "", "dialogue": "It's easy to see why, as conscious thought comes back to you. Your skin, once only decorated by the markings of war, is now drowned in gorgeous swirls of colour. You have stripes now - dark things that curl around your forearms, up along your chest and down to your body beyond. You've heard the rumours of Blaschko lines before, how they mark a witch that is destined for greatness. Once upon a time you would of been frightened to see these upon your skin, to know you now stood for everything you once despised.", "goto": 117 },
+				117: { "speaker": "", "dialogue": "But that was the old you. The you that followed a liar, that abstained from her own happiness to line another's pockets. Now, you know better. Now, you're exactly where you belong.", "setSaveVariable": ["apprentice_seed_taken", true], "end": true },				
+ 
+				999: { "speaker": "", "dialogue": "There's nothing left for you here.", "end": true },
 		},
 	
 	#tentacle food booth	

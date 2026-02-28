@@ -116,9 +116,9 @@ var default_save_data_dictionary: Dictionary = {
 	"cauldron_finished_bool": false,  ################
 	"potions_sorted_bool": false,
 	"learned_witchs_name": false,
-	
 
 	"potion_state": Puzzle_State.NOT_FINISHED, #not touched, incomplete, completed
+	"potions_correct": false,
 	
 	### apprentice
 	"sword_interracted": false, 
@@ -131,6 +131,7 @@ var default_save_data_dictionary: Dictionary = {
 	"fire_key": false, 
 	"plant_key": false, 
 	"all_three_keys": false,
+	"can_attempt_failed_true_route": false,
 	"apprentice_seed_taken": false,  #"pendant got"
 
 	### other ending measures
@@ -141,5 +142,6 @@ var default_save_data_dictionary: Dictionary = {
 	"corruptionPoints_Imp_": 0,
 	"corruptionPoints_Pet_": 0,	
 	
+	"ending_all_jobs_properly_done": false,
 	"finalEnding": null	
 }
