@@ -9,7 +9,3 @@ func _ready():
 	dialogueDictionary = kicthenConvos.convos_Dict
 	if SaveManager.getSaveVariable("thePit_hasCompletedStaircase"):
 		doorToPit.roomDestination = GlobalVariables.roomsInHouse.PIT_ROOM
-
-
-func _on_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.

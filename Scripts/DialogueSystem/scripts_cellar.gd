@@ -47,7 +47,7 @@ static var convos_Dict = {
 			{ "save_key": "", "goto": 2 },		]},		
 
 			#has the meat
-			1: { "speaker": "", "dialogue": "This should be an empty hook, but a certain dev didn't have time to remove it. Oops.", "end": true },
+			1: { "speaker": "", "dialogue": "Nothing remains on these hooks; an ominious sign for the current times.", "end": true },
 			#does not have the meat
 			2: { "speaker": "", "dialogue": "The shelves along this back wall have hooks set in the wall, clearly set up to hold up salamis and other curing meats to dry. Right now, though, there is but a single meager bone hung up. Around the bone hangs the tag 'Ignus'.", "choice": {
 								"c1": { "choice": "Leave the meat", "goto": 999 },

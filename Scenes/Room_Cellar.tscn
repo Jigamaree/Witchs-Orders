@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bvd4roe1lrfsq" path="res://Scripts/RoomScripts/room_cellar.gd" id="1_osedi"]
 [ext_resource type="Texture2D" uid="uid://btjkl71ct0m02" path="res://Assets/Backgrounds/CellarFinal.png" id="2_dylba"]
 [ext_resource type="PackedScene" uid="uid://cbuw6o5y7vsaw" path="res://Scenes/AssetScenes/dynamicInteractableObject.tscn" id="3_58l3h"]
+[ext_resource type="Texture2D" uid="uid://b6rj3gi66etit" path="res://Assets/InScene Items/Cellar - MeatHide.png" id="3_p3udo"]
 [ext_resource type="Texture2D" uid="uid://bvtj71g77dute" path="res://Assets/InScene Items/Cellar - Sacks.png" id="4_osedi"]
 [ext_resource type="Texture2D" uid="uid://cpii1nxjiijdn" path="res://Assets/InScene Items/Cellar - Table.png" id="5_gn8sj"]
 [ext_resource type="PackedScene" uid="uid://dmkvvkru1sug5" path="res://Scenes/AssetScenes/Door_Default.tscn" id="5_q7aoy"]
@@ -52,6 +53,12 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 size_flags_horizontal = 3
 texture = ExtResource("2_dylba")
+
+[node name="CellarMeatHide" type="Sprite2D" parent="." unique_id=1299327715]
+visible = false
+position = Vector2(1029, 218)
+scale = Vector2(1, 0.75396824)
+texture = ExtResource("3_p3udo")
 
 [node name="DynamicObject" type="Node2D" parent="." unique_id=192779425]
 
