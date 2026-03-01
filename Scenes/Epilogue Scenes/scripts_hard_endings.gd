@@ -57,7 +57,23 @@ static var endingsDict = {
 	#Ending 8 - Ignus' Bitch. Present to Ignus after letting him eat you out.
 	"IgnusBitch": 
 	{
-		1: { "speaker": "none", "dialogue": "Ending 8 - Ignus' Bitch.", "END_OF_GAME": "hardEnding_pet" }
+				1: { "speaker": "", "dialogue": "When Ignus slams you into the ground, its with a growl that goes straight to your cunt. Before you can wriggle away the bulk of his body is over you - fuck, with him this close you can feel the heat beneath his fur radiating out. He's like a furnace!", "goto": 2 },
+				2: { "speaker": "", "dialogue": "Which makes the red hot line of his cock, pressed against the length of your back, even more intimidating. Sensing your shock at the sheer size of him, you can hear the hell hound laugh above you.", "goto": 3 },
+				3: { "speaker": "Ignus", "emote": "delighted", "dialogue": "I knew a pretty thing like you was going to be wasted anywhere but on your knees for me.", "goto": 4 },
+				4: { "dialogue": "You're going to make a perfect breeder for me - fucked and stuffed so full you can't think of anything except my cock. How does that sound, bitch?", "goto": 5 },
+				5: { "speaker": "", "dialogue": "Any attempt at a response is choked out by his hips drawing back, the head of his cock kissing up against your cunt. You should be fighting back - on your hands and knees for a hound? Being split open by a demon? It's a perversion of everything you used to stand for. You don't notice how your hips have tilted up to better angle Ignus' cock into you until you hear him laughing above you, dark and aroused.", "goto": 6 },
+				6: { "speaker": "Ignus", "emote": "delighted", "dialogue": "I knew it. You were born to be bred.", "goto": 7 },
+				7: { "speaker": "", "dialogue": "He doesn't hold back. The first strike into your body lights up all your nerves like they're going up in flames, making you howl, out your approval. The weight on your back makes it impossible to scramble away, impossible to do anything except taking each pound of Ignus' hips as they slam into you. When you try, his jaws sink into your shoulder - not to hurt you, but to hold you.", "goto": 8 },
+				8: { "speaker": "", "dialogue": "To claim you as the bitch you are.", "goto": 9 },
+				9: { "speaker": "", "dialogue": "You think you're going to split open on his cock as the knot locks inside you - instead you feel your hips widen in stance, each jet of come flooding you and making your head spin and cunt clench. As the come hits your insides you realise the unnatural heat is sinking into your bones; you remember, deliriously now, that demonic influence is inherently corruptive. You're being changed - not just bred by Ignus, but literally transformed into his perfect breeding bitch, thrust by thrust.", "goto": 10 },
+				10: { "speaker": "", "dialogue": "His knot is still keeping you full of come as you hear the doorhandle jingle. Panic strikes through you - you shouldn't be down, here, under Ignus. What on earth is this woman going to think of you?! But as you try to stand up you feel Ignus' teeth lock themselves back in his mating bite, pressing down into the freshly made mark with a growl. Burning with shame and desperate arousal, you watch as the witch comes around the corner to take in the sight of you.", "goto": 11 },
+				11: { "speaker": "", "dialogue": "Pressed down on the ground under the bulk of Ignus, neck yielding to the beast that is breeding you full. Thighs slick with your arousal and Ignus' spend, and face twisted in bliss; you're a perfect picture of depravity and shame.", "goto": 12 },
+				12: { "speaker": "The Witch", "dialogue": "Ignus, please don't stop on my account. Your new bitch is gorgeous.", "goto": 13 },
+				13: { "speaker": "", "dialogue": "You hear Ignus laugh, press in his hips more; it's enough to make you gush around his knot, come dripping down the insides of your legs.
+				You realise now that this is your lot in life - to be fucked full of hellhound cock for the rest of your days, a vessel for his come and a toy for his perverted whims.", "goto": 14 },
+				14: { "speaker": "", "dialogue": "You moan like a whore, angling your hips back into the fast paced strikes of your Master's cock. 
+				Truly, nothing has sounded better.", "goto": 15 },
+				15: { "speaker": "none", "dialogue": "Ending 8 - Ignus' Bitch.", "END_OF_GAME": "hardEnding_pet" }
 	},		
 
 	#Ending 9 - Tentacle Bait. Struggle against the tentacle pit.
