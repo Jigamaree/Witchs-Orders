@@ -22,6 +22,7 @@ var pitch_dict = {
 	"Ignus": 		preload("res://Audio/ignusVoice.wav"),
 	"Saevii": 		preload("res://Audio/Saevii.wav"),
 	"Witch": 		preload("res://Audio/Witch.wav"),
+	"The Witch":	preload("res://Audio/Witch.wav"),
 	"Witch_hide": 	preload("res://Audio/Witch.wav"),
 	"Vivienne": 	preload("res://Audio/Witch.wav"),		
 }

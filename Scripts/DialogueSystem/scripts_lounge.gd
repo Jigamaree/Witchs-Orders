@@ -179,11 +179,10 @@ static var convos_Dict = {
 		61: { "speaker": "Ignus", "dialogue": "Sure.", "goto": 62 },
 		62: { "speaker": "", "dialogue": "You watch as he gets up and walks to the fireplace, grabbing the item with his mouth before dropping it back into your hand. Despite the fact it's been sitting in the heart of the flames, it's only pleasantly warm for the touch.", "goto": 63 },
 		63: { "speaker": "MC", "dialogue": "Thanks, Ignus.", "goto": 64 },
-		64: { "speaker": "Ignus", "dialogue": "Took you long enough.", "goto": 65 },
+		64: { "speaker": "Ignus", "dialogue": "Took you long enough, pup.", "goto": 65 },
 		65: { "speaker": "", "dialogue": "Despite the rough words, the monster sounds... Fond.", 
 		"setSaveVariable": ["fire_key", true], "end": true },			
 			
-		###need to light the fire.	
 		600: { "speaker": "", "dialogue": "The hearth is cold and empty - and the furnace fern is burning a (metaphorical) hole in your pocket.",		
 		"choice": 
 			{"c1": {"choice": "Leave", "goto": 601 }, 
