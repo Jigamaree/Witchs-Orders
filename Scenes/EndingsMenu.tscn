@@ -81,10 +81,10 @@ alignment = 1
 layout_mode = 2
 
 [node name="EndingTitleLabel" parent="LeftPage/VBoxContainer/HBoxContainer/Container/1/HBoxContainer" parent_id_path=PackedInt32Array(400305204, 337387213) index="0" unique_id=1315454681]
-text = "Ending 1 - Captured"
+text = "Ending 1 - Escape?"
 
 [node name="Description Label" parent="LeftPage/VBoxContainer/HBoxContainer/Container/1" index="1" unique_id=1879912699]
-text = "Gained by not putting up with the witch's games."
+text = "Gained by thinking you know better than to humour the witch."
 
 [node name="2" parent="LeftPage/VBoxContainer/HBoxContainer/Container" unique_id=157435532 instance=ExtResource("3_87tf2")]
 layout_mode = 2
@@ -102,7 +102,7 @@ layout_mode = 2
 text = "Ending 3 - Prized Cow"
 
 [node name="Description Label" parent="LeftPage/VBoxContainer/HBoxContainer/Container/3" index="1" unique_id=1879912699]
-text = "Gained by greeting the witch as bovine you are."
+text = "Gained by presenting to the witch as one that longs for purpose."
 
 [node name="4" parent="LeftPage/VBoxContainer/HBoxContainer/Container" unique_id=2119947323 instance=ExtResource("3_87tf2")]
 layout_mode = 2
@@ -129,7 +129,7 @@ layout_mode = 2
 text = "Ending 6 - Marked and Heeled"
 
 [node name="Description Label" parent="LeftPage/VBoxContainer/HBoxContainer/Container/6" index="1" unique_id=1879912699]
-text = "Gained by being too unruly and disruptive to be ignored."
+text = "Gained by touching that which is absolutely not yours."
 
 [node name="Control3" type="Control" parent="LeftPage/VBoxContainer" unique_id=773246452]
 layout_mode = 2
@@ -202,7 +202,7 @@ layout_mode = 2
 text = "Ending 8 - Ignus' Bitch"
 
 [node name="Description Label" parent="RightPage/MarginContainer/VBoxContainer/8" index="1" unique_id=1879912699]
-text = "Gained by letting the beast finish the job"
+text = "Gained by letting the beast finish the job."
 
 [node name="9" parent="RightPage/MarginContainer/VBoxContainer" unique_id=868092180 instance=ExtResource("3_87tf2")]
 layout_mode = 2
@@ -223,6 +223,7 @@ text = "Ending 10 - True End"
 text = "Gained by figuring out the secrets of the Witch's home."
 
 [node name="11" parent="RightPage/MarginContainer/VBoxContainer" unique_id=130028006 instance=ExtResource("3_87tf2")]
+visible = false
 layout_mode = 2
 
 [node name="EndingTitleLabel" parent="RightPage/MarginContainer/VBoxContainer/11/HBoxContainer" parent_id_path=PackedInt32Array(130028006, 337387213) index="0" unique_id=1315454681]

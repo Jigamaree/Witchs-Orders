@@ -145,7 +145,102 @@ static var endingsDict = {
 	
 	"default_ending_setup": ##covers beginning of imp, cow, pet, and failed apprentice	
 	{
-		1: { "speaker": "none", "dialogue": "Default ending path.", "END_OF_GAME": "specialEnding_trueEnd" }					
+				1: { "speaker": "", "dialogue": "You wait - watching the light stretch across the sky, drifting off a little as you do. You're roused by the sound of footfalls on the ground, of a hand that is not your own trying and turning the lock.", "goto": 2 },
+				2: { "speaker": "", "dialogue": "The witch is a woman of beauty, as she swirls around to meet you face to face. A half head taller than yourself, her leaner frame takes away nothing from the power that she walks with. Her presence fills the room, and it makes you heart flutter in your chest. She places some bags laden with who knows what on the dining room table before coming to stand over you, eyes bright.", "goto": 3 },
+				3: { "speaker": "The Witch", "dialogue": "Welcome back to the world of the living, dearest - you have been busy, haven't you?", "goto": 4 },
+				4: { "speaker": "MC", "dialogue": "That's what happens when you leave a job list for me.", "goto": 5 },
+				5: { "speaker": "The Witch", "dialogue": "But of course. I need to keep you out of trouble - or perhaps get you into trouble, should it suit you better.", "goto": 6 },
+				6: { "speaker": "", "dialogue": "Shaking your head to rid yourself of the flush you know she's referring to, you pin her with a look.", "goto": 7 },
+				7: { "speaker": "MC", "dialogue": "You said that when I was done you'd take me back home.", "goto": 8 },
+				8: { "speaker": "The Witch", "dialogue": "I did. But I also said that I would only do that if you wanted it. And do you really want that, now?", "goto": 9 },
+				9: { "speaker": "", "dialogue": "You know you should... But you hesitate. You [i]know[/i] that the world outside you've be returning to isn't the one you left. Sensing your hesitation, the witch's smile widens. You're a rabbit, caught in a trap - but is it really a trap if the woodlands are ablaze around you? There's nothing but smoke and ash that makes up where you've been before.", "goto": 10 },
+				10: { "speaker": "", "dialogue": "This is the only place left for you, now.", 
+				"checkCurrentCorruption": [
+				#same ending - choose
+				{ "condition_type": SaveData_CurrentGame.Corruption_Type.NONE, "goto": 100 },
+				{ "condition_type":  SaveData_CurrentGame.Corruption_Type.UNDEFINED, "goto": 100 },	
+				#brat ending
+				{ "condition_type": SaveData_CurrentGame.Corruption_Type.IMP, "goto": 200 },		
+				#cow ending
+				{ "condition_type": SaveData_CurrentGame.Corruption_Type.COW, "goto": 300 },
+				#pet ending
+				{ "condition_type": SaveData_CurrentGame.Corruption_Type.PET, "goto": 400 },		
+				#apprentice ending should NEVER come up			
+				]},	
+				
+				100: { "speaker": "", "dialogue": "The witch, meanwhile, seems to think to herself, before standing over you.", "goto": 101 },
+				101: { "speaker": "The Witch", "dialogue": "You, my dear, are a precious and strange thing. I would of thought by now that I'd know what calls to your heart - what needs that pretty little face of yours desires. But your results are... Muddled.", "goto": 102 },
+				102: { "speaker": "The Witch", "dialogue": "But I forgot the most important factor of all this: you.", "goto": 103 },
+				103: { "speaker": "", "dialogue": "She tip your head up with one finger.", "goto": 104 },
+				104: { "speaker": "The Witch", "dialogue": "Do you want to be my precious cow? A hard working woman, treated like a princess? It would give you purpose - and endless pleasure.", "goto": 105 },
+				105: { "speaker": "The Witch", "dialogue": "Or perhaps you crave a steadying hand? Somebody to yank your leash, to remind you who will make sure you want for nothing ever again? I can be a wonderfully cruel mistress, my dear - and you'll learn to love it so.", "goto": 106 },
+				106: { "speaker": "The Witch", "dialogue": "Of course, it might be that you're tired of such a hard life. I can relieve you of all of that - make submission as easy as a collar around your neck and sweet words in your ear.", "goto": 107 },
+				107: { "speaker": "MC", "dialogue": "I'm a trained solider. I could- protect you. Hunt for you. Train under you, maybe. Surely there's other options. ", "goto": 108 },
+				108: { "speaker": "The Witch", "dialogue": "Oh, but you don't understand. For you? There aren't, my dear. Any other choice would mean your happiness would be forfeit - and I simply will not stand for that.", "goto": 109 },
+				109: { "speaker": "", "dialogue": "Make your choice.", "completelyCentered": true, 
+				"choice": {
+								"c1": { "choice": "Cow", "goto": 307 },
+								"c2": { "choice": "Submissive", "goto": 300 },
+								"c3": { "choice": "Pet", "goto": 403 },
+						}
+				},			
+				
+				111: { "speaker": "The Witch", "dialogue": "Thank you for your trust. I'll make sure you enjoy it every bit as much as I do.", 
+						"preloadConversation": "soft_imp_ending", "end": true },		
+				
+				#imp prologue
+				200: { "speaker": "MC", "dialogue": "No - I won't!", "goto": 201 },
+				201: { "speaker": "", "dialogue": "You speak before you can think better, glaring at the witch. You're not even sure why you bite back like you do; you know this is the safest place for you. You know the witch is giving you shelter, protecting you in a way you frankly need right now... But you have to test your bindings. You have to see how far you can go.", "goto": 202 },
+				202: { "speaker": "MC", "dialogue": "You've made me do these stupid little puzzles - fucked monsters, eaten god knows what. I want to leave! Now!", "goto": 203 },
+				203: { "speaker": "The Witch", "dialogue": "And where will you go?", "goto": 204 },
+				204: { "speaker": "MC", "dialogue": "I don't have to tell you.", "goto": 205 },
+				205: { "speaker": "The Witch", "dialogue": "But I have to know where to take you.", "goto": 206 },
+				206: { "speaker": "", "dialogue": "You glare at her - it's petulant and you know it. All forces are met with an equal and opposite one - and your stubbornness is met with a firm hand around your throat. The witch examines you, her eyes steady.", "goto": 207 },
+				207: { "speaker": "The Witch", "dialogue": "I don't think you understand, dear. I know what is best for you - and you're going to do what I say. Aren't you?", "goto": 208 },
+				208: { "speaker": "", "dialogue": "You go to bite back a retort - when a knee comes up between your thighs, grinding into the tight heat of your cunt. Shit, when did you get so turned on? What about this stupid fucking gorgeous woman is making your body light up like a god damn circus attraction?", "goto": 209 },
+				209: { "speaker": "The Witch", "dialogue": "Stop pretending you don't enjoy this just as much as I do.", "goto": 210 },
+				210: { "speaker": "MC", "dialogue": "Fuck you.", "goto": 211 },
+				211: { "speaker": "The Witch", "dialogue": "No. I'm going to fuck [b]you[/b]. And you're going to love it.", 
+						"preloadConversation": "soft_imp_ending", "end": true },					
+				
+				#cow prologue
+				300: { "speaker": "", "dialogue": "The witch peers at you before standing up straight, starting to walk long striding circles around you. You watch her with wide eyes - you feel judged.", "goto": 301 },
+				301: { "speaker": "", "dialogue": "...No. That's not quite right. The eyes on you are more discerning than that. She's not looking at you like you've failed at something - it's more subjective, like you're a fine jewel or rich silks. 
+				You're being evaluated.", "goto": 302 },
+				302: { "speaker": "The Witch", "dialogue": "Your body is exquisite, dearest. Did you know that? Such strength in these muscles, such beauty in your curves. There's plenty to work with here.", "goto": 303 },
+				303: { "speaker": "MC", "dialogue": "Work with?", "goto": 304 },
+				304: { "speaker": "The Witch", "dialogue": "But of course. We can't have somebody like you sitting idle? You're a woman used to being given purpose - and while I will certainly never put you in harm's way again, we can make sure that you still have that.", "goto": 305 },
+				305: { "speaker": "", "dialogue": "There's a part of you that wants to fight, that wants to bite back - you're a Divine's chosen! This shouldn't even be a consideration - you should be fighting  to leave this witch's home and her strange machinations. There are so many people to help!", "goto": 306 },
+				306: { "speaker": "", "dialogue": "...And yet you can't find the words. This woman looks at you like you're something of value - not of value [i]to[/i] something, not value in what you can do. You, yourself are of value in these plans that she has. It's enough to still your tongue - she notices, and smiles.", "goto": 307 },
+				307: { "speaker": "", "dialogue": "She raises a hand and beckons you closer - and you follow.", 				 "preloadConversation": "soft_cow_ending", "end": true },
+				
+				#pet ending
+				400: { "speaker": "", "dialogue": "That thought alone leaves you unsteady - looking to the witch with a cold fear in your chest you can't shake. This can't be it, right? ", "goto": 401 },
+				401: { "speaker": "", "dialogue": "As if sensing your fear, the witch finally closes the distance between you, sweeping you into a hug. That smell of petrichor and vanilla clings to the folds of her clothes; you bury your face into them, allowing yourself for the first time in gods know how long to be weak.", "goto": 402 },
+				402: { "speaker": "The Witch", "dialogue": "There, there, my precious. We're going to look after you now - and I know just the thing to prove it.", "goto": 403 },
+				403: { "speaker": "", "dialogue": "Digging into her pocket she retrieves a strip of rich brown leather - plush on the inside, substantial but not constrictive in girth. A tag jingles on the front, with 'Pet' engraved onto it in looping cursive.
+				A collar.", "goto": 404 },
+				404: { "speaker": "The Witch", "dialogue": "Yours, if you want it.", "goto": 405 },
+				405: { "speaker": "", "dialogue": "You know you have a choice - but being presented with such softness, such easiness and care at the hands of somebody so beautiful? You present your neck eagerly for the witch's touch.", "goto": 406 },
+				406: { "speaker": "", "dialogue": "Her touch is deft as she moves, clicking the buckle around your neck, threading a couple of fingers into the space between the collar and your neck to make sure that it's just the right amount of tight. You can't help yourself - you lean into the touch, seeking out the hands of a woman that has designated herself owner. She certainly doesn't seem to mind, meeting your affections eagerly.", "goto": 407 },
+				407: { "speaker": "The Witch", "dialogue": "Good girl. [b]Best[/b] girl. Now - lets look after you properly.", 
+				"preloadConversation": "soft_pet_ending", "end": true },						
+				
 	},
+
+	"soft_cow_ending":
+	{
+		1: { "speaker": "none", "dialogue": "Ending 4: Prized Cow", "END_OF_GAME": "softEnding_cow" }			
+	},	
+	
+	"soft_pet_ending":
+	{
+		1: { "speaker": "none", "dialogue": "Ending 7: A Pretty Pet", "END_OF_GAME": "softEnding_pet" }			
+	},		
+	
+	"soft_imp_ending":
+	{
+		1: { "speaker": "none", "dialogue": "Ending 5: To Know Your Place", "END_OF_GAME": "softEnding_demon" }			
+	},			
 	
 }

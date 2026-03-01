@@ -107,3 +107,14 @@ func _on_true_endings_pressed() -> void:
 	SaveManager.setSaveVariable("ignus_fed", true)
 	SaveManager.setSaveVariable("pit_fucked", true)		
 	
+
+
+func _on_increase_cow_pressed() -> void:
+	SaveManager.setSaveVariable("corruptionPoints_Cow_", 1)
+
+func _on_increase_pet_pressed() -> void:
+	SaveManager.setSaveVariable("corruptionPoints_Pet_", 1)
+
+
+func _on_increase_imp_pressed() -> void:
+	SaveManager.setSaveVariable("corruptionPoints_Imp_", 1)

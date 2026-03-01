@@ -74,4 +74,28 @@ offset_right = 1648.0
 offset_bottom = 102.0
 text = "Set Ending States to True"
 
+[node name="IncreaseCow" type="Button" parent="." unique_id=326915450]
+offset_left = 1522.0
+offset_top = 116.0
+offset_right = 1633.0
+offset_bottom = 147.0
+text = "Increase Cow"
+
+[node name="IncreasePet" type="Button" parent="." unique_id=691892513]
+offset_left = 1534.0
+offset_top = 210.0
+offset_right = 1637.0
+offset_bottom = 241.0
+text = "Increase Pet"
+
+[node name="IncreaseImp" type="Button" parent="." unique_id=1732517123]
+offset_left = 1535.0
+offset_top = 156.0
+offset_right = 1643.0
+offset_bottom = 187.0
+text = "Increase Imp"
+
 [connection signal="pressed" from="True Endings" to="." method="_on_true_endings_pressed"]
+[connection signal="pressed" from="IncreaseCow" to="." method="_on_increase_cow_pressed"]
+[connection signal="pressed" from="IncreasePet" to="." method="_on_increase_pet_pressed"]
+[connection signal="pressed" from="IncreaseImp" to="." method="_on_increase_imp_pressed"]

@@ -472,6 +472,9 @@ func advance_line():
 		
 		elif conv[index].has("checkIgnusState"): 
 			checkIgnusState()
+			
+		elif conv[index].has("checkCurrentCorruption"):	
+			checkCurrentCorruption()
 		
 		# "keyToCheck": "bedroom_doorLocked", "wantedValue": "false", "goto_false": 4, "goto_true": 5			
 		elif conv[index].has("checkSaveVariable"):
