@@ -16,11 +16,11 @@ static var convos_Dict = {
 		1: { "speaker": "", "dialogue": "This appears to be where the witch would like you to wait for her when you're done. Would you like to?", 
 		"choice": {
 					"c1": { "choice": "Not just yet", "goto": 2 },
-					"c2": { "choice": "Yes", "goto": 66 },
+					"c2": { "choice": "It's time", "goto": 66 },
 				}
 		},
 		2: { "speaker": "", "dialogue": "You continue to look around.", "end": true },
-		66: { "speaker": "", "dialogue": "Time to wait for the witch.", "goToWitchEpilogue": true },	
+		66: { "speaker": "", "dialogue": "Time to wait for the witch.", "fadeToBlack": true, "goToWitchEpilogue": true },	
 		},	
 					
 	"leftArmchair": {

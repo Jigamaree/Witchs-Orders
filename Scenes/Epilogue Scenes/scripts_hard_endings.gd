@@ -34,7 +34,18 @@ static var endingsDict = {
 	#Ending 4 - Desperate Milkings. Hard cow end.
 	"DesperateMilkings": 
 	{
-		1: { "speaker": "none", "dialogue": "Ending 4 - Desperate Milkings.", "END_OF_GAME": "hardEnding_cow" }
+		1: { "speaker": "", "dialogue": "You've never had a particularly sensitive chest - but right now? Yours is starting to ache, badly. A quiet, ignorable throb that only makes your brow twitch in discomfort quickly grows into an unignorable ache.", "goto": 2 },
+		2: { "speaker": "", "dialogue": "Fuck - what's happening to you?", "goto": 3 },
+		3: { "speaker": "", "dialogue": "The sound of rippling fabric startles you - your clothes have been turned into tatters on your form, failing to hold back the growing swell of your chest and hips. You try to find it in you to yell for help but the sound that comes from your throat barely sounds from human. ", "goto": 4 },
+		4: { "speaker": "", "dialogue": "It only becomes worse when you touch your chest. Fuck- [b]fuck[/b]. You cry out as exquisite pleasure crashes over you, both of your hands coming up to paw at your tits. Your hands are becoming slick under your touch, the sweet smell of cream filling the air. You want to figure out what's going on but you can't fucking think straight.", "goto": 5 },
+		5: { "speaker": "", "dialogue": "You have to just keep on touching yourself. Have to keep tugging at your chest, trying desperately to relieve the pressure in your chest that's built up so high you can't move from where you've collapsed on the ground.", "goto": 6 },
+		6: { "speaker": "The Witch", "dialogue": "Oh, my dear, sweet girl.", "goto": 7 },
+		7: { "speaker": "", "dialogue": "You feel a touch at your head, a brush over your ear. You have the brief thought of not remembering them being so long and velvety before, but its something you can't find the words to say. You can't find any words at all; when you look up to the witch the only sound you can manage is a whine of desperation.", "goto": 8 },
+		8: { "speaker": "", "dialogue": "That whine turns into a full blown moan as the witch's hands wrap around your chest, groping into the thick flesh. It feels like a dam has broken, milk gushing over the witch's hands as she kneads and kneads. Still it keeps coming - and with each squeeze of your tit, it feels like a bit of your mind is gushing out alongside it.", "goto": 9 },
+		9: { "speaker": "", "dialogue": "You know, intrinsically, its not coming back. Being as desperately aroused as you are, the only thought you have is if not having your mind anymore will make it any easier to come.", "goto": 10 },
+		10: { "speaker": "The Witch", "dialogue": "You look so backed up, my dear. That's okay though - I'm going to take care of you, my pretty prized cow. 
+		You'll never want for nothing, ever again.", "goto": 11 },
+		11: { "speaker": "none", "dialogue": "Ending 4 - Desperate Milkings.", "END_OF_GAME": "hardEnding_cow" }
 	},	
 	
 	#Ending 6 - Marked and Heeled. Enthralled hard end.
