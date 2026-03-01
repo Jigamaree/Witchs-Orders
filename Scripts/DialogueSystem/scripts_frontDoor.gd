@@ -4,7 +4,6 @@ class_name FrontDoorConvos
 
 static var convos_Dict = {
 
-##TODO: write the plant sex
 	"DeadPlant": {
 			0: { "checkSaveConditions": [
 				{ "save_key": "frontdoor_cantgetkey", "goto": 32 },

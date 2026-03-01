@@ -137,7 +137,6 @@ static var thePit_Convos_Dict = {
 				203: { "speaker": "", "dialogue": "You step forward, sure in yourself.",  "preloadConversation": "FuckThatSquid", "end": true },		
 		},
 	
-	##TODO: write tentacle fucking the first
 	"FuckThatSquid": {
 				1: { "speaker": "", "dialogue": "The tentacles are on you immediately - but they're not unkind. Instead, they curl around your body like they're greeting somebody coming home once more instead of meeting you for the first time. You were expecting the limbs to be cold to the touch - toad-like, even - but you're surprised to find them pleasantly warm to your skin instead. You hold out a hand experimentally; one of the tentacles runs against the underside of it in turn, the even, solid pressure more of a comfort than you expected.", "goto": 2 },
 				2: { "speaker": "", "dialogue": "'Solid pressure' is a good description for this creature's movements, really. The solid pressure of tentacles exploring your body, leaving paths of slick in their wake. The solid pressure of tentacles winding curiously around your legs, questing towards your core. The solid pressure of a tentacle at your back, a steadying presence as the creature binds you and takes your own balance out of your grasp. ", "goto": 3 },

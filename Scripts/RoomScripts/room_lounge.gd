@@ -60,3 +60,7 @@ func _on_start_dialogue(objectName: String):
 func handleCamera(pause_instance: Control):
 	pause_instance.global_position = camera.get_screen_center_position() - pause_instance.size 
 	
+func _re_enable_pausing(): 	
+	super._re_enable_pausing()
+	if SaveManager.getSaveVariable("lounge_fireplaceLit") == true:
+		$BasicRoomItems/LoungeFire.visible = true

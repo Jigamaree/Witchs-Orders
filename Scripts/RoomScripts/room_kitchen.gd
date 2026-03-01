@@ -4,7 +4,6 @@ class_name room_kitchen
 
 @onready var doorToPit: interactableDoor = $Doors/PitRoomDoor_Area
 
-#TODO: make kitchenConvos thing
 func _ready():
 	super._ready()
 	dialogueDictionary = kicthenConvos.convos_Dict
