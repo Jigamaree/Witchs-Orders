@@ -51,7 +51,22 @@ static var endingsDict = {
 	#Ending 6 - Marked and Heeled. Enthralled hard end.
 	"MarkedAndHeeled": 
 	{
-		1: { "speaker": "none", "dialogue": "Ending 6 - Marked and Heeled.", "END_OF_GAME": "hardEnding_demon" }
+		1: { "speaker": "The Witch", "dialogue": "Didn't anybody tell you not to touch things that aren't yours?", "goto": 2 },
+		2: { "speaker": "", "dialogue": "You try to speak, but freshly fucked through by the biggest dildo you've ever held in your hands you have no words left to say. The witch doesn't seem bothered by this though - if anything she seems more amused. ", "goto": 3 },
+		3: { "speaker": "", "dialogue": "She comes up to you, and with a sureness about her she presses down on your shoulders. You cry out as you feel the dildo fuck itself impossibly deeper still. Your eyes roll back as your tongue lulls out of your mouth; singlehandedly, the woman has put every thought out of your head at once.", "goto": 4 },
+		4: { "speaker": "The Witch", "dialogue": "Well, if you can't leave alone what isn't yours, I'm going to show you why you do.", "goto": 5 },
+		5: { "speaker": "", "dialogue": "You feel a force around your hips - magic, you realise hysterically - gripping at your hips like a lover. Before you can say anything you can feel it pulling you up, striking you back down again. Over and over, impaling you onto the full length of this thing. You can't keep your voice down, your mouth quickly turning to a plethora of pleads and cries to try and get it to stop. ", "goto": 6 },
+		6: { "speaker": "", "dialogue": "You're being fucked so hard that it feels like something's going to come loose - and if the witch's face is anything to go by, that is exactly the aim.", "goto": 7 },
+		7: { "speaker": "The Witch", "dialogue": "I should of known, really.", "goto": 8 },
+		8: { "speaker": "The Witch", "dialogue": "A pretty thing like you needs a firm hand. That's what the guard gives you, isn't it? A sense of right and wrong, somebody to be your guiding light. To hold your leash. To tell you when to jump.", "goto": 9 },
+		9: { "speaker": "", "dialogue": "She drags you down hard, making your thighs clamp together as a wave of arousal strikes you like a knockout punch. They're quickly wrenched apart by the same magic touch.", "goto": 10 },
+		10: { "speaker": "The Witch", "dialogue": "To tell you when to fuck. To tell you when you're going to come so fucking hard you forget your name.", "goto": 11 },
+		11: { "speaker": "The Witch", "dialogue": "Not like you need that anymore with me.", "goto": 12 },
+		12: { "speaker": "", "dialogue": "You try to struggle away, some nominal rejection of the concept she's displaying out in front of you. But the way your cunt gushes about the dildo splitting you open, the way you can't keep your sounds of pleasure silent? It makes it all too obvious how much you really like this. How much you need this.", "goto": 13 },
+		13: { "speaker": "", "dialogue": "How much you're already Hers.", "goto": 14 },
+		14: { "speaker": "The Witch", "dialogue": "Now come.", "goto": 15 },
+		15: { "speaker": "", "dialogue": "You cry out as you do exactly what she says.", "goto": 16 },
+		16: { "speaker": "none", "dialogue": "Ending 6 - Marked and Heeled.", "END_OF_GAME": "hardEnding_demon" }
 	},		
 	
 	#Ending 8 - Ignus' Bitch. Present to Ignus after letting him eat you out.
@@ -79,7 +94,21 @@ static var endingsDict = {
 	#Ending 9 - Tentacle Bait. Struggle against the tentacle pit.
 	"TentacleBait": 
 	{
-		1: { "speaker": "none", "dialogue": "Ending 9 - Tentacle Bait.", "END_OF_GAME": "hardEnding_tentacleBait" }
+				1: { "speaker": "", "dialogue": "The tentacles are on you like a frenzy; you can't tell up from down, left from right. They strip you bare, limbs running over you in a ravenous frenzy. For a moment you wonder why they're not tearing you apart, fucking you - doing anything to you except holding you suspended in place in the dark.", "goto": 2 },
+				2: { "speaker": "", "dialogue": "The answer comes to you as the slick they're brushing onto your body sinks into your skin. Heat, desperate and potent, rises in you body. At first its enough to ignore, to put away from your mind in your venture to worm a limb or two out of the embrace of the tentacles holding you taunt. ", "goto": 3 },
+				3: { "speaker": "", "dialogue": "But then the heat rises. ", "goto": 4 },
+				4: { "speaker": "", "dialogue": "And rises. ", "goto": 5 },
+				5: { "speaker": "", "dialogue": "And [i]rises.[/i]", "goto": 6 },
+				6: { "speaker": "", "dialogue": "Soon you're not trying to escape - you're writing in the bindings of the tentacles, rocking against the air. You're not sure what you're saying, anymore - the sound of your own voice has taken on a high, desperate air. You need to be touched. You need to be fucked - you're so empty it makes you want to scream!", "goto": 7 },
+				7: { "speaker": "", "dialogue": "When a tentacle finally brushes against your cunt it makes you cry out; you can feel how slick it comes away, dripping with not its arousal but your own. You're mindless with it, with the need to be fucked and be fucked, to do anything to satisfy the heat that rages through your body. ", "goto": 8 },
+				8: { "speaker": "", "dialogue": "And then you're filled.", "goto": 9 },
+				9: { "speaker": "", "dialogue": "A tentacle down your throat, a tentacle up your ass and one blissfully, blissfully up your cunt. You cry out in bliss, eyes rolling back in your skull; the sounds of your pleasure are muffled by the tentacle in your throat. Each one saws into your body at desperate pace; no rhythm to follow, nothing to do except fall into the all consuming pleasure that the tentacles are bringing upon you.", "goto": 10 },
+				10: { "speaker": "", "dialogue": "You at first think the press at your cunt is a knot - but when it moves is when you realise the truth of the matter, when your eyes open wild and unseeing. Eggs - the tentacles are [b]breeding[/b] you. It invigorates the last little fight left in you - but a gush of slick into your throat is enough to settle you down again. Suddenly each fist sized ball being pressed into your cunt doesn't verge on too much, but instead lights up your body in a flare of arousal.", "goto": 11 },
+				11: { "speaker": "", "dialogue": "Soon enough you're coming around each one that rubs up against the entrance to your hole, the orgasms chaining together until you can't tell when one stops and one starts again. It only gets even harder to tell when you feel your mouth and ass being fed into the same way. You can feel your skin becoming taunt with all the eggs inside you, sending shockwaves through your body as they jostle against each other.", "goto": 12 },
+				12: { "speaker": "", "dialogue": "That's how you're left - fucked full of eggs, coming endlessly around the tentacles that twist around your body and make sure you never want for pleasure ever again. Whenever the eggs are ready to be passed tentacles are there to fill in the gap - soon you come to despair being empty, crave the feeling of being filled by the tentacles as desperately as you need air.", "goto": 13 },
+				13: { "speaker": "", "dialogue": "You never see the sun again, the eggs that are incubated in your body soon your only legacy upon the world. 
+				You're too drowned in pleasure to care.", "goto": 14 },
+				14: { "speaker": "none", "dialogue": "Ending 9 - Tentacle Bait.", "END_OF_GAME": "hardEnding_tentacleBait" }
 	},				
 	
 }
