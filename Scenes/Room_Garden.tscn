@@ -120,7 +120,6 @@ position = Vector2(630, 814)
 interactable = false
 
 [node name="ObjectInteract" parent="DynamicObjects/FrontBush" index="0" unique_id=1854910098]
-visible = false
 position = Vector2(996.5, 33.5)
 shape = SubResource("RectangleShape2D_yosul")
 

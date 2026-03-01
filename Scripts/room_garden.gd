@@ -32,3 +32,8 @@ func _process(_delta: float) -> void:
 	)
 
 	camera.global_position.x = target_x		
+
+func _re_enable_pausing(): 	
+	super._re_enable_pausing()
+	if SaveManager.getSaveVariable("garden_hasTentacleFood") == true:
+		$RoomItems/GardenBucket.visible = false
