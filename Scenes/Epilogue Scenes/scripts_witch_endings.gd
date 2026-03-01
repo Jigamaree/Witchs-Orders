@@ -140,7 +140,25 @@ static var endingsDict = {
 #successfully completed all
 	"TrueEnd":
 	{
-		1: { "speaker": "none", "dialogue": "True ending!", "END_OF_GAME": "specialEnding_trueEnd" }			
+		1: { "speaker": "", "dialogue": "You don't have to wait long before you hear the jingle of the door handle, as the woman you've been waiting to see finally sweeps in the door. As if understanding the situation in turn, you can hear her stop, pausing. A laugh like silver bells sits on the air.", "goto": 2 },
+		2: { "speaker": "The Witch", "dialogue": "My dearest, you have been busy, haven't you?", "goto": 3 },
+		3: { "speaker": "", "dialogue": "The other witch sweeps around in front of you, bright eyes shining with delight. Now entirely at ease in her house you're able to drink in the sight of the woman in front of you.", "goto": 4 },
+		4: { "speaker": "", "dialogue": "She stands a good half foot taller than you; while her form is much leaner than your own, it doesn't do anything to change the presence that she walks with. There's a smile on her face as she admires your form - your new piercings, the stripes that now swirl around the curves of your body like the magic you've been drowned in has marked itself permanently onto your skin.", "goto": 5 },
+		5: { "speaker": "The Witch", "dialogue": "How does it feel?", "goto": 6 },
+		6: { "speaker": "MC", "dialogue": "Better than I expected. I didn't realise arousal could feel so.... Powerful.", "goto": 7 },
+		7: { "speaker": "The Witch", "dialogue": "It's hard to describe, isn't it? I've tried to explain it to other apprentices to be before, but I've found it's a process better experienced for one's self.", "goto": 8 },
+		8: { "speaker": "", "dialogue": "Your eyes meet hers, wide with surprise.", "goto": 9 },
+		9: { "speaker": "MC", "dialogue": "Apprenticeship?", "goto": 10 },
+		10: { "speaker": "The Witch", "dialogue": "Of course. With your king felled and the kingdom you served gone, I suspect you'll need a new purpose in life.", "goto": 11 },
+		11: { "speaker": "The Witch", "dialogue": "I was going to offer that to you as the chance to leave responsibility behind and become my playtoy - but you wouldn't have managed all of this if you wanted such simple pleasures.", "goto": 12 },
+		12: { "speaker": "MC", "dialogue": "I enjoy surprising people.", "goto": 13 },
+		13: { "speaker": "The Witch", "dialogue": "I can tell.", "goto": 14 },
+		14: { "speaker": "", "dialogue": "She takes your hands - not as a superior, not as a witch as powerful as she is beautiful, but something more approachable.
+		A mentor. A teacher. Perhaps even a lover.", "goto": 15 },
+		15: { "speaker": "The Witch", "dialogue": "Stay with me, Alessia. Learn how to wield the magic you've taken on so beautifully. We can do so much more together.", "goto": 16 },
+		16: { "speaker": "", "dialogue": "Her words carry a weight to them - a heat, but also a promise.
+		One you are all too happy to accept.", "goto": 17 },
+		17: { "speaker": "", "dialogue": "[Ending 10 - True End]", "END_OF_GAME": "specialEnding_trueEnd" }			
 	},	
 	
 	"default_ending_setup": ##covers beginning of imp, cow, pet, and failed apprentice	
