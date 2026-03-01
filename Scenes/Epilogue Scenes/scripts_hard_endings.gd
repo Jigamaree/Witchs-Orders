@@ -11,7 +11,24 @@ static var endingsDict = {
 	#Ending 1 - Captured. Leave the witch's house. True bad end.	
 	"Captured": 
 	{
-		1: { "speaker": "none", "dialogue": "Ending 1 - Captured.", "END_OF_GAME": "hardEnding_bad" }
+		1: { "speaker": "", "dialogue": "You don't think about it further - mysteries of the house and your circumstances be damned, you need to get out of here. Just being in the presence of so much witchcraft, the workings of a [i]witch[/i], has been enough to make your skin crawl. 
+		The sooner you can find your way back to civilization, the better. ", "goto": 2 },
+		2: { "speaker": "", "dialogue": "You were thankful for the travelling farmers that picked you up off the side of the road, seemed all too happy to give you a ride to the nearest inn. It made you almost forget your state of undress – but at least you were one step closer to normality, with a bowl of soup in your hands and a week’s travel ahead of you.", "goto": 3 },
+		3: { "speaker": "", "dialogue": "There was no reason to suspect this was a trap – as you felt a crack over your head, you realized it may be the last decision you ever get to make.", "goto": 4 },
+		4: { "speaker": "", "dialogue": "The cage you wake up in is barely tall enough to stand in, let alone stretch out your cramped muscles. Other captives are caged alongside you, worse that cattle - soldiers, priests, loyalists to the Divine, all made equal in the most demeaning of ways.", "goto": 5 },
+		5: { "speaker": "", "dialogue": "Some groan from unhealed injuries, others hiss at passing guards. The ones you feel most sorry for though are the ones that have yet to encounter the Saevii. One woman pleads with them for water, for bandages for another cellmate's wounds. Later, she slams at the bars as two guardsmen take their lunch in front of her. She'll be labeled 'spirited', you're sure.
+		", "goto": 6 },
+		6: { "speaker": "", "dialogue": "The Divine, help her.", "goto": 7 },
+		7: { "speaker": "", "dialogue": "You’d heard of the Saevii auctions, the gold-drowned swap of flesh for coin by people with too much money for morals. It’s another thing entirely to be led up onto the stage yourself. The chains around your wrists are the closest you get to cover; they do nothing to dissuade the auctioneer that’s all too gleeful to point out the “rugged” features of one of the fallen king’s most trusted soldiers. ", "goto": 8 },
+		8: { "speaker": "", "dialogue": "Your breasts are hefted to show there's still enough to squeeze. Your ass is spanked until it turns red, your cunt fingered and spread wide for onlooking eyes. When one nobleman comes up to inspect you he puts out his cigar on your shoulder - you grit your teeth to stop yourself yelling out.", "goto": 9 },
+		9: { "speaker": "", "dialogue": "They call you a trophy; a symbol of the Divine’s last pathetic gasps at life.
+			You’re too distracted by the news of your fallen kingdom, of everything you’ve fought for being denounced dead and gone, to catch how much your life is now worth.", "goto": 10 },
+		10: { "speaker": "", "dialogue": "The man that buys you never tells you his name, nor asks yours. Soon your days are a sludge of manual labour and too little sleep, toiling in the broken city you once protected and the glaring eye of poison drakes.", "goto": 11 },
+		11: { "speaker": "", "dialogue": "Something is changing you while you work here too - is it something in the food? Is it the unholy, dark magic that clings to this place like a smog? Is it just the pressure of toiling under these conditions, being faced everyday by your failure as a King's Chosen?", "goto": 12 },
+		12: { "speaker": "", "dialogue": "You're not sure - all you know is that heat starts to cling to your body, to make every hour without sating it agony. You can see the cruel glee in your master's eyes when you finally break, ask for something to soothe the raging arousal inside you that makes you feel like your body isn't your own.", "goto": 125 },
+		125: { "speaker": "", "dialogue": "His cock, splitting you blissfully, terribly open, makes you feel so good you forget your own name.", "goto": 13 },		
+		13: {  "speaker": "none", "dialogue": "It never comes back. The sex that proceeds to rule your life from then on out drowns you so entirely you never remember it - or yourself - again.", "goto": 14 },
+		14: { "speaker": "", "dialogue": "Ending 1 - Captured.", "END_OF_GAME": "hardEnding_bad" }
 	},
 	
 	#Ending 4 - Desperate Milkings. Hard cow end.
@@ -41,13 +58,3 @@ static var endingsDict = {
 }
 
 #
- #You don't think about it further - mysteries of the house and your circumstances be damned, you need to get out of here. Just being in the presence of so much witchcraft, the workings of a *witch*, has been enough to make your skin crawl. The sooner you can find your way back to civilization,  the better. 
-#You were thankful for the travelling farmers that picked you up off the side of the road, seemed all too happy to give you a ride to the nearest inn. It made you almost forget your state of undress – but at least you were one step closer to normality, with a bowl of soup in your hands and a week’s travel ahead of you.
-#There was no reason to suspect this was a trap – as you felt a crack over your head, you realized it may be the last decision you ever get to make.
-#The cage you wake up in is barely tall enough to stand in, let alone stretch out your cramped muscles. Other captives are caged alongside you, worse that cattle - soldiers, priests, loyalists to the Divine, all made equal in the most demeaning of ways.
-#Some groan from unhealed injuries, others hiss at passing guards. The ones you feel most sorry for though are the ones that have yet to encounter the Saevii. One woman pleads with them for water, for bandages for another cellmate's wounds. Later, she slams at the bars as two guardsmen take their lunch in front of her. She'll be labeled 'spirited', you're sure.
-#The Divine, help her.
-#You’d heard of the Saevii auctions, the gold-drowned swap of flesh for coin by people with too much money for morals. It’s another thing entirely to be led up onto the stage yourself. The chains around your wrists are the closest you get to cover; they do nothing to dissuade the auctioneer that’s all too gleeful to point out the “rugged” features of the fallen king’s solider. They call you a trophy; a symbol of the Divine’s last pathetic gasps at life.
-#You’re too distracted by the news of your fallen kingdom, of everything you’ve fought for being denounced dead and gone, to catch the final value of what they sell you for.
-#The man that buys you never tells you his name, nor asks yours. Soon your days are a sludge of manual labour and too little sleep, toiling under the broken city you once protected and the glaring eye of poison drakes. 
-#You know they’re trying to break your spirit. One day you wake up, realise you don't know when you forgot your own name, and know they’ve succeeded.
