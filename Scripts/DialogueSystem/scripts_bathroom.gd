@@ -34,16 +34,16 @@ static var convos_Dict = {
 		
 		#Imp corruption
 		20: { "speaker": "", "dialogue": "You look over yourself in the mirror - cock out your hip as you do. Damn, you look good! You've always been an attractive woman, with your toned body and tousled auburn hair - but you're appreciating it in yourself all the more right now.", "goto": 21 },
-		21: { "speaker": "", "dialogue": "There's something different about yourself - a flash of gold in the eyes, maybe? A extra hour-shaped kiss to your hips? Whatever it is, it makes you feel all the more cheeky, all the more sure in yourself. ", "goto": 22 },
+		21: { "speaker": "", "dialogue": "There's something different about yourself - a flash of gold in the eyes, maybe? A extra hour-shaped kiss to your hips? Whatever it is, it makes you feel all the more cheeky, all the more sure of yourself. ", "goto": 22 },
 		22: { "speaker": "", "dialogue": "That witch won't know what hit her.", "end": true },
 		
 		#cow corruption
-		30: { "speaker": "", "dialogue": "You take a moment to stare at yourself in the mirror... Maybe a few more than you expect. Time has gotten hazy-daisy around the edges, a pleasant fog over your mind that you can't bring yourself to do much more than nominally notice.", "goto": 31 },
-		31: { "speaker": "", "dialogue": "There's a softness to your body that you haven't seen before - a plushness that shows itself in your thighs, in your stomach, and especially in your tits. You hands pass over them absentmindedly; when you brush a nipples and a dull pleasant ache vibrates out from that point? Oh, the low, lazy sound of pleasure you make in return is so pleasurable in itself.", "goto": 32 },
-		32: { "speaker": "", "dialogue": "You're a fighter, a burning arrow seeking its target, burning brilliant bright. Some part of you is shocked at how easy you've become placid and easy. And yet... you could get used to this.", "end": true },
+		30: { "speaker": "", "dialogue": "You take a moment to stare at yourself in the mirror... Maybe a few more than you expect. Time has gotten hazy-daisy around the edges, a pleasant fog over your mind that you can't bring yourself to do much more about than nominally notice.", "goto": 31 },
+		31: { "speaker": "", "dialogue": "There's a softness to your body that you haven't seen before - a plushness that shows itself in your thighs, in your stomach, and especially in your tits. You hands pass over them absentmindedly; when you brush a nipple and a dull pleasant ache vibrates out from that point? Oh, the low, lazy sound of pleasure you make in return is so pleasurable in itself.", "goto": 32 },
+		32: { "speaker": "", "dialogue": "You're a fighter, a burning arrow seeking its target, burning brilliant bright. Some part of you is shocked at how easily you've become placid and easy. And yet... you could get used to this.", "end": true },
 		
 		#pet corruption
-		40: { "speaker": "", "dialogue": "You glance at yourself in the mirror - double take. Is it just you or do you look... Cute? It's a strange thing to realise, makes you fiddle with the hem of your clothing. You're one of the most brilliant warriors of this land usually, a avatar of death armed with a shining gold sword... And yet right now there's something quiet about your appearance. Sweet.", "goto": 41 },
+		40: { "speaker": "", "dialogue": "You glance at yourself in the mirror - double take. Is it just you or do you look... Cute? It's a strange thing to realise, makes you fiddle with the hem of your clothing. You're one of the most brilliant warriors of this land usually, an avatar of death armed with a shining gold sword... And yet right now there's something quiet about your appearance. Sweet.", "goto": 41 },
 		41: { "speaker": "", "dialogue": "Is it the way your eyes glimmer brightly, the way your pupils looks like a slitted cat's? How it looks like you have pointed ears buried in the mess of your hair? Or maybe even the glimpse of tiny fangs in your mouth? It might be any of them, really.", "goto": 42 },
 		42: { "speaker": "", "dialogue": "You wonder if the witch will like what she sees.", "end": true },
 		
@@ -53,24 +53,24 @@ static var convos_Dict = {
 		52: { "speaker": "", "dialogue": "Now - to prove to the witch you truly are meeting her as an equal.", "end": true },
 		
 		# Undefined
-		60: { "speaker": "", "dialogue": "You squint at yourself in the mirror. It's you, sure, but... Something is off. You've heard that can happen sometimes - people looking at their true reflection, or at themselves post amputation finding them unable to quite connect the person in the mirror with the person they are.", "goto": 61 },
+		60: { "speaker": "", "dialogue": "You squint at yourself in the mirror. It's you, sure, but... Something is off. You've heard that can happen sometimes - people looking at their true reflection, or at themselves post amputation, finding them unable to quite connect the person in the mirror with the person they are.", "goto": 61 },
 		61: { "speaker": "", "dialogue": "The issue is figuring out what's different about you, though - is it your eyes? Your hair? The way you hold yourself? It gnaws at you like a rat at the foundations, making you avert your gaze.", "goto": 62 },
-		62: { "speaker": "", "dialogue": "One thing's for sure; you aren't the same woman that came in here. You're changed, fundamentally and irreversibly by the magic that's seeped into this place - but exactly the final form of that is truly anybody's guess.", "end": true },			
+		62: { "speaker": "", "dialogue": "One thing's for sure; you aren't the same woman that came in here. You're changed, fundamentally and irreversibly, by the magic that's seeped into this place - but exactly the final form of that is truly anybody's guess.", "end": true },			
 	},
 
 	"pestle":{
 		0: {"checkSaveVariable": { "keyToCheck": "plant_guide_read", "wantedValue": "true", "goto_false": 1, "goto_true": 3 }},	
 		#		
-		1: { "speaker": "", "dialogue": "The mixture the mortar and pestle was used on has been left streaked on the worn stone. Some sort of healing tincure, perhaps? You know witches kept their freedoms by posing as Salvekeepers; medicinal folks that could treat pains both simple and complex.", "goto": 2 },
+		1: { "speaker": "", "dialogue": "The mixture the mortar and pestle was used on has been left streaked on the worn stone. Some sort of healing tincture, perhaps? You know witches kept their freedoms by posing as Salvekeepers; medicinal folks that could treat pains both simple and complex.", "goto": 2 },
 		2: { "speaker": "", "dialogue": "Before today, you would have called witches crooks, as any good Divine's Chosen would. The fact you're alive and breathing now makes you hesitate.", "end": true },
 		
-		3: { "speaker": "", "dialogue": "Armed with new knowledge, you're able to look at the remnants left on this pestle with more scrutiny. The blue colour of it - that'd be Dewberry, wouldn't it? The plant apparently has quite the powerful disinfectant effect. The strong cinnamon and citrus scent of it as well seems to be attributed to Dragonclaw - if your wound was caused by a Poison Drake, that was certainly explain its addition.", "goto": 4 },
+		3: { "speaker": "", "dialogue": "Armed with new knowledge, you're able to look at the remnants left on this pestle with more scrutiny. The blue colour of it - that'd be Dewberry, wouldn't it? The plant apparently has quite the powerful disinfectant effect. The strong cinnamon and citrus scent of it as well seems to be attributed to Dragonclaw - if your wound was caused by a Poison Drake, that would certainly explain its addition.", "goto": 4 },
 		4: { "speaker": "", "dialogue": "How interesting!", "end": true },					
 	},		
 
 	"plantWindow":{
 		1: { "speaker": "none", "dialogue": "This stained glass window matches the two in the bedroom. It displays a seedling, freshly renewed from the rain falling from above. You wonder how you can water a plant here...", "goto": 2 },
-		2: { "speaker": "none", "dialogue": "The craftsmanship is inpeccable - and not worth the time to break.", "end": true } 
+		2: { "speaker": "none", "dialogue": "The craftsmanship is impeccable - and not worth the time to break.", "end": true } 
 		},
 	
 	"toilet":{
@@ -86,7 +86,7 @@ static var convos_Dict = {
 		0: {"checkSaveVariable": { "keyToCheck": "plant_guide_read", "wantedValue": "true", "goto_false": 1, "goto_true": 20 }},	
 		# havent read book
 		1: { "speaker": "", "dialogue": "The plant on this side of the vanity looks like some sort of fern, the ends of it coloured a vibrant orange. It curls towards the light coming from the stained glass window.", "end": true },		
-		20: { "speaker": "", "dialogue": "Furnace fern – the appearance of the plant is too striking to mistake it as anything else. It makes sense to find it here; the humid environment, low light of the bathroom indeed seems to have it growing quite happily. Not to mention a quick rub of its fronds between the fingers would see to poor smells.",
+		20: { "speaker": "", "dialogue": "Furnace fern – the appearance of the plant is too striking to mistake it as anything else. It makes sense to find it here; the humid environment and the low light of the bathroom indeed seem to have it growing quite happily. Not to mention a quick rub of its fronds between the fingers would see to poor smells.",
 		"checkSaveVariable": { "keyToCheck": "bathroom_furnaceFern", "wantedValue": "true", "goto_false": 21, "goto_true": 24 }},	
 		#have read book, have not aquired frond
 		21: { "speaker": "", "dialogue": "Having some on you could be quite useful.", 

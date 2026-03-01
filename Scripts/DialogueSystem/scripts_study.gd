@@ -4,8 +4,8 @@ class_name studyConvos
 
 static var Convos_Dict = {
 	"Armchair": {
-				1: { "speaker": "", "dialogue": "Both of the armchairs in the other room look brand new compared to this one; the leather so well worn its gone supple all through. A crochet blanket in various shades of green is strewn over the back of the chair, looking not unlike a large patch of moss.", "goto": 2 },
-				2: { "speaker": "", "dialogue": "Between that and the well loved pillow settled in the groove of the armchair cushion, you have the sneaking suspition that this armchair functions as a bed just as much as a chair. If not more, you muse, looking at the way some of the blankets edges are unraveling.", "end": true },
+				1: { "speaker": "", "dialogue": "Both of the armchairs in the other room look brand new compared to this one; the leather so well worn it's gone supple all through. A crochet blanket in various shades of green is strewn over the back of the chair, looking not unlike a large patch of moss.", "goto": 2 },
+				2: { "speaker": "", "dialogue": "Between that and the well-loved pillow settled in the groove of the armchair cushion, you have the sneaking suspicion that this armchair functions as a bed just as much as a chair. If not more, you muse, looking at the way some of the blankets' edges are unraveling.", "end": true },
 		},	
 	
 	"PlantGuide": {
@@ -18,7 +18,7 @@ static var Convos_Dict = {
 						}
 				},
 				10: { "speaker": "", "dialogue": "As useful as it seems to be, taking this book still feels sort of sacrilegious. You leave it for now.", "end": true },
-				20: { "speaker": "", "dialogue": "You pick up the book, flicking through it before tucking it under your arm. Oh, you can already tell this is going to open up a [i]wealth[/i] of opportunities - what can you now learn about the plants around you with this under your wing?", 
+				20: { "speaker": "", "dialogue": "You pick up the book, flicking through it before tucking it under your arm. Oh, you can already tell this is going to open up a [i]wealth[/i] of opportunities - what can you learn about the plants around you now with this under your wing?", 
 				"setSaveVariable": ["plant_guide_read", true], "goto": 21 },
 				21: { "speaker": "Witch_hide", "dialogue": "[i]You can now access the plant guide via the pause menu. 
 				Additional and refreshed dialogue options have now opened up across all areas.[/i].", "completelyCentered": true, "end": true },
@@ -113,7 +113,7 @@ static var Convos_Dict = {
 						}
 				},						
 			
-			52: { "speaker": "", "dialogue": "The final ingrediant seems to be honing the mixture, like a lens on kindling.", "choice": {
+			52: { "speaker": "", "dialogue": "The final ingredient seems to be honing the mixture, like a lens on kindling.", "choice": {
 								"c1": { "choice": "Leave", "goto": 999 },
 								"c2": { "choice": "Add String of Dreams", "goto": 666 },
 								"c3": { "choice": "Add Dryad's Kiss", "goto": 666 },
@@ -128,37 +128,37 @@ static var Convos_Dict = {
 			
 			666: { "speaker": "", "dialogue": "You drop the ingredient into the bubbling mixture...", 
 			"setSaveVariable": ["study_cauldron_state", SaveData_CurrentGame.Puzzle_State.INCORRECT], "goto": 667 },		
-			667: { "speaker": "", "dialogue": "...And yelp as the cauldron sudden hisses and boil, the mixure suddenly going an unpleasant black.
+			667: { "speaker": "", "dialogue": "...And yelp as the cauldron sudden hisses and boils, the mixure suddenly going an unpleasant black.
 			Oh no.", "end": true },
 			999: { "speaker": "", "dialogue": "You leave for now - surely you can find [i]something[/i] poking around.", "end": true },
 		},	
 	
 	"BackTable": {
-				1: { "speaker": "", "dialogue": "If the bookshelves around you speak to a wealth of knowledge, this table speaks to the witches current flights of fancies and fascinations alike. You card through them carefully, being sure not to disturb the careful mayhem of the spread.", "goto": 2 },
+				1: { "speaker": "", "dialogue": "If the bookshelves around you speak to a wealth of knowledge, this table speaks to the witch's current flights of fancies and fascinations alike. You card through them carefully, being sure not to disturb the careful mayhem of the spread.", "goto": 2 },
 				2: { "speaker": "", "dialogue": "In some piles there are books on botany and arcane specificities that you'd never known to connect before. In other piles are theory books that looks unfathomably dense - trigonometry in relation to summoning circles, chemical reductions required for advanced potion making.", "goto": 3 },
 				3: { "speaker": "", "dialogue": "As a Divine's Chosen, you [i]should[/i] be disgusted by the blatant displays of magic. These tomes, this research is hearsay, a desecration of the God-King's land and her people. You should be burning these.", "goto": 4 },
 				4: { "speaker": "", "dialogue": "....You can't bring yourself to. You try to tell yourself that it's because this will be valuable evidence - try to insist to your logical mind that you're not in a position to enact wanton property destruction. ", "goto": 5 },
-				5: { "speaker": "", "dialogue": "The real spark of curiousity on your gut, the one that's always glowed when talk of witches and the arcane comes up, the one that wondered why the arcane had to be banished instead of harnessed - the ones that you'd promised to yourself to lay to rest once you picked up your sword.", "goto": 6 },
+				5: { "speaker": "", "dialogue": "But you can't ignore the spark of curiosity on your gut. The one that's always glowed when talk of witches and the arcane comes up, the one that wondered why the arcane had to be banished instead of harnessed - the ones that you'd promised to yourself to lay to rest once you picked up your sword.", "goto": 6 },
 				6: { "speaker": "", "dialogue": "Your own truth always has a way of making its way out, you suppose.", "end": true },
 		},	
 	
 	"MiddleRoomShelf": {
 				1: { "speaker": "", "dialogue": "There's plenty of storage for the bits and pieces the witch needs in this room - this shelfing unit, however, seems to make up the bulk of the witch's accessible working ingredients. The shelf gives off an air not unlike an extended and deranged spice drawer; there truly is a little container for everything.", "goto": 2 },
-				2: { "speaker": "", "dialogue": "...You glance to the cauldron. This is probably where the ingredients for that are going to come from, huh? Best to get familiar with it, you suppose.", "goto": 3 },
-				3: { "speaker": "", "dialogue": "Before you leave you space a glance towards the bones perched on top of the cabinet. If you hadn't already been poking around the witch's house as much as you had, you might have interpreted these as a threat. Now? You see the care the humanoid skull has been cared for with; free of dust, polished and clean. As for the canine skull it's in impeccable condition, no fractures to speak and all teeth and other little bones accounted for.", "goto": 4 },
-				4: { "speaker": "", "dialogue": "This is a woman that cares for things even in death - for a woman who can cull far easier than she can heal, who has seen how power over life can make somebody monsterous? There's a strange comfort in knowing that there's a person that walk with this sort of peace alongside those who are no longer here.", "end": true },
+				2: { "speaker": "", "dialogue": "...You glance at the cauldron. This is probably where the ingredients for that are going to come from, huh? Best to get familiar with it, you suppose.", "goto": 3 },
+				3: { "speaker": "", "dialogue": "Before you leave, you spare a glance towards the bones perched on top of the cabinet. If you hadn't already been poking around the witch's house as much as you had, you might have interpreted these as a threat. Now? You see the care the humanoid skull has been treated with; free of dust, polished and clean. As for the canine skull, it's in impeccable condition, no fractures to speak of and all teeth and other little bones accounted for.", "goto": 4 },
+				4: { "speaker": "", "dialogue": "This is a woman who cares for things even in death - for a woman who can cull far easier than she can heal, who has seen how power over life can make somebody monsterous? There's a strange comfort in knowing that there's a person that walks with this sort of peace alongside those who are no longer here.", "end": true },
 		},	
 	
 	"Ladder": {
-				1: { "speaker": "", "dialogue": "This sturdy little rolling ladder has brass wheels attached to the bottom. You can see the railing peeking from over the top; if there was any doubt in your mind how you were to reach the higher shelves, this put that stedfastly out of your mind.", "goto": 2 },
+				1: { "speaker": "", "dialogue": "This sturdy little rolling ladder has brass wheels attached to the bottom. You can see the railing peeking from over the top; if there was any doubt in your mind how you were to reach the higher shelves, this put that steadfastly out of your mind.", "goto": 2 },
 				2: { "speaker": "", "dialogue": "...Not that there was, though. This thing is absurdly difficult to miss.", "end": true },
 		},
 			
 	"FrontTableLeft": {
-			1: { "speaker": "", "dialogue": "This table seems to be the heart of the witch's crafting. Active crafting, too; a small magical burner seems to have been left alight on this table. Some reagent either too small or too urgent to wait for cauldron's pace bubbles away on top; you can't tell the ingrediants, but the punchy liquorice scent is putting you off investigating that too closely. ", "goto": 2 },
+			1: { "speaker": "", "dialogue": "This table seems to be the heart of the witch's crafting. Active crafting, too; a small magical burner seems to have been left alight on this table. Some reagent either too small or too urgent to wait for cauldron's pace bubbles away on top; you can't tell the ingredients, but the punchy liquorice scent is putting you off investigating that too closely. ", "goto": 2 },
 			2: { "speaker": "", "dialogue": "A variety of half empty bottles and potions litter the back wall. Some sport names you recognise from your mother's kitchen growing up - eye of newt (mustard seed), poor man's treacle (garlic), semen of the Old Gods (dill)...", "goto": 3 },
-			3: { "speaker": "", "dialogue": "Others are less familiar to you, but speak to the witch's proclivities. A iridescent green-white slime in one jar is labeled as Tentacle Monster Slick - a thinner clear liquid in another is labeled as Vampire Venom. One jar is filled to the brim with black fur, and seems to follow your movements; you're not sure why Werewolf Undercoat is acting as much, and you're not sure you want to find out.", "goto": 4 },
-			4: { "speaker": "", "dialogue": "Several vials contain the spend of various creatures: semen of minotaur, hellhound, gorgon, hydra and more litter the back half of the desk, some used much more than others. There's even several for dragons, even sorted into the different coloured wyverns they came from.","goto": 5 },
+			3: { "speaker": "", "dialogue": "Others are less familiar to you, but speak to the witch's proclivities. A iridescent green-white slime in one jar is labeled as Tentacle Monster Slick - a thinner clear liquid in another is labeled as Vampire Venom. One jar is filled to the brim with black fur, and seems to follow your movements; you're not sure why Werewolf Undercoat is acting as such, and you're not sure you want to find out.", "goto": 4 },
+			4: { "speaker": "", "dialogue": "Several vials contain the spend of various creatures: semen of minotaur, hellhound, gorgon, hydra and more litter the back half of the desk, some used much more than others. There's even several for dragons, sorted into the different coloured wyverns they came from.","goto": 5 },
 			5: { "speaker": "", "dialogue": "A rune on the top of each vial is clearly keeping these things fresh enough for use - you wonder what they're used for. Hell, you wonder how the witch collects these samples.", "goto": 6 },
 			6: { "speaker": "", "dialogue": "...The rush of inappropriate thoughts [i]that[/i] brings up is enough to get you to move on.", "end": true },
 		},	
@@ -213,7 +213,7 @@ static var Convos_Dict = {
 				"completelyCentered": true, "keepImage": true, "goto": 206 },
 				206: { "speaker": "Witch_hide", "dialogue": 
 					"%wsDance of the Fervored One
-					 Sparks both the energy and libedo for a night of endless passion.%we", 
+					 Sparks both the energy and libido for a night of endless passion.%we", 
 				"completelyCentered": true, "keepImage": true, "goto": 207 },	
 				207: { "speaker": "", "dialogue": "Your head spins with possibilities - and also, frankly, how on earth to order these.", "goto": 1  },
 				

@@ -4,7 +4,7 @@ class_name kicthenConvos
 
 static var convos_Dict = {					
 	"Book": {
-		1: { "speaker": "", "dialogue": "The recipe book on the counter seems to be handwritten - it’s turned to a page noting a dandelion summer salad with vinegar and herbs. While the ingredient note it serves one, the large bowl next to you implies that the recipe is likely being scaled up..", "end": true},
+		1: { "speaker": "", "dialogue": "The recipe book on the counter seems to be handwritten - it’s turned to a page noting a dandelion summer salad with vinegar and herbs. While the ingredients note it serves one, the large bowl next to you implies that the recipe is likely being scaled up..", "end": true},
 		}, 
 					
 	"BubbleSink": {
@@ -31,13 +31,13 @@ static var convos_Dict = {
 					
 	"Mixer": {
 		1: { "speaker": "", "dialogue": "This strange contraption on the bench looks perfect for mixing food - at least, you suspect that’s its function, considering the spray of flour across the counter. Glowing threads on its body light up as you look it over, betraying some sort of arcane mechanism for power.", "goto": 2 },
-		2: { "speaker": "", "dialogue": "Any other days this would be grounds for arrest, considering magical artifact posession has been illegal since the Arcane Purges no matter what their function is. For some reason, you have bigger things on your mind right now.", "end": true },
+		2: { "speaker": "", "dialogue": "Any other day this would be grounds for arrest, considering magical artifact posession has been illegal since the Arcane Purges no matter what their function is. For some reason, you have bigger things on your mind right now.", "end": true },
 		}, 
 					
 	"Oven": {
 		0: { "checkSaveVariable": { "keyToCheck": "knight_fed", "wantedValue": "true", "goto_false": 2, "goto_true": 1 }},
 		1: { "speaker": "", "dialogue": "The wood-fire oven is a decent size, and looks both well used and well taken care of. The scent of fresh bread wafts from it, though you have little interest in that now.", "end": true},
-		2: { "speaker": "", "dialogue": "You half expected a witch’s oven to be some glowing, hell fire laden thing scarred with runes and blood. After all, where else was a witch supposed to roast her victims alive, those same ones led astray by her hypnotic beauty and awful power?", "goto": 3},
+		2: { "speaker": "", "dialogue": "You half expected a witch’s oven to be some glowing, hellfire-laden thing scarred with runes and blood. After all, where else was a witch supposed to roast her victims alive, those same ones led astray by her hypnotic beauty and awful power?", "goto": 3},
 		3: { "speaker": "", "dialogue": "Turns out this witch has as much use for a normal, non-evil oven as anybody else. Not only that, but this one has a loaf of bread cooling on the rack inside! You'd always been scolded for eating bread hot out of the oven - something about affecting the crumb structure, not that you ever noticed.", "goto": 4 },	
 		4: { "speaker": "", "dialogue": "Seems as good a choice as any.",
 				"choice": {
@@ -57,7 +57,7 @@ static var convos_Dict = {
 			},			
 			
 		# plain bread - reasonable!
-		20: { "speaker": "", "dialogue": "No - you don't need anything else on here. Fresh bread is delicious on its own, anyway. You don't regret the choice as you start eating, either; the bread is soft and filling, with a specific tang to it that spoke of sourdough yeast. Once done, you pop the partially cut break back into the oven for safe keeping.", 
+		20: { "speaker": "", "dialogue": "No - you don't need anything else on here. Fresh bread is delicious on its own, anyway. You don't regret the choice as you start eating, either; the bread is soft and filling, with a specific tang to it that speaks of sourdough yeast. Once done, you pop the partially cut bread back into the oven for safe keeping.", 
 		"setSaveVariable": ["knight_eaten_item", SaveData_CurrentGame.Eaten_Item.BREAD],  "goto": 21 },
 		21: { "speaker": "", "dialogue": "That's one order, down.", "end": true },
 		
@@ -78,7 +78,7 @@ static var convos_Dict = {
 		}, ###
 		
 	"Plant": {
-		1: { "speaker": "", "dialogue": "A rather lush vine grows over the sink. Clearly it doesn't want for water, given it's position.", "end": true},
+		1: { "speaker": "", "dialogue": "A rather lush vine grows over the sink. Clearly it doesn't want for water, given its position.", "end": true},
 		}, 
 	
 	"noTentacleFood": {
@@ -90,7 +90,7 @@ static var convos_Dict = {
 		1: { "speaker": "", "dialogue": "There’s a loaf of bread rising underneath this tea towel - unfortunately you can tell this one isn’t ready to cook just yet.", 
 		"checkSaveVariable": { "keyToCheck": "knight_fed", "wantedValue": "true", "goto_false": 2, "goto_true": 3 }},
 		2: { "speaker": "", "dialogue": "You could wait - but frankly, you're a bit too hungry for that, especially since the smell of baked bread is already on the air", "end": true },
-		3: { "speaker": "", "dialogue": "You've had some [i]shocker[/i] meals, between other soliders claiming cooking duty and ruining fresh supplies, depressingly stale rations and tavern meals stretching a gold twice as far as it should. At least if you're stuck here, you're stuck with a woman that can cook. ", "end": true },
+		3: { "speaker": "", "dialogue": "You've had some [i]shocker[/i] meals, between other soldiers claiming cooking duty and ruining fresh supplies, depressingly stale rations and tavern meals stretching a gold twice as far as it should. At least if you're stuck here, you're stuck with a woman that can cook. ", "end": true },
 		}, 				
 					
 }
